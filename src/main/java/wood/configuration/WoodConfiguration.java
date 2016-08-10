@@ -1,7 +1,14 @@
 package wood.configuration;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,8 +24,16 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableTransactionManagement
 @EnableWebMvc
 @ComponentScan(basePackages = "wood")
-
+@PropertySource("classpath:app.properties")
 public class WoodConfiguration  extends WebMvcConfigurerAdapter {
+
+	private static final String PROP_DATABASE_DRIVER = "db.driver";
+    private static final String PROP_DATABASE_PASSWORD = "db.password";
+    private static final String PROP_DATABASE_URL = "db.url";
+    private static final String PROP_DATABASE_USERNAME = "db.username";
+
+	@Resource
+    private Environment env;
 
 	
 	@Override
@@ -51,6 +66,19 @@ public class WoodConfiguration  extends WebMvcConfigurerAdapter {
                 .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
                 .allowCredentials(true).maxAge(3600);
     }
+    
+    @Bean(name = "dataSource")
+    public DataSource dataSource() {
+    	DriverManagerDataSource  dataSource = new DriverManagerDataSource ();
+             
+            dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
+            dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
+            dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
+            dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
+            System.out.println("======== dataSource =======");
+            return dataSource;
+    }
+
 
 
 }

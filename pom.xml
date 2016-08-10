@@ -123,6 +123,12 @@
 		    <version>1.0.0.Final</version>
 		</dependency>
 		
+        <!-- MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
 
 		
 		<!-- Test Artifacts -->

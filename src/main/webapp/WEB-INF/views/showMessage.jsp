@@ -9,5 +9,6 @@
 	</head> 
 	<body>
 		<h2>${message}</h2>
+		<h2>${count}</h2>
 	</body>
 </html>

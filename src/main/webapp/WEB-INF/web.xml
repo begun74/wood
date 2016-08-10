@@ -10,7 +10,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
    <!--
 		- Location of the XML file that defines the root application context.
 		- Applied by ContextLoaderListener.
-	-->
+	
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/application-config.xml</param-value>
@@ -21,9 +21,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     </listener>
     
     
-    <!--
-		- Servlet that dispatches request to registered handlers (Controller implementations).
-	-->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -38,5 +35,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
+	
+	-->
+	
 </web-app>

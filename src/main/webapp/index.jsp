@@ -8,10 +8,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Index</title>
 	</head> 
 	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Click to enter</a>
+		<c:url value="hello" var="message" />
+		<a href="${message}">To hello</a>
+		<c:url value="hello2" var="message2" />
+		<a href="${message2}">To Hello2</a>
 	</body>
 </html>

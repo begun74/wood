@@ -1,5 +1,9 @@
 package wood.dao;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import wood.model.DirCustomer;
 
 
 @Repository("userDao")
+@Transactional
 public class DAOImpl implements DAO {
 
 	@Autowired
@@ -22,8 +27,8 @@ public class DAOImpl implements DAO {
     }
 
 	@SuppressWarnings("unchecked")
-	public DirCustomer getDirCustomer() {
-		return (DirCustomer)getSession().createSQLQuery("select * from User order by id desc").addEntity(DirCustomer.class).list();
+	public List<DirCustomer> getDirCustomer() {
+		return (List<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name desc").addEntity(DirCustomer.class).list();
 	}
 
 }

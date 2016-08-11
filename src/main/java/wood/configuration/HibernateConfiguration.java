@@ -28,7 +28,7 @@ import wood.model.DirCustomer;
  
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.websystique.springmvc.configuration" })
+@ComponentScan({ "wood" })
 @PropertySource(value = { "classpath:app.properties" })
 public class HibernateConfiguration {
  
@@ -59,7 +59,7 @@ public class HibernateConfiguration {
     public SessionFactory getSessionFactory(DataSource dataSource) {
      
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-     
+        sessionBuilder.addProperties(hibernateProperties());
         sessionBuilder.addAnnotatedClasses(DirCustomer.class);
      
         return sessionBuilder.buildSessionFactory();
@@ -67,13 +67,11 @@ public class HibernateConfiguration {
     
     @Autowired
     @Bean(name = "transactionManager")
-    public HibernateTransactionManager getTransactionManager(
-            SessionFactory sessionFactory) {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager(
-                sessionFactory);
+    public HibernateTransactionManager getTransactionManager() {
      
-        return transactionManager;
+        return new HibernateTransactionManager(getSessionFactory(dataSource()));
     }
+    
     /*
     @Bean
     @Autowired
@@ -83,4 +81,5 @@ public class HibernateConfiguration {
        return txManager;
     }
     */
+    
 }

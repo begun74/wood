@@ -27,16 +27,10 @@ public class WController {
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 	
-	@RequestMapping(value = "hello2", method = RequestMethod.GET)
-	public String printHello(ModelMap model) {
-	     model.addAttribute("message", "Hello Spring ! "+ (++i));
-	     return "showMessage";
-	}
-
-	@RequestMapping(value = "hello", method = RequestMethod.GET)
-	public ModelAndView  hello(HttpSession session) 
+	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
+	public ModelAndView  index(HttpSession session) 
 	{
-	    return new ModelAndView("showMessage").addObject("dirCustomers", woodService.getListDirCustomers());
+	    return new ModelAndView("hmc/index_mc").addObject("dirCustomers", woodService.getListDirCustomers());
 	}
 
 }

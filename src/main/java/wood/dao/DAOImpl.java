@@ -1,5 +1,6 @@
 package wood.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -14,9 +15,9 @@ import wood.model.DirCustomer;
 
 
 
-@Repository("userDao")
-@Transactional
-public class DAOImpl implements DAO {
+@Repository("dao")
+//@Transactional
+public  class DAOImpl implements DAO {
 
 	@Autowired
     private SessionFactory sessionFactory;
@@ -27,8 +28,8 @@ public class DAOImpl implements DAO {
     }
 
 	@SuppressWarnings("unchecked")
-	public List<DirCustomer> getDirCustomer() {
-		return (List<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name desc").addEntity(DirCustomer.class).list();
+	public List<DirCustomer> getAllDirCustomers() {
+		return (ArrayList<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name desc").addEntity(DirCustomer.class).list();
 	}
 
 }

@@ -1,5 +1,7 @@
 package wood.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,11 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import wood.dao.DAO;
 import wood.dao.DAOImpl;
+import wood.service.WoodService;
 
 
 
 @Controller
-//@RequestMapping("/hello")
+
 public class WController {
 
 	
@@ -22,7 +25,7 @@ public class WController {
 	
 	
 	@Autowired
-	DAOImpl dao;  //Service which will do all data retrieval/manipulation work
+	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 	
 	@RequestMapping(value = "hello2", method = RequestMethod.GET)
 	public String printHello(ModelMap model) {
@@ -31,15 +34,14 @@ public class WController {
 	}
 
 	@RequestMapping(value = "hello", method = RequestMethod.GET)
-	public ModelAndView  hello(ModelMap model) 
+	public ModelAndView  hello(HttpSession session) 
 	{
 		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("showMessage");
-		modelAndView.addObject("message", "Hello Spring ModelAndView !");
-		modelAndView.addObject("count", ""+ (++y));
+		ModelAndView modelAndView = new ModelAndView("showMessage");
 		
-		dao.getDirCustomer();
+		modelAndView.addObject("message", "Hello Spring ModelAndView !");
+		modelAndView.addObject("dCs", woodService.getListDirCustomers());
+		
 	    return modelAndView;
 	}
 

@@ -25,4 +25,30 @@ public class DirCustomer implements Serializable {
 	
 	private Timestamp creation_date;
 
+	public long getId_dirCustomer() {
+		return id_dirCustomer;
+	}
+
+	public void setId_dirCustomer(long id_dirCustomer) {
+		this.id_dirCustomer = id_dirCustomer;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Timestamp getCreation_date() {
+		return creation_date;
+	}
+
+	public void setCreation_date(Timestamp creation_date) {
+		this.creation_date = creation_date;
+	}
+	
+	
+
 }

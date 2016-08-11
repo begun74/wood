@@ -8,12 +8,10 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		<h2>${message}</h2>
-		<h2>${count}</h2>
 		<table>
-			<tr><td>Id</td><td>name</td></tr>
-           	<c:forEach var="dirCustomer" items="${dCs}">
-           	<tr><td>${dirCustomer.id_dirCustomer}</td><td>${dirCustomer.name}</td></tr>
+			<tr><td>Id</td><td>name</td><td>Creation_date</td></tr>
+           	<c:forEach var="dirCustomer" items="${dirCustomers}">
+           	<tr><td>${dirCustomer.id_dirCustomer}</td><td>${dirCustomer.name}</td><td>${dirCustomer.creation_date}</td></tr>
 			</c:forEach>
 		</table>
 	</body>

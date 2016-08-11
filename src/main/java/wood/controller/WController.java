@@ -36,13 +36,7 @@ public class WController {
 	@RequestMapping(value = "hello", method = RequestMethod.GET)
 	public ModelAndView  hello(HttpSession session) 
 	{
-		
-		ModelAndView modelAndView = new ModelAndView("showMessage");
-		
-		modelAndView.addObject("message", "Hello Spring ModelAndView !");
-		modelAndView.addObject("dCs", woodService.getListDirCustomers());
-		
-	    return modelAndView;
+	    return new ModelAndView("showMessage").addObject("dirCustomers", woodService.getListDirCustomers());
 	}
 
 }

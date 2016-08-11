@@ -29,7 +29,7 @@ public  class DAOImpl implements DAO {
 
 	@SuppressWarnings("unchecked")
 	public List<DirCustomer> getAllDirCustomers() {
-		return (ArrayList<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name desc").addEntity(DirCustomer.class).list();
+		return (ArrayList<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name").addEntity(DirCustomer.class).list();
 	}
 
 }

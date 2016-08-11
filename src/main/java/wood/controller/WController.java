@@ -30,7 +30,8 @@ public class WController {
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 
 	{
-	    return new ModelAndView("hmc/index_mc").addObject("dirCustomers", woodService.getListDirCustomers());
+	    return new ModelAndView("hmc/index_mc")
+	    			.addObject("dirCustomers", woodService.getListDirCustomers());
 	}
 
 }

@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mc.dao.enters.EntersDaoImpl;
+import com.mc.dao.orders.OrderDaoImpl;
+import com.mc.dao.video.VideoDaoImpl;
+import com.mc.dao.vmc.VmcDaoImpl;
+
 import wood.dao.DAO;
 import wood.dao.DAOImpl;
 import wood.service.WoodService;
@@ -19,8 +24,17 @@ import wood.service.WoodService;
 public class WController {
 
 	
-	private int i=0;
-	private int y=0;
+    @Autowired
+    VmcDaoImpl vmcDaoImpl;
+    
+    @Autowired
+    EntersDaoImpl entersDaoImpl;
+    
+    @Autowired
+    OrderDaoImpl orderJDBCTemplate;
+    
+    @Autowired
+    VideoDaoImpl videoDaoImpl;
 	
 	
 	@Autowired
@@ -31,5 +45,17 @@ public class WController {
 	{
 	    return new ModelAndView("hmc/index_mc");
 	}
+
+	
+    @RequestMapping(value = "/sitemap" , method = RequestMethod.GET)
+   public ModelAndView sitemap(HttpSession session ) {
+		 ModelAndView mv = new ModelAndView("hmc/sitemap");
+		             
+		 mv.addObject("listVmc", vmcDaoImpl.listVmcModelDESC());
+		 mv.addObject("listVideo", videoDaoImpl.getListVideo()); 
+		
+		 session.setAttribute("page", "sitemap");
+		 return mv;
+   }
 
 }

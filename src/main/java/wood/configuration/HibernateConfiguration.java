@@ -72,14 +72,4 @@ public class HibernateConfiguration {
         return new HibernateTransactionManager(getSessionFactory(dataSource()));
     }
     
-    /*
-    @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
-       HibernateTransactionManager txManager = new HibernateTransactionManager();
-       txManager.setSessionFactory(s);
-       return txManager;
-    }
-    */
-    
 }

@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import wood.dao.DAO;
+
 import wood.dao.DAOImpl;
 import wood.model.DirCustomer;
 
 
 @Service("woodService")
-@Transactional
+@Transactional()
 public class WoodServiceImpl implements WoodService {
 
 	@Autowired

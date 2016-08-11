@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,8 +29,7 @@ public class WController {
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 
 	{
-	    return new ModelAndView("hmc/index_mc")
-	    			.addObject("dirCustomers", woodService.getListDirCustomers());
+	    return new ModelAndView("hmc/index_mc");
 	}
 
 }

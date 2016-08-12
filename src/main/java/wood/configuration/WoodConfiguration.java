@@ -23,7 +23,8 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableTransactionManagement
 @EnableWebMvc
-@ComponentScan(basePackages = {"wood","controllers","service","com.mc.dao","com.grinder.dao","com.video.dao"})
+@ComponentScan(basePackages = {"wood.service","wood.dao","wood.model","wood.controller","wood.controller2"})
+//@ComponentScan(basePackages = {"wood"})
 @PropertySource("classpath:app.properties")
 public class WoodConfiguration  extends WebMvcConfigurerAdapter {
 

@@ -19,7 +19,7 @@
 
 		<div class="col-xs-12 col-sm-6 no-margin">
 			<ul class="right">
-				<li><a href="login">Login</a></li>
+				<li><a href="loginPage">Login</a></li>
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">EN</a>
 					<ul class="dropdown-menu" role="menu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"

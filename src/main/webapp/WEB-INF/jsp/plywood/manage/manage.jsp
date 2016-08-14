@@ -43,43 +43,14 @@
     
     <body>
     	<%@include file="../common/nav.jsp" %>
-    	<div class="row">
     	
-    	</div>
-    	<div class="container">
-    		<div class="row">
-		    	<div class="col-md-12"></div>
-    		</div>
-    		
-	    	<div class="row">
-		    	<div class="col-md-4">
-			      	<form:form id="addForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addForm" method="post">
-				         <div style="margin-bottom: 15px"  class="form-group">
-		                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
-				         </div>
-				         <div style="margin-bottom: 15px" class="form-group">
-		                   <label>Length<input id="length" type="text" class="form-control" name="length" value="1250" ></label> 
-				         </div>
-				         <div style="margin-bottom: 15px" class="form-group">
-		                   <label>Weight<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
-				         </div>
-				         <div style="margin-bottom: 15px" class="form-group">
-							 <label>Color
-				         	 <select class="form-control" id="selDirColors">
-					         	 <c:forEach items="${dirColors}" var="dirColor">
-					         	 	<option value="${dirColor.id_dirColor}">${dirColor.name}</option>
-					         	 </c:forEach>
-				         	 </select>
-				         	 </label>
-				         </div>
-				         <button type="submit" class="">Add</button>
-			    	</form:form>
-				</div>
-				<div class="col-md-8">
-				</div>
-			</div>
-			
-		</div>		
+        <div class="col-sm-12"></div>
+        <p/>
+        <div class="col-sm-4">
+        	<div><a href="/wood/manage?act=1" >Add color</a></div>
+            <div><a href="/wood/manage?act=2" >Add particleboard</a></div>
+        </div>
+
 	</body>
 	
 	

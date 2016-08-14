@@ -43,7 +43,8 @@
 		<junit.version>4.11</junit.version>
 
 	</properties>
-		<dependencies>
+
+	<dependencies>
 	
         <!-- Spring -->
         <dependency>

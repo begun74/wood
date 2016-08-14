@@ -24,6 +24,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.Particleboard;
+import wood.model.Request;
 
 
  
@@ -64,6 +66,8 @@ public class HibernateConfiguration {
 
         sessionBuilder.addAnnotatedClasses(DirCustomer.class);
         sessionBuilder.addAnnotatedClasses(DirColor.class);
+        sessionBuilder.addAnnotatedClasses(Request.class);
+        sessionBuilder.addAnnotatedClasses(Particleboard.class);
      
         return sessionBuilder.buildSessionFactory();
     }

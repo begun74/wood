@@ -22,6 +22,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import wood.model.DirColor;
 import wood.model.DirCustomer;
 
 
@@ -60,7 +61,9 @@ public class HibernateConfiguration {
      
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
         sessionBuilder.addProperties(hibernateProperties());
+
         sessionBuilder.addAnnotatedClasses(DirCustomer.class);
+        sessionBuilder.addAnnotatedClasses(DirColor.class);
      
         return sessionBuilder.buildSessionFactory();
     }

@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import wood.model.DirColor;
 import wood.model.DirCustomer;
 
 
@@ -32,4 +33,10 @@ public  class DAOImpl implements DAO {
 		return (ArrayList<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name").addEntity(DirCustomer.class).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<DirColor> getAllDirColors() {
+		return (ArrayList<DirColor>)getSession().createSQLQuery("select * from dirColor order by name").addEntity(DirColor.class).list();
+	}
+	
+	
 }

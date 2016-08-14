@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import wood.dao.DAOImpl;
+import wood.model.DirColor;
 import wood.model.DirCustomer;
 
 
@@ -20,6 +21,10 @@ public class WoodServiceImpl implements WoodService {
 	
 	public List<DirCustomer> getListDirCustomers() {
 		return dao.getAllDirCustomers();
+	}
+
+	public List<DirColor> getListDirColors() {
+		return dao.getAllDirColors();
 	}
 
 }

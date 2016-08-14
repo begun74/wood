@@ -37,11 +37,28 @@
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
         
 
-	    <title>Login</title>
+	    <title>Manage</title>
     </head>
     
     
     <body>
+    	<%@include file="../common/nav.jsp" %>
+    	<div class="row">
+    	
+    	</div>
+    	<div class="container">
+		<div class="row">
+		<div class="span9 centred">
+		  	<form id="addFormColor" class="form-horizontal" role="form"  method="post">
+		         <div style="margin-bottom: 15px" class="form-group">
+                   <label>Color<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
+		         </div>
+		         <button type="submit" class="">Add</button>
+	    	</form>
+		</div>
+
+		
+		</div>
 	</body>
 	
 	

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import wood.service.WoodService;
 
 @Controller
+@RequestMapping(value = {"/manage"} , method = RequestMethod.GET)
 public class WControllerManage {
 
 	
@@ -18,10 +19,13 @@ public class WControllerManage {
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 
 	
-	@RequestMapping(value = {"/manage"} , method = RequestMethod.GET)
+	@RequestMapping(value = {"dirs"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 
 	{
-	    return new ModelAndView("plywood/index_plywood");
+		ModelAndView model = new ModelAndView("plywood/manage/manage");
+		model.addObject("dirColors",woodService.getListDirColors());
+		
+	    return model;
 	}
 
 }

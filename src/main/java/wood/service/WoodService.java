@@ -10,5 +10,7 @@ public interface WoodService {
 	public List<DirCustomer> getListDirCustomers();
 	
 	public List<DirColor> getListDirColors();
+	public void addColor(DirColor dirColor);
+
 
 }

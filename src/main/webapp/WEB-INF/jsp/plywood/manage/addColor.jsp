@@ -45,13 +45,21 @@
     	<%@include file="../common/nav.jsp" %>
     	<div class="container">
 		<div class="row">
-			<div class="span9 centred">
-			  	<form:form id="addFormColor" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addColor" method="post">
-			         <div style="margin-bottom: 15px" class="form-group">
-	                   <label>Color<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
+			<div class="col-md-2">
+			  	<form:form id="addColorForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addColor" method="post">
+			         <div style='margin-bottom: 15px' class="form-group">
+	                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
 			         </div>
 			         <button type="submit" class="">Add</button>
 		    	</form:form>
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-8">
+				<div>Name</div>
+				<c:forEach items="${dirColors}" var="dirColor">
+					<div>${dirColor.name}</div>
+				</c:forEach>			
 			</div>
 		</div>
 		</div>

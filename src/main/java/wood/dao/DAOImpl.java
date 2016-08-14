@@ -37,6 +37,11 @@ public  class DAOImpl implements DAO {
 	public List<DirColor> getAllDirColors() {
 		return (ArrayList<DirColor>)getSession().createSQLQuery("select * from dirColor order by name").addEntity(DirColor.class).list();
 	}
+
+	@Override
+	public void addColor(DirColor dirColor) {
+		getSession().save(dirColor);
+	}
 	
 	
 }

@@ -27,4 +27,9 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getAllDirColors();
 	}
 
+	@Override
+	public void addColor(DirColor dirColor) {
+		dao.addColor(dirColor);
+	}
+
 }

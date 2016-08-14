@@ -76,7 +76,7 @@
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
                                     <div class="col-sm-12 controls">
-                                      <a id="btn-login" href="#" onClick="document.forms['loginform'].submit(); return false;" class="btn btn-success">Login  </a>
+                                      <a id="btn-login" href="#" onClick="document.forms['loginform'].submit(); return false;" class="btn btn-success">Login</a>
                                     </div>
                                 </div>
 

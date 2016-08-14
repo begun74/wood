@@ -39,14 +39,4 @@ public class WController1 {
 		return model;
 	}
 
-	@RequestMapping(value = {"/authorization"} , method = RequestMethod.POST)
-	public ModelAndView  authorization(HttpSession session, @RequestParam(value = "error",required = false) String error,
-			@RequestParam(value = "logout",	required = false) String logout) 
-	{
-		ModelAndView model = new ModelAndView();
-		
-	    return model;
-
-	}
-
 }

@@ -25,7 +25,7 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
   
       http.authorizeRequests()
         .antMatchers("/", "/loginPage").permitAll() 
-        .antMatchers("/admin/**").access("hasRole('ADMIN')")
+        .antMatchers("/manage/**").access("hasRole('ADMIN')")
         .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
         .and().formLogin()
         	.loginPage("/loginPage")

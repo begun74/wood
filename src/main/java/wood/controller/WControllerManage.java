@@ -38,4 +38,13 @@ public class WControllerManage {
 	    return model;
 	}
 
+	@RequestMapping(value = "addColor" , method = RequestMethod.POST)
+	public ModelAndView  addColor(HttpSession session) 
+	{
+		ModelAndView model = new ModelAndView("plywood/manage/addColor");
+		model.addObject("dirColors",woodService.getListDirColors());
+		System.out.println("addColor");
+	    return model;
+	}
+
 }

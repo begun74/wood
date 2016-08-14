@@ -19,12 +19,22 @@ public class WControllerManage {
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 
 	
-	@RequestMapping(value = {"dirs"} , method = RequestMethod.GET)
-	public ModelAndView  index(HttpSession session) 
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView  manage(HttpSession session) 
 	{
 		ModelAndView model = new ModelAndView("plywood/manage/manage");
 		model.addObject("dirColors",woodService.getListDirColors());
 		
+	    return model;
+	}
+
+	
+	@RequestMapping(value = "addForm" , method = RequestMethod.POST)
+	public ModelAndView  addFormManage(HttpSession session) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/manage");
+		model.addObject("dirColors",woodService.getListDirColors());
+		System.out.println("addForm");
 	    return model;
 	}
 

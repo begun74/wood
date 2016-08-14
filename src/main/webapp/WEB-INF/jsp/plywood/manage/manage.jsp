@@ -47,8 +47,8 @@
         <div class="col-sm-12"></div>
         <p/>
         <div class="col-sm-4">
-        	<div><a href="/wood/manage?act=1" >Add color</a></div>
-            <div><a href="/wood/manage?act=2" >Add particleboard</a></div>
+        	<div><a href="manage?act=1" >Add color</a></div>
+            <div><a href="manage?act=2" >Add particleboard</a></div>
         </div>
 
 	</body>

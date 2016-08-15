@@ -59,10 +59,41 @@
     <body>
     	<div class="wrapper">
 		<%@include file="common/nav.jsp" %>      
-		<!-- %@include file="common/header.jsp" % -->      
-    
+		<!-- %@include file="common/header.jsp" % -->     
     
     	</div>
+
+		<div class="container">
+			<div class="row">
+					<div class="col-md-2"></div> 
+		    		<div class="col-md-8">
+		    			<div class="box-content">
+							<div class="headlines">
+								<h2>Particleboard</h2>
+							</div>
+							<table class="tab tab-drag">
+								<tr class="top nodrop nodrag">
+									<td>Size</td>
+									<td>Color</td>
+									<td>Price</td>
+									<td>Photo</td>
+								</tr>
+								
+							<c:forEach items="${particleboards}" var="particleboard">
+								<tr class="top nodrop nodrag">
+									<td padding="10px">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
+									<td>${particleboard.dirColor.name}</td>
+									<td>${particleboard.price}</td>
+									<td><img src="resources/pics/${particleboard.id}.jpg"/></td>
+								</tr>		
+							</c:forEach>
+							</table>
+						</div>
+					</div>
+					<div class="col-md-2"></div> 
+			</div>		
+		</div>
+
     </body>
     
 </html>

@@ -25,8 +25,10 @@ public class WControllerIndex {
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 
 	{
+		ModelAndView model = new ModelAndView("plywood/index_plywood");
+		model.addObject("particleboards",woodService.getListParticleboards());
 		System.out.println("User - "+getPrincipal());
-	    return new ModelAndView("plywood/index_plywood");
+	    return model;
 	}
 
 	

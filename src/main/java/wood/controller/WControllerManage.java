@@ -22,6 +22,8 @@ import wood.service.WoodService;
 public class WControllerManage {
 
 	
+	private static String UPLOAD_FOLDER = "/wood/src/main/webapp/resources/pics";
+	
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 
@@ -69,9 +71,6 @@ public class WControllerManage {
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
 		woodService.addParticleboard(particleboard);
 		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
-		//model.addObject("dirColors",woodService.getListDirColors());
-		//model.addObject("particleboards",woodService.getListParticleboards());
-		//System.out.println("addParticleboard");
 	    return model;
 	}
 

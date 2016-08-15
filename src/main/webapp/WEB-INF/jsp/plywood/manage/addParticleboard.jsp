@@ -53,7 +53,9 @@
     		
 	    	<div class="row">
 		    	<div class="col-md-4">
-			      	<form:form id="addParticleboardForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addParticleboard" method="post">
+			      	<form:form id="addParticleboardForm" class="form-horizontal" role="form"  
+						      	action="${pageContext.request.contextPath}/manage/addParticleboard" 
+						      	method="post">
 				         <div style="margin-bottom: 15px"  class="form-group">
 		                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
 				         </div>

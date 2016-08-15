@@ -50,7 +50,7 @@
                         <div class="panel-title">Sign In</div>
                         
                         <div style="padding-top:30px" class="panel-body" >
-                        	<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        	<div id="login-alert" class="col-sm-12">${error}</div>
 
 						<form id="loginform" class="form-horizontal" role="form"  method="post">
                                     

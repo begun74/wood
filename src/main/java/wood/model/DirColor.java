@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "dirColor")
@@ -22,6 +23,7 @@ public class DirColor implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id_dirColor;
 	
+	@Size(min=1, max=30) 
 	private String name;
 
 	public long getId_dirColor() {

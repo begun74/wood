@@ -53,7 +53,7 @@
     		
 	    	<div class="row">
 		    	<div class="col-md-4">
-			      	<form:form id="addForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addParticleboard" method="post">
+			      	<form:form id="addParticleboardForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addParticleboard" method="post">
 				         <div style="margin-bottom: 15px"  class="form-group">
 		                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
 				         </div>
@@ -64,8 +64,11 @@
 		                   <label>Weight<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
 				         </div>
 				         <div style="margin-bottom: 15px" class="form-group">
+		                   <label>Price<input id="price" type="text" class="form-control" name="price" value="0" ></label> 
+				         </div>
+				         <div style="margin-bottom: 15px" class="form-group">
 							 <label>Color
-				         	 <select class="form-control" id="selDirColors">
+				         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
 					         	 <c:forEach items="${dirColors}" var="dirColor">
 					         	 	<option value="${dirColor.id_dirColor}">${dirColor.name}</option>
 					         	 </c:forEach>
@@ -76,6 +79,10 @@
 			    	</form:form>
 				</div>
 				<div class="col-md-8">
+					<div>Particleboard</div>
+					<c:forEach items="${particleboards}" var="particleboard">
+						<div>${particleboard.id}    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</div>
+					</c:forEach>
 				</div>
 			</div>
 			

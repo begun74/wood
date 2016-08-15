@@ -4,13 +4,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.dao.DAOImpl;
 import wood.model.DirColor;
+import wood.model.DirCustomer;
+import wood.model.Particleboard;
 import wood.service.WoodService;
 
 @Controller
@@ -39,6 +43,7 @@ public class WControllerManage {
 			
 		}
 		model.addObject("dirColors",woodService.getListDirColors());
+		model.addObject("particleboards",woodService.getListParticleboards());
 		
 	    return model;
 	}
@@ -58,11 +63,15 @@ public class WControllerManage {
 	}
 	
 	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST)
-	public ModelAndView  addParticleboard(HttpSession session) 
+	public ModelAndView  addParticleboard(HttpSession session, @ModelAttribute("addParticleboardForm") Particleboard particleboard) 
 	{
+		
+		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
+		woodService.addParticleboard(particleboard);
 		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
-		model.addObject("dirColors",woodService.getListDirColors());
-		System.out.println("addParticleboard");
+		//model.addObject("dirColors",woodService.getListDirColors());
+		//model.addObject("particleboards",woodService.getListParticleboards());
+		//System.out.println("addParticleboard");
 	    return model;
 	}
 

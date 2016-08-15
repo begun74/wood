@@ -15,9 +15,9 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");//dba have two roles.
+        auth.inMemoryAuthentication().withUser("bill").password("123").roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("dba").password("123").roles("ADMIN","DBA");//dba have two roles.
     }
      
     @Override
@@ -29,13 +29,13 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
         .and().formLogin()
         	.loginPage("/loginPage")
-			.defaultSuccessUrl("/")
+			.defaultSuccessUrl("/manage")
 			.failureUrl("/loginPage?error")
 			.usernameParameter("username").passwordParameter("password")				
 			.and()
 			.logout().logoutSuccessUrl("/loginPage?logout")
         .and()
-        	.exceptionHandling().accessDeniedPage("/Access_Denied");
+        	.exceptionHandling().accessDeniedPage("/500");
   
     }
 }

@@ -3,6 +3,7 @@ package wood.controller2;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,30 +24,19 @@ public class WController1 {
 	public ModelAndView  loginPage(HttpSession session, @RequestParam(value = "error",required = false) String error,
 			@RequestParam(value = "logout",	required = false) String logout) 
 	{
-	    //return new ModelAndView("plywood/login1");
-		
 	    
-		ModelAndView model = new ModelAndView("plywood/login1");
+		ModelAndView model = new ModelAndView("plywood/loginPage");
 		if (error != null) {
 			model.addObject("error", "Invalid Credentials provided.");
 		}
 
 		if (logout != null) {
-			model.addObject("message", "Logged out from JournalDEV successfully.");
+			//model.addObject("message", "Logged out from JournalDEV successfully.");
+			SecurityContextHolder.clearContext();
+			model.setViewName("/");
 		}
 		
-		//model.setViewName("loginPage");
 		return model;
-	}
-
-	@RequestMapping(value = {"/authorization"} , method = RequestMethod.POST)
-	public ModelAndView  authorization(HttpSession session, @RequestParam(value = "error",required = false) String error,
-			@RequestParam(value = "logout",	required = false) String logout) 
-	{
-		ModelAndView model = new ModelAndView();
-		
-	    return model;
-
 	}
 
 }

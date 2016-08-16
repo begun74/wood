@@ -1,8 +1,11 @@
 package wood.controller;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.bean.SessionBean;
 import wood.model.DirColor;
 import wood.model.FileUpload;
 import wood.model.Particleboard;
@@ -19,10 +23,9 @@ import wood.service.WoodService;
 
 @Controller
 @RequestMapping(value = {"/manage"} , method = RequestMethod.GET)
-public class WControllerManage {
+@Scope("session")
 
-	
-	private static String UPLOAD_FOLDER = "/wood/src/main/webapp/resources/pics";
+public class WControllerManage {
 	
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
@@ -30,6 +33,20 @@ public class WControllerManage {
 	@Autowired
 	FileUpload fileUpload;
 	
+	@Autowired
+	SessionBean sb;
+
+	
+	@PostConstruct
+	void init(){
+		System.out.println("WControllerManage @PostConstruct");
+	}
+	
+	@PreDestroy
+	void destr() {
+		System.out.println("WControllerManage @PreDestroy");
+	}
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView  manage(HttpSession session, @RequestParam(value = "act",   defaultValue = "0") String act) 
 	{
@@ -57,13 +74,9 @@ public class WControllerManage {
 	public ModelAndView  addColor(HttpSession session, @ModelAttribute("addColorForm") DirColor dirColor,
 			@ModelAttribute  MultipartFile file) 
 	{
-		//System.out.println("dirColor - "+dirColor.getName());
-		
 		woodService.addColor(dirColor);
 		
 		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
-		//model.addObject("dirColors",woodService.getListDirColors());
-		//System.out.println("addColor");
 	    return model;
 	}
 	
@@ -71,10 +84,8 @@ public class WControllerManage {
 	public ModelAndView  addParticleboard(HttpSession session, @ModelAttribute("addParticleboardForm") Particleboard particleboard,
 			@ModelAttribute  MultipartFile file) 
 	{
-		
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
 		woodService.addParticleboard(particleboard);
-		System.out.println("particleboard - "+particleboard.getId());
 		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
 		
 		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));

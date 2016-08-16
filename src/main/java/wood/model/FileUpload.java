@@ -5,24 +5,36 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 
 @Component
+@PropertySource("classpath:app.properties")
 public class FileUpload {
 
 	
 	private static final String[] ALLOWED_FILE_TYPES = {"image/jpeg", "image/jpg", "image/gif"};
     private static final Long MAX_FILE_SIZE = 1048576L; //1MB
-    private static final String UPLOAD_FILE_PATH = "D:/GIT_/wood/src/main/webapp/resources/pics/";
+    //private static final String UPLOAD_FILE_PATH = "D:/GIT_/wood/src/main/webapp/resources/pics/";
+    private static final String UPLOAD_FILE_PATH = "UPLOAD_FILE_PATH";
+    
+    
+    @Resource
+    private Environment env;
+    
     
     public String process(MultipartFile file,String newFileName) {
+    	System.out.println("UPLOAD_FILE_PATH - " +env.getRequiredProperty(UPLOAD_FILE_PATH));
         if (!file.isEmpty()) {
             String contentType = file.getContentType().toString().toLowerCase();
             if (isValidContentType(contentType)) {
                 if (belowMaxFileSize(file.getSize())) {
-                    String newFile = newFileName == null?UPLOAD_FILE_PATH + file.getOriginalFilename():UPLOAD_FILE_PATH+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
+                    String newFile = newFileName == null?env.getRequiredProperty(UPLOAD_FILE_PATH) + file.getOriginalFilename():env.getRequiredProperty(UPLOAD_FILE_PATH)+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
                     try {
                         file.transferTo(new File(newFile));
                         return "You have successfully uploaded " + file.getOriginalFilename() + "!";

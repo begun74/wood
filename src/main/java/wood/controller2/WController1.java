@@ -33,6 +33,7 @@ public class WController1 {
 		if (logout != null) {
 			//model.addObject("message", "Logged out from JournalDEV successfully.");
 			SecurityContextHolder.clearContext();
+			session.invalidate();
 			model.setViewName("plywood/loginPage");
 		}
 		

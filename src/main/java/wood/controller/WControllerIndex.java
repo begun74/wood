@@ -1,8 +1,11 @@
 package wood.controller;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,18 +20,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.bean.SessionBean;
 import wood.model.FileUpload;
 import wood.service.WoodService;
 
 
 
 @Controller
+//@Scope("session")
 public class WControllerIndex {
 
 	
 	
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
+	
+	@PostConstruct
+	void init(){
+		System.out.println("WControllerIndex @PostConstruct");
+	}
+	
+	@PreDestroy
+	void destr() {
+		System.out.println("WControllerIndex @PreDestroy");
+	}
+
 	
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 

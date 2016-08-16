@@ -23,7 +23,8 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
     }
      
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception 
+    {
     	//For russian charset
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
@@ -31,7 +32,7 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(filter,CsrfFilter.class);
 
       http.authorizeRequests()
-        .antMatchers("/upload", "/uploadFile", "/", "/loginPage").permitAll() 
+        .antMatchers("/", "/loginPage").permitAll() 
         .antMatchers("/manage/**").access("hasRole('ADMIN')")
         .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
         .and().formLogin()

@@ -57,7 +57,7 @@ public class WControllerIndex {
 		return "plywood/manage/upload";
 	}
 
-	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST )
 	public ModelAndView handleFileUpload(@ModelAttribute  MultipartFile file, BindingResult result, Model m) {
         
 		

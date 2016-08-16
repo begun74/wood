@@ -31,7 +31,7 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(filter,CsrfFilter.class);
 
       http.authorizeRequests()
-        .antMatchers("/uploadFile", "/", "/loginPage").permitAll() 
+        .antMatchers("/upload", "/uploadFile", "/", "/loginPage").permitAll() 
         .antMatchers("/manage/**").access("hasRole('ADMIN')")
         .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
         .and().formLogin()

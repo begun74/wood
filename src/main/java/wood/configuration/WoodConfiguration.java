@@ -63,7 +63,7 @@ public class WoodConfiguration  extends WebMvcConfigurerAdapter {
         registry.viewResolver(viewResolver);
     }
     
-    
+    /*
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT")
@@ -72,6 +72,7 @@ public class WoodConfiguration  extends WebMvcConfigurerAdapter {
                 .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
                 .allowCredentials(true).maxAge(3600);
     }
+    */
     
     @Bean(name = "dataSource")
     public DataSource dataSource() {

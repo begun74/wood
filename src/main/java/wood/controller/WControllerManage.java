@@ -59,8 +59,8 @@ public class WControllerManage {
 		woodService.addColor(dirColor);
 		
 		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
-		model.addObject("dirColors",woodService.getListDirColors());
-		System.out.println("addColor");
+		//model.addObject("dirColors",woodService.getListDirColors());
+		//System.out.println("addColor");
 	    return model;
 	}
 	

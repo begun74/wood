@@ -55,7 +55,7 @@
 						<form id="loginform" class="form-horizontal" role="form"  method="post">
                                     
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username">                                        
                             </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">

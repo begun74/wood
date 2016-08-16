@@ -6,10 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.model.FileUpload;
 import wood.service.WoodService;
 
 
@@ -42,6 +49,25 @@ public class WControllerIndex {
 		 session.setAttribute("page", "sitemap");
 		 return mv;
    }
+    
+	@RequestMapping(value = { "/upload" }, method = RequestMethod.GET)
+	public String upload(ModelMap model) {
+	
+		model.addAttribute("message", "Spring 4 MVC File Upload Example");
+		return "plywood/manage/upload";
+	}
+
+	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST)
+	public ModelAndView handleFileUpload(@ModelAttribute  MultipartFile file, BindingResult result, Model m) {
+        
+		
+		System.out.println("handleFileUpload");
+        ModelAndView model = new ModelAndView("plywood/manage/upload");
+        FileUpload fileUpload = new FileUpload();
+        model.addObject("message", fileUpload.process(file));
+        
+        return model;
+    }
     
     private String getPrincipal(){
         String userName = null;

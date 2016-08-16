@@ -24,6 +24,7 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
      
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	//For russian charset
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);

@@ -3,6 +3,7 @@ package wood.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -57,14 +58,14 @@ public class WControllerIndex {
 		return "plywood/manage/upload";
 	}
 
-	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST )
-	public ModelAndView handleFileUpload(@ModelAttribute  MultipartFile file, BindingResult result, Model m) {
+	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView handleFileUpload(@ModelAttribute  MultipartFile file) {
         
 		
 		System.out.println("handleFileUpload");
         ModelAndView model = new ModelAndView("plywood/manage/upload");
         FileUpload fileUpload = new FileUpload();
-        model.addObject("message", fileUpload.process(file));
+        model.addObject("message", fileUpload.process(file,null));
         
         return model;
     }

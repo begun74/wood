@@ -84,7 +84,7 @@
 									<td padding="10px">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
 									<td>${particleboard.dirColor.name}</td>
 									<td>${particleboard.price}</td>
-									<td><img src="resources/pics/${particleboard.id}.jpg"/></td>
+									<td><img src="resources/pics/${particleboard.id}.jpeg"/></td>
 								</tr>		
 							</c:forEach>
 							</table>

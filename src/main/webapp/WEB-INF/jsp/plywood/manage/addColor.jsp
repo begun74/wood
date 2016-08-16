@@ -46,12 +46,14 @@
     	<div class="container">
 		<div class="row">
 			<div class="col-md-2">
-			  	<form:form id="addColorForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addColor" method="post">
-			         <div style='margin-bottom: 15px' class="form-group">
-	                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
-			         </div>
-			         <button type="submit" class="">Add</button>
-		    	</form:form>
+			  	<form id="addColorForm" class="form-horizontal" role="form"  enctype="multipart/form-data" 
+			  			action="${pageContext.request.contextPath}/manage/addColor?${_csrf.parameterName}=${_csrf.token}" 
+			  			method="POST">
+				         <div style='margin-bottom: 15px' class="form-group">
+		                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
+				         </div>
+		         <button type="submit" class="">Add</button>
+		    	</form>
 			</div>
 			<div class="col-md-2">
 			</div>

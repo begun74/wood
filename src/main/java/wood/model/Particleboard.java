@@ -40,6 +40,7 @@ public class Particleboard implements Serializable {
 	@Column(insertable=false ,updatable=false)
 	private  long fk_dirColor;
 	
+	private String fileName;
 	
 	public long getId() {
 		return id;
@@ -86,6 +87,12 @@ public class Particleboard implements Serializable {
 		this.dirColor = dirColor;
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	
 	
 

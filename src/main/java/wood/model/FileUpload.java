@@ -27,6 +27,10 @@ public class FileUpload {
     @Resource
     private Environment env;
     
+    public FileUpload()
+    {
+    	System.out.println("FileUpload - "+getClass());
+    }
     
     public String process(MultipartFile file,String newFileName) {
     	System.out.println("UPLOAD_FILE_PATH - " +env.getRequiredProperty(UPLOAD_FILE_PATH));

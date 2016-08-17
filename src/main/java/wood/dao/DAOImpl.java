@@ -18,7 +18,6 @@ import wood.model.Particleboard;
 
 
 @Repository("dao")
-//@Transactional
 public  class DAOImpl implements DAO {
 
 	@Autowired
@@ -61,10 +60,24 @@ public  class DAOImpl implements DAO {
 		return (DirColor) getSession().get(DirColor.class, id);
 	}
 
+	/*
 	@Override
 	public void delParticleboard(long id) {
 		// TODO Auto-generated method stub
 		getSession().createSQLQuery("delete from particleboard where id_particleboard = :id").setParameter("id", id).executeUpdate();
+	}
+*/
+
+	
+	@Override
+	public void delObject(Object obj) {
+		getSession().delete(obj);		
+	}
+
+	@Override
+	public Particleboard getParticleboard(long id) {
+		// TODO Auto-generated method stub
+		return (Particleboard)getSession().get(Particleboard.class, id);
 	}
 
 	

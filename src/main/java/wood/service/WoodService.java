@@ -15,8 +15,9 @@ public interface WoodService {
 	public List<DirColor> getListDirColors();
 	
 	public void addParticleboard(Particleboard particleboard);
-	public void delParticleboard(long id);
-	
+	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getListParticleboards();
+
+	public void delObject(Object obj);
 
 }

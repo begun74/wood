@@ -116,8 +116,15 @@ public class WControllerManage {
 	@RequestMapping(value = "delParticleboard")
 	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
-		//ModelAndView model = new ModelAndView("redirect:/manage?act=2");
-		woodService.delParticleboard(id);
+		woodService.delObject(woodService.getParticleboard(id));
 		return "redirect:/manage?act=2";
 	}
+
+	@RequestMapping(value = "delColor")
+	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getDirColor(id));
+		return "redirect:/manage?act=1";
+	}
+
 }

@@ -129,7 +129,7 @@
 											</div>
 									</div>
 									<div class="col-md-1">
-										<button type="button"  onclick="location.href='manage/delParticleboard?id=${particleboard.id}'">Delete</button>
+										<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delParticleboard?id=${particleboard.id}'">Delete</button>
 									</div>
 								</div>
 							</c:forEach>

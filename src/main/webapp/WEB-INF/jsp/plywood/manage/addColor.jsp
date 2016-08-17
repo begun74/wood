@@ -89,9 +89,16 @@
 						</div>
 						<div class="col-md-8">
 							<div>Name</div>
-							<c:forEach items="${dirColors}" var="dirColor">
-								<div>${dirColor.name}</div>
-							</c:forEach>			
+									<c:forEach items="${dirColors}" var="dirColor">
+									  	<div class="row">
+											<div class="col-md-3">
+												<div>${dirColor.name}</div>
+											</div>
+											<div class="col-md-1">
+												<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delColor?id=${dirColor.id}'">Delete</button>
+											</div>
+										</div>
+									</c:forEach>
 						</div>
 					</div>
 

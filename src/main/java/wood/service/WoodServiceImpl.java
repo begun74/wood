@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import wood.dao.DAOImpl;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
@@ -53,9 +54,16 @@ public class WoodServiceImpl implements WoodService {
 	}
 
 	@Override
-	public void delParticleboard(long id) {
+	public void delObject(Object obj) {
 		// TODO Auto-generated method stub
-		dao.delParticleboard(id);
+		dao.delObject(obj);
 	}
+
+	@Override
+	public Particleboard getParticleboard(long id) {
+		// TODO Auto-generated method stub
+		return dao.getParticleboard(id);
+	}
+
 
 }

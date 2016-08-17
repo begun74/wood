@@ -16,6 +16,8 @@ public interface DAO {
 	public List<DirColor> getAllDirColors();
 	
 	public void addParticleboard(Particleboard particleboard);
-	public void delParticleboard(long id);
+	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getAllParticleboards(); 
+	
+	public void delObject(Object obj);
 }

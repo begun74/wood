@@ -28,7 +28,7 @@ public class Particleboard implements Serializable {
 
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "fk_dirColor", nullable = false)
+	@JoinColumn(name = "fk_dirColor")
 	private DirColor dirColor;
 	
 	@Id
@@ -48,12 +48,12 @@ public class Particleboard implements Serializable {
 	@NotNull(message = "Please correct enter weight.")
 	private Long weight;
 	
-	@Min (message = "Please correct enter price.", value = 1)
+	@Min (message = "Please correct enter price.", value = 0)
 	@NotNull(message = "Please correct enter price.")
 	private Long price;
 
 	@Column(insertable=false ,updatable=false)
-	private  long fk_dirColor;
+	private  Long fk_dirColor;
 	
 	private String fileName;
 	
@@ -88,10 +88,10 @@ public class Particleboard implements Serializable {
 		this.price = price;
 	}
 	
-	public long getFk_dirColor() {
+	public Long getFk_dirColor() {
 		return fk_dirColor;
 	}
-	public void setFk_dirColor(long fk_dirColor) {
+	public void setFk_dirColor(Long fk_dirColor) {
 		this.fk_dirColor = fk_dirColor;
 	}
 	

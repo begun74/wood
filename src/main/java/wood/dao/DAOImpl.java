@@ -46,12 +46,12 @@ public  class DAOImpl implements DAO {
 	
 	@Override
 	public void addColor(DirColor dirColor) {
-		getSession().save(dirColor);
+		getSession().saveOrUpdate(dirColor);
 	}
 
 	@Override
 	public void addParticleboard(Particleboard particleboard) {
-		getSession().save(particleboard);
+		getSession().saveOrUpdate(particleboard);
 	}
 
 	@Override
@@ -60,15 +60,6 @@ public  class DAOImpl implements DAO {
 		return (DirColor) getSession().get(DirColor.class, id);
 	}
 
-	/*
-	@Override
-	public void delParticleboard(long id) {
-		// TODO Auto-generated method stub
-		getSession().createSQLQuery("delete from particleboard where id_particleboard = :id").setParameter("id", id).executeUpdate();
-	}
-*/
-
-	
 	@Override
 	public void delObject(Object obj) {
 		getSession().delete(obj);		

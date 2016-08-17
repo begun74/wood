@@ -73,7 +73,7 @@
 					
 					<div class="row">
 						<div class="col-md-2">
-						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
+						  	<form id="addColorForm" class="form-horizontal" role="form"  
 						  			enctype="multipart/form-data" 
 						  			action="${pageContext.request.contextPath}/manage/addColor?${_csrf.parameterName}=${_csrf.token}" 
 						  			method="POST"
@@ -82,18 +82,20 @@
 					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
 					         <button type="submit" class="">Add</button>
-					         
-					    	</form:form>
+					    	</form>
 						</div>
 						<div class="col-md-2">
 						</div>
 						<div class="col-md-8">
 							<div>Name</div>
 									<c:forEach items="${dirColors}" var="dirColor">
-									  	<div class="row">
-											<div class="col-md-3">
-												<div>${dirColor.name}</div>
+									  	<div class="row span6" >
+											<div class="col-md-2">
+												<div><a href="#" onclick="editColor(${dirColor.id},'${dirColor.name}');">${dirColor.name}</a></div>
 											</div>
+											<div class="col-md-2">
+					         					<button type="button"  onclick="location.href='manage/addColor?id=${dirColor.id}'" >Update</button>
+					         				</div>
 											<div class="col-md-1">
 												<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delColor?id=${dirColor.id}'">Delete</button>
 											</div>
@@ -126,6 +128,12 @@
 	        e.preventDefault();
 	        $("#wrapper").toggleClass("toggled");
 	    });
+
+	    function editColor(id,name) { 
+			$("#name").val(name);
+			$("#butUpdate").enable();
+	    }
+	    
 	    </script>
 
 	</body>

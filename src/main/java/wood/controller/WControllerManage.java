@@ -78,8 +78,10 @@ public class WControllerManage {
 	@RequestMapping(value = "addColor" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView   addColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
 			BindingResult result,
-			@ModelAttribute  MultipartFile file) 
+			@ModelAttribute  MultipartFile file,
+			@RequestParam(value = "id",   required=false) Long id) 
 	{
+		System.out.println(id);
 		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
 
 		if(result.hasErrors())
@@ -87,6 +89,8 @@ public class WControllerManage {
 			model.addObject("error", result.getFieldError().getDefaultMessage());
 			return model;
 		}
+		if(id != null) 
+			dirColor.setId(new Long(id));
 		
 		woodService.addColor(dirColor);
 		

@@ -161,18 +161,15 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 
+	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor) {
+			$("#thickness").val(thickness);
+			$("#length").val(length);
+			$("#weight").val(weight);
+			$("#price").val(price);
+	    }
 	    </script>
 
 		<script type="text/javascript">
-	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor) {
-			//alert(id+'  '+thickness+'  '+length+'  '+price);
-			document.getElementById('thickness').value=thickness;
-			document.getElementById('length').value=length;
-			document.getElementById('weight').value=weight;
-			document.getElementById('price').value=price;
-
-			
-		}
 
 		</script>
 

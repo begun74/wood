@@ -15,19 +15,16 @@ public class SessionBean {
 	
 	private long time = System.currentTimeMillis();
 	
-	public SessionBean() 
-	{
-		System.out.println("time - "+time);
-	}
+	
 	
 	@PostConstruct
 	void init(){
-		System.out.println("SessionBean @PostConstruct");
+		//System.out.println("SessionBean @PostConstruct "+time);
 	}
 	
 	@PreDestroy
 	void destr() {
-		System.out.println("SessionBean @PreDestroy");
+		//System.out.println("SessionBean @PreDestroy "+time);
 	}
 
 	public long getTime() {

@@ -19,7 +19,17 @@
 
 		<div class="col-xs-12 col-sm-6 no-margin">
 			<ul class="right">
-				<li><a href="loginPage">Login</a></li>
+				<li>
+					<c:choose>
+						<c:when test="${sessionBean.time >0}">
+							 <a href="manage">Manage</a>
+							 <a href="loginPage?logout">Logout</a>
+						</c:when>
+						<c:otherwise>
+							 <a href="loginPage">Login</a>
+						</c:otherwise>
+					</c:choose>
+				</li>
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">EN</a>
 					<ul class="dropdown-menu" role="menu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"

@@ -27,7 +27,6 @@ import wood.service.WoodService;
 
 
 @Controller
-//@Scope("session")
 public class WControllerIndex {
 
 	
@@ -37,12 +36,12 @@ public class WControllerIndex {
 	
 	@PostConstruct
 	void init(){
-		System.out.println("WControllerIndex @PostConstruct");
+		//System.out.println("WControllerIndex @PostConstruct");
 	}
 	
 	@PreDestroy
 	void destr() {
-		System.out.println("WControllerIndex @PreDestroy");
+		//System.out.println("WControllerIndex @PreDestroy");
 	}
 
 	
@@ -51,7 +50,7 @@ public class WControllerIndex {
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
-		System.out.println("User - "+getPrincipal());
+		//System.out.println("User - "+getPrincipal());
 	    return model;
 	}
 
@@ -67,24 +66,6 @@ public class WControllerIndex {
 		 return mv;
    }
     
-	@RequestMapping(value = { "/upload" }, method = RequestMethod.GET)
-	public String upload(ModelMap model) {
-	
-		model.addAttribute("message", "Spring 4 MVC File Upload Example");
-		return "plywood/manage/upload";
-	}
-
-	@RequestMapping(value = { "/uploadFile" }, method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView handleFileUpload(@ModelAttribute  MultipartFile file) {
-        
-		
-		System.out.println("handleFileUpload");
-        ModelAndView model = new ModelAndView("plywood/manage/upload");
-        FileUpload fileUpload = new FileUpload();
-        model.addObject("message", fileUpload.process(file,null));
-        
-        return model;
-    }
     
     private String getPrincipal(){
         String userName = null;

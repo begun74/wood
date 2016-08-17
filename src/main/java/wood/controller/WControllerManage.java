@@ -39,12 +39,12 @@ public class WControllerManage {
 	
 	@PostConstruct
 	void init(){
-		System.out.println("WControllerManage @PostConstruct");
+		//System.out.println("WControllerManage @PostConstruct");
 	}
 	
 	@PreDestroy
 	void destr() {
-		System.out.println("WControllerManage @PreDestroy");
+		//System.out.println("WControllerManage @PreDestroy");
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -65,7 +65,7 @@ public class WControllerManage {
 		}
 		model.addObject("dirColors",woodService.getListDirColors());
 		model.addObject("particleboards",woodService.getListParticleboards());
-		
+		//System.out.println("sb - " +sb.getTime());
 	    return model;
 	}
 

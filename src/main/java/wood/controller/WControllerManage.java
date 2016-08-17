@@ -90,7 +90,7 @@ public class WControllerManage {
 			return model;
 		}
 		if(id != null) 
-			dirColor.setId(new Long(id));
+			dirColor.setId(id);
 		
 		woodService.addColor(dirColor);
 		

@@ -82,6 +82,7 @@
 					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
 					         <button type="submit" class="">Add</button>
+					         <input type="hidden" name ="id" id ="id" value="-1"/>
 					    	</form>
 						</div>
 						<div class="col-md-2">
@@ -91,10 +92,10 @@
 									<c:forEach items="${dirColors}" var="dirColor">
 									  	<div class="row span6" >
 											<div class="col-md-2">
-												<div><a href="#" onclick="editColor(${dirColor.id},'${dirColor.name}');">${dirColor.name}</a></div>
+												<div><a href="#" >${dirColor.name}</a></div>
 											</div>
 											<div class="col-md-2">
-					         					<button type="button"  onclick="location.href='manage/addColor?id=${dirColor.id}'" >Update</button>
+					         					<button type="button"  onclick="editColor(${dirColor.id})" >Update</button>
 					         				</div>
 											<div class="col-md-1">
 												<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delColor?id=${dirColor.id}'">Delete</button>
@@ -129,13 +130,13 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 
-	    function editColor(id,name) { 
-			$("#name").val(name);
-			$("#butUpdate").enable();
+	    function editColor(id) { 
+	    	$("#id").val(id);
+			$("#addColorForm").submit();
 	    }
 	    
 	    </script>
-
+		
 	</body>
 	
 </html>

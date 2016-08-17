@@ -67,43 +67,71 @@
 	        <!-- Page Content -->
 	        <div id="page-content-wrapper">
 	            <div class="container-fluid">
+					 <div class="row">
+	    				<div class="col-md-12 alert-danger">
+								<strong>${error}</strong>
+	    				</div>
+			         </div>
+
 			    	<div class="row">
 				    	<div class="col-md-4">
 					      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form"  
 								      	action="${pageContext.request.contextPath}/manage/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
-						         <div style="margin-bottom: 15px"  class="form-group">
-				                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
-						         </div>
-						         <div style="margin-bottom: 15px" class="form-group">
-				                   <label>Length<input id="length" type="text" class="form-control" name="length" value="1250" ></label> 
-						         </div>
-						         <div style="margin-bottom: 15px" class="form-group">
-				                   <label>Weight<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
-						         </div>
-						         <div style="margin-bottom: 15px" class="form-group">
-				                   <label>Price<input id="price" type="text" class="form-control" name="price" value="0" ></label> 
-						         </div>
-						         <div style="margin-bottom: 15px" class="form-group">
-									 <label>Color
-						         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
-							         	 <c:forEach items="${dirColors}" var="dirColor">
-							         	 	<option value="${dirColor.id_dirColor}">${dirColor.name}</option>
-							         	 </c:forEach>
-						         	 </select>
-						         	 </label>
-						         </div>
-						         <input type="hidden" name="fileName" value="" />
-						         
-						         <div style="margin-bottom: 15px" class="form-group">
-						         	<p>Press here to upload pic: <input type="file" name="file"></p>
+								 <div class="row">
+				    				<div class="col-md-12">
+								         <div style="margin-bottom: 15px"  class="form-group">
+						                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
+								         </div>
+								         <div style="margin-bottom: 15px" class="form-group">
+						                   <label>Length<input id="length" type="text" class="form-control" name="length" value="1250" ></label> 
+								         </div>
+								         <div style="margin-bottom: 15px" class="form-group">
+						                   <label>Weight<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
+								         </div>
+								         <div style="margin-bottom: 15px" class="form-group">
+						                   <label>Price<input id="price" type="text" class="form-control" name="price" value="0" ></label> 
+								         </div>
+								         <div style="margin-bottom: 15px" class="form-group">
+											 <label>Color
+								         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
+									         	 <c:forEach items="${dirColors}" var="dirColor">
+									         	 	<option value="${dirColor.id}">${dirColor.name}</option>
+									         	 </c:forEach>
+								         	 </select>
+								         	 </label>
+								         </div>
+								         <input type="hidden" name="fileName" value="" />
+								         
+								         <div style="margin-bottom: 15px" class="form-group">
+								         	<p>Press here to upload pic: <input type="file" name="file"></p>
+										 </div>
+									</div>
 								 </div>
-						         <button type="submit" class="">Add</button>
+								 <div class="row">
+				    				<div class="col-md-12">
+						         		<button type="submit" class="">Add</button>
+				    				</div>
+						         </div>
 					    	</form>
 						</div>
 						<div class="col-md-8">
 							<div>Particleboard</div>
 							<c:forEach items="${particleboards}" var="particleboard">
-								<div>${particleboard.id}    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</div>
+								<div class="row">
+									<div class="col-md-7">
+											<div><a href="#" onclick="editParticleboard(${particleboard.id}, 
+																						${particleboard.thickness},
+																						${particleboard.length},
+																						${particleboard.weight},
+																						${particleboard.price},
+																						${particleboard.dirColor.id})">
+													${particleboard.id}</a>    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}
+											</div>
+									</div>
+									<div class="col-md-1">
+										<button type="button"  onclick="location.href='manage/delParticleboard?id=${particleboard.id}'">Delete</button>
+									</div>
+								</div>
 							</c:forEach>
 						</div>
 					</div>
@@ -132,7 +160,21 @@
 	        e.preventDefault();
 	        $("#wrapper").toggleClass("toggled");
 	    });
+
 	    </script>
+
+		<script type="text/javascript">
+	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor) {
+			//alert(id+'  '+thickness+'  '+length+'  '+price);
+			document.getElementById('thickness').value=thickness;
+			document.getElementById('length').value=length;
+			document.getElementById('weight').value=weight;
+			document.getElementById('price').value=price;
+
+			
+		}
+
+		</script>
 
 	</body>
 	

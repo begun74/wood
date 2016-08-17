@@ -10,9 +10,12 @@ public interface DAO {
 
 	
 	public List<DirCustomer> getAllDirCustomers();
-	public List<DirColor> getAllDirColors();
-	public DirColor getDirColor(long id);
-	public List<Particleboard> getAllParticleboards(); 
+
 	public void addColor(DirColor dirColor);
+	public DirColor getDirColor(long id);
+	public List<DirColor> getAllDirColors();
+	
 	public void addParticleboard(Particleboard particleboard);
+	public void delParticleboard(long id);
+	public List<Particleboard> getAllParticleboards(); 
 }

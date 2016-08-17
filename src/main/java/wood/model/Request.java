@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 @Table(name = "request")
@@ -26,6 +28,7 @@ public class Request  implements Serializable {
 
 	private Timestamp creation_date;
 
+	@NotEmpty (message = "Please enter request name.")
 	private String name;
 	
 	private String description;

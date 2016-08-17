@@ -67,16 +67,23 @@
 	        <!-- Page Content -->
 	        <div id="page-content-wrapper">
 	            <div class="container-fluid">
+	    				<div class="col-md-12 alert-danger">
+								<strong>${error}</strong>
+	    				</div>
+					
 					<div class="row">
 						<div class="col-md-2">
-						  	<form id="addColorForm" class="form-horizontal" role="form"  enctype="multipart/form-data" 
+						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
+						  			enctype="multipart/form-data" 
 						  			action="${pageContext.request.contextPath}/manage/addColor?${_csrf.parameterName}=${_csrf.token}" 
-						  			method="POST">
+						  			method="POST"
+						  			modelAttribute="dirColor">
 							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
+					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
 					         <button type="submit" class="">Add</button>
-					    	</form>
+					         
+					    	</form:form>
 						</div>
 						<div class="col-md-2">
 						</div>

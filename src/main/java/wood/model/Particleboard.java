@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -32,10 +36,21 @@ public class Particleboard implements Serializable {
 	@Column(name = "id_particleboard")
 	private long id;
 	
-	private long thickness;
-	private long length;
-	private long weight;
-	private long price;
+	@Min (message = "Please correct enter thickness.", value = 1)
+	@NotNull(message = "Please correct enter thickness.")
+	private Long thickness;
+	
+	@Min (message = "Please correct enter length.", value = 1)
+	@NotNull(message = "Please correct enter length.")
+	private Long length;
+	
+	@Min (message = "Please correct enter weight.", value = 1)
+	@NotNull(message = "Please correct enter weight.")
+	private Long weight;
+	
+	@Min (message = "Please correct enter price.", value = 1)
+	@NotNull(message = "Please correct enter price.")
+	private Long price;
 
 	@Column(insertable=false ,updatable=false)
 	private  long fk_dirColor;
@@ -48,28 +63,28 @@ public class Particleboard implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getThickness() {
+	public Long getThickness() {
 		return thickness;
 	}
-	public void setThickness(long thickness) {
+	public void setThickness(Long thickness) {
 		this.thickness = thickness;
 	}
-	public long getLength() {
+	public Long getLength() {
 		return length;
 	}
-	public void setLength(long length) {
+	public void setLength(Long length) {
 		this.length = length;
 	}
-	public long getWeight() {
+	public Long getWeight() {
 		return weight;
 	}
-	public void setWeight(long weight) {
+	public void setWeight(Long weight) {
 		this.weight = weight;
 	}
-	public long getPrice() {
+	public Long getPrice() {
 		return price;
 	}
-	public void setPrice(long price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 	

@@ -52,4 +52,10 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getDirColor(id);
 	}
 
+	@Override
+	public void delParticleboard(long id) {
+		// TODO Auto-generated method stub
+		dao.delParticleboard(id);
+	}
+
 }

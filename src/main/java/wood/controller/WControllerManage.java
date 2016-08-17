@@ -3,11 +3,13 @@ package wood.controller;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +50,9 @@ public class WControllerManage {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView  manage(HttpSession session, @RequestParam(value = "act",   defaultValue = "0") String act) 
+	public ModelAndView  manage(HttpSession session, 
+				@RequestParam(value = "act",   defaultValue = "0") String act,
+				@RequestParam(value = "error",   defaultValue = "") String error) 
 	{
 		ModelAndView model = new ModelAndView("plywood/manage/manage");
 		
@@ -63,6 +67,7 @@ public class WControllerManage {
 			break;
 			
 		}
+		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());
 		model.addObject("particleboards",woodService.getListParticleboards());
 		//System.out.println("sb - " +sb.getTime());
@@ -71,26 +76,48 @@ public class WControllerManage {
 
 
 	@RequestMapping(value = "addColor" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView  addColor(HttpSession session, @ModelAttribute("addColorForm") DirColor dirColor,
+	public ModelAndView   addColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
+			BindingResult result,
 			@ModelAttribute  MultipartFile file) 
 	{
+		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
+
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+		
 		woodService.addColor(dirColor);
 		
-		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
 	    return model;
 	}
 	
 	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView  addParticleboard(HttpSession session, @ModelAttribute("addParticleboardForm") Particleboard particleboard,
+	public ModelAndView  addParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
+			BindingResult result,
 			@ModelAttribute  MultipartFile file) 
 	{
+		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
 		woodService.addParticleboard(particleboard);
-		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
 		
 		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
 	    return model;
 	}
 
-
+	
+	@RequestMapping(value = "delParticleboard")
+	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		//ModelAndView model = new ModelAndView("redirect:/manage?act=2");
+		woodService.delParticleboard(id);
+		return "redirect:/manage?act=2";
+	}
 }

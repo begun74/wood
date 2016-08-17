@@ -61,6 +61,12 @@ public  class DAOImpl implements DAO {
 		return (DirColor) getSession().get(DirColor.class, id);
 	}
 
+	@Override
+	public void delParticleboard(long id) {
+		// TODO Auto-generated method stub
+		getSession().createSQLQuery("delete from particleboard where id_particleboard = :id").setParameter("id", id).executeUpdate();
+	}
+
 	
 	
 }

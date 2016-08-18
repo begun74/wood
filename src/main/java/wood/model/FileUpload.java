@@ -28,7 +28,6 @@ public class FileUpload {
     @Resource
     private Environment env;
     
-    private String path="";
     
     public FileUpload()
     {
@@ -36,16 +35,10 @@ public class FileUpload {
     }
     
 
-	public String getPath() {
-		System.out.println("path - "+env.getRequiredProperty(UPLOAD_FILE_PATH));
-		return env.getRequiredProperty(UPLOAD_FILE_PATH);
-	}
-
-
 
 	public String process(MultipartFile file,String newFileName) {
-    	System.out.println("UPLOAD_FILE_PATH - " +env.getRequiredProperty(UPLOAD_FILE_PATH));
-        if (!file.isEmpty()) {
+
+		if (!file.isEmpty()) {
             String contentType = file.getContentType().toString().toLowerCase();
             if (isValidContentType(contentType)) {
                 if (belowMaxFileSize(file.getSize())) {

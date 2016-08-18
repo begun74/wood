@@ -54,8 +54,6 @@ public class WControllerIndex {
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
-		model.addObject("fileUploadPath",fileUpload.getPath());
-		//System.out.println("fileUpload.getPath() - "+fileUpload.getPath());
 		
 	    return model;
 	}

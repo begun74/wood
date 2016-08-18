@@ -43,7 +43,7 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.logout().logoutSuccessUrl("/loginPage?logout")
         .and()
-        	.exceptionHandling().accessDeniedPage("/500");
+        	.exceptionHandling().accessDeniedPage("/403");
   
     }
 }

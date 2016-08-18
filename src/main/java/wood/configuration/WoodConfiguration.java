@@ -39,7 +39,7 @@ public class WoodConfiguration  extends WebMvcConfigurerAdapter {
 	
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/*.html").addResourceLocations("/WEB-INF/pages/");
+        registry.addResourceHandler("/*.htm").addResourceLocations("/WEB-INF/jsp/");
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         //registry.addResourceHandler("/css/**").addResourceLocations("/css/");
     }

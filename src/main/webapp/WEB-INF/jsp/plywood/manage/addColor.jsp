@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
+	    <!-- Bootstrap Core CSS -->
+	    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	
+	    <!-- Custom CSS -->
+		<link href="resources/css/simple-sidebar.css" rel="stylesheet">
 
         <!-- Customizable CSS -->
         <link rel="stylesheet" href="resources/assets/css/main.css">
@@ -35,35 +37,77 @@
         
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
-        
 
 	    <title>Manage</title>
     </head>
     
-    
-    <body>
-    	<%@include file="../common/nav.jsp" %>
-    	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-			  	<form:form id="addColorForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addColor" method="post">
-			         <div style='margin-bottom: 15px' class="form-group">
-	                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
-			         </div>
-			         <button type="submit" class="">Add</button>
-		    	</form:form>
+	<body>
+	<%@include file="../common/nav.jsp" %>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="manage?act=1" >Add color</a>
+                </li>
+                <li>
+                    <div><a href="manage?act=2" >Add particleboard</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+
+			<div class="row">
+				<div class="col-md-2">
+				  	<form:form id="addColorForm" class="form-horizontal" role="form"  action="${pageContext.request.contextPath}/manage/addColor" method="post">
+				         <div style='margin-bottom: 15px' class="form-group">
+		                   <label>Color<input id="weight" type="text" class="form-control" name="name" ></label> 
+				         </div>
+				         <button type="submit" class="">Add</button>
+			    	</form:form>
+				</div>
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div>Name</div>
+					<c:forEach items="${dirColors}" var="dirColor">
+						<div>${dirColor.name}</div>
+					</c:forEach>			
+				</div>
 			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-8">
-				<div>Name</div>
-				<c:forEach items="${dirColors}" var="dirColor">
-					<div>${dirColor.name}</div>
-				</c:forEach>			
-			</div>
-		</div>
-		</div>
-	</body>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="resources/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="resources/js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
 	
 	
 </html>

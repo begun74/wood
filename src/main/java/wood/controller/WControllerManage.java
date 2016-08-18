@@ -76,7 +76,7 @@ public class WControllerManage {
 
 
 	@RequestMapping(value = "addColor" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView   addColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
+	public ModelAndView   processColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
 			BindingResult result,
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_dirColor",   required=false) Long id_dirColor) 
@@ -98,9 +98,10 @@ public class WControllerManage {
 	}
 	
 	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView  addParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
+	public ModelAndView  processParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
 			BindingResult result,
-			@ModelAttribute  MultipartFile file) 
+			@ModelAttribute  MultipartFile file,
+			@RequestParam(value = "id_particleboard",   required=false) Long id_particleboard) 
 	{
 		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
 		if(result.hasErrors())
@@ -109,6 +110,11 @@ public class WControllerManage {
 			return model;
 		}
 
+		if(id_particleboard != null && id_particleboard>0)
+		{
+			particleboard.setId(id_particleboard);
+		}
+		
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
 		woodService.addParticleboard(particleboard);
 		

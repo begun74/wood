@@ -112,6 +112,8 @@
 						         		<button type="submit" class="">Add</button>
 				    				</div>
 						         </div>
+						         
+						         <input type="hidden" name ="id_particleboard" id ="id_particleboard" value="-1"/>
 					    	</form>
 						</div>
 						<div class="col-md-8">
@@ -128,6 +130,9 @@
 													${particleboard.id}</a>    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}
 											</div>
 									</div>
+									<div class="col-md-2">
+				         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
+			         				</div>
 									<div class="col-md-1">
 										<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delParticleboard?id=${particleboard.id}'">Delete</button>
 									</div>

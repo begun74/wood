@@ -9,19 +9,19 @@ public class WControllerError {
 
     @RequestMapping(value = "/403" , method = RequestMethod.GET)
 	public String m403() {
-	 
+    	//System.out.println("m403");
 	    return "/403";
 	}
 
     @RequestMapping(value = "/404" , method = RequestMethod.GET)
 	public String m404() {
-	 
-	    return "/404.htmr";
+    	//System.out.println("m404");
+	    return "/404";
 	}
 
     @RequestMapping(value = "/500" , method = RequestMethod.GET)
 	public String m500() {
-	 
+    	//System.out.println("m500");
 	    return "/500";
 	}
 

@@ -20,19 +20,13 @@ import wood.service.WoodService;
 public class WController1 {
 
 	
-	@Autowired
-	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
-	
-	//@Autowired
-	//SessionBean sb;
-
-	
-	@RequestMapping(value = {"/loginPage"} , method = RequestMethod.GET)
+	@RequestMapping(value = {"/test"} , method = RequestMethod.GET)
 	public ModelAndView  loginPage(HttpSession session, @RequestParam(value = "error",required = false) String error,
 			@RequestParam(value = "logout",	required = false) String logout) 
 	{
 	    
-		ModelAndView model = new ModelAndView("plywood/loginPage");
+		ModelAndView model = new ModelAndView("plywood/test");
+		/*
 		if (error != null) {
 			model.addObject("error", "Invalid Credentials provided.");
 		}
@@ -43,7 +37,7 @@ public class WController1 {
 			session.invalidate();
 			model.setViewName("plywood/loginPage");
 		}
-		
+		*/
 		return model;
 	}
 

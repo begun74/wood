@@ -58,6 +58,26 @@ public class WControllerIndex {
 	    return model;
 	}
 
+	@RequestMapping(value = {"/loginPage"} , method = RequestMethod.GET)
+	public ModelAndView  loginPage(HttpSession session, @RequestParam(value = "error",required = false) String error,
+			@RequestParam(value = "logout",	required = false) String logout) 
+	{
+	    
+		ModelAndView model = new ModelAndView("plywood/loginPage");
+		if (error != null) {
+			model.addObject("error", "Invalid Credentials provided.");
+		}
+
+		if (logout != null) {
+			//model.addObject("message", "Logged out from JournalDEV successfully.");
+			SecurityContextHolder.clearContext();
+			session.invalidate();
+			model.setViewName("plywood/loginPage");
+		}
+		
+		return model;
+	}
+
 	
     @RequestMapping(value = "/sitemap" , method = RequestMethod.GET)
     public ModelAndView sitemap(HttpSession session ) {

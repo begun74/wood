@@ -81,7 +81,6 @@ public class WControllerManage {
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_dirColor",   required=false) Long id_dirColor) 
 	{
-		//System.out.println(id_dirColor);
 		ModelAndView model = new ModelAndView("redirect:/admin?act=1");
 
 		if(result.hasErrors())

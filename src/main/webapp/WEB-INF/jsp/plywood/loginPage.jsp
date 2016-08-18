@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -51,12 +50,12 @@
                         <div class="panel-title">Sign In</div>
                         
                         <div style="padding-top:30px" class="panel-body" >
-                        	<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        	<div id="login-alert" class="col-sm-12">${error}</div>
 
 						<form id="loginform" class="form-horizontal" role="form"  method="post">
                                     
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username">                                        
                             </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
@@ -77,7 +76,7 @@
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
                                     <div class="col-sm-12 controls">
-                                      <a id="btn-login" href="#" onClick="document.forms['loginform'].submit(); return false;" class="btn btn-success">Login</a>
+                                      <a id="btn-login" href="#" onClick="document.forms['loginform'].submit(); return false;" class="btn btn-success">Login  </a>
                                     </div>
                                 </div>
 

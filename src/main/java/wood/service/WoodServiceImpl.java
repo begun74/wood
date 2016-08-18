@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
+
 import wood.dao.DAOImpl;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.Particleboard;
 
 
 @Service("woodService")
@@ -31,5 +34,36 @@ public class WoodServiceImpl implements WoodService {
 	public void addColor(DirColor dirColor) {
 		dao.addColor(dirColor);
 	}
+
+	@Override
+	public void addParticleboard(Particleboard particleboard) {
+		// TODO Auto-generated method stub
+		dao.addParticleboard(particleboard);
+	}
+
+	@Override
+	public List<Particleboard> getListParticleboards() {
+		// TODO Auto-generated method stub
+		return dao.getAllParticleboards();
+	}
+
+	@Override
+	public DirColor getDirColor(long id) {
+		// TODO Auto-generated method stub
+		return dao.getDirColor(id);
+	}
+
+	@Override
+	public void delObject(Object obj) {
+		// TODO Auto-generated method stub
+		dao.delObject(obj);
+	}
+
+	@Override
+	public Particleboard getParticleboard(long id) {
+		// TODO Auto-generated method stub
+		return dao.getParticleboard(id);
+	}
+
 
 }

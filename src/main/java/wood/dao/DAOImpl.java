@@ -12,12 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.Particleboard;
 
 
 
 
 @Repository("dao")
-//@Transactional
 public  class DAOImpl implements DAO {
 
 	@Autowired
@@ -38,10 +38,39 @@ public  class DAOImpl implements DAO {
 		return (ArrayList<DirColor>)getSession().createSQLQuery("select * from dirColor order by name").addEntity(DirColor.class).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Particleboard> getAllParticleboards() {
+		return (ArrayList<Particleboard>)getSession().createSQLQuery("select * from particleboard").addEntity(Particleboard.class).list();
+	}
+
+	
 	@Override
 	public void addColor(DirColor dirColor) {
-		getSession().save(dirColor);
+		getSession().saveOrUpdate(dirColor);
 	}
+
+	@Override
+	public void addParticleboard(Particleboard particleboard) {
+		getSession().saveOrUpdate(particleboard);
+	}
+
+	@Override
+	public DirColor getDirColor(long id) {
+		// TODO Auto-generated method stub
+		return (DirColor) getSession().get(DirColor.class, id);
+	}
+
+	@Override
+	public void delObject(Object obj) {
+		getSession().delete(obj);		
+	}
+
+	@Override
+	public Particleboard getParticleboard(long id) {
+		// TODO Auto-generated method stub
+		return (Particleboard)getSession().get(Particleboard.class, id);
+	}
+
 	
 	
 }

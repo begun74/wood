@@ -189,6 +189,7 @@
 
 	</dependencies>	
 	
+
 	  <build>
     <pluginManagement>
       <plugins>
@@ -202,5 +203,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <finalName>wood</finalName>
   </build>
 </project>

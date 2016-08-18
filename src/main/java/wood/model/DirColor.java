@@ -2,11 +2,15 @@ package wood.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "dirColor")
@@ -20,16 +24,18 @@ public class DirColor implements Serializable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id_dirColor;
+	@Column(name="id_dirColor")
+	private long id;
 	
+	@NotEmpty (message = "Please enter color name.") 
 	private String name;
 
-	public long getId_dirColor() {
-		return id_dirColor;
+	public long getId() {
+		return id;
 	}
 
-	public void setId_dirColor(long id_dirColor) {
-		this.id_dirColor = id_dirColor;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {

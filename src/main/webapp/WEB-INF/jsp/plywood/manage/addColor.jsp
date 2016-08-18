@@ -66,11 +66,14 @@
 	
 	        <!-- Page Content -->
 	        <div id="page-content-wrapper">
-	            <div class="container-fluid">
-	    				<div class="col-md-12 alert-danger">
+				<div class="container-fluid">
+					<div class="row">
+	    				<div class="col-md-8 alert-danger">
 								<strong>${error}</strong>
 	    				</div>
-					
+					</div>
+				</div>
+	            <div class="container-fluid">
 					<div class="row">
 						<div class="col-md-2">
 						  	<form id="addColorForm" class="form-horizontal" role="form"  
@@ -82,7 +85,7 @@
 					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
 					         <button type="submit" class="">Add</button>
-					         <input type="hidden" name ="id" id ="id" value="-1"/>
+					         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
 					    	</form>
 						</div>
 						<div class="col-md-2">
@@ -92,10 +95,10 @@
 									<c:forEach items="${dirColors}" var="dirColor">
 									  	<div class="row span6" >
 											<div class="col-md-2">
-												<div><a href="#" >${dirColor.name}</a></div>
+												<div><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></div>
 											</div>
 											<div class="col-md-2">
-					         					<button type="button"  onclick="editColor(${dirColor.id})" >Update</button>
+					         					<button type="button"  onclick="$('#id_dirColor').val(${dirColor.id}); $('#addColorForm').submit();" >Update</button>
 					         				</div>
 											<div class="col-md-1">
 												<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delColor?id=${dirColor.id}'">Delete</button>
@@ -130,11 +133,6 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 
-	    function editColor(id) { 
-	    	$("#id").val(id);
-			$("#addColorForm").submit();
-	    }
-	    
 	    </script>
 		
 	</body>

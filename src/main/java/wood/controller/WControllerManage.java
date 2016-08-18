@@ -79,9 +79,9 @@ public class WControllerManage {
 	public ModelAndView   addColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
 			BindingResult result,
 			@ModelAttribute  MultipartFile file,
-			@RequestParam(value = "id",   required=false) Long id) 
+			@RequestParam(value = "id_dirColor",   required=false) Long id_dirColor) 
 	{
-		System.out.println(id);
+		//System.out.println(id_dirColor);
 		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
 
 		if(result.hasErrors())
@@ -89,8 +89,8 @@ public class WControllerManage {
 			model.addObject("error", result.getFieldError().getDefaultMessage());
 			return model;
 		}
-		if(id != null) 
-			dirColor.setId(id);
+		if(id_dirColor != null && id_dirColor.longValue()>0) 
+			dirColor.setId(id_dirColor);
 		
 		woodService.addColor(dirColor);
 		

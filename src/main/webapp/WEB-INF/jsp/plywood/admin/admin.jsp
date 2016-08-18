@@ -66,10 +66,10 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="manage?act=1" >Add color</a>
+                    <a href="admin?act=1" >Add color</a>
                 </li>
                 <li>
-                    <a href="manage?act=2" >Add particleboard</a>
+                    <a href="admin?act=2" >Add particleboard</a>
                 </li>
             </ul>
         </div>

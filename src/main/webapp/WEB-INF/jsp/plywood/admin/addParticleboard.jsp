@@ -55,10 +55,10 @@
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand">
-	                    <a href="manage?act=1" >Add color</a>
+	                    <a href="admin?act=1" >Add color</a>
 	                </li>
 	                <li>
-	                    <a href="manage?act=2" >Add particleboard</a>
+	                    <a href="admin?act=2" >Add particleboard</a>
 	                </li>
 	            </ul>
 	        </div>
@@ -76,7 +76,7 @@
 			    	<div class="row">
 				    	<div class="col-md-4">
 					      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form"  
-								      	action="${pageContext.request.contextPath}/manage/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
+								      	action="${pageContext.request.contextPath}/admin/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
 								 <div class="row">
 				    				<div class="col-md-12">
 								         <div style="margin-bottom: 15px"  class="form-group">
@@ -134,7 +134,7 @@
 				         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
 			         				</div>
 									<div class="col-md-1">
-										<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delParticleboard?id=${particleboard.id}'">Delete</button>
+										<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
 									</div>
 								</div>
 							</c:forEach>

@@ -24,7 +24,7 @@ import wood.model.Particleboard;
 import wood.service.WoodService;
 
 @Controller
-@RequestMapping(value = {"/manage"} , method = RequestMethod.GET)
+@RequestMapping(value = {"/admin"} , method = RequestMethod.GET)
 @Scope("session")
 
 public class WControllerManage {
@@ -54,16 +54,16 @@ public class WControllerManage {
 				@RequestParam(value = "act",   defaultValue = "0") String act,
 				@RequestParam(value = "error",   defaultValue = "") String error) 
 	{
-		ModelAndView model = new ModelAndView("plywood/manage/manage");
+		ModelAndView model = new ModelAndView("plywood/admin/admin");
 		
 		switch (act)
 		{
 		case "1":
-			model = new ModelAndView("plywood/manage/addColor");
+			model = new ModelAndView("plywood/admin/addColor");
 			break;
 
 		case "2":
-			model = new ModelAndView("plywood/manage/addParticleboard");
+			model = new ModelAndView("plywood/admin/addParticleboard");
 			break;
 			
 		}
@@ -82,7 +82,7 @@ public class WControllerManage {
 			@RequestParam(value = "id_dirColor",   required=false) Long id_dirColor) 
 	{
 		//System.out.println(id_dirColor);
-		ModelAndView model = new ModelAndView("redirect:/manage?act=1");
+		ModelAndView model = new ModelAndView("redirect:/admin?act=1");
 
 		if(result.hasErrors())
 		{
@@ -103,7 +103,7 @@ public class WControllerManage {
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_particleboard",   required=false) Long id_particleboard) 
 	{
-		ModelAndView model = new ModelAndView("redirect:/manage?act=2");
+		ModelAndView model = new ModelAndView("redirect:/admin?act=2");
 		if(result.hasErrors())
 		{
 			model.addObject("error", result.getFieldError().getDefaultMessage());
@@ -127,14 +127,14 @@ public class WControllerManage {
 	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getParticleboard(id));
-		return "redirect:/manage?act=2";
+		return "redirect:/admin?act=2";
 	}
 
 	@RequestMapping(value = "delColor")
 	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getDirColor(id));
-		return "redirect:/manage?act=1";
+		return "redirect:/admin?act=1";
 	}
 
 }

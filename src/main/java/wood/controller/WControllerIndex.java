@@ -34,6 +34,10 @@ public class WControllerIndex {
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
 	
+	@Autowired
+	FileUpload fileUpload;
+
+	
 	@PostConstruct
 	void init(){
 		//System.out.println("WControllerIndex @PostConstruct");
@@ -50,7 +54,9 @@ public class WControllerIndex {
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
-		//System.out.println("User - "+getPrincipal());
+		model.addObject("fileUploadPath",fileUpload.getPath());
+		//System.out.println("fileUpload.getPath() - "+fileUpload.getPath());
+		
 	    return model;
 	}
 

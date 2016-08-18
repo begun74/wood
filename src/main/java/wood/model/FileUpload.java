@@ -10,10 +10,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
-@Component
+@Service
 @PropertySource("classpath:app.properties")
 public class FileUpload {
 
@@ -27,12 +28,22 @@ public class FileUpload {
     @Resource
     private Environment env;
     
+    private String path="";
+    
     public FileUpload()
     {
-    	System.out.println("FileUpload - "+getClass());
+    	//System.out.println("FileUpload - "+getClass());
     }
     
-    public String process(MultipartFile file,String newFileName) {
+
+	public String getPath() {
+		System.out.println("path - "+env.getRequiredProperty(UPLOAD_FILE_PATH));
+		return env.getRequiredProperty(UPLOAD_FILE_PATH);
+	}
+
+
+
+	public String process(MultipartFile file,String newFileName) {
     	System.out.println("UPLOAD_FILE_PATH - " +env.getRequiredProperty(UPLOAD_FILE_PATH));
         if (!file.isEmpty()) {
             String contentType = file.getContentType().toString().toLowerCase();

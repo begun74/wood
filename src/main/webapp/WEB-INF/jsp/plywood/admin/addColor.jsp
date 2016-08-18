@@ -55,10 +55,10 @@
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand">
-	                    <a href="manage?act=1" >Add color</a>
+	                    <a href="admin?act=1" >Add color</a>
 	                </li>
 	                <li>
-	                    <a href="manage?act=2" >Add particleboard</a>
+	                    <a href="admin?act=2" >Add particleboard</a>
 	                </li>
 	            </ul>
 	        </div>
@@ -78,7 +78,7 @@
 						<div class="col-md-2">
 						  	<form id="addColorForm" class="form-horizontal" role="form"  
 						  			enctype="multipart/form-data" 
-						  			action="${pageContext.request.contextPath}/manage/addColor?${_csrf.parameterName}=${_csrf.token}" 
+						  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
 						  			method="POST"
 						  			modelAttribute="dirColor">
 							         <div style='margin-bottom: 15px' class="form-group">
@@ -101,7 +101,7 @@
 					         					<button type="button"  onclick="$('#id_dirColor').val(${dirColor.id}); $('#addColorForm').submit();" >Update</button>
 					         				</div>
 											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='manage/delColor?id=${dirColor.id}'">Delete</button>
+												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delColor?id=${dirColor.id}'">Delete</button>
 											</div>
 										</div>
 									</c:forEach>

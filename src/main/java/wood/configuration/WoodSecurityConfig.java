@@ -33,11 +33,11 @@ public class WoodSecurityConfig extends WebSecurityConfigurerAdapter {
 
       http.authorizeRequests()
         .antMatchers("/", "/loginPage").permitAll() 
-        .antMatchers("/manage/**").access("hasRole('ADMIN')")
+        .antMatchers("/admin/**").access("hasRole('ADMIN')")
         .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
         .and().formLogin()
         	.loginPage("/loginPage")
-			.defaultSuccessUrl("/manage")
+			.defaultSuccessUrl("/admin")
 			.failureUrl("/loginPage?error")
 			.usernameParameter("username").passwordParameter("password")				
 			.and()

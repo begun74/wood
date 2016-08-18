@@ -5,12 +5,6 @@
 	<div class="container">
 		<div class="col-xs-12 col-sm-6 no-margin">
 			<ul>
-				<!--<li>${nombersofenters}</li>-->
-
-				<c:if test="${nombersofquerys>0}">
-					<li>${nombersofquerys}</li>
-				</c:if>
-
 				<li><a href="index">Home</a></li>
 				<!-- li><a href="video">Video</a></li -->
 				<li><a href="contact">Contact</a></li>
@@ -22,7 +16,7 @@
 				<li>
 					<c:choose>
 						<c:when test="${sessionBean.time >0}">
-							 <a href="manage">Manage</a>
+							 <a href="admin">Admin</a>
 							 <a href="loginPage?logout">Logout</a>
 						</c:when>
 						<c:otherwise>

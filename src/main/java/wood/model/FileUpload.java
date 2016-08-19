@@ -34,8 +34,6 @@ public class FileUpload {
     	//System.out.println("FileUpload - "+getClass());
     }
     
-
-
 	public String process(MultipartFile file,String newFileName) {
 
 		if (!file.isEmpty()) {

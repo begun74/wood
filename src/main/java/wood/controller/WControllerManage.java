@@ -22,6 +22,7 @@ import wood.model.DirColor;
 import wood.model.FileUpload;
 import wood.model.Particleboard;
 import wood.service.WoodService;
+import wood.util.ReadExcelUtil;
 
 @Controller
 @RequestMapping(value = {"/admin"} , method = RequestMethod.GET)
@@ -145,6 +146,8 @@ public class WControllerManage {
 	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 
 	{
 		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
+		
+		ReadExcelUtil.readParticleboard(file);
 		/*
 		if(result.hasErrors())
 		{

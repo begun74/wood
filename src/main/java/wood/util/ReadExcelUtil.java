@@ -34,6 +34,9 @@ public class ReadExcelUtil {
         Iterator<Row> rowIterator = firstSheet.iterator();
         DataFormatter df = new DataFormatter();
 
+        Row tmp = rowIterator.next();
+        while(rowIterator.hasNext())
+        	System.out.println(""+df.formatCellValue(tmp.getCell(1)).trim());
   /*
     	FileInputStream fis = new FileInputStream(file);
         Workbook workbook = getWorkbook(fis,file.getPath());

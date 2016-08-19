@@ -9,38 +9,38 @@
         <!-- link rel="stylesheet" href="resources/assets/css/bootstrap.min.css" -->
 
 		<!-- Bootstrap Core CSS -->
-    	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     	<!-- Custom CSS -->
-    	<link href="resources/css/simple-sidebar.css" rel="stylesheet">
+    	<link href="${pageContext.request.contextPath}/resources/css/simple-sidebar.css" rel="stylesheet">
         
         <!-- Customizable CSS -->
-        <link rel="stylesheet" href="resources/assets/css/main.css">
-        <link rel="stylesheet" href="resources/assets/css/green.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/green.css">
 
-        <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
-        <link rel="stylesheet" href="resources/assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="resources/assets/css/animate.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.carousel.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/animate.min.css">
 
         <!-- Demo Purpose Only. Should be removed in production -->
         <link rel="stylesheet" href="resources/assets/css/config.css">
 
-        <link href="resources/assets/css/green.css" rel="alternate stylesheet" title="Green color">
-        <link href="resources/assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-        <link href="resources/assets/css/red.css" rel="alternate stylesheet" title="Red color">
-        <link href="resources/assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-        <link href="resources/assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
-        <link href="resources/assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/green.css" rel="alternate stylesheet" title="Green color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/red.css" rel="alternate stylesheet" title="Red color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
         <!-- Demo Purpose Only. Should be removed in production : END -->
 
         <!-- Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
         
         <!-- Icons/Glyphs -->
-        <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css">
         
         <!-- Favicon -->
-        <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/images/favicon.ico">
         
 
 	    <title>Manage</title>
@@ -76,7 +76,7 @@
 	            <div class="container-fluid">
 					<div class="row">
 						<div class="col-md-2">
-						  	<form id="addColorForm" class="form-horizontal" role="form"  
+						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
 						  			enctype="multipart/form-data" 
 						  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
 						  			method="POST"
@@ -86,7 +86,7 @@
 							         </div>
 					         <button type="submit" class="">Add</button>
 					         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
-					    	</form>
+					    	</form:form>
 						</div>
 						<div class="col-md-2">
 						</div>

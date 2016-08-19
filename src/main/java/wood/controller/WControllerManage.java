@@ -65,6 +65,10 @@ public class WControllerManage {
 		case "2":
 			model = new ModelAndView("plywood/admin/addParticleboard");
 			break;
+
+		case "3":
+			model = new ModelAndView("plywood/admin/processFile");
+			break;
 			
 		}
 		model.addObject("error", error);
@@ -81,7 +85,7 @@ public class WControllerManage {
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_dirColor",   required=false) Long id_dirColor) 
 	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act=1");
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_COLOR);
 
 		if(result.hasErrors())
 		{
@@ -102,7 +106,7 @@ public class WControllerManage {
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_particleboard",   required=false) Long id_particleboard) 
 	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act=2");
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PARTICLEBOARD);
 		if(result.hasErrors())
 		{
 			model.addObject("error", result.getFieldError().getDefaultMessage());
@@ -135,5 +139,21 @@ public class WControllerManage {
 		woodService.delObject(woodService.getDirColor(id));
 		return "redirect:/admin?act=1";
 	}
+	
+
+	@RequestMapping(value = "processFile" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
+		/*
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+*/
+	    return model;
+	}
+
 
 }

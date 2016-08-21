@@ -19,7 +19,7 @@ public class SessionBean {
 	
 	@PostConstruct
 	void init(){
-		System.out.println("SessionBean @PostConstruct "+time);
+		//System.out.println("SessionBean @PostConstruct "+time);
 	}
 	
 	@PreDestroy

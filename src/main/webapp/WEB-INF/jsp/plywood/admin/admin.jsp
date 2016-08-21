@@ -68,8 +68,11 @@
                 <li class="sidebar-brand">
                     <a href="admin?act=1" >Add color</a>
                 </li>
-                <li>
+                <li class="sidebar-brand">
                     <a href="admin?act=2" >Add particleboard</a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="admin?act=3" >Add info from files</a>
                 </li>
             </ul>
         </div>

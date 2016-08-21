@@ -5,6 +5,7 @@ import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -147,7 +148,9 @@ public class WControllerManage {
 	{
 		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
 		
-		ReadExcelUtil.readParticleboard(file);
+		fileUpload.process(file,null);
+		//FileUtils.writeByteArrayToFile(file, file.getBytes());
+		//ReadExcelUtil.readParticleboard(file);
 		/*
 		if(result.hasErrors())
 		{

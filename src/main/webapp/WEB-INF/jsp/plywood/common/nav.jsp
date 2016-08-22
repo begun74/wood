@@ -24,7 +24,7 @@
 						</c:otherwise>
 					</c:choose>
 				</li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index?locale=en">EN</a>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Язык|Lang</a>
 					<ul class="dropdown-menu" role="menu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="index?locale=ru">RU</a></li>

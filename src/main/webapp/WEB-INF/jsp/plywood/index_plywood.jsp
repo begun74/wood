@@ -65,18 +65,16 @@
 
 		<div class="container">
 			<div class="row">
-					<div class="col-md-2"></div> 
-		    		<div class="col-md-8">
+		    		<div class="col-md-12">
 		    			<div class="box-content">
 							<div class="headlines">
 								<h2>Particleboard</h2>
 							</div>
 							<!-- Main content  -->
-								<%@include file="common/content2.jsp" %>      
+								<%@include file="common/content3.jsp" %>      
 							<!-- Main content  -->
 						</div>
 					</div>
-					<div class="col-md-2"></div> 
 			</div>		
 		</div>
 

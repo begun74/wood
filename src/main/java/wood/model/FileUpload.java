@@ -58,23 +58,6 @@ public class FileUpload {
                 	return null;
                 }
             } 
-            /* else if (isValidContentType_XLS(contentType)) {
-            	String newFile = null;
-                if (belowMaxFileSize(file.getSize())) {
-                    newFile = newFileName == null?env.getRequiredProperty(TEMP_FILE_PATH) + file.getOriginalFilename():env.getRequiredProperty(TEMP_FILE_PATH)+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
-                    new File(newFile).mkdirs();
-                    try {
-						file.transferTo(new File(newFile));
-						ReadExcelUtil.readParticleboard(new File(newFile));
-					} catch (Exception e) {
-						return null;
-					}
-                    
-                    System.out.println(newFile);
-                }
-                return newFile;
-            }
-            */
             else {
                 //return "Error. " + contentType + " is not a valid content type.";
             	return null;

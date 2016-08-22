@@ -30,7 +30,7 @@ public class ReadExcelUtil {
 
     public static List<Particleboard> readParticleboard(File file) throws IOException
     {
-    	List<Particleboard> pList = new LinkedList();
+    	List<Particleboard> pList = new LinkedList<Particleboard>();
     	Particleboard particleboard = null;
     	FileInputStream fis = new FileInputStream(file);
         Workbook workbook = getWorkbook(fis,file.getPath());

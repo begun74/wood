@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Manage</title>
+    <title><spring:message code="admin.title"/></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">

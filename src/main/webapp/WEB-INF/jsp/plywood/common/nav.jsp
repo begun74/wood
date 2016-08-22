@@ -24,10 +24,12 @@
 						</c:otherwise>
 					</c:choose>
 				</li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">EN</a>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index?locale=en">EN</a>
 					<ul class="dropdown-menu" role="menu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="#">RU</a></li>
+							href="index?locale=ru">RU</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							href="index?locale=en">EN</a></li>
 						<!--                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tamil</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Russian</a></li>-->

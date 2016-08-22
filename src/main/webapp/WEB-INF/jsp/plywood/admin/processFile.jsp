@@ -85,7 +85,17 @@
 						
 					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width="98%"">
 						<table border="1" width="100%">
+							<c:forEach items="${particleboards}" var="particleboard">
 								<tr align="center">
+									<td width="15px"><div style="width: 15px;">id</div></td>
+									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
+									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.thickness}</div></td>
+									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.length}</div></td>
+									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.weight}</div></td>
+									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.price}</div></td>
+								</tr>
+							</c:forEach>
+								<!-- tr align="center">
 									<td width="15px"><div style="width: 15px;">id</div></td>
 									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
@@ -172,7 +182,7 @@
 									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
+								</tr -->
 						</table>
 					</div>	
 					<br/>           

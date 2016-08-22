@@ -1,5 +1,7 @@
 package wood.controller;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
@@ -148,7 +150,12 @@ public class WControllerManage {
 	{
 		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
 		
-		fileUpload.process(file,null);
+		List<Particleboard>  pList = fileUpload.process(file);
+		
+		pList.forEach(p -> woodService.addParticleboard(p));
+		
+		//for(Particleboard p: pList)
+		//	woodService.addParticleboard(p);
 		//FileUtils.writeByteArrayToFile(file, file.getBytes());
 		//ReadExcelUtil.readParticleboard(file);
 		/*

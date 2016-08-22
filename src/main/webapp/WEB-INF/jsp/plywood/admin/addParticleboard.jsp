@@ -52,16 +52,7 @@
 		<%@include file="../common/nav.jsp" %>
 	    <div id="wrapper" class="container-fluid">
 	        <!-- Sidebar -->
-	        <div id="sidebar-wrapper">
-	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand">
-	                    <a href="admin?act=1" >Add color</a>
-	                </li>
-	                <li>
-	                    <a href="admin?act=2" >Add particleboard</a>
-	                </li>
-	            </ul>
-	        </div>
+	        <%@include file="sidebar.jsp" %>
 	        <!-- /#sidebar-wrapper -->
 	
 	        <!-- Page Content -->
@@ -94,6 +85,7 @@
 								         <div style="margin-bottom: 15px" class="form-group">
 											 <label>Color
 								         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
+								         	 	<option value="-1"></option>
 									         	 <c:forEach items="${dirColors}" var="dirColor">
 									         	 	<option value="${dirColor.id}">${dirColor.name}</option>
 									         	 </c:forEach>

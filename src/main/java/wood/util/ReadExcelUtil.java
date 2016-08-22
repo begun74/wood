@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -26,82 +28,30 @@ public class ReadExcelUtil {
         return workbook;
     }
 
-    public static Particleboard readParticleboard(File file) throws IOException
+    public static List<Particleboard> readParticleboard(File file) throws IOException
     {
+    	List<Particleboard> pList = new LinkedList();
+    	Particleboard particleboard = null;
     	FileInputStream fis = new FileInputStream(file);
         Workbook workbook = getWorkbook(fis,file.getPath());
         Sheet firstSheet = workbook.getSheetAt(0);
         Iterator<Row> rowIterator = firstSheet.iterator();
         DataFormatter df = new DataFormatter();
-
-        Row tmp = rowIterator.next();
+        
+        
         while(rowIterator.hasNext())
-        	System.out.println(""+df.formatCellValue(tmp.getCell(1)).trim());
-  /*
-    	FileInputStream fis = new FileInputStream(file);
-        Workbook workbook = getWorkbook(fis,file.getPath());
-        Sheet firstSheet = workbook.getSheetAt(0);
-        Iterator<Row> rowIterator = firstSheet.iterator();
-        DataFormatter df = new DataFormatter();
-
-        Hmc machine = new Hmc();
-        machine.setProductId(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        Row tmp = rowIterator.next();
-        machine.setMachineTypeEn(df.formatCellValue(tmp.getCell(1)).trim());
-        machine.setMachineTypeRu(df.formatCellValue(tmp.getCell(2)).trim());
-        machine.setModel(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setBrand(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        tmp = rowIterator.next();
-        machine.setProducingCountryEn(df.formatCellValue(tmp.getCell(1)));
-        machine.setProducingCountryRu(df.formatCellValue(tmp.getCell(2)));
-        machine.setSystemCNC(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        machine.setFullSystemCNC(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        machine.setProductionYear((int) rowIterator.next().getCell(1).getNumericCellValue());
-        tmp = rowIterator.next();
-        machine.setMachineConditionEn(df.formatCellValue(tmp.getCell(1)));
-        machine.setMachineConditionRu(df.formatCellValue(tmp.getCell(2)));
-        tmp = rowIterator.next();
-        machine.setMachineLocationEn(df.formatCellValue(tmp.getCell(1)).trim());
-        machine.setMachineLocationRu(df.formatCellValue(tmp.getCell(2)).trim());
-        machine.setAxisCount(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setxMotion((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setyMotion((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setzMotion((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setxTableSize((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setyTableSize((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setTableLoad(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setSpindleTaper(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setSpindleRotationFreq(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setSpindlePower(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setToolCount(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setMaxToolDiameter(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setMaxToolWeight(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setMaxToolLength(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setToolReplacementTime(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setChipReplacementTime(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPositionRepositionPrecision(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setSpindleRuntime(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setMachineLaunching(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPrice((int)rowIterator.next().getCell(1).getNumericCellValue());
-        machine.setPhoto1(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPhoto2(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPhoto3(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPhoto4(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setPhoto5(df.formatCellValue(rowIterator.next().getCell(1)));
-        tmp = rowIterator.next();
-        machine.setDescriptionEn(df.formatCellValue(tmp.getCell(1)));
-        machine.setDescriptionRu(df.formatCellValue(tmp.getCell(2)));
-        machine.setVideo1(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setVideo2(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setVideo3(df.formatCellValue(rowIterator.next().getCell(1)));
-        machine.setIsSold(df.formatCellValue(rowIterator.next().getCell(1)).trim());
-        if(machine.getIsSold().equals("")) {
-            machine.setIsSold("No");
+        {
+        	Row tmp = rowIterator.next();
+        	tmp = rowIterator.next();//for header xls table
+        	particleboard = new Particleboard();
+        	particleboard.setLength(new Long( ""+df.formatCellValue(tmp.getCell(1)).trim()) );
+        	particleboard.setThickness(new Long( ""+df.formatCellValue(tmp.getCell(2)).trim()));
+        	particleboard.setWeight(new Long( ""+df.formatCellValue(tmp.getCell(3)).trim()));
+        	particleboard.setPrice(new Long( ""+df.formatCellValue(tmp.getCell(4)).trim()));
+        	pList.add(particleboard);
         }
-        fis.close();
-        return machine;
-        */
-    	return null;
+  
+        return pList;
     }
 
     /*

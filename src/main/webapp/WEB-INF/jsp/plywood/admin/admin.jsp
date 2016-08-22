@@ -62,21 +62,9 @@
 
 	<%@include file="../common/nav.jsp" %>
     <div id="wrapper" class="container-fluid">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="admin?act=1" >Add color</a>
-                </li>
-                <li class="sidebar-brand">
-                    <a href="admin?act=2" >Add particleboard</a>
-                </li>
-                <li class="sidebar-brand">
-                    <a href="admin?act=3" >Add info from files</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+	        <!-- Sidebar -->
+	        <%@include file="sidebar.jsp" %>
+	        <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -13,14 +14,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import wood.util.ReadExcelUtil;
+
 
 @Service
 @PropertySource("classpath:app.properties")
 public class FileUpload {
 
 	
-	private static final String[] ALLOWED_FILE_TYPES_1 = {"image/jpeg", "image/jpg", "image/gif"};
-	private static final String[] ALLOWED_FILE_TYPES_2 = {"application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"};
+	private static final String[] ALLOWED_FILE_TYPES_PICS = {"image/jpeg", "image/jpg", "image/gif"};
+	private static final String[] ALLOWED_FILE_TYPES_XLS = {"application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"};
     private static final Long MAX_FILE_SIZE = 1048576L; //1MB
     //private static final String UPLOAD_FILE_PATH = "D:/GIT_/wood/src/main/webapp/resources/pics/";
     private static final String UPLOAD_FILE_PATH = "UPLOAD_FILE_PATH";
@@ -55,12 +58,14 @@ public class FileUpload {
                 	return null;
                 }
             } 
-            else if (isValidContentType_2(contentType)) {
+            /* else if (isValidContentType_XLS(contentType)) {
             	String newFile = null;
                 if (belowMaxFileSize(file.getSize())) {
                     newFile = newFileName == null?env.getRequiredProperty(TEMP_FILE_PATH) + file.getOriginalFilename():env.getRequiredProperty(TEMP_FILE_PATH)+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
+                    new File(newFile).mkdirs();
                     try {
 						file.transferTo(new File(newFile));
+						ReadExcelUtil.readParticleboard(new File(newFile));
 					} catch (Exception e) {
 						return null;
 					}
@@ -69,6 +74,7 @@ public class FileUpload {
                 }
                 return newFile;
             }
+            */
             else {
                 //return "Error. " + contentType + " is not a valid content type.";
             	return null;
@@ -81,18 +87,42 @@ public class FileUpload {
         }
     }
     
+	public List<Particleboard>  process(MultipartFile file) {
+		if (!file.isEmpty()) {
+			String contentType = file.getContentType().toString().toLowerCase();
+		
+			if (isValidContentType_XLS(contentType)) {
+            	String newFile = null;
+                if (belowMaxFileSize(file.getSize())) {
+                	newFile = env.getRequiredProperty(TEMP_FILE_PATH) + file.getOriginalFilename();
+                    new File(newFile).mkdirs();
+                    try {
+						file.transferTo(new File(newFile));
+						return ReadExcelUtil.readParticleboard(new File(newFile));
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
+                }
+			}
+		}
+		
+		return null;
+
+	}
+	
     private Boolean isValidContentType_1(String contentType) {
     	//System.out.println("contentType - "+contentType);
-        if (!Arrays.asList(ALLOWED_FILE_TYPES_1).contains(contentType)) {
+        if (!Arrays.asList(ALLOWED_FILE_TYPES_PICS).contains(contentType)) {
             return false;
         }
         
         return true;
     }
     
-    private Boolean isValidContentType_2(String contentType) {
+    private Boolean isValidContentType_XLS(String contentType) {
     	//System.out.println("contentType - "+contentType);
-        if (!Arrays.asList(ALLOWED_FILE_TYPES_2).contains(contentType)) {
+        if (!Arrays.asList(ALLOWED_FILE_TYPES_XLS).contains(contentType)) {
             return false;
         }
         

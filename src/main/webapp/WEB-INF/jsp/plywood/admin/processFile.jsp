@@ -87,7 +87,7 @@
 						<table border="1" width="100%">
 							<c:forEach items="${particleboards}" var="particleboard">
 								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
+									<td width="15px"><div style="width: 15px;">${particleboard.id}</div></td>
 									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.thickness}</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.length}</div></td>
@@ -96,86 +96,6 @@
 								</tr>
 							</c:forEach>
 								<!-- tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr>
-								<tr align="center">
 									<td width="15px"><div style="width: 15px;">id</div></td>
 									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>

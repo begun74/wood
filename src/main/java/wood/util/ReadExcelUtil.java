@@ -41,14 +41,25 @@ public class ReadExcelUtil {
         
         while(rowIterator.hasNext())
         {
-        	Row tmp = rowIterator.next();
-        	tmp = rowIterator.next();//for header xls table
-        	particleboard = new Particleboard();
-        	particleboard.setLength(new Long( ""+df.formatCellValue(tmp.getCell(1)).trim()) );
-        	particleboard.setThickness(new Long( ""+df.formatCellValue(tmp.getCell(2)).trim()));
-        	particleboard.setWeight(new Long( ""+df.formatCellValue(tmp.getCell(3)).trim()));
-        	particleboard.setPrice(new Long( ""+df.formatCellValue(tmp.getCell(4)).trim()));
-        	pList.add(particleboard);
+        	try {
+	        	Row tmp = rowIterator.next();
+	        	//tmp = rowIterator.next();//for header xls table
+	        	particleboard = new Particleboard();
+	        	particleboard.setLength(new Long( ""+df.formatCellValue(tmp.getCell(1)).trim()) );
+	        	particleboard.setThickness(new Long( ""+df.formatCellValue(tmp.getCell(2)).trim()));
+	        	particleboard.setWeight(new Long( ""+df.formatCellValue(tmp.getCell(3)).trim()));
+	        	particleboard.setPrice(new Long( ""+df.formatCellValue(tmp.getCell(4)).trim()));
+	        	pList.add(particleboard);
+        	}
+        	catch(java.lang.NumberFormatException e)
+        	{
+        		continue;
+        	}
+        	catch(Exception e)
+        	{
+        		e.printStackTrace();
+        	}
+        	
         }
   
         return pList;

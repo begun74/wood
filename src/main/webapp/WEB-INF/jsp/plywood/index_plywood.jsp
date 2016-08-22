@@ -71,23 +71,9 @@
 							<div class="headlines">
 								<h2>Particleboard</h2>
 							</div>
-							<table class="tab tab-drag">
-								<tr class="top nodrop nodrag">
-									<td>Size</td>
-									<td>Color</td>
-									<td>Price</td>
-									<td>Photo</td>
-								</tr>
-								
-							<c:forEach items="${particleboards}" var="particleboard">
-								<tr class="top nodrop nodrag">
-									<td padding="10px">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
-									<td>${particleboard.dirColor.name}</td>
-									<td>${particleboard.price}</td>
-									<td><img src="resources/pics/${particleboard.id}.jpeg"/></td>
-								</tr>		
-							</c:forEach>
-							</table>
+							<!-- Main content  -->
+								<%@include file="common/content2.jsp" %>      
+							<!-- Main content  -->
 						</div>
 					</div>
 					<div class="col-md-2"></div> 

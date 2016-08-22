@@ -113,12 +113,12 @@
 							<c:forEach items="${particleboards}" var="particleboard">
 								<div class="row">
 									<div class="col-md-7">
-											<div><a href="#" onclick="editParticleboard(${particleboard.id}, 
-																						${particleboard.thickness},
-																						${particleboard.length},
-																						${particleboard.weight},
-																						${particleboard.price},
-																						${particleboard.dirColor.id})">
+											<div><a href="#" onclick="editParticleboard('${particleboard.id}', 
+																						'${particleboard.thickness}',
+																						'${particleboard.length}',
+																						'${particleboard.weight}',
+																						'${particleboard.price}',
+																						'${particleboard.dirColor.id}')">
 													${particleboard.id}</a>    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}
 											</div>
 									</div>
@@ -158,11 +158,13 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 
-	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor) {
+	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor) 
+	    {
 			$("#thickness").val(thickness);
 			$("#length").val(length);
 			$("#weight").val(weight);
 			$("#price").val(price);
+			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
 	    }
 	    </script>
 

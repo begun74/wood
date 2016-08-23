@@ -74,6 +74,10 @@ public class WControllerManage {
 			model = new ModelAndView("plywood/admin/processFile");
 			break;
 			
+		case "4":
+			model = new ModelAndView("plywood/admin/addPhoto");
+			break;
+			
 		}
 		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());
@@ -126,6 +130,16 @@ public class WControllerManage {
 		woodService.addParticleboard(particleboard);
 		
 		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
+	    return model;
+	}
+
+	@RequestMapping(value = "addPhoto" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView   processPhoto( @ModelAttribute  MultipartFile file) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PHOTO);
+
+		fileUpload.processPhoto(file);
+		//System.out.println("addPhoto");
 	    return model;
 	}
 

@@ -69,7 +69,41 @@ public class FileUpload {
         	return null;
         }
     }
-    
+
+	public String processPhoto(MultipartFile file) {
+
+		if (!file.isEmpty()) {
+            String contentType = file.getContentType().toString().toLowerCase();
+            
+            if (isValidContentType_XLS(contentType)) {
+                if (belowMaxFileSize(file.getSize())) {
+                    String newFile = env.getRequiredProperty(TEMP_FILE_PATH) + "photo"+System.currentTimeMillis()+".xls";
+                    try {
+                        file.transferTo(new File(newFile));
+                        ReadExcelUtil.readPhoto(new File(newFile));
+                        return "You have successfully uploaded " + file.getOriginalFilename() + "!";
+                    } catch (Exception e) {
+                    	e.printStackTrace();
+                    	return null;
+                    } 
+                } else {
+                    //return "Error. " + file.getOriginalFilename() + " file size (" + file.getSize() + ") exceeds " + MAX_FILE_SIZE + " limit.";
+                	return null;
+                }
+            } 
+            else {
+                //return "Error. " + contentType + " is not a valid content type.";
+            	return null;
+            }
+            
+            
+        } else {
+            //return "Error. No file choosen.";
+        	return null;
+        }
+    }
+	
+	
 	public List<Particleboard>  process(MultipartFile file) {
 		if (!file.isEmpty()) {
 			String contentType = file.getContentType().toString().toLowerCase();
@@ -93,6 +127,7 @@ public class FileUpload {
 		return null;
 
 	}
+	
 	
     private Boolean isValidContentType_1(String contentType) {
     	//System.out.println("contentType - "+contentType);

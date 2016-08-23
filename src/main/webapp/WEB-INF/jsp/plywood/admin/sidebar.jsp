@@ -13,6 +13,9 @@
                 <li class="sidebar-brand">
                     <a href="admin?act=3" ><spring:message code="admin.add.info.from.file"/></a>
                 </li>
+                <li class="sidebar-brand">
+                    <a href="admin?act=4" ><spring:message code="admin.add.pics.from.file"/></a>
+                </li>
             </ul>
         </div>
 

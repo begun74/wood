@@ -34,7 +34,7 @@ public class ReadExcelUtil {
     	Particleboard particleboard = null;
     	FileInputStream fis = new FileInputStream(file);
         Workbook workbook = getWorkbook(fis,file.getPath());
-        Sheet firstSheet = workbook.getSheetAt(0);
+        Sheet firstSheet = workbook.getSheetAt(0);  
         Iterator<Row> rowIterator = firstSheet.iterator();
         DataFormatter df = new DataFormatter();
         
@@ -44,11 +44,17 @@ public class ReadExcelUtil {
         	try {
 	        	Row tmp = rowIterator.next();
 	        	//tmp = rowIterator.next();//for header xls table
-	        	particleboard = new Particleboard();
-	        	particleboard.setLength(new Long( ""+df.formatCellValue(tmp.getCell(1)).trim()) );
-	        	particleboard.setThickness(new Long( ""+df.formatCellValue(tmp.getCell(2)).trim()));
-	        	particleboard.setWeight(new Long( ""+df.formatCellValue(tmp.getCell(3)).trim()));
-	        	particleboard.setPrice(new Long( ""+df.formatCellValue(tmp.getCell(4)).trim()));
+	        	try {
+	        		particleboard = new Particleboard(Long.parseLong(df.formatCellValue(tmp.getCell(0)).trim()));
+	        	}
+	        	catch(java.lang.NumberFormatException e) 
+	        	{
+	        		particleboard = new Particleboard();
+	        	}
+	        	particleboard.setLength(Long.parseLong(df.formatCellValue(tmp.getCell(2)).trim()) );
+	        	particleboard.setThickness(Long.parseLong(df.formatCellValue(tmp.getCell(3)).trim()));
+	        	particleboard.setWeight(Long.parseLong(df.formatCellValue(tmp.getCell(4)).trim()));
+	        	particleboard.setPrice(Long.parseLong(df.formatCellValue(tmp.getCell(5)).trim()));
 	        	pList.add(particleboard);
         	}
         	catch(java.lang.NumberFormatException e)
@@ -65,6 +71,33 @@ public class ReadExcelUtil {
         return pList;
     }
 
+    public static String readPhoto(File file) throws IOException
+    {
+    	FileInputStream fis = new FileInputStream(file);
+        Workbook workbook = getWorkbook(fis,file.getPath());
+        Sheet firstSheet = workbook.getSheetAt(0);  
+        Iterator<Row> rowIterator = firstSheet.iterator();
+        DataFormatter df = new DataFormatter();
+        
+        
+        while(rowIterator.hasNext())
+        {
+        	Row tmp = rowIterator.next(); 
+        	System.out.println("tmp.getCell(0).getCellType() - "+tmp.getCell(0).getCellType());
+        	/*System.out.println("tmp.getCell(1).getCellType() - "+tmp.getCell(1).getCellType());
+        	
+        	try {
+        		particleboard = new Particleboard(Long.parseLong(df.formatCellValue(tmp.getCell(0)).trim()));
+        	}
+        	catch(java.lang.NumberFormatException e) 
+        	{
+        		particleboard = new Particleboard();
+        	}
+        	*/
+        }
+        
+        return null;
+    }
     /*
     public static Map<String,Object> readLathes(File uploadedFile, List<LanguageEntity> languages) throws IOException{
 

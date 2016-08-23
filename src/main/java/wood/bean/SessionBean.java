@@ -16,6 +16,7 @@ public class SessionBean {
 	private long time = System.currentTimeMillis();
 	public static final String ADD_COLOR="1"; 
 	public static final String ADD_PARTICLEBOARD="2"; 
+	public static final String ADD_PHOTO="4"; 
 	public static final String PROCESS_FILE="3"; 
 	
 	

@@ -1,4 +1,4 @@
-package wood.model;
+package wood.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import wood.util.ReadExcelUtil;
+import wood.model.Particleboard;
 
 
 @Service

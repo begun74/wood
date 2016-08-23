@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +81,7 @@
 		    		<div class="col-md-12">
 		    			<div class="box-content">
 							<div class="headlines center">
-								<h2>Particleboard</h2>
+								<h2><spring:message code="index_plywood.particleboard"/></h2>
 							</div>
 							<!-- Main content  -->
 								<%@include file="common/content3.jsp" %>      

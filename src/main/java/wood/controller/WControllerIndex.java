@@ -21,8 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
-import wood.model.FileUpload;
 import wood.service.WoodService;
+import wood.util.FileUpload;
 
 
 

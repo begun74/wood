@@ -22,9 +22,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
 import wood.model.DirColor;
-import wood.model.FileUpload;
 import wood.model.Particleboard;
 import wood.service.WoodService;
+import wood.util.FileUpload;
 import wood.util.ReadExcelUtil;
 
 @Controller

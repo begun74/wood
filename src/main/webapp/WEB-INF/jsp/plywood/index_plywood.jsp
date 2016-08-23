@@ -8,7 +8,9 @@
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" -->
+	    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
         <meta name="keywords" content="">
@@ -16,13 +18,16 @@
         
         <title>Plywood</title>
         
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
-        
+    <!-- Bootstrap Core CSS -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="resources/css/simple-sidebar.css" rel="stylesheet">
+
         <!-- Customizable CSS -->
-        <link rel="stylesheet" href="<c:url value="resources/assets/css/main.css" />">
+        <link rel="stylesheet" href="resources/assets/css/main.css">
         <link rel="stylesheet" href="resources/assets/css/green.css">
-   
+
         <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
         <link rel="stylesheet" href="resources/assets/css/owl.transitions.css">
         <link rel="stylesheet" href="resources/assets/css/animate.min.css">
@@ -47,6 +52,13 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
 
+    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
+	    <!-- jQuery -->
+	    <script src="resources/js/jquery.js"></script>
+	
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="resources/js/bootstrap.min.js"></script>
+    
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
             <script src="resources/assets/js/html5shiv.js"></script>
@@ -67,7 +79,7 @@
 			<div class="row">
 		    		<div class="col-md-12">
 		    			<div class="box-content">
-							<div class="headlines">
+							<div class="headlines center">
 								<h2>Particleboard</h2>
 							</div>
 							<!-- Main content  -->
@@ -87,6 +99,5 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 	    </script>
-    
     
 </html>

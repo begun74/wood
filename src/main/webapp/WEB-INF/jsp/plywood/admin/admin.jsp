@@ -50,6 +50,13 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
 
+    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
+	    <!-- jQuery -->
+	    <script src="resources/js/jquery.js"></script>
+	
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="resources/js/bootstrap.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -81,12 +88,6 @@
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="resources/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="resources/js/bootstrap.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

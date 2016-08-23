@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <!-- html lang="en" -->
@@ -43,6 +44,12 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
         
+    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
+	    <!-- jQuery -->
+	    <script src="resources/js/jquery.js"></script>
+	
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="resources/js/bootstrap.min.js"></script>
 
 	    <title>Manage</title>
     </head>
@@ -111,12 +118,7 @@
 	
 	    </div>
 	    <!-- /#wrapper -->
-	
-	    <!-- jQuery -->
-	    <script src="resources/js/jquery.js"></script>
-	
-	    <!-- Bootstrap Core JavaScript -->
-	    <script src="resources/js/bootstrap.min.js"></script>
+
 	
 	    <!-- Menu Toggle Script -->
 	    <script>

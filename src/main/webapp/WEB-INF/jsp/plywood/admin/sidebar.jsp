@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-        <!-- Sidebar -->
+        
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
@@ -15,5 +15,4 @@
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
 

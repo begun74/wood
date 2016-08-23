@@ -27,14 +27,12 @@
 				</li>
 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Язык|Lang</a>
 					<ul class="dropdown-menu" role="menu">
-						<li role="presentation"><a role="menuitem" tabindex="-1"
+						<li role="presentation"><a role="menuitem" tabindex="1"
 							href="index?locale=ru">RU</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
+						<li role="presentation"><a role="menuitem" tabindex="0"
 							href="index?locale=en">EN</a></li>
-						<!--                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tamil</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Russian</a></li>-->
-					</ul></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>

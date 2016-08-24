@@ -78,6 +78,9 @@ public class WControllerManage {
 			model = new ModelAndView("plywood/admin/addPhoto");
 			break;
 			
+		case "5":
+			model = new ModelAndView("plywood/admin/addBrand");
+			break;
 		}
 		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());

@@ -72,7 +72,7 @@
     <body>
     	<div class="wrapper">
 		<%@include file="common/nav.jsp" %>      
-		<!-- %@include file="common/header.jsp" % -->     
+		<%@include file="common/header2.jsp" %>     
     
     	</div>
 

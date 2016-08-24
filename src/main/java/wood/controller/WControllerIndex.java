@@ -54,6 +54,7 @@ public class WControllerIndex {
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
+		model.addObject("brands",woodService.getListDirBrands());
 		
 	    return model;
 	}

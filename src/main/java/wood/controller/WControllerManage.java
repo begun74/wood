@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
+import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.Particleboard;
 import wood.service.WoodService;
@@ -85,10 +86,31 @@ public class WControllerManage {
 		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());
 		model.addObject("particleboards",woodService.getListParticleboards());
+		model.addObject("dirBrands",woodService.getListDirBrands());
 		//System.out.println("sb - " +sb.getTime());
 	    return model;
 	}
 
+	@RequestMapping(value = "addBrand" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView   processBrand(HttpSession session, @Valid @ModelAttribute("addBrandForm") DirBrand dirBrand,
+			BindingResult result,
+			@ModelAttribute  MultipartFile file,
+			@RequestParam(value = "id_dirBrand",   required=false) Long id_dirBrand) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_BRAND);
+
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+		if(id_dirBrand != null && id_dirBrand.longValue()>0) 
+			dirBrand.setId(id_dirBrand);
+		
+		woodService.addBrand(dirBrand);
+		
+	    return model;
+	}
 
 	@RequestMapping(value = "addColor" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView   processColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
@@ -151,16 +173,22 @@ public class WControllerManage {
 	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getParticleboard(id));
-		return "redirect:/admin?act=2";
+		return "redirect:/admin?act="+sb.ADD_PARTICLEBOARD;
 	}
 
 	@RequestMapping(value = "delColor")
 	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getDirColor(id));
-		return "redirect:/admin?act=1";
+		return "redirect:/admin?act="+sb.ADD_COLOR;
 	}
 	
+	@RequestMapping(value = "delBrand")
+	public String  delBrand(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getDirBrand(id));
+		return "redirect:/admin?act="+sb.ADD_BRAND;
+	}
 
 	@RequestMapping(value = "processFile" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 

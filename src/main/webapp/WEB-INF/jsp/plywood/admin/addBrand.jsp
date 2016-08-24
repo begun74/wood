@@ -75,13 +75,14 @@
 	            <div class="container-fluid">
 					<div class="row">
 						<div class="col-md-2">
-						  	<form:form id="addBrandForm" class="form-horizontal" role="form"  
+						  	<form:form id="addBrandForm" class="form-horizontal" role="form"
+						  			commandName="addBrandForm"
 						  			enctype="multipart/form-data" 
 						  			action="${pageContext.request.contextPath}/admin/addBrand?${_csrf.parameterName}=${_csrf.token}" 
 						  			method="POST"
 						  			modelAttribute="dirBrand">
 							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
+					                   <label>Brand <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
 					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
 					         <input type="hidden" name ="id_dirBrand" id ="id_dirBrand" value="-1"/>
@@ -100,7 +101,7 @@
 					         					<button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button>
 					         				</div>
 											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delColor?id=${dirColor.id}'"><spring:message code="label.button.delete"/></button>
+												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button>
 											</div>
 										</div>
 									</c:forEach>

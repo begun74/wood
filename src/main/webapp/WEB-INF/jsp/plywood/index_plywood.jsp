@@ -59,6 +59,20 @@
 	
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="resources/js/bootstrap.min.js"></script>
+
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	    <script src="resources/assets/js/gmap3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
+	    <script src="resources/assets/js/owl.carousel.min.js"></script>
+	    <script src="resources/assets/js/css_browser_selector.min.js"></script>
+	    <script src="resources/assets/js/echo.min.js"></script>
+	    <script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-slider.min.js"></script>
+	    <script src="resources/assets/js/jquery.raty.min.js"></script>
+	    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
+	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
+	    <script src="resources/assets/js/wow.min.js"></script>
+	    <script src="resources/assets/js/scripts.js"></script>
     
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
@@ -74,22 +88,42 @@
 		<%@include file="common/nav.jsp" %>      
 		<%@include file="common/header2.jsp" %>     
     
+		<div class="widget col-md-3">
+		    <h1>Product Filters</h1>
+		    
+		    <form action="hmc.htm" method="GET">
+		    <div class="body">
+		        <div class="category-filter">
+		            <h2>Brands</h2>
+		            <hr>
+		            <ul>    
+						<%@include file="common/listBrands.jsp" %> 
+					</ul>   
+					<hr> 
+					<input  type="submit" name="register" value="Select"/>
+    			</div>
+    		</div>
+    		</form>
     	</div>
 
-		<div class="container">
-			<div class="row">
-		    		<div class="col-md-12">
-		    			<div class="box-content">
-							<div class="headlines center">
-								<h2><spring:message code="index_plywood.particleboard"/></h2>
+		<div class="col-md-9 no-margin sidebar">
+			<div class="container">
+				<div class="row">
+			    		<div class="col-md-12">
+			    			<div class="box-content">
+								<div class="headlines center">
+									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
+								</div>
+								<!-- Main content  -->
+									<%@include file="common/content3.jsp" %>      
+								<!-- Main content  -->
 							</div>
-							<!-- Main content  -->
-								<%@include file="common/content3.jsp" %>      
-							<!-- Main content  -->
 						</div>
-					</div>
-			</div>		
+				</div>		
+			</div>
 		</div>
+
+    	</div>
 
     </body>
     

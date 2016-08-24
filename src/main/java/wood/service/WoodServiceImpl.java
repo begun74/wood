@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import wood.dao.DAOImpl;
+import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
@@ -63,6 +65,21 @@ public class WoodServiceImpl implements WoodService {
 	public Particleboard getParticleboard(long id) {
 		// TODO Auto-generated method stub
 		return dao.getParticleboard(id);
+	}
+
+	@Override
+	public void addBrand(DirBrand dirBrand) {
+		dao.addBrand(dirBrand);
+	}
+
+	@Override
+	public DirBrand getDirBrand(long id) {
+		return dao.getDirBrand(id);
+	}
+
+	@Override
+	public List<DirBrand> getListDirBrands() {
+		return dao.getAllDirBrands();
 	}
 
 

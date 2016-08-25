@@ -91,7 +91,7 @@
 		<div class="widget col-md-3">
 		    <h1>Product Filters</h1>
 		    
-		    <form action="hmc.htm" method="GET">
+		    <form action="plywood" method="GET">
 		    <div class="body">
 		        <div class="category-filter">
 		            <h2>Brands</h2>

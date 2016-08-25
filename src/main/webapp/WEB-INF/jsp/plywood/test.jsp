@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -42,6 +47,27 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="resources/assets/images/favicon.ico">
 
+    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
+	    <!-- jQuery -->
+	    <script src="resources/js/jquery.js"></script>
+	
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="resources/js/bootstrap.min.js"></script>
+
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	    <script src="resources/assets/js/gmap3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
+	    <script src="resources/assets/js/owl.carousel.min.js"></script>
+	    <script src="resources/assets/js/css_browser_selector.min.js"></script>
+	    <script src="resources/assets/js/echo.min.js"></script>
+	    <script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-slider.min.js"></script>
+	    <script src="resources/assets/js/jquery.raty.min.js"></script>
+	    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
+	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
+	    <script src="resources/assets/js/wow.min.js"></script>
+	    <script src="resources/assets/js/scripts.js"></script>
+
 		<!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
 		<!--[if lt IE 9]>
 			<script src="resources/assets/js/html5shiv.js"></script>
@@ -52,133 +78,34 @@
 	</head>
 <body>
 	
-	<div class="wrapper">
-<!-- ============================================================= TOP NAVIGATION ============================================================= -->
-
-<!--                
-<%--<%@include file="in/nav.jsp" %>--%>        
- ============================================================= TOP NAVIGATION : END =============================================================         ============================================================= HEADER ============================================================= 
-<%--<%@include file="in/header.jsp" %>--%>                   
-                -->
-
-<!-- ============================================================= HEADER : END ============================================================= -->		<main id="faq" class="inner">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 center-block">
-				<div class="info-404 text-center">
-					<h2 class="primary-color inner-bottom-xs">Test</h2>
-					<p class="lead">We are sorry, the page you've requested is test.</p>
-					<div class="text-center">
-						<!--<a href="j_spring_security_logout" class="btn-lg huge"> Log out</a>-->
-					</div>
-					<div class="sub-form-row inner-top-xs inner-bottom-xs">
-<!--		                <form role="form">
-		                    <input placeholder="Search our product catalog" autocomplete="off">
-		                    <button class="le-button">Go</button>
-		                </form>-->
-				    </div>
-					<div class="text-center">
-						<a href="index" class="btn-lg huge"><i class="fa fa-home"></i> Go to Home Page</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</main>		<!-- ============================================================= FOOTER ============================================================= -->
-
-<%--<%@include file="/WEB-INF/jsp/hmc/in/footer.jsp" %>--%>
-
-<!-- ============================================================= FOOTER : END ============================================================= -->	</div><!-- /.wrapper -->
-
-	<!-- For demo purposes – can be removed on production -->
-	
-<!--	<div class="config open">
-		<div class="config-options">
-			<h4>Pages</h4>
-			<ul class="list-unstyled animate-dropdown">
-				<li class="dropdown">
-					<button class="dropdown-toggle btn le-button btn-block" data-toggle="dropdown">View Pages</button>
-					<ul class="dropdown-menu">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="index-2.html">Home Alt</a></li>
-                                                <li><a href="category-grid.html">Category - Grid/List</a></li>
-                                                <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-                                                <li><a href="single-product.html">Single Product</a></li>
-                                                <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="terms.html">Terms & Conditions</a></li>
-                                                <li><a href="authentication.html">Login/Register</a></li>
-                                                <li><a href="404.html">404</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="compare.html">Product Comparison</a></li>
-                                                <li><a href="track-your-order.html">Track your Order</a></li>
-                                            </ul> 	
-				</li>
-			</ul>
-			<h4>Header Styles</h4>
-			<ul class="list-unstyled">
-				<li><a href="404.html">Header 1</a></li>
-				<li><a href="404.html">Header 2</a></li>
-			</ul>
-			<h4>Colors</h4>
-			<ul class="list-unstyled">
-				<li><a class="changecolor green-text" href="#" title="Green color">Green</a></li>
-                <li><a class="changecolor blue-text" href="#" title="Blue color">Blue</a></li>
-                <li><a class="changecolor red-text" href="#" title="Red color">Red</a></li>
-                <li><a class="changecolor orange-text" href="#" title="Orange color">Orange</a></li>
-                <li><a class="changecolor navy-text" href="#" title="Navy color">Navy</a></li>
-                <li><a class="changecolor dark-green-text" href="#" title="Darkgreen color">Dark Green</a></li>
-			</ul>
-		</div>
-		<a class="show-theme-options" href="#"><i class="fa fa-wrench"></i></a>
-	</div>-->
-	<!-- For demo purposes – can be removed on production : End -->
-
-	<!-- JavaScripts placed at the end of the document so the pages load faster -->
-	<script src="resources/assets/js/jquery-1.10.2.min.js"></script>
-	<script src="resources/assets/js/jquery-migrate-1.2.1.js"></script>
-	<script src="resources/assets/js/bootstrap.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-	<script src="resources/assets/js/gmap3.min.js"></script>
-	<script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
-	<script src="resources/assets/js/owl.carousel.min.js"></script>
-	<script src="resources/assets/js/css_browser_selector.min.js"></script>
-	<script src="resources/assets/js/echo.min.js"></script>
-	<script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
-	<script src="resources/assets/js/bootstrap-slider.min.js"></script>
-    <script src="resources/assets/js/jquery.raty.min.js"></script>
-    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
-    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
-    <script src="resources/assets/js/wow.min.js"></script>
-	<script src="resources/assets/js/scripts.js"></script>
-
-	<!-- For demo purposes – can be removed on production -->
-	
-	<script src="switchstylesheet/switchstylesheet.js"></script>
-	
-	<script>
-		$(document).ready(function(){ 
-			$(".changecolor").switchstylesheet( { seperator:"color"} );
-			$('.show-theme-options').click(function(){
-				$(this).parent().toggleClass('open');
-				return false;
-			});
-		});
-
-		$(window).bind("load", function() {
-		   $('.show-theme-options').delay(2000).trigger('click');
-		});
-	</script>
-	<!-- For demo purposes – can be removed on production : End -->
-
-	<script src="http://w.sharethis.com/button/buttons.js"></script>
-
+<h2>Subscribe to the gym</h2>
+	    <form method="POST" commandName="member" name="member"
+	    		action="${pageContext.request.contextPath}/test?${_csrf.parameterName}=${_csrf.token}" >
+	        <table>
+	            <tr>
+	                <td><label>Are you a new member?  
+	                		<c:if test="${member.newMember == true}">
+	                			<input type="checkbox" class="le-checkbox" name="newMember" ></input>
+	                		</c:if>
+	                		<c:if test="${member.newMember == false}">
+	                			<input type="checkbox" class="le-checkbox" name="newMember" ></input>
+	                		</c:if>
+	                	</label>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Choose the courses you like:</td>
+	                <td><!-- form:checkboxes class="le-checkbox" path="courses" items="${courses}" / -->
+	                	<c:forEach items="${courses}" var="course" >
+	                		<!-- form:checkbox class="le-checkbox" path="${course}" / -->
+	                	</c:forEach>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td><input type="submit" name="submit" value="Submit"></td>
+	            </tr>
+	            <tr>
+	        </table>
+	    </form>
 </body>
 </html>

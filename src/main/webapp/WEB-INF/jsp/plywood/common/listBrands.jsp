@@ -3,5 +3,4 @@
 
 		<c:forEach items="${brands}" var="brand" varStatus="vs" >
 			<li><input  class="le-checkbox" type="checkbox"  name = 'chbrand${brand.id}' value='1' /><label>${brand.name}</label></li>
-
 		</c:forEach>

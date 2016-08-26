@@ -1,7 +1,9 @@
 package wood.controller2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -33,23 +35,34 @@ public class WController1 {
 
 	private List<String> courses = new ArrayList<String>();
 
+	private List<String> radios = new ArrayList<String>();
+	
+	private Map<Integer,String> ops = new HashMap<Integer,String>();
 	{
-    courses.add("Yoga");
-    courses.add("Stretching");
-    courses.add("Pilates");
-    courses.add("Aerobic");
-    courses.add("Oriental");
+		radios.add("Radio1");
+		radios.add("Radio2");
+		radios.add("Radio3");
+		radios.add("Radio4");
+		
+		ops.put(1,"Op1");
+		ops.put(2,"Op2");
+		ops.put(3,"Op3");
+		ops.put(4,"Op4");
+		
+	    courses.add("Yoga");
+	    courses.add("Stretching");
+	    courses.add("Pilates");
+	    courses.add("Aerobic");
+	    courses.add("Oriental");
 	}
 	
 	@RequestMapping(value = {"/test"} , method = RequestMethod.GET)
 	public String  testGet(HttpSession session, Model model) 
 	{
 		Member member = new Member();
-		//ModelAndView model = new ModelAndView("plywood/test");
-		List<String> preCheckedVals = new ArrayList<String>();
-		preCheckedVals.add("Yoga");
-		member.setCourses(preCheckedVals);
         model.addAttribute("courses", courses);
+        model.addAttribute("radios", radios);
+        model.addAttribute("ops", ops);
         model.addAttribute("member", member);
         
 		return "plywood/test";
@@ -59,10 +72,15 @@ public class WController1 {
 	public String  testPost(HttpSession session, @Valid @ModelAttribute("member") Member member,
 			Model model, BindingResult result) 
 	{
-		System.out.println("member - "+member);
-		
+		//List<String> preCheckedVals = new ArrayList<String>();
+		//preCheckedVals.add("Yoga");
+		//member.setCourses(preCheckedVals);
+		System.out.println("model - "+model);
 		model.addAttribute("courses", courses);
+        model.addAttribute("ops", ops);
+        model.addAttribute("radios", radios);
 		model.addAttribute("member", member);
+		System.out.println("member - "+member);
 		
 		return "plywood/test";
 	}	

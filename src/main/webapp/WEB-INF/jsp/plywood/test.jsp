@@ -84,22 +84,34 @@
 	        <table>
 	            <tr>
 	                <td><label>Are you a new member?  
-	                		<c:if test="${member.newMember == true}">
-	                			<input type="checkbox" class="le-checkbox" name="newMember" ></input>
-	                		</c:if>
-	                		<c:if test="${member.newMember == false}">
-	                			<input type="checkbox" class="le-checkbox" name="newMember" ></input>
-	                		</c:if>
+	                			<input type="checkbox" class="le-checkbox" name="newMember" id="newMember"></input>
 	                	</label>
 	                </td>
 	            </tr>
 	            <tr>
 	                <td>Choose the courses you like:</td>
-	                <td><!-- form:checkboxes class="le-checkbox" path="courses" items="${courses}" / -->
+	                <td>
 	                	<c:forEach items="${courses}" var="course" >
-	                		<!-- form:checkbox class="le-checkbox" path="${course}" / -->
+	                		<input type="checkbox" class="le-checkbox" name="courses" value="${course}" id="${course}">${course}</input>
 	                	</c:forEach>
 	                </td>
+	            </tr>
+	            <tr>
+	                <td>Choose the radios you like:</td>
+	                <td>
+	                	<c:forEach items="${radios}" var="radio" >
+	                		<input type="radio" class="le-checkbox" name="radios" value="${radio}" id="${radio}">${radio}</input>
+	                	</c:forEach>
+	                </td>
+	            </tr>
+	            <tr>
+	            	<td>
+	            		<!-- select name="ops" id="ops" multiple="true">
+	            			<c:forEach items="${ops}" var="op" >
+	            				<option value="${op}">${op}</option>
+	            			</c:forEach>
+	            		</select -->
+	            	</td>
 	            </tr>
 	            <tr>
 	                <td><input type="submit" name="submit" value="Submit"></td>
@@ -108,4 +120,22 @@
 	        </table>
 	    </form>
 </body>
+	<script>
+		$(function(){ 
+			
+			var arr = ${member.courses};
+			$.each(arr,function(){
+				$(this).attr("checked","checked");
+			});
+
+			arr = ${member.radios};
+			$.each(arr,function(){
+				$(this).attr("checked","checked");
+			});
+
+
+		});
+
+
+	</script>
 </html>

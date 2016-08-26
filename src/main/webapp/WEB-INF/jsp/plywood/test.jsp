@@ -89,18 +89,10 @@
 	                </td>
 	            </tr>
 	            <tr>
-	                <td>Choose the courses you like:</td>
-	                <td>
-	                	<c:forEach items="${courses}" var="course" >
-	                		<input type="checkbox" class="le-checkbox" name="courses" value="${course}" id="${course}">${course}</input>
-	                	</c:forEach>
-	                </td>
-	            </tr>
-	            <tr>
 	                <td>Choose the radios you like:</td>
 	                <td>
-	                	<c:forEach items="${radios}" var="radio" >
-	                		<input type="radio" class="le-checkbox" name="radios" value="${radio}" id="${radio}">${radio}</input>
+	                	<c:forEach items="${rs}" var="r" >
+	                		<input type="radio" class="le-checkbox" name="rs" value="${r}" id="${r}">${r}</input>
 	                	</c:forEach>
 	                </td>
 	            </tr>
@@ -114,6 +106,14 @@
 	            	</td>
 	            </tr>
 	            <tr>
+	                <td>Choose the courses you like:</td>
+	                <td>
+	                	<c:forEach items="${courses}" var="course" >
+	                		<input type="checkbox" class="le-checkbox" name="courses" value="${course}" id="${course}">${course}</input>
+	                	</c:forEach>
+	                </td>
+	            </tr>
+	            <tr>
 	                <td><input type="submit" name="submit" value="Submit"></td>
 	            </tr>
 	            <tr>
@@ -121,21 +121,26 @@
 	    </form>
 </body>
 	<script>
-		$(function(){ 
+
+		$(function ch_1(){ 
+
+
+			var ch2 = ${member.rs};
+			var ch1 = ${member.courses};
+
+			//alert(ch1);
+			//alert(ch2);
+
+			$.each(ch1, function(){
+				alert($(this));
+				//$(this).attr("checked","checked")
+			});
 			
-			var arr = ${member.courses};
-			$.each(arr,function(){
-				$(this).attr("checked","checked");
+			$.each(ch2, function(){
+				alert($(this));
+				//$(this).attr("checked","checked")
 			});
-
-			arr = ${member.radios};
-			$.each(arr,function(){
-				$(this).attr("checked","checked");
-			});
-
-
 		});
-
 
 	</script>
 </html>

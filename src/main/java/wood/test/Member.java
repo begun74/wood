@@ -9,7 +9,7 @@ public class Member {
 
 	private List<String> courses;
 	
-	private List<String> radios;
+	private List<String> rs;
 
 	private Map<Integer,String> ops;
 
@@ -31,12 +31,12 @@ public class Member {
 	}
 	
 
-	public List<String> getRadios() {
-		return radios;
+	public List<String> getRs() {
+		return rs;
 	}
 
-	public void setRadios(List<String> radios) {
-		this.radios = radios;
+	public void setRs(List<String> rs) {
+		this.rs = rs;
 	}
 
 
@@ -51,7 +51,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [newMember=" + newMember + ", courses=" + courses
-				+ ", radios=" + radios + ", ops=" + ops + "]";
+				+ ", rs=" + rs + ", ops=" + ops + "]";
 	}
 
 

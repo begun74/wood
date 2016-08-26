@@ -35,14 +35,14 @@ public class WController1 {
 
 	private List<String> courses = new ArrayList<String>();
 
-	private List<String> radios = new ArrayList<String>();
+	private List<String> rs = new ArrayList<String>();
 	
 	private Map<Integer,String> ops = new HashMap<Integer,String>();
 	{
-		radios.add("Radio1");
-		radios.add("Radio2");
-		radios.add("Radio3");
-		radios.add("Radio4");
+		rs.add("Radio1");
+		rs.add("Radio2");
+		rs.add("Radio3");
+		rs.add("Radio4");
 		
 		ops.put(1,"Op1");
 		ops.put(2,"Op2");
@@ -61,7 +61,7 @@ public class WController1 {
 	{
 		Member member = new Member();
         model.addAttribute("courses", courses);
-        model.addAttribute("radios", radios);
+        model.addAttribute("rs", rs);
         model.addAttribute("ops", ops);
         model.addAttribute("member", member);
         
@@ -72,14 +72,12 @@ public class WController1 {
 	public String  testPost(HttpSession session, @Valid @ModelAttribute("member") Member member,
 			Model model, BindingResult result) 
 	{
-		//List<String> preCheckedVals = new ArrayList<String>();
-		//preCheckedVals.add("Yoga");
-		//member.setCourses(preCheckedVals);
-		System.out.println("model - "+model);
 		model.addAttribute("courses", courses);
         model.addAttribute("ops", ops);
-        model.addAttribute("radios", radios);
+        model.addAttribute("rs", rs);
 		model.addAttribute("member", member);
+
+		System.out.println("model - "+model);
 		System.out.println("member - "+member);
 		
 		return "plywood/test";

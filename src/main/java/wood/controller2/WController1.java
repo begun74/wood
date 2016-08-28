@@ -110,17 +110,17 @@ public class WController1 {
 		List<Particleboard> pList = new LinkedList<Particleboard>();
 		Iterator<Long> iterBrands = mIndex.getBrands().iterator();
 		
-		boolean finding = false;
+		boolean isFinding = false;
 		
 		while(iterBrands.hasNext())
 		{
-			finding = true;
+			isFinding = true;
 			Particleboard particleboard = new Particleboard();
 			particleboard.setFk_dirBrand(iterBrands.next());
 			pList.addAll( woodService.getListParticleboards(particleboard));
 		}
 		
-		if(pList.size()!=0 || finding)
+		if(pList.size()!=0 || isFinding)
 			model.addAttribute("particleboards",pList);
 		else
 			model.addAttribute("particleboards",woodService.getListParticleboards());

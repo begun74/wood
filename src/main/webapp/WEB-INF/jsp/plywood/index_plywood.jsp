@@ -134,6 +134,10 @@
 	        e.preventDefault();
 	        $("#wrapper").toggleClass("toggled");
 	    });
+	    
+	    $(function() {
+	    	
+	    });
 	    </script>
     
 </html>

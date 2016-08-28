@@ -2,6 +2,8 @@ package wood.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.Example;
+
 import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
@@ -23,6 +25,7 @@ public interface DAO {
 	public void addParticleboard(Particleboard particleboard);
 	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getAllParticleboards(); 
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard); 
 	
 	public void delObject(Object obj);
 }

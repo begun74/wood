@@ -2,6 +2,8 @@ package wood.controller2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
 import wood.model.DirBrand;
+import wood.model.Particleboard;
 import wood.modelattribute.MIndex;
 import wood.service.WoodService;
 import wood.test.Member;
@@ -103,7 +106,25 @@ public class WController1 {
 			Model model) 
 	{
 		model.addAttribute("mIndex",mIndex);
-		model.addAttribute("particleboards",woodService.getListParticleboards());
+		
+		List<Particleboard> pList = new LinkedList<Particleboard>();
+		Iterator<Long> iterBrands = mIndex.getBrands().iterator();
+		
+		boolean finding = false;
+		
+		while(iterBrands.hasNext())
+		{
+			finding = true;
+			Particleboard particleboard = new Particleboard();
+			particleboard.setFk_dirBrand(iterBrands.next());
+			pList.addAll( woodService.getListParticleboards(particleboard));
+		}
+		
+		if(pList.size()!=0 || finding)
+			model.addAttribute("particleboards",pList);
+		else
+			model.addAttribute("particleboards",woodService.getListParticleboards());
+		
 		model.addAttribute("brands",woodService.getListDirBrands());
 		//System.out.println("plywoodPost   mIndex - "+mIndex);
 		return "plywood/index_plywood";

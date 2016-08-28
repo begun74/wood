@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,13 @@ public  class DAOImpl implements DAO {
 		return (ArrayList<Particleboard>)getSession().createSQLQuery("select * from particleboard").addEntity(Particleboard.class).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard) {
+		// TODO Auto-generated method stub
+		return (ArrayList<Particleboard>)getSession().createCriteria(Particleboard.class).
+				add(Example.create(example_particleboard)).list();
+	}
 	
 	@Override
 	public void addColor(DirColor dirColor) {
@@ -86,6 +94,7 @@ public  class DAOImpl implements DAO {
 	public List<DirBrand> getAllDirBrands() {
 		return (List<DirBrand>)getSession().createSQLQuery("select * from dirBrand order by name").addEntity(DirBrand.class).list();
 	}
+
 
 	
 	

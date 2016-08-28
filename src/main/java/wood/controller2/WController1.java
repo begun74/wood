@@ -88,7 +88,8 @@ public class WController1 {
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.GET)
 	public String  plywoodGet(HttpSession session, Model model) 
 	{
-		//ModelAndView model = new ModelAndView("plywood/index_plywood");
+		MIndex mIndex = new MIndex();
+		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
 		//System.out.println("plywoodGet   model - "+model);
@@ -97,15 +98,14 @@ public class WController1 {
 
 	
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.POST)
-	public String  plywoodPost(HttpSession session, @Valid @ModelAttribute("member") MIndex mIndex, 
+	public String  plywoodPost(HttpSession session, @Valid @ModelAttribute("mIndex") MIndex mIndex, 
 			BindingResult result,
 			Model model) 
 	{
-		//ModelAndView model = new ModelAndView("plywood/index_plywood");
+		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
-		//System.out.println("plywoodPost   model - "+model);
-		System.out.println("plywoodPost   mIndex - "+mIndex);
+		//System.out.println("plywoodPost   mIndex - "+mIndex);
 		return "plywood/index_plywood";
 	}
 	

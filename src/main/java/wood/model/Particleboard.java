@@ -27,10 +27,6 @@ public class Particleboard implements Serializable {
 	private static final long serialVersionUID = -305820481244587257L;
 
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "fk_dirColor")
-	private DirColor dirColor;
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_particleboard")
@@ -55,8 +51,18 @@ public class Particleboard implements Serializable {
 	@Column(insertable=false ,updatable=false)
 	private  Long fk_dirColor;
 	
+	@Column(insertable=false ,updatable=false)
+	private  Long fk_dirBrand;
+
 	private String fileName;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_dirColor")
+	private DirColor dirColor;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_dirBrand")
+	private DirBrand dirBrand;
 	
 	
 	public Particleboard(long id) {
@@ -104,13 +110,27 @@ public class Particleboard implements Serializable {
 		this.fk_dirColor = fk_dirColor;
 	}
 	
+	public Long getFk_dirBrand() {
+		return fk_dirBrand;
+	}
+	public void setFk_dirBrand(Long fk_dirBrand) {
+		this.fk_dirBrand = fk_dirBrand;
+	}
 	public DirColor getDirColor() {
 		return dirColor;
 	}
 	public void setDirColor(DirColor dirColor) {
 		this.dirColor = dirColor;
 	}
-
+	
+	
+	public DirBrand getDirBrand() {
+		return dirBrand;
+	}
+	public void setDirBrand(DirBrand dirBrand) {
+		this.dirBrand = dirBrand;
+	}
+	
 	public String getFileName() {
 		return fileName;
 	}

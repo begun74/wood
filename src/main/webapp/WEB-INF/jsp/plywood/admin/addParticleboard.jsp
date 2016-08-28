@@ -83,7 +83,7 @@
 						                   <label>Price<input id="price" type="text" class="form-control" name="price" value="0" ></label> 
 								         </div>
 								         <div style="margin-bottom: 15px" class="form-group">
-											 <label>Color
+											 <label>Colors
 								         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
 								         	 	<option value="-1"></option>
 									         	 <c:forEach items="${dirColors}" var="dirColor">
@@ -92,6 +92,17 @@
 								         	 </select>
 								         	 </label>
 								         </div>
+								         <div style="margin-bottom: 15px" class="form-group">
+											 <label>Brands
+								         	 <select class="form-control" id="fk_dirBrand" name="fk_dirBrand">
+								         	 	<option value="-1"></option>
+									         	 <c:forEach items="${dirBrands}" var="dirBrand">
+									         	 	<option value="${dirBrand.id}">${dirBrand.name}</option>
+									         	 </c:forEach>
+								         	 </select>
+								         	 </label>
+								         </div>
+
 								         <input type="hidden" name="fileName" value="" />
 								         
 								         <div style="margin-bottom: 15px" class="form-group">

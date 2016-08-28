@@ -98,7 +98,9 @@
 		            <h2>Brands</h2>
 		            <hr>
 		            <ul>    
-						<%@include file="common/listBrands.jsp" %> 
+						<c:forEach items="${brands}" var="brand" varStatus="vs" >
+							<li><input  class="le-checkbox" type="checkbox"  name="brands" id="brand_${brand.id}" value="${brand.id}" /><label>${brand.name}</label></li>
+						</c:forEach>
 					</ul>   
 					<hr> 
 					<input  type="submit" name="register" value="Select"/>
@@ -136,7 +138,12 @@
 	    });
 	    
 	    $(function() {
-	    	
+			var brnds = ${mIndex.brands};
+		
+			for (var item in brnds) {
+                $('#brand_'+brnds[item]).attr("checked","checked");
+            }
+
 	    });
 	    </script>
     

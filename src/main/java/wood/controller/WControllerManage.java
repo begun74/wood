@@ -152,9 +152,11 @@ public class WControllerManage {
 		}
 		
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
+		particleboard.setDirBrand(woodService.getDirBrand(particleboard.getFk_dirBrand()));
 		woodService.addParticleboard(particleboard);
 		
 		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
+		//System.out.println("particleboard - "+);
 	    return model;
 	}
 

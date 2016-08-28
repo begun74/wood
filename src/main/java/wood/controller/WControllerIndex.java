@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
+import wood.modelattribute.MIndex;
 import wood.service.WoodService;
 import wood.util.FileUpload;
 
@@ -55,6 +56,12 @@ public class WControllerIndex {
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
 		model.addObject("brands",woodService.getListDirBrands());
+		//MIndex mIndex = new MIndex();
+		//mIndex.setBrands(woodService.getListDirBrands());
+		//model.addObject("mIndex",mIndex);
+		
+		//System.out.println(mIndex);
+
 		
 	    return model;
 	}

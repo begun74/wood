@@ -84,6 +84,10 @@
 							         <div style='margin-bottom: 15px' class="form-group">
 					                   <label>Brand <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
+							         <div style='margin-bottom: 15px' class="form-group">
+					                   <label>Description <input name="description" id="description" type="textfiekd" class="form-control"  ></label> 
+							         </div>
+							         
 					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
 					         <input type="hidden" name ="id_dirBrand" id ="id_dirBrand" value="-1"/>
 					    	</form:form>
@@ -94,7 +98,7 @@
 							<div>Name</div>
 									<c:forEach items="${dirBrands}" var="dirBrand">
 									  	<div class="row span6" >
-											<div class="col-md-2">
+											<div class="col-md-4">
 												<div><a href="#" onclick="$('#name').val('${dirBrand.name}');">${dirBrand.name}</a></div>
 											</div>
 											<div class="col-md-2">

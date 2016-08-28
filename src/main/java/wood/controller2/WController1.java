@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
 import wood.model.DirBrand;
+import wood.modelattribute.MIndex;
 import wood.service.WoodService;
 import wood.test.Member;
 
@@ -85,12 +86,26 @@ public class WController1 {
 	
 	
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.GET)
-	public String  plywood(HttpSession session, Model model) 
+	public String  plywoodGet(HttpSession session, Model model) 
 	{
 		//ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
-		//System.out.println("model - "+model);
+		//System.out.println("plywoodGet   model - "+model);
+		return "plywood/index_plywood";
+	}
+
+	
+	@RequestMapping(value = {"/plywood"} , method = RequestMethod.POST)
+	public String  plywoodPost(HttpSession session, @Valid @ModelAttribute("member") MIndex mIndex, 
+			BindingResult result,
+			Model model) 
+	{
+		//ModelAndView model = new ModelAndView("plywood/index_plywood");
+		model.addAttribute("particleboards",woodService.getListParticleboards());
+		model.addAttribute("brands",woodService.getListDirBrands());
+		//System.out.println("plywoodPost   model - "+model);
+		System.out.println("plywoodPost   mIndex - "+mIndex);
 		return "plywood/index_plywood";
 	}
 	

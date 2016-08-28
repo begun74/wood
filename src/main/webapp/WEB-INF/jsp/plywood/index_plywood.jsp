@@ -91,7 +91,8 @@
 		<div class="widget col-md-3">
 		    <h1>Product Filters</h1>
 		    
-		    <form action="plywood" method="GET">
+		    <form  method="POST" name="mIndex" 
+		    	action="${pageContext.request.contextPath}/plywood?${_csrf.parameterName}=${_csrf.token}">
 		    <div class="body">
 		        <div class="category-filter">
 		            <h2>Brands</h2>

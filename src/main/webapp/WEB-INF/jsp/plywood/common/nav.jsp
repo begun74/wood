@@ -1,13 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <nav class="top-bar animate-dropdown">
 	<div class="container">
 		<div class="col-xs-12 col-sm-6 no-margin">
 			<ul>
-				<li><a href="index">Home</a></li>
+				<li><a href="index"><spring:message code="nav.menu.home"/></a></li>
 				<!-- li><a href="video">Video</a></li -->
-				<li><a href="contact">Contact</a></li>
+				<li><a href="contact"><spring:message code="nav.menu.contact"/></a></li>
 			</ul>
 		</div>
 
@@ -16,22 +17,22 @@
 				<li>
 					<c:choose>
 						<c:when test="${sessionBean.time >0}">
-							 <a href="admin">Admin</a>
-							 <a href="loginPage?logout">Logout</a>
+							 <a href="admin"><spring:message code="nav.menu.admin"/></a>
+							 <a href="loginPage?logout"><spring:message code="nav.menu.logout"/></a>
 						</c:when>
 						<c:otherwise>
-							 <a href="loginPage">Login</a>
+							 <a href="loginPage"><spring:message code="nav.menu.login"/></a>
 						</c:otherwise>
 					</c:choose>
 				</li>
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">EN</a>
+				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Язык|Lang</a>
 					<ul class="dropdown-menu" role="menu">
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="#">RU</a></li>
-						<!--                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tamil</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Russian</a></li>-->
-					</ul></li>
+						<li role="presentation"><a role="menuitem" tabindex="1"
+							href="index?locale=ru">RU</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="0"
+							href="index?locale=en">EN</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>

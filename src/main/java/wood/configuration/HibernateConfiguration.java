@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 
 
 
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +23,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
@@ -64,6 +66,7 @@ public class HibernateConfiguration {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
         sessionBuilder.addProperties(hibernateProperties());
 
+        sessionBuilder.addAnnotatedClasses(DirBrand.class);
         sessionBuilder.addAnnotatedClasses(DirCustomer.class);
         sessionBuilder.addAnnotatedClasses(DirColor.class);
         sessionBuilder.addAnnotatedClasses(Request.class);

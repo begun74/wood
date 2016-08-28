@@ -4,7 +4,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
-<!-- html lang="en" -->
 <html>
     <head>
         <!-- Bootstrap Core CSS -->
@@ -74,36 +73,18 @@
 				</div>
 	            <div class="container-fluid">
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-8">
 						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
 						  			enctype="multipart/form-data" 
-						  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
-						  			method="POST"
-						  			modelAttribute="dirColor">
-							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
-							         </div>
-					         <button type="submit" class="">Add</button>
-					         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
+						  			action="${pageContext.request.contextPath}/admin/addPhoto?${_csrf.parameterName}=${_csrf.token}" 
+						  			method="POST">
+
+						         <div style="margin-bottom: 15px" class="form-group">
+							         	<p><spring:message code="label.add.pics.from.file"/> <input type="file" name="file"></p>
+								 </div>
+
+					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
 					    	</form:form>
-						</div>
-						<div class="col-md-2">
-						</div>
-						<div class="col-md-8">
-							<div>Name</div>
-									<c:forEach items="${dirColors}" var="dirColor">
-									  	<div class="row span6" >
-											<div class="col-md-2">
-												<div><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></div>
-											</div>
-											<div class="col-md-2">
-					         					<button type="button"  onclick="$('#id_dirColor').val(${dirColor.id}); $('#addColorForm').submit();" >Update</button>
-					         				</div>
-											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delColor?id=${dirColor.id}'">Delete</button>
-											</div>
-										</div>
-									</c:forEach>
 						</div>
 					</div>
 

@@ -1,9 +1,10 @@
-package wood.model;
+package wood.util;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,6 +13,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import wood.model.Particleboard;
 
 
 @Service
@@ -40,7 +43,7 @@ public class FileUpload {
 		if (!file.isEmpty()) {
             String contentType = file.getContentType().toString().toLowerCase();
             
-            if (isValidContentType_PICS(contentType)) {
+            if (isValidContentType_1(contentType)) {
                 if (belowMaxFileSize(file.getSize())) {
                     String newFile = newFileName == null?env.getRequiredProperty(UPLOAD_FILE_PATH) + file.getOriginalFilename():env.getRequiredProperty(UPLOAD_FILE_PATH)+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
                     try {
@@ -55,20 +58,6 @@ public class FileUpload {
                 	return null;
                 }
             } 
-            else if (isValidContentType_XLS(contentType)) {
-            	String newFile = null;
-                if (belowMaxFileSize(file.getSize())) {
-                    newFile = newFileName == null?env.getRequiredProperty(TEMP_FILE_PATH) + file.getOriginalFilename():env.getRequiredProperty(TEMP_FILE_PATH)+newFileName+"."+contentType.substring(contentType.indexOf("/")+1);
-                    try {
-						file.transferTo(new File(newFile));
-					} catch (Exception e) {
-						return null;
-					}
-                    
-                    System.out.println(newFile);
-                }
-                return newFile;
-            }
             else {
                 //return "Error. " + contentType + " is not a valid content type.";
             	return null;
@@ -80,8 +69,67 @@ public class FileUpload {
         	return null;
         }
     }
-    
-    private Boolean isValidContentType_PICS(String contentType) {
+
+	public String processPhoto(MultipartFile file) {
+
+		if (!file.isEmpty()) {
+            String contentType = file.getContentType().toString().toLowerCase();
+            
+            if (isValidContentType_XLS(contentType)) {
+                if (belowMaxFileSize(file.getSize())) {
+                    String newFile = env.getRequiredProperty(TEMP_FILE_PATH) + "photo"+System.currentTimeMillis()+".xls";
+                    try {
+                        file.transferTo(new File(newFile));
+                        ReadExcelUtil.readPhoto(new File(newFile));
+                        return "You have successfully uploaded " + file.getOriginalFilename() + "!";
+                    } catch (Exception e) {
+                    	e.printStackTrace();
+                    	return null;
+                    } 
+                } else {
+                    //return "Error. " + file.getOriginalFilename() + " file size (" + file.getSize() + ") exceeds " + MAX_FILE_SIZE + " limit.";
+                	return null;
+                }
+            } 
+            else {
+                //return "Error. " + contentType + " is not a valid content type.";
+            	return null;
+            }
+            
+            
+        } else {
+            //return "Error. No file choosen.";
+        	return null;
+        }
+    }
+	
+	
+	public List<Particleboard>  process(MultipartFile file) {
+		if (!file.isEmpty()) {
+			String contentType = file.getContentType().toString().toLowerCase();
+		
+			if (isValidContentType_XLS(contentType)) {
+            	String newFile = null;
+                if (belowMaxFileSize(file.getSize())) {
+                	newFile = env.getRequiredProperty(TEMP_FILE_PATH) + file.getOriginalFilename();
+                    new File(newFile).mkdirs();
+                    try {
+						file.transferTo(new File(newFile));
+						return ReadExcelUtil.readParticleboard(new File(newFile));
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
+                }
+			}
+		}
+		
+		return null;
+
+	}
+	
+	
+    private Boolean isValidContentType_1(String contentType) {
     	//System.out.println("contentType - "+contentType);
         if (!Arrays.asList(ALLOWED_FILE_TYPES_PICS).contains(contentType)) {
             return false;

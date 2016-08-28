@@ -21,8 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
-import wood.model.FileUpload;
 import wood.service.WoodService;
+import wood.util.FileUpload;
 
 
 
@@ -54,6 +54,7 @@ public class WControllerIndex {
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
+		model.addObject("brands",woodService.getListDirBrands());
 		
 	    return model;
 	}

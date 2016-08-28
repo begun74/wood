@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
@@ -69,6 +70,21 @@ public  class DAOImpl implements DAO {
 	public Particleboard getParticleboard(long id) {
 		// TODO Auto-generated method stub
 		return (Particleboard)getSession().get(Particleboard.class, id);
+	}
+
+	@Override
+	public void addBrand(DirBrand dirBrand) {
+		getSession().saveOrUpdate(dirBrand);
+	}
+
+	@Override
+	public DirBrand getDirBrand(long id) {
+		return (DirBrand)getSession().get(DirBrand.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<DirBrand> getAllDirBrands() {
+		return (List<DirBrand>)getSession().createSQLQuery("select * from dirBrand order by name").addEntity(DirBrand.class).list();
 	}
 
 	

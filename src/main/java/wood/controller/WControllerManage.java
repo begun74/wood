@@ -1,5 +1,7 @@
 package wood.controller;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
@@ -19,10 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.SessionBean;
+import wood.model.DirBrand;
 import wood.model.DirColor;
-import wood.model.FileUpload;
 import wood.model.Particleboard;
 import wood.service.WoodService;
+import wood.util.FileUpload;
 import wood.util.ReadExcelUtil;
 
 @Controller
@@ -72,14 +75,42 @@ public class WControllerManage {
 			model = new ModelAndView("plywood/admin/processFile");
 			break;
 			
+		case "4":
+			model = new ModelAndView("plywood/admin/addPhoto");
+			break;
+			
+		case "5":
+			model = new ModelAndView("plywood/admin/addBrand");
+			break;
 		}
 		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());
 		model.addObject("particleboards",woodService.getListParticleboards());
+		model.addObject("dirBrands",woodService.getListDirBrands());
 		//System.out.println("sb - " +sb.getTime());
 	    return model;
 	}
 
+	@RequestMapping(value = "addBrand" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView   processBrand(HttpSession session, @Valid @ModelAttribute("addBrandForm") DirBrand dirBrand,
+			BindingResult result,
+			@ModelAttribute  MultipartFile file,
+			@RequestParam(value = "id_dirBrand",   required=false) Long id_dirBrand) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_BRAND);
+
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+		if(id_dirBrand != null && id_dirBrand.longValue()>0) 
+			dirBrand.setId(id_dirBrand);
+		
+		woodService.addBrand(dirBrand);
+		
+	    return model;
+	}
 
 	@RequestMapping(value = "addColor" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView   processColor(HttpSession session, @Valid @ModelAttribute("addColorForm") DirColor dirColor,
@@ -127,28 +158,49 @@ public class WControllerManage {
 	    return model;
 	}
 
+	@RequestMapping(value = "addPhoto" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView   processPhoto( @ModelAttribute  MultipartFile file) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PHOTO);
+
+		fileUpload.processPhoto(file);
+		//System.out.println("addPhoto");
+	    return model;
+	}
+
 	
 	@RequestMapping(value = "delParticleboard")
 	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getParticleboard(id));
-		return "redirect:/admin?act=2";
+		return "redirect:/admin?act="+sb.ADD_PARTICLEBOARD;
 	}
 
 	@RequestMapping(value = "delColor")
 	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
 	{
 		woodService.delObject(woodService.getDirColor(id));
-		return "redirect:/admin?act=1";
+		return "redirect:/admin?act="+sb.ADD_COLOR;
 	}
 	
+	@RequestMapping(value = "delBrand")
+	public String  delBrand(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getDirBrand(id));
+		return "redirect:/admin?act="+sb.ADD_BRAND;
+	}
 
 	@RequestMapping(value = "processFile" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 
 	{
 		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
 		
-		fileUpload.process(file,null);
+		List<Particleboard>  pList = fileUpload.process(file);
+		
+		pList.forEach(p -> woodService.addParticleboard(p));
+		
+		//for(Particleboard p: pList)
+		//	woodService.addParticleboard(p);
 		//FileUtils.writeByteArrayToFile(file, file.getBytes());
 		//ReadExcelUtil.readParticleboard(file);
 		/*

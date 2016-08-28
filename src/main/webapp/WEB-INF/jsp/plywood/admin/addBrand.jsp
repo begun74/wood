@@ -75,32 +75,33 @@
 	            <div class="container-fluid">
 					<div class="row">
 						<div class="col-md-2">
-						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
+						  	<form:form id="addBrandForm" class="form-horizontal" role="form"
+						  			commandName="addBrandForm"
 						  			enctype="multipart/form-data" 
-						  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
+						  			action="${pageContext.request.contextPath}/admin/addBrand?${_csrf.parameterName}=${_csrf.token}" 
 						  			method="POST"
-						  			modelAttribute="dirColor">
+						  			modelAttribute="dirBrand">
 							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
+					                   <label>Brand <input id="name" type="text" class="form-control" name="name" ></label> 
 							         </div>
-					         <button type="submit" class="">Add</button>
-					         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
+					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
+					         <input type="hidden" name ="id_dirBrand" id ="id_dirBrand" value="-1"/>
 					    	</form:form>
 						</div>
 						<div class="col-md-2">
 						</div>
 						<div class="col-md-8">
 							<div>Name</div>
-									<c:forEach items="${dirColors}" var="dirColor">
+									<c:forEach items="${dirBrands}" var="dirBrand">
 									  	<div class="row span6" >
 											<div class="col-md-2">
-												<div><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></div>
+												<div><a href="#" onclick="$('#name').val('${dirBrand.name}');">${dirBrand.name}</a></div>
 											</div>
 											<div class="col-md-2">
-					         					<button type="button"  onclick="$('#id_dirColor').val(${dirColor.id}); $('#addColorForm').submit();" >Update</button>
+					         					<button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button>
 					         				</div>
 											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delColor?id=${dirColor.id}'">Delete</button>
+												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button>
 											</div>
 										</div>
 									</c:forEach>

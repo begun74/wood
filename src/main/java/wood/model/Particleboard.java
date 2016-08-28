@@ -57,6 +57,15 @@ public class Particleboard implements Serializable {
 	
 	private String fileName;
 	
+	
+	
+	public Particleboard(long id) {
+		super();
+		this.id = id;
+	}
+	public Particleboard() {
+		// TODO Auto-generated constructor stub
+	}
 	public long getId() {
 		return id;
 	}

@@ -91,14 +91,14 @@
             
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                    <span class="count">${bracketBean.items}</span>
+                    <span class="count">${bracketBean.countItems}</span>
                     <img src="resources/assets/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket"> 
                     <span class="lbl">your cart:</span>
                     <span class="total-price">
-                        <span class="sign">$</span><span class="value"></span>
+                        <span class="sign">$${bracketBean.allPrice}</span><span class="value"></span>
                     </span>
                 </div>
             </a>

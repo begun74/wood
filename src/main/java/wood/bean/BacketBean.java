@@ -40,7 +40,7 @@ public class BacketBean {
 		{
 			itemsTM.put(p,1);
 		}
-		System.out.println("itemsTM  - "+itemsTM);
+		//System.out.println("itemsTM  - "+itemsTM);
 	}
 
 	public List<Particleboard> getItems() {
@@ -91,7 +91,7 @@ public class BacketBean {
 			//itemsTM.put(p,1);
 		}
 
-		System.out.println("itemsTM  - "+itemsTM);
+		//System.out.println("itemsTM  - "+itemsTM);
 	}
 	
 

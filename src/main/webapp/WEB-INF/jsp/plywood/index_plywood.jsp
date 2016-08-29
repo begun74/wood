@@ -92,7 +92,7 @@
 		    <h1>Product Filters</h1>
 		    
 		    <form  method="POST" name="mIndex" 
-		    	action="${pageContext.request.contextPath}/plywood?${_csrf.parameterName}=${_csrf.token}">
+		    	action="${pageContext.request.contextPath}/plywood">
 		    <div class="body">
 		        <div class="category-filter">
 		            <h2>Brands</h2>
@@ -106,6 +106,7 @@
 					<input  type="submit" name="register" value="Select"/>
     			</div>
     		</div>
+    		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     		</form>
     	</div>
 

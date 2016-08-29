@@ -8,7 +8,20 @@
 							    </c:if><td>							
 							    		<table>
 							    			<tr><td><img src="resources/pics/${particleboard.id}.jpeg" width="190" height="190"/></td></tr>
-							    			<tr><td>${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td></tr>
+							    			<tr>
+							    				<td>
+							    					${particleboard.thickness}x${particleboard.length}x${particleboard.weight}
+							    					<div class="hover-area">
+					                                    <div class="add-cart-button">
+					                                        <a href="add-product-to-customer-basket.htm?id=15" class="le-button">add to cart</a>
+					                                    </div>
+					                                    <div class="wish-compare">
+					                                        <a class="btn-add-to-wishlist" href="add-product-to-wish-list.htm?id=15">add to wishlist</a>
+					                                        <a class="btn-add-to-compare" href="add-product-to-compare-list.htm?id=15">compare</a>
+					                                    </div>
+					                                </div>
+							    				</td>
+							    			</tr>
 							    		</table>
 										<!-- td padding="10px">${vs.count}  ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
 										<td>${particleboard.dirColor.name}</td>

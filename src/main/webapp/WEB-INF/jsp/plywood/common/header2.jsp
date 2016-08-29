@@ -91,7 +91,7 @@
             
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                    <span class="count"></span>
+                    <span class="count">${bracketBean.items}</span>
                     <img src="resources/assets/images/icon-cart.png" alt="" />
                 </div>
 

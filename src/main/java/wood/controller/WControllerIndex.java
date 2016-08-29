@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.bean.BacketBean;
 import wood.bean.SessionBean;
 import wood.modelattribute.MIndex;
 import wood.service.WoodService;
@@ -38,6 +39,8 @@ public class WControllerIndex {
 	@Autowired
 	FileUpload fileUpload;
 
+	@Autowired
+	BacketBean backet;
 	
 	@PostConstruct
 	void init(){
@@ -56,7 +59,9 @@ public class WControllerIndex {
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
 		model.addObject("brands",woodService.getListDirBrands());
+		model.addObject("bracketBean",backet);
 		
+		//System.out.println(""+backet.getItems());
 	    return model;
 	}
 

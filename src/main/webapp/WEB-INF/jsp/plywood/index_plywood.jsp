@@ -128,7 +128,7 @@
 									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
 								</div>
 								<!-- Main content  -->
-									<%@include file="common/content3.jsp" %>      
+									<%@include file="common/content4.jsp" %>      
 								<!-- Main content  -->
 							</div>
 						</div>

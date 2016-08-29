@@ -141,6 +141,7 @@ public class WController1 {
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
 	public String  add_product_to_wish_list( Model model, @RequestParam(value = "id",   required=false) Long id)
 	{
+		//System.out.println("model - "+model);
 		MIndex mIndex = new MIndex();
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());

@@ -9,7 +9,7 @@
 										<td style="padding: 25px;">
 											<div class="product-item-holder hover">
 												<img src="resources/pics/${particleboard.id}.jpeg" width="190" height="190"/>
-												<br/>${particleboard.id}   ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}
+												<br/>${particleboard.id}   ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}       <spring:message code="label.price"/> ${particleboard.price}$
 												<div class="product-item ">
 								    					<div class="hover-area">
 						                                    <div class="add-cart-button">

@@ -17,7 +17,7 @@
 						                                    </div>
 						                                    <div class="wish-compare">
 						                                        <a class="btn-add-to-wishlist" href="add-product-to-wish-list.htm?id=${particleboard.id}">add to wishlist</a>
-						                                        <!-- a class="btn-add-to-compare" href="add-product-to-compare-list.htm?id=${particleboard.id}">compare</a -->
+						                                        <a class="btn-add-to-compare" href="add-product-to-compare-list.htm?id=${particleboard.id}">compare</a>
 						                                    </div>
 						                                </div>
 												</div>

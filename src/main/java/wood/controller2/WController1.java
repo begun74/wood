@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.bean.BacketBean;
 import wood.bean.SessionBean;
 import wood.model.DirBrand;
 import wood.model.Particleboard;
@@ -36,6 +37,9 @@ public class WController1 {
 
 	@Autowired
 	private WoodService woodService;  //Service which will do all data retrieval/manipulation work
+
+	@Autowired
+	BacketBean backet;
 
 	private List<String> courses = new ArrayList<String>();
 
@@ -95,6 +99,8 @@ public class WController1 {
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
+		model.addAttribute("bracketBean",backet);
+
 		//System.out.println("plywoodGet   model - "+model);
 		return "plywood/index_plywood";
 	}
@@ -126,8 +132,17 @@ public class WController1 {
 			model.addAttribute("particleboards",woodService.getListParticleboards());
 		
 		model.addAttribute("brands",woodService.getListDirBrands());
+		model.addAttribute("bracketBean",backet);
+
 		//System.out.println("plywoodPost   mIndex - "+mIndex);
 		return "plywood/index_plywood";
 	}
 	
+	@RequestMapping(value = {"/add-product-to-wish-list"} , method = RequestMethod.GET)
+	public String  add_product_to_wish_list(@RequestParam(value = "id",   required=false) Long id)
+	{
+		System.out.println("plywood/index_plywood");
+		
+		return "plywood/index_plywood";
+	}
 }

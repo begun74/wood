@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "particleboard")
-public class Particleboard implements Serializable {
+public class Particleboard implements Serializable , Comparable {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class Particleboard implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_particleboard")
-	private long id;
+	private Long id;
 	
 	@Min (message = "Please correct enter thickness.", value = 1)
 	@NotNull(message = "Please correct enter thickness.")
@@ -138,6 +138,13 @@ public class Particleboard implements Serializable {
 		this.fileName = fileName;
 	}
 	
-	
+	public boolean equals(Object obj){
+		
+		return this.getId()==((Particleboard)obj).getId();
+	}
+	@Override
+	public int compareTo(Object o) {
+		return this.id.compareTo(((Particleboard)o).getId());
+	}
 
 }

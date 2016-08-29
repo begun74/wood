@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <header>
     <div class="container no-padding">
@@ -104,8 +106,23 @@
             </a>
 
             <ul class="dropdown-menu">
-                
-
+                <c:forEach items="${bracketBean.itemsTM}" var="particleboard" varStatus="vs">
+                    <div class="basket-item">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                <div class="thumb">
+                                    <img alt="" src="resources/assets/images/products/product-small-01.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-xs-8 col-sm-8 no-margin">
+                                <div class="title">${particleboard.key.dirBrand.name}</div>
+                                <div class="title">${particleboard.key.thickness}x${particleboard.key.length}x${particleboard.key.weight}  (${particleboard.value})</div>
+                                <div class="price">$${particleboard.key.price}</div>
+                            </div>
+                        </div>
+                        <a class="close-btn" href="del-from-backet?id=${particleboard.key.id}"></a>
+                    </div>
+                </c:forEach>
 <!--                <li>
                     <div class="basket-item">
                         <div class="row">

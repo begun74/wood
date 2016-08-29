@@ -139,7 +139,7 @@ public class WController1 {
 	}
 	
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
-	public String  add_product_to_wish_list( Model model, @RequestParam(value = "id",   required=false) Long id)
+	public String  add_product_to_customer_basket( Model model, @RequestParam(value = "id",   required=false) Long id)
 	{
 		//System.out.println("model - "+model);
 		MIndex mIndex = new MIndex();
@@ -149,10 +149,30 @@ public class WController1 {
 		model.addAttribute("bracketBean",backet);
 		
 		if(id != null)
-			backet.getItems().add(woodService.getParticleboard(id));
+			backet.addParticleboardToBacket(woodService.getParticleboard(id));
 
 		//System.out.println(id+"  plywood/index_plywood");
 		
 		return "redirect:index";
 	}
+
+	@RequestMapping(value = {"/del-from-backet"} , method = RequestMethod.GET)
+	public String  del_from_backet( Model model, @RequestParam(value = "id",   required=false) Long id)
+	{
+		//System.out.println("model - "+model);
+		MIndex mIndex = new MIndex();
+		model.addAttribute("mIndex",mIndex);
+		model.addAttribute("particleboards",woodService.getListParticleboards());
+		model.addAttribute("brands",woodService.getListDirBrands());
+		model.addAttribute("bracketBean",backet);
+		
+		if(id != null)
+			backet.remPboardFromBacket(id);
+
+		//System.out.println("del_from_backet - "+id);
+		//System.out.println("backet.getItems() - "+backet.getItems());
+		
+		return "redirect:index";
+	}
+
 }

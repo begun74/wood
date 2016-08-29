@@ -56,12 +56,6 @@ public class WControllerIndex {
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		model.addObject("particleboards",woodService.getListParticleboards());
 		model.addObject("brands",woodService.getListDirBrands());
-		//MIndex mIndex = new MIndex();
-		//mIndex.setBrands(woodService.getListDirBrands());
-		//model.addObject("mIndex",mIndex);
-		
-		//System.out.println(mIndex);
-
 		
 	    return model;
 	}
@@ -77,7 +71,6 @@ public class WControllerIndex {
 		}
 
 		if (logout != null) {
-			//model.addObject("message", "Logged out from JournalDEV successfully.");
 			SecurityContextHolder.clearContext();
 			session.invalidate();
 			model.setViewName("plywood/loginPage");

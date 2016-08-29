@@ -82,10 +82,13 @@
 						  			method="POST"
 						  			modelAttribute="dirBrand">
 							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Brand <input id="name" type="text" class="form-control" name="name" ></label> 
+					                   <label>Brand <input name="name" id="name" type="text" class="form-control"  ></label> 
 							         </div>
 							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Description <input name="description" id="description" type="textfiekd" class="form-control"  ></label> 
+					                   <label>Description </label>
+					                   <!-- input name="description" id="description" type="text" class="form-control"  / -->
+					                   <textarea name="description" id="description" class="form-control" maxlength = "45"
+					                   rows="2" cols="5"></textarea> 
 							         </div>
 							         
 					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
@@ -99,7 +102,7 @@
 									<c:forEach items="${dirBrands}" var="dirBrand">
 									  	<div class="row span6" >
 											<div class="col-md-4">
-												<div><a href="#" onclick="$('#name').val('${dirBrand.name}');">${dirBrand.name}</a></div>
+												<div><a href="#" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">${dirBrand.name}</a></div>
 											</div>
 											<div class="col-md-2">
 					         					<button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button>

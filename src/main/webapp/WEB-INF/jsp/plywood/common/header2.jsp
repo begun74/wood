@@ -111,7 +111,6 @@
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 no-margin text-center">
                                 <div class="thumb">
-                                    <!-- img alt="" src="resources/assets/images/products/nopicture.jpg" / -->
                                     <img src="resources/pics/${particleboard.key.id}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" />
                                 </div>
                             </div>

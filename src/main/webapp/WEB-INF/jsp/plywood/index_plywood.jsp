@@ -84,7 +84,7 @@
     
     
     <body>
-    	<div class="wrapper">
+    	<div class="container">
 		<%@include file="common/nav.jsp" %>      
 		<%@include file="common/header2.jsp" %>     
     
@@ -111,7 +111,7 @@
 						<input name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
 					</div>
 					<hr> 
-					<input  type="submit" name="register" value="Select"/>
+					<input  type="submit" name="register" value="<spring:message code="label.button.select"/>"/>
     			</div>
     		</div>
     		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

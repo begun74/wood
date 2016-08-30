@@ -3,12 +3,12 @@
 
 						<table border="0" class="tab tab-drag">
 							<c:forEach items="${particleboards}" var="particleboard" varStatus="vs" >
-								<c:if test="${vs.count % 2 == 1}" >
+								<c:if test="${vs.count % 3 == 1}" >
 									<tr class="top nodrop nodrag">
 							    </c:if>							
-										<td style="padding: 25px;">
+										<td style="padding: 35px;">
 											<div class="product-item-holder hover">
-												<img src="resources/pics/${particleboard.id}.jpeg" width="190" height="190"/>
+												<img src="resources/pics/${particleboard.id}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/>
 												<br/>${particleboard.thickness}x${particleboard.length}x${particleboard.weight}       <spring:message code="label.price"/> ${particleboard.price}$
 												<div class="product-item ">
 								    					<div class="hover-area">
@@ -23,7 +23,7 @@
 												</div>
 											</div>
 										</td>
-								<c:if test="${rowCounter.count % 2 == 1}" >
+								<c:if test="${vsz.count % 2 == 1}" >
 							      </tr>
 							    </c:if>
 							</c:forEach>

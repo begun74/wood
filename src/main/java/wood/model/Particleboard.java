@@ -138,10 +138,6 @@ public class Particleboard implements Serializable , Comparable {
 		this.fileName = fileName;
 	}
 	
-	public boolean equals(Object obj){
-		
-		return this.getId()==((Particleboard)obj).getId();
-	}
 	@Override
 	public int compareTo(Object o) {
 		return this.id.compareTo(((Particleboard)o).getId());

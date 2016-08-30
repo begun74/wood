@@ -103,6 +103,14 @@
 						</c:forEach>
 					</ul>   
 					<hr> 
+					<div><spring:message code="price"/></div>
+					<div style="margin-bottom: 15px" class="input-group">
+						<input name="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/>
+					</div>
+					<div style="margin-bottom: 15px" class="input-group">
+						<input name="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
+					</div>
+					<hr> 
 					<input  type="submit" name="register" value="Select"/>
     			</div>
     		</div>

@@ -41,6 +41,9 @@ public class WController1 {
 	@Autowired
 	BacketBean backet;
 
+	@Autowired
+	MIndex mIndex;
+	
 	private List<String> courses = new ArrayList<String>();
 
 	private List<String> rs = new ArrayList<String>();
@@ -85,8 +88,8 @@ public class WController1 {
         model.addAttribute("rs", rs);
 		model.addAttribute("member", member);
 
-		System.out.println("model - "+model);
-		System.out.println("member - "+member);
+		//System.out.println("model - "+model);
+		//System.out.println("member - "+member);
 		
 		return "plywood/test";
 	}	
@@ -95,54 +98,41 @@ public class WController1 {
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.GET)
 	public String  plywoodGet(HttpSession session, Model model) 
 	{
-		MIndex mIndex = new MIndex();
 		model.addAttribute("mIndex",mIndex);
-		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("bracketBean",backet);
-
+		
+		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
+		
 		//System.out.println("plywoodGet   model - "+model);
 		return "plywood/index_plywood";
 	}
 
 	
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.POST)
-	public String  plywoodPost(HttpSession session, @Valid @ModelAttribute("mIndex") MIndex mIndex, 
+	public String  plywoodPost(HttpSession session, @Valid @ModelAttribute("mIndex") MIndex m_Index, 
 			BindingResult result,
 			Model model) 
 	{
+		mIndex = m_Index;
+		session.setAttribute("mIndex", mIndex);
 		model.addAttribute("mIndex",mIndex);
 		
-		List<Particleboard> pList = new LinkedList<Particleboard>();
-		Iterator<Long> iterBrands = mIndex.getBrands().iterator();
-		
-		boolean isFinding = false;
-		
-		while(iterBrands.hasNext())
-		{
-			isFinding = true;
-			Particleboard particleboard = new Particleboard();
-			particleboard.setFk_dirBrand(iterBrands.next());
-			pList.addAll( woodService.getListParticleboards(particleboard));
-		}
-		
-		if(pList.size()!=0 || isFinding)
-			model.addAttribute("particleboards",pList);
-		else
-			model.addAttribute("particleboards",woodService.getListParticleboards());
-		
+		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
+
 		model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("bracketBean",backet);
 
-		//System.out.println("plywoodPost   mIndex - "+mIndex);
+		//System.out.println("plywoodPost   mIndex - "+m_Index);
 		return "plywood/index_plywood";
 	}
 	
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
-	public String  add_product_to_customer_basket( Model model, @RequestParam(value = "id",   required=false) Long id)
+	public String  add_product_to_customer_basket( Model model,
+			@RequestParam(value = "id",   required=false) Long id)
 	{
 		//System.out.println("model - "+model);
-		MIndex mIndex = new MIndex();
+		//System.out.println("mIndex - "+mIndex);
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
@@ -153,14 +143,14 @@ public class WController1 {
 
 		//System.out.println(id+"  plywood/index_plywood");
 		
-		return "redirect:index";
+		return "redirect:plywood";
 	}
 
 	@RequestMapping(value = {"/del-from-backet"} , method = RequestMethod.GET)
 	public String  del_from_backet( Model model, @RequestParam(value = "id",   required=false) Long id)
 	{
 		//System.out.println("model - "+model);
-		MIndex mIndex = new MIndex();
+		//System.out.println("mIndex - "+mIndex);
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
@@ -169,10 +159,8 @@ public class WController1 {
 		if(id != null)
 			backet.remPboardFromBacket(id);
 
-		//System.out.println("del_from_backet - "+id);
-		//System.out.println("backet.getItems() - "+backet.getItems());
 		
-		return "redirect:index";
+		return "redirect:plywood";
 	}
 
 }

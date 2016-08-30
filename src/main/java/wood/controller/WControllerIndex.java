@@ -41,7 +41,10 @@ public class WControllerIndex {
 
 	@Autowired
 	BacketBean backet;
-	
+
+	//@Autowired
+	//MIndex mIndex;
+
 	@PostConstruct
 	void init(){
 		//System.out.println("WControllerIndex @PostConstruct");
@@ -57,11 +60,14 @@ public class WControllerIndex {
 	public ModelAndView  index(HttpSession session) 
 	{
 		ModelAndView model = new ModelAndView("plywood/index_plywood");
-		model.addObject("particleboards",woodService.getListParticleboards());
+		
+		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
+		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
 		model.addObject("bracketBean",backet);
+		model.addObject("mIndex",mIndex);
 		
-		//System.out.println(""+backet.getItems());
+		//System.out.println("/index - "+mIndex);
 	    return model;
 	}
 

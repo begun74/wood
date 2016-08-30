@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -101,22 +103,16 @@ public  class DAOImpl implements DAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, int priceFrom, int priceTo) {
-		//List<Particleboard> pList = new LinkedList<Particleboard>();
+
 		Criteria crit = getSession().createCriteria(Particleboard.class)
 				.add(Example.create(example_particleboard));
 		
-		if(priceFrom >0) crit = crit.add(Expression.ge("price",priceFrom));
+		if(priceFrom >0) crit = crit.add(Restrictions.ge("price",priceFrom));
 		
-		if(priceTo >0) crit = crit.add(Expression.le("price",priceTo));
+		if(priceTo >0) crit = crit.add(Restrictions.le("price",priceTo));
 		
-		return (List<Particleboard>)crit.list();
+		return (List<Particleboard>)crit.addOrder(Order.asc("price") ).list();
 		
-		/*
-		return (List<Particleboard>)getSession().createCriteria(Particleboard.class)
-				.add(Example.create(example_particleboard))
-				.add(Expression.ge("price",priceFrom))
-				.add(Expression.le("price",priceTo)).list();
-		*/
 	}
 
 

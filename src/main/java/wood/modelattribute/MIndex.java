@@ -17,6 +17,9 @@ import wood.service.WoodService;
 public class MIndex {
 	
 	List<Long> brands = new LinkedList<Long>();
+	
+	private int priceFrom = 0;
+	private int priceTo = 0;
 
 	private long time = System.currentTimeMillis();
 
@@ -41,7 +44,13 @@ public class MIndex {
 			isFinding = true;
 			Particleboard particleboard = new Particleboard();
 			particleboard.setFk_dirBrand(iterBrands.next());
-			pList.addAll( woodService.getListParticleboards(particleboard));
+			
+			if(priceFrom > priceTo) priceTo = priceFrom ;
+			
+			if(priceFrom>0 || priceTo >0)
+				pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
+			else
+				pList.addAll( woodService.getListParticleboards(particleboard));
 		}
 		if(pList.size()!=0 || isFinding)
 			return pList;
@@ -51,13 +60,28 @@ public class MIndex {
 		
 	}
 	
-	@Override
-	public String toString() {
-		return "MIndex  "+time+"  [brands=" + brands + "]";
+	
+	public int getPriceFrom() {
+		return priceFrom;
 	}
 
-	
-	
-	
+	public void setPriceFrom(int priceFrom) {
+		this.priceFrom = priceFrom;
+	}
+
+	public int getPriceTo() {
+		return priceTo;
+	}
+
+	public void setPriceTo(int priceTo) {
+		this.priceTo = priceTo;
+	}
+
+	@Override
+	public String toString() {
+		return "MIndex [brands=" + brands + ", priceFrom=" + priceFrom
+				+ ", priceTo=" + priceTo + "]";
+	}
+
 
 }

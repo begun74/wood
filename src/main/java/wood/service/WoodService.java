@@ -24,6 +24,7 @@ public interface WoodService {
 	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getListParticleboards();
 	public List<Particleboard> getListParticleboards(Particleboard example_particleboard); 
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, int priceFrom, int priceTo);	
 
 	public void delObject(Object obj);
 

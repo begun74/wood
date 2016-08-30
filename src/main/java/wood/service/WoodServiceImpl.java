@@ -98,5 +98,12 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getAllParticleboards(example_particleboard);
 	}
 
+	@Override
+	public List<Particleboard> getAllParticleboards(
+			Particleboard example_particleboard, int priceFrom, int priceTo) {
+		// TODO Auto-generated method stub
+		return dao.getAllParticleboards(example_particleboard, priceFrom, priceTo);
+	}
+
 
 }

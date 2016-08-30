@@ -46,7 +46,7 @@ public class Particleboard implements Serializable , Comparable {
 	
 	@Min (message = "Please correct enter price.", value = 0)
 	@NotNull(message = "Please correct enter price.")
-	private Long price;
+	private Integer price;
 
 	@Column(insertable=false ,updatable=false)
 	private  Long fk_dirColor;
@@ -96,10 +96,10 @@ public class Particleboard implements Serializable , Comparable {
 	public void setWeight(Long weight) {
 		this.weight = weight;
 	}
-	public Long getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(Long price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	

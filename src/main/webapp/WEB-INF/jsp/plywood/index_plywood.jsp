@@ -105,10 +105,10 @@
 					<hr> 
 					<div><spring:message code="price"/></div>
 					<div style="margin-bottom: 15px" class="input-group">
-						<input name="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/>
+						<input name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/>
 					</div>
 					<div style="margin-bottom: 15px" class="input-group">
-						<input name="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
+						<input name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
 					</div>
 					<hr> 
 					<input  type="submit" name="register" value="Select"/>
@@ -161,6 +161,10 @@
 			for (var item in brnds) {
                 $('#brand_'+brnds[item]).attr("checked","checked");
             }
+
+            //alert(${mIndex.priceFrom}+'  '+${mIndex.priceTo});
+            $('#priceFrom').val('${mIndex.priceFrom}');
+            $('#priceTo').val('${mIndex.priceTo}');
 
 	    });
 	    </script>

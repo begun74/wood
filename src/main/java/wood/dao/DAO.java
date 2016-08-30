@@ -26,6 +26,7 @@ public interface DAO {
 	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getAllParticleboards(); 
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard); 
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard,int priceFrom,int priceTo);
 	
 	public void delObject(Object obj);
 }

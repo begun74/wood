@@ -1,18 +1,11 @@
 package wood.controller2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,15 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.BacketBean;
-import wood.bean.SessionBean;
-import wood.model.DirBrand;
-import wood.model.Particleboard;
 import wood.modelattribute.MIndex;
 import wood.service.WoodService;
-import wood.test.Member;
 
 
 @Controller
@@ -43,56 +31,6 @@ public class WController1 {
 
 	@Autowired
 	MIndex mIndex;
-	
-	private List<String> courses = new ArrayList<String>();
-
-	private List<String> rs = new ArrayList<String>();
-	
-	private Map<Integer,String> ops = new HashMap<Integer,String>();
-	{
-		rs.add("Radio1");
-		rs.add("Radio2");
-		rs.add("Radio3");
-		rs.add("Radio4");
-		
-		ops.put(1,"Op1");
-		ops.put(2,"Op2");
-		ops.put(3,"Op3");
-		ops.put(4,"Op4");
-		
-	    courses.add("Yoga");
-	    courses.add("Stretching");
-	    courses.add("Pilates");
-	    courses.add("Aerobic");
-	    courses.add("Oriental");
-	}
-	
-	@RequestMapping(value = {"/test"} , method = RequestMethod.GET)
-	public String  testGet(HttpSession session, Model model) 
-	{
-		Member member = new Member();
-        model.addAttribute("courses", courses);
-        model.addAttribute("rs", rs);
-        model.addAttribute("ops", ops);
-        model.addAttribute("member", member);
-        
-		return "plywood/test";
-	}
-
-	@RequestMapping(value = {"/test"} , method = RequestMethod.POST)
-	public String  testPost(HttpSession session, @Valid @ModelAttribute("member") Member member,
-			Model model, BindingResult result) 
-	{
-		model.addAttribute("courses", courses);
-        model.addAttribute("ops", ops);
-        model.addAttribute("rs", rs);
-		model.addAttribute("member", member);
-
-		//System.out.println("model - "+model);
-		//System.out.println("member - "+member);
-		
-		return "plywood/test";
-	}	
 	
 	
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.GET)
@@ -123,7 +61,7 @@ public class WController1 {
 		model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("bracketBean",backet);
 
-		//System.out.println("plywoodPost   mIndex - "+m_Index);
+		System.out.println("plywoodPost   mIndex - "+m_Index);
 		return "plywood/index_plywood";
 	}
 	
@@ -163,4 +101,7 @@ public class WController1 {
 		return "redirect:plywood";
 	}
 
+	
+	
+	
 }

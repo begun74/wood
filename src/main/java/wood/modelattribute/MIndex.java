@@ -38,20 +38,29 @@ public class MIndex {
 		Iterator<Long> iterBrands = getBrands().iterator();
 		
 		boolean isFinding = false;
+		Particleboard particleboard = new Particleboard();
 		
-		while(iterBrands.hasNext())
+		if(iterBrands.hasNext())
 		{
-			isFinding = true;
-			Particleboard particleboard = new Particleboard();
-			particleboard.setFk_dirBrand(iterBrands.next());
-			
-			if(priceFrom > priceTo) priceTo = priceFrom ;
-			
-			if(priceFrom>0 || priceTo >0)
-				pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
-			else
-				pList.addAll( woodService.getListParticleboards(particleboard));
+			while(iterBrands.hasNext())
+			{
+				isFinding = true;
+				particleboard.setFk_dirBrand(iterBrands.next());
+				
+				if(priceFrom > priceTo) priceTo = 0 ;
+				
+				if(priceFrom>0 || priceTo >0)
+					pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
+				else
+					pList.addAll( woodService.getListParticleboards(particleboard));
+			}
 		}
+		else if(priceFrom>0 || priceTo >0)
+		{
+			if(priceFrom > priceTo) priceTo = 0 ;
+			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
+		}
+		
 		if(pList.size()!=0 || isFinding)
 			return pList;
 		else

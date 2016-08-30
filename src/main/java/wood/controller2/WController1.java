@@ -61,7 +61,7 @@ public class WController1 {
 		model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("bracketBean",backet);
 
-		System.out.println("plywoodPost   mIndex - "+m_Index);
+		//System.out.println("plywoodPost   mIndex - "+m_Index);
 		return "plywood/index_plywood";
 	}
 	

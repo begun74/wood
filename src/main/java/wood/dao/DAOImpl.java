@@ -102,21 +102,21 @@ public  class DAOImpl implements DAO {
 	@Override
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, int priceFrom, int priceTo) {
 		//List<Particleboard> pList = new LinkedList<Particleboard>();
-		//Criteria crit = getSession().createCriteria(Particleboard.class)
-		//		.add(Example.create(example_particleboard));
-		//if(priceFrom > priceTo) priceFrom = priceTo;
+		Criteria crit = getSession().createCriteria(Particleboard.class)
+				.add(Example.create(example_particleboard));
 		
-		//if(priceFrom >0) crit = crit.add(Expression.ge("price",priceFrom));
+		if(priceFrom >0) crit = crit.add(Expression.ge("price",priceFrom));
 		
-		//if(priceTo >0) crit = crit.add(Expression.le("price",priceTo));
+		if(priceTo >0) crit = crit.add(Expression.le("price",priceTo));
 		
-		//return (List<Particleboard>)crit.list();
+		return (List<Particleboard>)crit.list();
 		
+		/*
 		return (List<Particleboard>)getSession().createCriteria(Particleboard.class)
 				.add(Example.create(example_particleboard))
 				.add(Expression.ge("price",priceFrom))
 				.add(Expression.le("price",priceTo)).list();
-
+		*/
 	}
 
 

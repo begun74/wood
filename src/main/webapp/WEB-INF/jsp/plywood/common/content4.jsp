@@ -1,9 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+
+						<c:set var="perPage" value="3"/>
+						<c:set var="allItems" value="${fn:length(particleboards)}"/>
+						<c:set var="pageNumber" value="${param.pageNumber}"/>
+						<c:if test="${empty param.pageNumber}" >
+							<c:set var="pageNumber" value="1"/>
+						</c:if>
+						<c:set var="start" value="${pageNumber*perPage-perPage}"/>
+						<c:set var="stop" value="${pageNumber*perPage-1}"/>
 						<table border="0" class="tab tab-drag">
-							<c:forEach items="${particleboards}" var="particleboard" varStatus="vs" >
-								<c:if test="${vs.count % 3 == 1}" >
+							<c:forEach items="${particleboards}" var="particleboard" varStatus="vs" begin="${start}" end="${stop}">
+								<c:if test="${vs.count % 4 == 0}" >
 									<tr class="top nodrop nodrag">
 							    </c:if>							
 										<td style="padding: 35px;">
@@ -23,8 +33,22 @@
 												</div>
 											</div>
 										</td>
-								<c:if test="${vsz.count % 2 == 1}" >
+								<c:if test="${vs.count % 3 == 0}" >
 							      </tr>
 							    </c:if>
 							</c:forEach>
 						</table>
+						<div class="row">
+							<div class="col  col-sm-12">
+								<div>
+									<nav>
+										<ul class="pagination list-unstyled">
+											<c:forEach begin="0" end="${allItems/perPage}" var="pageNumber">
+												<li><a href="plywood?pageNumber=${pageNumber+1}">${pageNumber+1}</a></li>
+											</c:forEach>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+						

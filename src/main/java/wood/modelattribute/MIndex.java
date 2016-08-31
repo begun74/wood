@@ -20,12 +20,19 @@ public class MIndex {
 	
 	List<Long> brands = new LinkedList<Long>();
 	
+	private int pbListSize = 0;
 	private int priceFrom = 0;
 	private int priceTo = 0;
 
 	private long time = System.currentTimeMillis();
 
 	
+	
+	public int getPbListSize() {
+		return pbListSize;
+	}
+
+
 	public List<Long> getBrands() {
 		return brands;
 	}
@@ -64,9 +71,16 @@ public class MIndex {
 		}
 		
 		if(pList.size()!=0 || isFinding)
+		{
+			pbListSize = pList.size();
 			return pList;
+		}
 		else
-			return woodService.getListParticleboards();
+		{
+			pList = woodService.getListParticleboards();
+			pbListSize = pList.size();
+			return pList;
+		}
 
 		
 	}

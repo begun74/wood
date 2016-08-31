@@ -5,14 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import wood.model.Particleboard;
 import wood.service.WoodService;
 
-@Service
+@Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class MIndex {
 	

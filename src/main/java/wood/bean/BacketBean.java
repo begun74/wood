@@ -1,7 +1,6 @@
 package wood.bean;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,11 +11,11 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import wood.model.Particleboard;
 
-@Service
+@Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class BacketBean {
 
@@ -27,11 +26,11 @@ public class BacketBean {
 	private int countItems=0;
 	
 	
-	public Map<Particleboard, Integer> getItemsTM() {
+	public synchronized Map<Particleboard, Integer> getItemsTM() {
 		return itemsTM;
 	}
 
-	public void addParticleboardToBacket(Particleboard p) {
+	public synchronized  void addParticleboardToBacket(Particleboard p) {
 		items.add(p);
 		try {
 			itemsTM.put(p, (itemsTM.get(p)).intValue()+1);
@@ -43,16 +42,16 @@ public class BacketBean {
 		//System.out.println("itemsTM  - "+itemsTM);
 	}
 
-	public List<Particleboard> getItems() {
+	public synchronized List<Particleboard> getItems() {
 		
 		return items;
 	}
 
-	public void setItems(List<Particleboard> items) {
+	public synchronized void setItems(List<Particleboard> items) {
 		this.items = items;
 	}
 
-	public int getAllPrice() {
+	public synchronized  int getAllPrice() {
 		allPrice = 0;
 		items.forEach(p -> allPrice+=p.getPrice());
 		return allPrice;
@@ -66,7 +65,7 @@ public class BacketBean {
 	}
 
 	
-	public   void remPboardFromBacket (Long id) {
+	public  synchronized  void remPboardFromBacket (Long id) {
 
 		Iterator<Particleboard> iterItems = items.iterator();
 

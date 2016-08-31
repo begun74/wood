@@ -100,8 +100,5 @@ public class WController1 {
 		
 		return "redirect:plywood";
 	}
-
-	
-	
 	
 }

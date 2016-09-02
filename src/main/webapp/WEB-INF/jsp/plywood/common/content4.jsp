@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
-						<c:set var="perPage" value="3"/>
+						<c:set var="perPage" value="4"/>
 						<c:set var="allItems" value="${fn:length(particleboards)}"/>
 						<c:set var="pageNumber" value="${param.pageNumber}"/>
 						<c:if test="${empty param.pageNumber}" >
@@ -11,11 +11,12 @@
 						</c:if>
 						<c:set var="start" value="${pageNumber*perPage-perPage}"/>
 						<c:set var="stop" value="${pageNumber*perPage-1}"/>
+						<div>
 						<table border="0" class="tab tab-drag">
 							<c:forEach items="${particleboards}" var="particleboard" varStatus="vs" begin="${start}" end="${stop}">
-								<c:if test="${vs.count % 4 == 0}" >
-									<tr class="top nodrop nodrag">
-							    </c:if>							
+									<c:if test="${vs.count % 3 == 1}" >
+										<tr class="top nodrop nodrag">
+									</c:if> 
 										<td style="padding: 35px;">
 											<div class="product-item-holder hover">
 												<img src="resources/pics/${particleboard.id}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/>
@@ -33,14 +34,14 @@
 												</div>
 											</div>
 										</td>
-								<c:if test="${vs.count % 3 == 0}" >
-							      </tr>
-							    </c:if>
-							</c:forEach>
+									<c:if test="${vss.count % 3 == 1}" >
+										</tr>
+									</c:if> 							
+								</c:forEach>
 						</table>
+						</div>
 						<div class="row">
-							<div class="col  col-sm-12">
-								<div>
+							<div class="col col-md-12">
 									<nav>
 										<ul class="pagination list-unstyled">
 											<c:forEach begin="0" end="${allItems/perPage}" var="pageNumber">
@@ -48,7 +49,6 @@
 											</c:forEach>
 										</ul>
 									</nav>
-								</div>
 							</div>
 						</div>
 						

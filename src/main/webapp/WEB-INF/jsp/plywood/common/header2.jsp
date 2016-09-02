@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 
 
 <header>
@@ -81,7 +83,7 @@
             <a href="wishlist.htm"><i class="fa fa-heart"></i> wishlist <span class="value"></span> </a>
         </div>
         <div class="compare">
-            <a href="compare.htm"><i class="fa fa-exchange"></i> compare <span class="value"></span> </a>
+            <a href="compare.htm"><i class="fa fa-exchange"></i> compare <span class="value">${fn:length(compBean.items)}</span> </a>
         
         </div>
     </div>

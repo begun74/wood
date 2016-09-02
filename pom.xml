@@ -20,7 +20,6 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
 		
-
 		<!-- Spring -->
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 		<springsecurity.version>4.0.1.RELEASE</springsecurity.version>

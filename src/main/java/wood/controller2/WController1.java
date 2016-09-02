@@ -145,7 +145,7 @@ public class WController1 {
 
 		//System.out.println(id+"  plywood/index_plywood");
 		
-		return "plywood/compare_plywood";
+		return "redirect:compare";
 	}
 
 	@RequestMapping(value = {"/compare"} , method = RequestMethod.GET)

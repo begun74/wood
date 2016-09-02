@@ -36,6 +36,10 @@ public class Request  implements Serializable {
 	private long fk_particleboard;
 	
 	private long fk_dirCustomer;
+	
+	private String phone;
+	
+	
 
 	public long getId_request() {
 		return id_request;
@@ -84,6 +88,15 @@ public class Request  implements Serializable {
 	public void setFk_dirCustomer(long fk_dirCustomer) {
 		this.fk_dirCustomer = fk_dirCustomer;
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
 	
 	
 }

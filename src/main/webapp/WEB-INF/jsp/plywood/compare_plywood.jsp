@@ -90,7 +90,7 @@
 		<%@include file="common/header2.jsp" %>     
     
 		<div class="widget col-md-3">
-		    <h1>Product Filters</h1>
+		    <!-- h1>Product Filters</h1>
 		    
 		    <form  method="POST" name="mIndex" 
 		    	action="${pageContext.request.contextPath}/plywood">
@@ -105,8 +105,10 @@
 					</ul>   
 					<hr> 
 					<div><spring:message code="price"/></div>
-					<div style="margin-bottom: 15px; width: 20px;" class="input-group">
+					<div style="margin-bottom: 15px" class="input-group">
 						<input name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/>
+					</div>
+					<div style="margin-bottom: 15px" class="input-group">
 						<input name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
 					</div>
 					<hr> 
@@ -114,7 +116,7 @@
     			</div>
     		</div>
     		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    		</form>
+    		</form -->
     	</div>
 
 		<div class="col-md-9 no-margin sidebar">
@@ -130,9 +132,12 @@
 			<div class="container">
 				<div class="row">
 			    		<div class="col-md-12">
-							<div>
+			    			<div class="box-content">
+								<div class="headlines center">
+									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
+								</div>
 								<!-- Main content  -->
-									<%@include file="common/content4.jsp" %>      
+									<%@include file="common/compare_content.jsp" %>      
 								<!-- Main content  -->
 							</div>
 						</div>

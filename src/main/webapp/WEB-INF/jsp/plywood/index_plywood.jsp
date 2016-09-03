@@ -132,10 +132,7 @@
 			<div class="container">
 				<div class="row">
 			    		<div class="col-md-12">
-			    			<div class="box-content">
-								<div class="headlines center">
-									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
-								</div>
+							<div>
 								<!-- Main content  -->
 									<%@include file="common/content4.jsp" %>      
 								<!-- Main content  -->

@@ -168,7 +168,7 @@
                                 <a href="#" class="le-button inverse">View cart</a>
                             </div>
                             <div class="col-xs-12 col-sm-6">
-                                <a href="#" class="le-button">Checkout</a>
+                                <a href="createOrder" class="le-button">Checkout</a>
                                 <!--<a href="checkout.html" class="le-button">Checkout</a>-->
                             </div>
                         </div>

@@ -157,5 +157,28 @@ public class WController1 {
 		
 		return "plywood/compare_plywood";
 	}
+	
+	
+	@RequestMapping(value = {"/createOrder"} , method = RequestMethod.GET)
+	public String  createOrderGET( Model model)
+	{
+		model.addAttribute("particleboards",compBean.getItems());
+		model.addAttribute("bracketBean",backet);
+		model.addAttribute("compBean",compBean);
+		model.addAttribute("mIndex",mIndex);
+		
+		return "plywood/createOrder";
+	}
 
+	
+	@RequestMapping(value = {"/createOrder"} , method = RequestMethod.POST)
+	public String  createOrderPOST( Model model)
+	{
+		model.addAttribute("particleboards",compBean.getItems());
+		model.addAttribute("bracketBean",backet);
+		model.addAttribute("compBean",compBean);
+		
+		return "plywood/createOrder";
+	}
+	
 }

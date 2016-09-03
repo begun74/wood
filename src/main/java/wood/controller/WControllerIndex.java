@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import wood.bean.BacketBean;
+import wood.bean.CompareBean;
 import wood.bean.SessionBean;
 import wood.modelattribute.MIndex;
 import wood.service.WoodService;
@@ -42,8 +43,8 @@ public class WControllerIndex {
 	@Autowired
 	BacketBean backet;
 
-	//@Autowired
-	//MIndex mIndex;
+	@Autowired
+	CompareBean compBean;
 
 	@PostConstruct
 	void init(){
@@ -65,6 +66,7 @@ public class WControllerIndex {
 		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
 		model.addObject("bracketBean",backet);
+		model.addObject("compBean",compBean);
 		model.addObject("mIndex",mIndex);
 		
 		//System.out.println("/index - "+mIndex);

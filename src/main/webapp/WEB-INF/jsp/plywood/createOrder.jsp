@@ -109,14 +109,14 @@
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<input type="text" name="name"/>
-								<form:errors path="name" cssClass="formError"/>
+								 <font color="red"><form:errors path="name" cssClass="formError"/></font>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Телефон</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<input type="text" name="phone"/>
-								<form:errors path="phone" cssClass="formError"/>
+								 <font color="red"><form:errors path="phone" cssClass="formError"/></font>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Эл. почта</label>
@@ -130,7 +130,7 @@
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<textarea name="description" id="description" class="form-control" maxlength = "45"
-					                   rows="2" cols="10"></textarea>
+					                   rows="2" cols="15"></textarea>
 							</div>
 
 							

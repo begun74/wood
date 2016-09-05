@@ -205,10 +205,19 @@ public class WController1 {
 		
 		while(iter.hasNext())
 		{
-			request.setFk_particleboard(iter.next().getId());
-			woodService.addRequest(request);
+			Request toOrder = new Request();
+			
+			toOrder.setName(request.getName());
+			toOrder.setPhone(request.getPhone());
+			toOrder.setFk_particleboard(iter.next().getId());
+			toOrder.setDescription(request.getDescription());
+			toOrder.setEmail(request.getEmail());
+			
+			woodService.addRequest(toOrder);
 		}
 		
+		backet.getItems().clear();
+		backet.getItemsTM().clear();
 		//System.out.println("createOrderPOST");
 		
 		return "redirect:plywood";

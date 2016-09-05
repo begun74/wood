@@ -99,8 +99,8 @@
 			<div class="container">
 				<div class="row">
 			    		<div class="col col-md-12">
-							<form method="post" name="mIndex" class="form-horizontal" role="form"
-								action="${pageContext.request.contextPath}/createOrder">
+							<form:form method="post" modelAttribute ="requestForm" id="requestForm"  
+								action="createOrder">
 							<div style="margin-bottom: 25px">
 								<label>Заказ товара</label>
 							</div>
@@ -108,24 +108,36 @@
 								<label>Имя</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" />
+								<input type="text" name="name"/>
+								<form:errors path="name" cssClass="formError"/>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Телефон</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" />
+								<input type="text" name="phone"/>
+								<form:errors path="phone" cssClass="formError"/>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Эл. почта</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" />
+								<input type="text" name="email"/>
 							</div>
 							
+							<div style="margin-bottom: 5px" class="input-group">
+								<label>Коментарии</label>
+							</div>
+							<div style="margin-bottom: 5px" class="input-group">
+								<textarea name="description" id="description" class="form-control" maxlength = "45"
+					                   rows="2" cols="10"></textarea>
+							</div>
+
 							
+							<input  type="submit" name="register" value="<spring:message code="label.button.toOrder"/>"/>
+
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-							</form>
+							</form:form>
 						</div>
 				</div>		
 			</div>

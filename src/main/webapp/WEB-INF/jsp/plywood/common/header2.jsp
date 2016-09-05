@@ -95,20 +95,20 @@
             
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="basket-item-count">
-                    <span class="count">${bracketBean.countItems}</span>
+                    <span class="count">${backetBean.countItems}</span>
                     <img src="resources/assets/images/icon-cart.png" alt="" />
                 </div>
 
                 <div class="total-price-basket"> 
                     <span class="lbl">your cart:</span>
                     <span class="total-price">
-                        <span class="sign">$${bracketBean.allPrice}</span><span class="value"></span>
+                        <span class="sign">$${backetBean.allPrice}</span><span class="value"></span>
                     </span>
                 </div>
             </a>
 
             <ul class="dropdown-menu">
-                <c:forEach items="${bracketBean.itemsTM}" var="particleboard" varStatus="vs">
+                <c:forEach items="${backetBean.itemsTM}" var="particleboard" varStatus="vs">
                     <div class="basket-item">
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 no-margin text-center">

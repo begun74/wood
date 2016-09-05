@@ -20,6 +20,7 @@ import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
+import wood.model.Request;
 
 
 
@@ -113,6 +114,12 @@ public  class DAOImpl implements DAO {
 		
 		return (List<Particleboard>)crit.addOrder(Order.asc("price") ).list();
 		
+	}
+
+	@Override
+	public void addRequest(Request request) {
+		// TODO Auto-generated method stub
+		getSession().saveOrUpdate(request);
 	}
 
 

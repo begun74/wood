@@ -6,6 +6,7 @@ import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
+import wood.model.Request;
 
 public interface WoodService {
 	
@@ -25,6 +26,8 @@ public interface WoodService {
 	public List<Particleboard> getListParticleboards();
 	public List<Particleboard> getListParticleboards(Particleboard example_particleboard); 
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, int priceFrom, int priceTo);	
+	
+	public void addRequest(Request request);
 
 	public void delObject(Object obj);
 

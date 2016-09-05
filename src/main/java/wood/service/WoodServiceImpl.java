@@ -16,6 +16,7 @@ import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
 import wood.model.Particleboard;
+import wood.model.Request;
 
 
 @Service("woodService")
@@ -103,6 +104,12 @@ public class WoodServiceImpl implements WoodService {
 			Particleboard example_particleboard, int priceFrom, int priceTo) {
 		// TODO Auto-generated method stub
 		return dao.getAllParticleboards(example_particleboard, priceFrom, priceTo);
+	}
+
+	@Override
+	public void addRequest(Request request) {
+		// TODO Auto-generated method stub
+		dao.addRequest(request);
 	}
 
 

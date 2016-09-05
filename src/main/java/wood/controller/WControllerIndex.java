@@ -65,7 +65,7 @@ public class WControllerIndex {
 		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
 		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
-		model.addObject("bracketBean",backet);
+		model.addObject("backetBean",backet);
 		model.addObject("compBean",compBean);
 		model.addObject("mIndex",mIndex);
 		

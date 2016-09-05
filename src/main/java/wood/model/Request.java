@@ -28,15 +28,16 @@ public class Request  implements Serializable {
 
 	private Timestamp creation_date;
 
-	@NotEmpty (message = "Please enter request name.")
+	@NotEmpty (message = "Please enter name.")
 	private String name;
 	
 	private String description;
 	
-	private long fk_particleboard;
+	private Long fk_particleboard;
 	
-	private long fk_dirCustomer;
+	private Long fk_dirCustomer;
 	
+	@NotEmpty (message = "Please enter phone.")
 	private String phone;
 	
 	
@@ -73,19 +74,19 @@ public class Request  implements Serializable {
 		this.description = description;
 	}
 
-	public long getFk_particleboard() {
+	public Long getFk_particleboard() {
 		return fk_particleboard;
 	}
 
-	public void setFk_particleboard(long fk_particleboard) {
+	public void setFk_particleboard(Long fk_particleboard) {
 		this.fk_particleboard = fk_particleboard;
 	}
 
-	public long getFk_dirCustomer() {
+	public Long getFk_dirCustomer() {
 		return fk_dirCustomer;
 	}
 
-	public void setFk_dirCustomer(long fk_dirCustomer) {
+	public void setFk_dirCustomer(Long fk_dirCustomer) {
 		this.fk_dirCustomer = fk_dirCustomer;
 	}
 

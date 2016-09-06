@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,11 +83,17 @@ public class WControllerManage {
 		case "5":
 			model = new ModelAndView("plywood/admin/addBrand");
 			break;
+
+		case "6":
+			model = new ModelAndView("plywood/admin/viewOrders");
+			break;
+			
 		}
 		model.addObject("error", error);
 		model.addObject("dirColors",woodService.getListDirColors());
 		model.addObject("particleboards",woodService.getListParticleboards());
 		model.addObject("dirBrands",woodService.getListDirBrands());
+		model.addObject("orders",woodService.getAllRequest());
 		//System.out.println("sb - " +sb.getTime());
 	    return model;
 	}
@@ -201,19 +208,16 @@ public class WControllerManage {
 		
 		pList.forEach(p -> woodService.addParticleboard(p));
 		
-		//for(Particleboard p: pList)
-		//	woodService.addParticleboard(p);
-		//FileUtils.writeByteArrayToFile(file, file.getBytes());
-		//ReadExcelUtil.readParticleboard(file);
-		/*
-		if(result.hasErrors())
-		{
-			model.addObject("error", result.getFieldError().getDefaultMessage());
-			return model;
-		}
-*/
 	    return model;
 	}
 
 
+	@RequestMapping(value = "viewOrders")
+	public ModelAndView  viewOrders(HttpSession session, @RequestParam(value = "id",   required=false) Long id) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.VIEW_ORDERS);
+		model.addObject("orders",woodService.getAllRequest());
+		return model;
+	}
+	
 }

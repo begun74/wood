@@ -3,6 +3,7 @@ package wood.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,8 @@ public class Request  implements Serializable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id_request;
+	@Column(name = "id_request")
+	private long id;
 
 	private Timestamp creation_date;
 
@@ -52,12 +54,12 @@ public class Request  implements Serializable {
 	}
 	
 
-	public long getId_request() {
-		return id_request;
+	public long getId() {
+		return id;
 	}
 
-	public void setId_request(long id_request) {
-		this.id_request = id_request;
+	public void setId_request(long id) {
+		this.id = id;
 	}
 
 	public Timestamp getCreation_date() {

@@ -38,24 +38,24 @@ public  class DAOImpl implements DAO {
 
 	@SuppressWarnings("unchecked")
 	public List<DirCustomer> getAllDirCustomers() {
-		return (ArrayList<DirCustomer>)getSession().createSQLQuery("select * from dirCustomer order by name").addEntity(DirCustomer.class).list();
+		return getSession().createSQLQuery("select * from dirCustomer order by name").addEntity(DirCustomer.class).list();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<DirColor> getAllDirColors() {
-		return (ArrayList<DirColor>)getSession().createSQLQuery("select * from dirColor order by name").addEntity(DirColor.class).list();
+		return getSession().createSQLQuery("select * from dirColor order by name").addEntity(DirColor.class).list();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Particleboard> getAllParticleboards() {
-		return (ArrayList<Particleboard>)getSession().createSQLQuery("select * from particleboard").addEntity(Particleboard.class).list();
+		return getSession().createSQLQuery("select * from particleboard").addEntity(Particleboard.class).list();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard) {
 		// TODO Auto-generated method stub
-		return (ArrayList<Particleboard>)getSession().createCriteria(Particleboard.class).
+		return getSession().createCriteria(Particleboard.class).
 				add(Example.create(example_particleboard)).list();
 	}
 	
@@ -118,8 +118,18 @@ public  class DAOImpl implements DAO {
 
 	@Override
 	public void addRequest(Request request) {
-		// TODO Auto-generated method stub
 		getSession().saveOrUpdate(request);
+	}
+
+	@Override
+	public Request getRequest(long id) {
+		return (Request)getSession().get(Request.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Request> getAllRequest() {
+		return getSession().createSQLQuery("select * from request order by creation_date").addEntity(Request.class).list();
 	}
 
 

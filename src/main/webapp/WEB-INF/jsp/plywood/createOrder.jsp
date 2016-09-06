@@ -130,11 +130,11 @@
 							</div>
 							
 							<div style="margin-bottom: 5px" class="input-group">
-								<label>Коментарии</label>
+								<label>Комментарии</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<textarea name="description" id="description"  value="${requestForm.description}" class="form-control" maxlength = "45"
-					                   rows="2" cols="20"></textarea>
+								<textarea name="description" id="description"   class="form-control" maxlength = "45"
+					                   rows="2" cols="20">${requestForm.description}</textarea>
 							</div>
 
 							

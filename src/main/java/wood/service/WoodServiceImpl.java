@@ -112,5 +112,17 @@ public class WoodServiceImpl implements WoodService {
 		dao.addRequest(request);
 	}
 
+	@Override
+	public Request getRequest(long id) {
+		// TODO Auto-generated method stub
+		return dao.getRequest(id);
+	}
+
+	@Override
+	public List<Request> getAllRequest() {
+		// TODO Auto-generated method stub
+		return dao.getAllRequest();
+	}
+
 
 }

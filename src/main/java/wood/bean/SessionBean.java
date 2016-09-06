@@ -19,6 +19,7 @@ public class SessionBean {
 	public static final String ADD_PARTICLEBOARD="2"; 
 	public static final String ADD_PHOTO="4"; 
 	public static final String PROCESS_FILE="3"; 
+	public static final String VIEW_ORDERS="6"; 
 	
 	
 	@PostConstruct

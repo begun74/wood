@@ -74,11 +74,12 @@
 						<table border="1" width="100%" align="center">
 							<tr align="center">
 								<td width="25px"><div style="overflow: hidden; width: 25px;">&#160;</div></td>
-								<td width="25px"><div style="overflow: hidden; width: 25px;">Id</div></td>
+								<td width="35px"><div style="overflow: hidden; width: 35px;">Id</div></td>
 								<td width="200px"><div style="overflow: hidden; width: 200px;">Date</div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;">Name</div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;">Phone</div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;">Email</div></td>
+								<td width="120px"><div style="overflow: hidden; width: 120px;">Photo</div></td>
 								<td width="100%"><div style="overflow: hidden; width: 100%;">Description</div></td>
 								<td width="10px"><div style="overflow: hidden; width: 10px;">&#160;</div></td>
 							</tr>				
@@ -89,11 +90,12 @@
 							<c:forEach items="${orders}" var="order" varStatus="vs">
 								<tr align="center" style="cursor:pointer">
 									<td width="25px"><div style="overflow: hidden; width: 25px;">${vs.count}</div></td>
-									<td width="25px"><div style="overflow: hidden; width: 25px;">${order.id}</div></td>
+									<td width="35px"><div style="overflow: hidden; width: 35px;">${order.id}</div></td>
 									<td width="200px"><div style="overflow: hidden; width: 200px;">${order.creation_date}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.name}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
+									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${particleboard.key.id}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 								</tr>
 							</c:forEach>

@@ -93,17 +93,17 @@
 		    
     	</div>
     	
-		<div class="col-md-9 no-margin sidebar">
+		<div class="col-md-10 no-margin sidebar">
 									
 
 			<div class="container">
-				<div class="row">
-			    		<div class="col col-md-12">
+						<div align="center" margin-bottom: 25px" class="col col-md-12">
+							<label>Заказ товара</label>
+						</div>
+										
+			    		<div class="col col-md-4">
 							<form:form method="post" modelAttribute ="requestForm" id="requestForm"  
 								action="createOrder">
-							<div style="margin-bottom: 25px">
-								<label>Заказ товара</label>
-							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Имя</label>
 							</div>
@@ -139,7 +139,27 @@
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							</form:form>
 						</div>
-				</div>		
+				<div class="col col-md-8">
+				<p/>
+					<c:forEach items="${backetBean.itemsTM}" var="particleboard" varStatus="vs">
+	                    <div class="basket-item">
+	                        <div class="row">
+	                            <div class="col-xs-4 col-sm-4 no-margin text-center">
+	                                <div class="thumb">
+	                                    <img src="resources/pics/${particleboard.key.id}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" />
+	                                </div>
+	                            </div>
+	                            <div class="col-xs-8 col-sm-8 no-margin">
+	                                <div class="title">${particleboard.key.dirBrand.name}</div>
+	                                <div class="title">${particleboard.key.thickness}x${particleboard.key.length}x${particleboard.key.weight}  (${particleboard.value})</div>
+	                                <div class="price">$${particleboard.key.price}</div>
+	                            </div>
+	                        </div>
+	                        <a class="close-btn" href="del-from-backet?id=${particleboard.key.id}"></a>
+	                    </div>
+	                </c:forEach>
+
+				</div>
 			</div>
 		</div>
 

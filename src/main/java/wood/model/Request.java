@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,6 +31,7 @@ public class Request  implements Serializable {
 	private Timestamp creation_date;
 
 	@NotEmpty (message = "Please enter name.")
+	@Size(min = 1, max = 30)
 	private String name;
 	
 	private String description;
@@ -37,6 +40,7 @@ public class Request  implements Serializable {
 	
 	private Long fk_dirCustomer;
 	
+	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
 	@NotEmpty (message = "Please enter phone.")
 	private String phone;
 	

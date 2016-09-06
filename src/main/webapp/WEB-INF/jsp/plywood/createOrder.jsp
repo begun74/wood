@@ -108,29 +108,33 @@
 								<label>Имя</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" name="name"/>
+								<input type="text" name="name" value="${requestForm.name}"/>
+							</div>
+							<div>
 								 <font color="red"><form:errors path="name" cssClass="formError"/></font>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Телефон</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" name="phone"/>
+								<input type="text" name="phone" value="${requestForm.phone}"/>
+							</div>
+							<div>
 								 <font color="red"><form:errors path="phone" cssClass="formError"/></font>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Эл. почта</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" name="email"/>
+								<input type="text" name="email" value="${requestForm.email}"/>
 							</div>
 							
 							<div style="margin-bottom: 5px" class="input-group">
 								<label>Коментарии</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<textarea name="description" id="description" class="form-control" maxlength = "45"
-					                   rows="2" cols="15"></textarea>
+								<textarea name="description" id="description"  value="${requestForm.description}" class="form-control" maxlength = "45"
+					                   rows="2" cols="20"></textarea>
 							</div>
 
 							

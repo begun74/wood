@@ -102,7 +102,7 @@
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="phone"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="email"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="photo"/></div></td>
-								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="ready"/></div></td>
+								<td width="45px"><div style="overflow: hidden; width: 45px;"><spring:message code="ready"/></div></td>
 								<td width="100%"><div style="overflow: hidden; width: 100%;"><spring:message code="description"/></div></td>
 								<td width="15px"><div style="overflow: hidden; width: 15px;">&#160;</div></td>
 							</tr>				
@@ -118,8 +118,8 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
-									<td width="35px">
-											<div style="overflow: hidden; width: 35px;">
+									<td width="45px">
+											<div style="overflow: hidden; width: 45px;">
 													<input type="checkbox" id="order_${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if>/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>

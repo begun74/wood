@@ -74,14 +74,14 @@
 						<table border="1" width="100%" align="center">
 							<tr align="center">
 								<td width="25px"><div style="overflow: hidden; width: 25px;">&#160;</div></td>
-								<td width="35px"><div style="overflow: hidden; width: 35px;">Id</div></td>
-								<td width="200px"><div style="overflow: hidden; width: 200px;">Date</div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;">Name</div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;">Phone</div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;">Email</div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;">Photo</div></td>
-								<td width="100%"><div style="overflow: hidden; width: 100%;">Description</div></td>
-								<td width="10px"><div style="overflow: hidden; width: 10px;">&#160;</div></td>
+								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="id"/></div></td>
+								<td width="200px"><div style="overflow: hidden; width: 200px;"><spring:message code="date"/></div></td>
+								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="name"/></div></td>
+								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="phone"/></div></td>
+								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="email"/></div></td>
+								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="photo"/></div></td>
+								<td width="100%"><div style="overflow: hidden; width: 100%;"><spring:message code="description"/></div></td>
+								<td width="15px"><div style="overflow: hidden; width: 15px;">&#160;</div></td>
 							</tr>				
 						</table>
 						

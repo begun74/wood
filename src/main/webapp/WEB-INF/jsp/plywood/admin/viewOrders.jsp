@@ -117,8 +117,11 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.name}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
-									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${particleboard.key.id}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
-									<td width="35px"><div style="overflow: hidden; width: 35px;"><input type="checkbox" value="${order.status}"/></div></td>
+									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
+									<td width="35px">
+											<div style="overflow: hidden; width: 35px;">
+													<input type="checkbox" id="order_${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if>/>
+											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 								</tr>
 							</c:forEach>
@@ -128,6 +131,10 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+        <div align="center" class="col-md-12">
+        	<input type="button" name="butSave" value="Save">
+        
+        </div>
 
     </div>
     <!-- /#wrapper -->
@@ -144,6 +151,12 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    
+    function status(value) 
+    {
+    	if(value ==1) return true;
+    	else return false;
+    }
     </script>
 
 </body>

@@ -48,6 +48,8 @@ public class Request  implements Serializable {
 	
 	private String email;
 	
+	private int status;
+	
 	public Request()
 	{
 		super();
@@ -119,6 +121,19 @@ public class Request  implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
+	
 	
 	
 	

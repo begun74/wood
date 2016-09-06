@@ -48,6 +48,28 @@
         
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
+        
+    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
+	    <!-- jQuery -->
+	    <script src="resources/js/jquery.js"></script>
+	
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="resources/js/bootstrap.min.js"></script>
+
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	    <script src="resources/assets/js/gmap3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
+	    <script src="resources/assets/js/owl.carousel.min.js"></script>
+	    <script src="resources/assets/js/css_browser_selector.min.js"></script>
+	    <script src="resources/assets/js/echo.min.js"></script>
+	    <script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
+	    <script src="resources/assets/js/bootstrap-slider.min.js"></script>
+	    <script src="resources/assets/js/jquery.raty.min.js"></script>
+	    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
+	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
+	    <script src="resources/assets/js/wow.min.js"></script>
+	    <script src="resources/assets/js/scripts.js"></script>
+        
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,8 +92,8 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                	<div class="col-lg-12">
-						<table border="1" width="100%" align="center">
+                	<div class="col-md-12">
+					<table border="1" width="100%" align="center">
 							<tr align="center">
 								<td width="25px"><div style="overflow: hidden; width: 25px;">&#160;</div></td>
 								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="id"/></div></td>
@@ -80,11 +102,11 @@
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="phone"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="email"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="photo"/></div></td>
+								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="ready"/></div></td>
 								<td width="100%"><div style="overflow: hidden; width: 100%;"><spring:message code="description"/></div></td>
 								<td width="15px"><div style="overflow: hidden; width: 15px;">&#160;</div></td>
 							</tr>				
-						</table>
-						
+					</table>
 					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width="98%"">
 						<table border="1" width="100%">
 							<c:forEach items="${orders}" var="order" varStatus="vs">
@@ -96,6 +118,7 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${particleboard.key.id}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
+									<td width="35px"><div style="overflow: hidden; width: 35px;"><input type="checkbox" value="${order.status}"/></div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 								</tr>
 							</c:forEach>

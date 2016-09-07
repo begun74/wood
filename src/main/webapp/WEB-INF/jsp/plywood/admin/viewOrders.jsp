@@ -123,9 +123,9 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /> ${order.fk_particleboard}</div></td>
-									<td width="45px">
+									<td width="45px" id="td_order_${order.id}" <c:if test="${order.status == 1}">bgcolor="green"</c:if>>
 											<div style="overflow: hidden; width: 45px;">
-													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="saveOrders(this)"/>
+													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this)"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 								</tr>
@@ -136,10 +136,10 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-        <div align="center" class="col-md-12">
+        <!--  div align="center" class="col-md-12">
         	<input type="button" name="butSave" id="butSave" value="Save">
         
-        </div>
+        </div -->
 
     </div>
     <!-- /#wrapper -->
@@ -159,14 +159,6 @@
         $("#wrapper").toggleClass("toggled");
     });
 
-    $(function() {
-    	$("#butSave").click(function(e) {
-    		// Prevent the form from submitting via the browser.
-    		e.preventDefault();
-    		
-
-    	});
-    });
     
     </script>
 

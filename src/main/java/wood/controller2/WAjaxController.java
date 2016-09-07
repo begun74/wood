@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import wood.model.Request;
 import wood.model.StatusOrder;
@@ -29,23 +28,18 @@ public class WAjaxController {
 
 	@ResponseBody
 	@RequestMapping(value = "/statusOrder", method = RequestMethod.POST)
-	public HttpStatus  statusOrder(@RequestBody StatusOrder statusOrder) {
+	public ResponseEntity<StatusOrder>  statusOrder(@RequestBody StatusOrder statusOrder) {
 		
 		
 		
-		Request req = woodService.getRequest(statusOrder.getId());
-		System.out.println(req);
-		if(statusOrder.isStatus())
-			req.setStatus(1);
-		else 
-			req.setStatus(0);
+		//Request req = woodService.getRequest(statusOrder.getId());
+		//if(statusOrder.isStatus())
+		//	req.setStatus(1);
+		//else 
+		//	req.setStatus(0);
 		
-		System.out.println(req);
-		
-		woodService.addRequest(req);
+		//woodService.addRequest(req);
 
-		System.out.println(statusOrder);
-		
-		return HttpStatus.OK;
+		return new ResponseEntity<StatusOrder>(statusOrder, HttpStatus.OK);
 	}
 }

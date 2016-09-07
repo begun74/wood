@@ -104,8 +104,8 @@
 								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="id"/></div></td>
 								<td width="150px"><div style="overflow: hidden; width: 150px;"><spring:message code="date"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="name"/></div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="phone"/></div></td>
-								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="email"/></div></td>
+								<td width="150px"><div style="overflow: hidden; width: 150px;"><spring:message code="phone"/></div></td>
+								<td width="220px"><div style="overflow: hidden; width: 220px;"><spring:message code="email"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="photo"/></div></td>
 								<td width="45px"><div style="overflow: hidden; width: 45px;"><spring:message code="ready"/></div></td>
 								<td width="100%"><div style="overflow: hidden; width: 100%;"><spring:message code="description"/></div></td>
@@ -120,8 +120,8 @@
 									<td width="35px"><div style="overflow: hidden; width: 35px;">${order.id}</div></td>
 									<td width="150px"><div style="overflow: hidden; width: 150px;"><fmt:formatDate pattern="yyyy-MM-dd H:mm" value="${order.creation_date}" /></div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.name}</div></td>
-									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
-									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
+									<td width="150px"><div style="overflow: hidden; width: 150px;">${order.phone}</div></td>
+									<td width="220px"><div style="overflow: hidden; width: 220px;">${order.email}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /> ${order.fk_particleboard}</div></td>
 									<td width="45px" id="td_order_${order.id}" <c:if test="${order.status == 1}">bgcolor="green"</c:if>>
 											<div style="overflow: hidden; width: 45px;">
@@ -136,16 +136,16 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-        <!--  div align="center" class="col-md-12">
-        	<input type="button" name="butSave" id="butSave" value="Save">
-        
-        </div -->
 
     </div>
     <!-- /#wrapper -->
-    
-     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
+    <div class="row">
+          <div class="col-md-12">
+               <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+          </div>
+    </div>
+    
     <!-- jQuery -->
     <script src="resources/js/jquery.js"></script>
 

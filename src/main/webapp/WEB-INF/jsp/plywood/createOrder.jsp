@@ -118,7 +118,7 @@
 								<label>Телефон</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" name="phone" value="${requestForm.phone}" placeholder="(123)123-1234"/>
+								<input type="text" name="phone" value="${requestForm.phone}" placeholder="+375 1234 123-12-12"/>
 							</div>
 							<div>
 								 <font color="red"><form:errors path="phone" cssClass="formError"/></font>

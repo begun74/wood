@@ -28,7 +28,8 @@ public class WAjaxController {
 
 	@ResponseBody
 	@RequestMapping(value = "/statusOrder", method = RequestMethod.POST)
-	public ResponseEntity<StatusOrder>  statusOrder(@RequestBody StatusOrder statusOrder) {
+	public ResponseEntity<StatusOrder>  statusOrder(@RequestBody StatusOrder statusOrder) 
+	{
 		
 		
 		

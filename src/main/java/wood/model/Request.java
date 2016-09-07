@@ -42,7 +42,8 @@ public class Request  implements Serializable {
 	
 	private Long fk_dirCustomer;
 	
-	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
+	//@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
+	@Pattern(regexp="\\+\\d{3}\\s\\d{2,4}\\s\\d{3}-\\d{2}-\\d{2}")
 	@NotEmpty (message = "Please enter phone.")
 	private String phone;
 	

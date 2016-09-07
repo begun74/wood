@@ -32,13 +32,13 @@ public class WAjaxController {
 		
 		
 		
-		//Request req = woodService.getRequest(statusOrder.getId());
-		//if(statusOrder.isStatus())
-		//	req.setStatus(1);
-		//else 
-		//	req.setStatus(0);
+		Request req = woodService.getRequest(statusOrder.getId());
+		if(statusOrder.isStatus())
+			req.setStatus(1);
+		else 
+			req.setStatus(0);
 		
-		//woodService.addRequest(req);
+		woodService.addRequest(req);
 
 		return new ResponseEntity<StatusOrder>(statusOrder, HttpStatus.OK);
 	}

@@ -1,17 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-
+	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
+	<meta name="_csrf" content="${_csrf.token}"/>
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
     <title>Orders</title>
 
@@ -69,6 +73,7 @@
 	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
 	    <script src="resources/assets/js/wow.min.js"></script>
 	    <script src="resources/assets/js/scripts.js"></script>
+	    <script src="resources/js/app.js"></script>
         
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -97,7 +102,7 @@
 							<tr align="center">
 								<td width="25px"><div style="overflow: hidden; width: 25px;">&#160;</div></td>
 								<td width="35px"><div style="overflow: hidden; width: 35px;"><spring:message code="id"/></div></td>
-								<td width="200px"><div style="overflow: hidden; width: 200px;"><spring:message code="date"/></div></td>
+								<td width="150px"><div style="overflow: hidden; width: 150px;"><spring:message code="date"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="name"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="phone"/></div></td>
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="email"/></div></td>
@@ -113,14 +118,14 @@
 								<tr align="center" style="cursor:pointer">
 									<td width="25px"><div style="overflow: hidden; width: 25px;">${vs.count}</div></td>
 									<td width="35px"><div style="overflow: hidden; width: 35px;">${order.id}</div></td>
-									<td width="200px"><div style="overflow: hidden; width: 200px;">${order.creation_date}</div></td>
+									<td width="150px"><div style="overflow: hidden; width: 150px;"><fmt:formatDate pattern="yyyy-MM-dd H:mm" value="${order.creation_date}" /></div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.name}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.phone}</div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.email}</div></td>
-									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /></div></td>
+									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /> ${order.fk_particleboard}</div></td>
 									<td width="45px">
 											<div style="overflow: hidden; width: 45px;">
-													<input type="checkbox" id="order_${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if>/>
+													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="saveOrders(this)"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 								</tr>
@@ -132,12 +137,14 @@
         </div>
         <!-- /#page-content-wrapper -->
         <div align="center" class="col-md-12">
-        	<input type="button" name="butSave" value="Save">
+        	<input type="button" name="butSave" id="butSave" value="Save">
         
         </div>
 
     </div>
     <!-- /#wrapper -->
+    
+     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
     <!-- jQuery -->
     <script src="resources/js/jquery.js"></script>
@@ -151,12 +158,16 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    $(function() {
+    	$("#butSave").click(function(e) {
+    		// Prevent the form from submitting via the browser.
+    		e.preventDefault();
+    		
+
+    	});
+    });
     
-    function status(value) 
-    {
-    	if(value ==1) return true;
-    	else return false;
-    }
     </script>
 
 </body>

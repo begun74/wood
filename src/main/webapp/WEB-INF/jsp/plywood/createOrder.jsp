@@ -74,6 +74,7 @@
 	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
 	    <script src="resources/assets/js/wow.min.js"></script>
 	    <script src="resources/assets/js/scripts.js"></script>
+	    
     
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
@@ -117,7 +118,7 @@
 								<label>Телефон</label>
 							</div>
 							<div style="margin-bottom: 5px" class="input-group">
-								<input type="text" name="phone" value="${requestForm.phone}"/>
+								<input type="text" name="phone" value="${requestForm.phone}" placeholder="(123)123-1234"/>
 							</div>
 							<div>
 								 <font color="red"><form:errors path="phone" cssClass="formError"/></font>

@@ -211,7 +211,13 @@
 		    <artifactId>itextpdf</artifactId>
 		    <version>5.4.4</version>
 		</dependency>
-		
+
+        <!-- Warning!! Required ! -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>		
 
 	</dependencies>	
 	

@@ -133,6 +133,14 @@ public class Request  implements Serializable {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Request [id=" + id + ", creation_date=" + creation_date + ", name=" + name + ", description="
+				+ description + ", fk_particleboard=" + fk_particleboard + ", fk_dirCustomer=" + fk_dirCustomer
+				+ ", phone=" + phone + ", email=" + email + ", status=" + status + "]";
+	}
+
+
 	
 	
 	

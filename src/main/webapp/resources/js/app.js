@@ -42,7 +42,38 @@ function statusOrders(checkbox) {
 			//display(data);
 		},
 		error : function(e) {
-			alert("ERROR: ", e);
+			alert("ERROR: statusOrders()", e);
+			//display(e);
+		}
+	});
+}
+
+function addToBacket(id) {
+	
+	
+	//var token = $("meta[name='_csrf']").attr("content");
+	//var header = $("meta[name='_csrf_header']").attr("content");
+	
+	var data = {};
+	
+	data['id']=id;
+	//alert(id);
+
+	$.ajax({
+		type : "GET",
+		//contentType : "application/json",
+		url : "addToBacket?id="+id,
+		//data : JSON.stringify(data),
+		//dataType : 'json',
+		timeout : 100000,
+		//beforeSend: function(xhrr) {
+        //    xhrr.setRequestHeader(header, token);
+        //},
+		success : function(data) {
+			//display(data);
+		},
+		error : function(e) {
+			alert("ERROR: addToBacket()", e);
 			//display(e);
 		}
 	});

@@ -118,7 +118,7 @@
 								<tr align="center" style="cursor:pointer">
 									<td width="25px"><div style="overflow: hidden; width: 25px;">${vs.count}</div></td>
 									<td width="35px"><div style="overflow: hidden; width: 35px;">${order.id}</div></td>
-									<td width="150px"><div style="overflow: hidden; width: 150px;"><fmt:formatDate pattern="yyyy-MM-dd H:mm" value="${order.creation_date}" /></div></td>
+									<td width="150px"><div style="overflow: hidden; width: 150px;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${order.creation_date}" /></div></td>
 									<td width="120px"><div style="overflow: hidden; width: 120px;">${order.name}</div></td>
 									<td width="150px"><div style="overflow: hidden; width: 150px;">${order.phone}</div></td>
 									<td width="220px"><div style="overflow: hidden; width: 220px;">${order.email}</div></td>

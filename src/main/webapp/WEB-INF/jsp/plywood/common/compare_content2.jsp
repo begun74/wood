@@ -39,7 +39,7 @@
 					  <td align="center" style="padding: 15px;" >
                           <div class="col-sm-12 controls">
                              <a href="del-from-compare?id=${particleboards[0][y]}" class="btn btn-success"> <spring:message code="delete"/></a>
-                             <a href="add-product-to-customer-basket?id=${particleboards[0][y]}" class="btn btn-success"> <spring:message code="buy"/></a>
+                             <a href="add-product-to-customer-basket?id=${particleboards[0][y]}&action=compare" class="btn btn-success"> <spring:message code="buy"/></a>
                           </div>
 					  </td> 
 					</c:forEach>

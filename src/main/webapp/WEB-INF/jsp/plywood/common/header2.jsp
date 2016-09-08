@@ -78,15 +78,16 @@
 
         <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
             <div class="top-cart-row-container">
-    <div class="wishlist-compare-holder">
-        <div class="wishlist ">
-            <a href="wishlist.htm"><i class="fa fa-heart"></i> wishlist <span class="value"></span> </a>
-        </div>
-        <div class="compare">
-            <a href="compare.htm"><i class="fa fa-exchange"></i> compare <span class="value">${fn:length(compBean.items)}</span> </a>
-        
-        </div>
-    </div>
+
+			    <div class="wishlist-compare-holder" id="wishlist-compare-holder">
+			        <div class="wishlist ">
+			            <a href="wishlist.htm"><i class="fa fa-heart"></i> wishlist <span class="value"></span> </a>
+			        </div>
+			        <div class="compare">
+			            <a href="compare.htm"><i class="fa fa-exchange"></i> compare <span class="value" id="compareItems" >${fn:length(compBean.items)}</span> </a>
+			        
+			        </div>
+			    </div>
 
     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
     <div class="top-cart-holder dropdown animate-dropdown">

@@ -56,8 +56,7 @@ public class WController1 {
 		model.addAttribute("compBean",compBean);
 		
 		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
-		
-		//System.out.println("plywoodGet   model - "+model);
+
 		return "plywood/index_plywood";
 	}
 
@@ -77,7 +76,6 @@ public class WController1 {
 		model.addAttribute("backetBean",backet);
 		model.addAttribute("compBean",compBean);
 
-		//System.out.println("plywoodPost   mIndex - "+m_Index);
 		return "plywood/index_plywood";
 	}
 	
@@ -85,8 +83,6 @@ public class WController1 {
 	public String  add_product_to_customer_basket( Model model,
 			@RequestParam(value = "id",   required=false) Long id)
 	{
-		//System.out.println("model - "+model);
-		//System.out.println("mIndex - "+mIndex);
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
@@ -95,7 +91,6 @@ public class WController1 {
 		if(id != null)
 			backet.addParticleboardToBacket(woodService.getParticleboard(id));
 
-		//System.out.println(id+"  plywood/index_plywood");
 		
 		return "redirect:plywood";
 	}
@@ -103,8 +98,6 @@ public class WController1 {
 	@RequestMapping(value = {"/del-from-backet"} , method = RequestMethod.GET)
 	public String  del_from_backet( Model model, @RequestParam(value = "id",   required=false) Long id)
 	{
-		//System.out.println("model - "+model);
-		//System.out.println("mIndex - "+mIndex);
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
@@ -122,17 +115,12 @@ public class WController1 {
 	public String  add_product_to_compare( Model model,
 			@RequestParam(value = "id",   required=false) Long id)
 	{
-		//System.out.println("model - "+model);
-		//System.out.println("mIndex - "+mIndex);
-		//model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",compBean.getItems());
-		//model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("backetBean",backet);
 		
 		if(id != null)
 			compBean.addParticleboardToCompList(woodService.getParticleboard(id));
 
-		//System.out.println(id+"  plywood/index_plywood");
 		
 		return "redirect:plywood";
 	}
@@ -141,19 +129,11 @@ public class WController1 {
 	public String  del_from_compare( Model model,
 			@RequestParam(value = "id",   required=false) Long id)
 	{
-		//System.out.println("model - "+model);
-		//System.out.println("mIndex - "+mIndex);
-		//model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",compBean.getItems());
 		model.addAttribute("backetBean",backet);
 		
 		if(id != null)
-		{
 			compBean.getItems().remove(woodService.getParticleboard(id));
-			//System.out.println("del_from_compare id - "+id);
-		}
-
-		//System.out.println(id+"  plywood/index_plywood");
 		
 		return "redirect:compare";
 	}
@@ -161,7 +141,7 @@ public class WController1 {
 	@RequestMapping(value = {"/compare"} , method = RequestMethod.GET)
 	public String  compare( Model model)
 	{
-		model.addAttribute("particleboards",compBean.getItems());
+		model.addAttribute("particleboards",compBean.getArrItems());
 		model.addAttribute("backetBean",backet);
 		model.addAttribute("compBean",compBean);
 		

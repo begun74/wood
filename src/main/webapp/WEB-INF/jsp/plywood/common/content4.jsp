@@ -32,7 +32,7 @@
 						                                    </div>
 						                                    <div class="wish-compare">
 						                                        <a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${particleboard.id}">add to wishlist</a>
-						                                        <a class="btn-add-to-compare" href="add-product-to-compare-list?id=${particleboard.id}">compare</a>
+						                                        <a class="btn-add-to-compare" href="javascript:addToCompare(${particleboard.id})" >compare</a>
 						                                    </div>
 						                                </div>
 												</div>

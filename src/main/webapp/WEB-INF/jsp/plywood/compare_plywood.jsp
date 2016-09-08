@@ -137,7 +137,7 @@
 									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
 								</div>
 								<!-- Main content  -->
-									<%@include file="common/compare_content.jsp" %>      
+									<%@include file="common/compare_content2.jsp" %>      
 								<!-- Main content  -->
 							</div>
 						</div>
@@ -169,5 +169,6 @@
 
 	    });
 	    </script>
+	    
     
 </html>

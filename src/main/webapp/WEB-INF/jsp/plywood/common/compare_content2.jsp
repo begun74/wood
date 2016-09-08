@@ -7,7 +7,7 @@
 
 <table>
 <c:forEach var="i" begin="0" end="${fn:length(particleboards)}" >
-	<tr>
+	<tr align="center">
 			<c:forEach var="y" begin="0" end="${fn:length(particleboards[i])}" >
 			  <td>
 			     <c:out value="${particleboards[i][y]}"/>

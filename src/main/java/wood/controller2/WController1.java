@@ -148,6 +148,9 @@ public class WController1 {
 		model.addAttribute("backetBean",backet);
 		model.addAttribute("compBean",compBean);
 		
+		if(compBean.getItems().size() == 0)
+			return "redirect:index";
+		
 		return "plywood/compare_plywood";
 	}
 	

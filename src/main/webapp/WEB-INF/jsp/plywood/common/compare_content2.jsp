@@ -22,7 +22,7 @@
 
 		<tr>
 			<c:forEach var="i" begin="0" end="${fn:length(particleboards[0])-1}" >
-					<td align="center"><img src="resources/pics/${particleboard[0][i]}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/></td>
+					<td align="center"><img src="resources/pics/${particleboards[0][i]}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/></td>
 			</c:forEach>
 		</tr>
 		<c:forEach var="i" begin="1" end="${fn:length(particleboards)-1}" >
@@ -39,6 +39,7 @@
 					  <td align="center" style="padding: 15px;" >
                           <div class="col-sm-12 controls">
                              <a href="del-from-compare?id=${particleboards[0][y]}" class="btn btn-success"> <spring:message code="delete"/></a>
+                             <a href="add-product-to-customer-basket?id=${particleboards[0][y]}" class="btn btn-success"> <spring:message code="buy"/></a>
                           </div>
 					  </td> 
 					</c:forEach>

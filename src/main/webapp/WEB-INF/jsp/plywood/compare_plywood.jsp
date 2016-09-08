@@ -119,31 +119,12 @@
     		</form -->
     	</div>
 
-		<div class="col-md-9 no-margin sidebar">
-									<!-- div class="grid-list-buttons">
-										<div class="control-bar">
-						                <ul>
-						                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i>Grid</a></li>
-						                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i>List</a></li>
-						                </ul>
-						                </div>
-						            </div -->
-
-			<div class="container">
-				<div class="row">
-			    		<div class="col-md-12">
-			    			<div class="box-content">
-								<div class="headlines center">
-									<!-- h2><spring:message code="index_plywood.particleboard"/></h2 -->
-								</div>
-								<!-- Main content  -->
-									<%@include file="common/compare_content2.jsp" %>      
-								<!-- Main content  -->
-							</div>
-						</div>
-				</div>		
+	   		<div class="col-md-12">
+						<!-- Main content  -->
+						<%@include file="common/compare_content2.jsp" %>      
+						<!-- Main content  -->
 			</div>
-		</div>
+			
 
     	</div>
 

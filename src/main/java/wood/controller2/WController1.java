@@ -135,6 +135,9 @@ public class WController1 {
 		if(id != null)
 			compBean.getItems().remove(woodService.getParticleboard(id));
 		
+		if(compBean.getItems().size() == 0)
+			return "redirect:index";
+		
 		return "redirect:compare";
 	}
 

@@ -27,8 +27,8 @@
 												<div class="product-item ">
 								    					<div class="hover-area">
 						                                    <div class="add-cart-button">
-						                                        <!-- a href="add-product-to-customer-basket?id=${particleboard.id}" class="le-button">add to cart</a -->
-						                                        <a href="javascript:addToBacket(${particleboard.id});" class="le-button">add to cart</a>
+						                                        <a href="add-product-to-customer-basket?id=${particleboard.id}" class="le-button">add to cart</a>
+						                                        <!-- a href="javascript:addToBacket(${particleboard.id});" class="le-button">add to cart</a -->
 						                                    </div>
 						                                    <div class="wish-compare">
 						                                        <a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${particleboard.id}">add to wishlist</a>

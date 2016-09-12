@@ -41,7 +41,7 @@ public class WoodServiceImpl implements WoodService {
 		dao.addParticleboard(particleboard);
 	}
 
-	@Loggable
+	//@Loggable
 	@Override
 	public List<Particleboard> getListParticleboards() {
 		// TODO Auto-generated method stub

@@ -59,7 +59,7 @@ public class BacketBean {
 
 
 	public synchronized int getCountItems() {
-		//System.out.println("backet items - " + items);
+		
 		countItems = items.size();
 		return countItems;
 	}

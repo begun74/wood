@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import wood.annotation.Loggable;
 import wood.model.Particleboard;
 import wood.service.WoodService;
 
@@ -41,6 +42,8 @@ public class MIndex {
 		this.brands = brands;
 	}
 
+	
+	@Loggable
 	public List<Particleboard> getListParticleboards(WoodService woodService)
 	{
 		List<Particleboard> pList = new LinkedList<Particleboard>();

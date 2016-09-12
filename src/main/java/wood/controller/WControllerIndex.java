@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import wood.annotation.Loggable;
 import wood.bean.BacketBean;
 import wood.bean.CompareBean;
 import wood.bean.SessionBean;

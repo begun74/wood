@@ -10,6 +10,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -37,8 +38,10 @@ import wood.bean.SessionBean;
 
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 @EnableTransactionManagement
 @EnableWebMvc
+
 //@ComponentScan( {"wood.service.*","wood.dao.*","wood.model.*","wood.controller.*","wood.controller2.*"} )
 @ComponentScan(basePackages = {"wood"})
 @PropertySource("classpath:app.properties")

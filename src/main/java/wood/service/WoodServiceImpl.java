@@ -6,11 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
-
-
-
+import wood.annotation.Loggable;
 import wood.dao.DAOImpl;
 import wood.model.DirBrand;
 import wood.model.DirColor;
@@ -45,6 +41,7 @@ public class WoodServiceImpl implements WoodService {
 		dao.addParticleboard(particleboard);
 	}
 
+	@Loggable
 	@Override
 	public List<Particleboard> getListParticleboards() {
 		// TODO Auto-generated method stub
@@ -99,6 +96,7 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getAllParticleboards(example_particleboard);
 	}
 
+	@Loggable
 	@Override
 	public List<Particleboard> getAllParticleboards(
 			Particleboard example_particleboard, int priceFrom, int priceTo) {

@@ -6,7 +6,7 @@
 
 
 
-						<c:set var="perPage" value="4"/>
+						<c:set var="perPage" value="3"/>
 						<c:set var="allItems" value="${fn:length(particleboards)}"/>
 						<c:set var="pageNumber" value="${param.pageNumber}"/>
 						<c:if test="${empty param.pageNumber}" >
@@ -44,15 +44,16 @@
 								</c:forEach>
 						</table>
 						</div>
-						<div class="row">
-							<div class="col col-md-12">
+							<div class="col col-md-4">
+							</div>						
+							<div class="col col-md-4">
 									<nav>
 										<ul class="pagination list-unstyled">
-											<c:forEach begin="0" end="${allItems/perPage}" var="pageNumber">
-												<li><a href="plywood?pageNumber=${pageNumber+1}">${pageNumber+1}</a></li>
+											<c:forEach begin="0" end="${allItems/perPage}" var="pN">
+												<li><a href="plywood?pageNumber=${pN+1}">${pN+1}</a></li>
 											</c:forEach>
 										</ul>
 									</nav>
 							</div>
-						</div>
-						
+							<div class="col col-md-4">
+							</div>

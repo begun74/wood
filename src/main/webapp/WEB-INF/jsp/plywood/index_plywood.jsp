@@ -89,56 +89,57 @@
 		<%@include file="common/nav.jsp" %>      
 		<%@include file="common/header2.jsp" %>     
     
-		<div class="widget col-md-3">
-		    <h1>Product Filters</h1>
-		    
-		    <form  method="POST" name="mIndex" 
+		    <form  method="GET" name="mIndex" 
 		    	action="${pageContext.request.contextPath}/plywood">
-		    <div class="body bordered">
-		        <div class="category-filter">
-		            <h2>Brands</h2>
-		            <hr>
-		            <ul>    
-						<c:forEach items="${brands}" var="brand" varStatus="vs" >
-							<li><input  class="le-checkbox" type="checkbox"  name="brands" id="brand_${brand.id}" value="${brand.id}" /><label>${brand.name}</label></li>
-						</c:forEach>
-					</ul>   
-					<hr> 
-					<div><spring:message code="price"/></div>
-					<div style="margin-bottom: 15px; width: 20px;" class="input-group">
-						<input name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/>
-						<input name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
-					</div>
-					<hr> 
-					<input  type="submit" name="register" value="<spring:message code="label.button.select"/>"/>
-    			</div>
-    		</div>
-    		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    		</form>
-    	</div>
-
-		<div class="col-md-9 no-margin sidebar">
-									<!-- div class="grid-list-buttons">
-										<div class="control-bar">
-						                <ul>
-						                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i>Grid</a></li>
-						                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i>List</a></li>
-						                </ul>
-						                </div>
-						            </div -->
-
-			<div class="container">
-				<div class="row">
-			    		<div class="col-md-12">
-							<div>
-								<!-- Main content  -->
-									<%@include file="common/content4.jsp" %>      
-								<!-- Main content  -->
+				<div class="widget col-md-3">
+				    <h1>Product Filters</h1>
+				    
+				    <div class="body bordered">
+				        <div class="category-filter">
+				            <h2>Brands</h2>
+				            <hr>
+				            <ul>    
+								<c:forEach items="${brands}" var="brand" varStatus="vs" >
+									<li><input  class="le-checkbox" type="checkbox"  name="brands" id="brand_${brand.id}" value="${brand.id}" /><label>${brand.name}</label></li>
+								</c:forEach>
+							</ul>   
+							<hr> 
+							<div><spring:message code="price"/></div>
+							<div class="col-md-12">
+								<div class="col-md-3">
+									<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/></label>
+								</div>					
+								<div class="col-md-3">
+									<spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
+								</div>
 							</div>
-						</div>
-				</div>		
-			</div>
-		</div>
+							<hr> 
+							<input  type="submit" name="submit" value="<spring:message code="label.button.select"/>"/>
+		    			</div>
+		    		</div>
+		    		
+		    	</div>
+		
+				<div class="col-md-9 no-margin sidebar">
+											<!-- div class="grid-list-buttons">
+												<div class="control-bar">
+								                <ul>
+								                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i>Grid</a></li>
+								                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i>List</a></li>
+								                </ul>
+								                </div>
+								            </div -->
+		
+					    		<div class="col-md-12">
+									<div>
+										<!-- Main content  -->
+											<%@include file="common/content4.jsp" %>      
+										<!-- Main content  -->
+									</div>
+								</div>
+				</div>
+
+    		</form>
 
     	</div>
 

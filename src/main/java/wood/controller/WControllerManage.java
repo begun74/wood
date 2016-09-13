@@ -25,6 +25,7 @@ import wood.bean.SessionBean;
 import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.Particleboard;
+import wood.modelattribute.MAdmin;
 import wood.service.WoodService;
 import wood.util.FileUpload;
 import wood.util.ReadExcelUtil;
@@ -140,6 +141,17 @@ public class WControllerManage {
 	    return model;
 	}
 	
+
+	@RequestMapping(value = "generateFile" ,method = RequestMethod.POST)
+	public ModelAndView  processParticleboardGET(HttpSession session, @ModelAttribute("mAdmin") MAdmin mAdmin)
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PARTICLEBOARD);
+		
+		System.out.println(mAdmin);
+	
+		return model;
+	}
+			
 	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ModelAndView  processParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
 			BindingResult result,

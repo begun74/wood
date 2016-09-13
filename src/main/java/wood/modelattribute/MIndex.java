@@ -22,8 +22,9 @@ public class MIndex {
 	List<Long> brands = new LinkedList<Long>();
 	
 	private int pbListSize = 0;
-	private int priceFrom = 0;
-	private int priceTo = 0;
+	private Integer priceFrom = 0;
+	private Integer priceTo = 0;
+	private Integer pageNumber = 0;
 
 	private long time = System.currentTimeMillis();
 
@@ -93,23 +94,39 @@ public class MIndex {
 		return priceFrom;
 	}
 
-	public void setPriceFrom(int priceFrom) {
+	public void setPriceFrom(Integer priceFrom) {
+		if(priceFrom == null) priceFrom=0;
 		this.priceFrom = priceFrom;
 	}
 
-	public int getPriceTo() {
+	public Integer getPriceTo() {
 		return priceTo;
 	}
 
-	public void setPriceTo(int priceTo) {
+	public void setPriceTo(Integer priceTo) {
+		if(priceTo == null) priceTo=0;
 		this.priceTo = priceTo;
 	}
+	
+	
+	public Integer getPageNumber() {
+		return pageNumber;
+	}
+
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+	}
+
 
 	@Override
 	public String toString() {
-		return "MIndex [brands=" + brands + ", priceFrom=" + priceFrom
-				+ ", priceTo=" + priceTo + "]";
+		return "MIndex [brands=" + brands + ", priceFrom=" + priceFrom + ", priceTo=" + priceTo + ", pageNumber="
+				+ pageNumber + "]";
 	}
+
+
+	
 
 
 }

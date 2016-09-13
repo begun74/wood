@@ -117,31 +117,53 @@
 						         </div>
 						         
 						         <input type="hidden" name ="id_particleboard" id ="id_particleboard" value="-1"/>
+						         
 					    	</form>
 						</div>
 						<div class="col-md-8">
 							<div>Particleboard</div>
-							<c:forEach items="${particleboards}" var="particleboard">
-								<div class="row">
-									<div class="col-md-7">
-											<div><a href="#" onclick="editParticleboard('${particleboard.id}', 
-																						'${particleboard.thickness}',
-																						'${particleboard.length}',
-																						'${particleboard.weight}',
-																						'${particleboard.price}',
-																						'${particleboard.dirColor.id}',
-																						'${particleboard.dirBrand.id}')">
-													${particleboard.id}</a>    ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}
+							<br/>
+							<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
+								<div class="col-md-12">
+
+																
+									<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
+										
+										<div class="row">
+											<div class="col-md-4">
+													
+													<div><input type="checkbox" name='vs[index]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
+																								'${particleboard.thickness}',
+																								'${particleboard.length}',
+																								'${particleboard.weight}',
+																								'${particleboard.price}',
+																								'${particleboard.dirColor.id}',
+																								'${particleboard.dirBrand.id}');">
+																	 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
+													</div>
 											</div>
-									</div>
-									<div class="col-md-2">
-				         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
-			         				</div>
-									<div class="col-md-1">
-										<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
-									</div>
+											<div class="col-md-1">
+						         					<select name="countSelect[key]">
+						         						<option value="1">1</option>
+						         						<option value="2">2</option>
+						         						<option value="3">3</option>
+						         						<option value="4">4</option>
+						         						<option value="5">5</option>
+						         					</select>
+					         				</div>
+											<div class="col-md-1">
+						         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
+					         				</div>
+											<div class="col-md-1">
+												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
+											</div>
+										</div>
+									</c:forEach>
 								</div>
-							</c:forEach>
+							<div class="col-md-8">
+								<input type="submit" name="butGen" value="Generate" />
+							</div>
+							</form>
 						</div>
 					</div>
 

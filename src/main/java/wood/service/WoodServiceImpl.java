@@ -96,7 +96,7 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getAllParticleboards(example_particleboard);
 	}
 
-	@Loggable
+	//@Loggable
 	@Override
 	public List<Particleboard> getAllParticleboards(
 			Particleboard example_particleboard, int priceFrom, int priceTo) {

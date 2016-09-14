@@ -139,7 +139,7 @@
 																		 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
 												</td>
 												<td style="padding: 5px;">
-							         					<select name="countSelect[${vs.index}]">
+							         					<select name="amountParts[${vs.index}]">
 							         						<option value="1">1</option>
 							         						<option value="2">2</option>
 							         						<option value="3">3</option>

@@ -18,7 +18,7 @@ public class MAdmin {
 	
 	Map<Integer,Long> chbxParts = new HashMap<Integer,Long>();
 	
-	Map<Integer,Integer> countSelect = new HashMap<Integer,Integer>();
+	Map<Integer,Integer> amountParts = new HashMap<Integer,Integer>();
 		
 
 	
@@ -34,21 +34,22 @@ public class MAdmin {
 
 
 
-	public Map<Integer, Integer> getCountSelect() {
-		return countSelect;
+	
+	public Map<Integer, Integer> getAmountParts() {
+		return amountParts;
 	}
 
 
 
-	public void setCountSelect(Map<Integer, Integer> countSelect) {
-		this.countSelect = countSelect;
+	public void setAmountParts(Map<Integer, Integer> amountParts) {
+		this.amountParts = amountParts;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "MAdmin [chbxParts=" + chbxParts + ", countSelect=" + countSelect + "]";
+		return "MAdmin [chbxParts=" + chbxParts + ", amountParts=" + amountParts + "]";
 	}
 
 	

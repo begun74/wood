@@ -178,7 +178,7 @@ public class WControllerManage {
 		{
 			Integer index = iter_setChbxs.next();
 			Long id = mAdmin.getChbxParts().get(index);
-			Integer count = mAdmin.getCountSelect().get(index);
+			Integer count = mAdmin.getAmountParts().get(index);
 			
 			mapModels.put(woodService.getParticleboard(id),count);
 			

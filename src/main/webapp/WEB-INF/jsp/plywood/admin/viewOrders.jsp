@@ -130,8 +130,12 @@
 													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this)"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
-									<td width="20px"><div style="overflow: hidden; width: 20px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${order.fk_particleboard}" /></div></td>
-									<td width="45px"><div style="overflow: hidden; width: 45px;"><input type="text" name='countSelect[${vs.index}]' maxlength = "4" /></div></td>
+									<td width="20px">
+										<div style="overflow: hidden; width: 20px;">
+											<input type="checkbox" name='chbxParts[${vs.index}]' id="chbxParts_${order.fk_particleboard}" value="${order.fk_particleboard}" <c:if test="${order.status == 1}">disabled="disabled"</c:if> />
+										</div>
+									</td>
+									<td width="45px"><div style="overflow: hidden; width: 45px;"><input type="text" name='amountParts[${vs.index}]' id="amountParts_${order.fk_particleboard}" maxlength="4" <c:if test="${order.status == 1}">disabled="disabled"</c:if> /></div></td>
 								</tr>
 							</c:forEach>
 						</table>

@@ -127,7 +127,7 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /> ${order.fk_particleboard}</div></td>
 									<td width="45px" id="td_order_${order.id}" <c:if test="${order.status == 1}">bgcolor="green"</c:if>>
 											<div style="overflow: hidden; width: 45px;">
-													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this)"/>
+													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this,'chbxParts_${order.fk_particleboard}','amountParts[${vs.index}]')"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 									<td width="20px">

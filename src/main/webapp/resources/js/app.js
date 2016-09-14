@@ -1,29 +1,25 @@
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
 
 
-function jsonSec() 
-{
-	var token = $("meta[name='_csrf']").attr("content");
-	var header = $("meta[name='_csrf_header']").attr("content");
+function statusOrders(checkbox, chbxParts_id, amountParts_id) {
 	
-	var data={};
-	
-	data['csrfToken'] = token;    
-	data['csrfHeader'] = header;   
-	
-	return data;
-}
-
-function statusOrders(checkbox) {
-	
-	
-	var token = $("meta[name='_csrf']").attr("content");
-	var header = $("meta[name='_csrf_header']").attr("content");
-	
-	var data = jsonSec();
+	var data = {};
 	
 	data['id']=checkbox.value;
 	data['status']=checkbox.checked;
-
+	
+	if(checkbox.checked)
+	{
+		$('#'+chbxParts_id).attr("disabled", "disabled");
+		$('#'+amountParts_id).attr("disabled", "disabled");
+	}
+	else
+	{
+		$('#'+chbxParts_id).attr("disabled", false);
+		$('#'+amountParts_id).attr("disabled", false);
+	}
+	
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
@@ -36,9 +32,19 @@ function statusOrders(checkbox) {
         },
 		success : function(data) {
 			if(data.status)
+			{	
 				$('#td_order_'+data.id).css('background-color', 'green');
+				$('#'+chbxParts_id).prop("disabled", true);
+				$('#'+amountParts_id).prop("disabled", true);
+				//alert($('#'+chbxParts_id).prop("disabled"));
+			}
 			else
+			{
 				$('#td_order_'+data.id).css('background-color', 'white');
+				$('#'+chbxParts_id).prop("disabled", false);
+				$('#'+amountParts_id).prop("disabled", false);
+				//alert($('#'+chbxParts_id).prop("disabled"));
+			}
 			//display(data);
 		},
 		error : function(e) {

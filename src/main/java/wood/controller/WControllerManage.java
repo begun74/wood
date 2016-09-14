@@ -7,7 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -34,6 +39,7 @@ import org.springframework.web.servlet.ModelAndView;
 import wood.bean.SessionBean;
 import wood.model.DirBrand;
 import wood.model.DirColor;
+import wood.model.IWModel;
 import wood.model.Particleboard;
 import wood.modelattribute.MAdmin;
 import wood.service.WoodService;
@@ -162,13 +168,29 @@ public class WControllerManage {
 	    final String temperotyFilePath = tempDirectory.getAbsolutePath();
 		System.out.println(mAdmin);
 	
-		String fileName = "JavaHonk.pdf";
-	    response.setContentType("application/pdf");
+		Map<IWModel,Integer> mapModels = new HashMap<IWModel,Integer>();
+		
+		Set<Integer> setChbxs = mAdmin.getChbxParts().keySet();
+		
+		Iterator<Integer> iter_setChbxs = setChbxs.iterator();
+		
+		while(iter_setChbxs.hasNext())
+		{
+			Integer index = iter_setChbxs.next();
+			Long id = mAdmin.getChbxParts().get(index);
+			Integer count = mAdmin.getCountSelect().get(index);
+			
+			mapModels.put(woodService.getParticleboard(id),count);
+			
+		}
+		
+		String fileName = "CommOffer.pdf";
+	    response.setContentType("application/pdf;charset=UTF-8");
 	    response.setHeader("Content-disposition", "attachment; filename="+ fileName);
  
 	    try {
  
-	        CreatePDF.createPDF(temperotyFilePath+"\\"+fileName);
+	        CreatePDF.createPDF(temperotyFilePath+"\\"+fileName, mapModels);
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	        baos = convertPDFToByteArrayOutputStream(temperotyFilePath+"\\"+fileName);
 	        OutputStream os = response.getOutputStream();
@@ -195,9 +217,7 @@ public class WControllerManage {
 				baos.write(buffer, 0, bytesRead);
 			}
  
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			if (inputStream != null) {

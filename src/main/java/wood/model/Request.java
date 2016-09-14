@@ -28,7 +28,7 @@ public class Request  implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_request")
-	private long id;
+	private Long id;
 
 	private Timestamp creation_date;
 
@@ -57,11 +57,11 @@ public class Request  implements Serializable {
 	}
 	
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId_request(long id) {
+	public void setId_request(Long id) {
 		this.id = id;
 	}
 

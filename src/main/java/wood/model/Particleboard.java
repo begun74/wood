@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "particleboard")
-public class Particleboard implements Serializable , Comparable {
+public class Particleboard implements IWModel, Serializable , Comparable {
 
 	/**
 	 * 
@@ -72,10 +72,10 @@ public class Particleboard implements Serializable , Comparable {
 	public Particleboard() {
 		// TODO Auto-generated constructor stub
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Long getThickness() {
@@ -144,5 +144,11 @@ public class Particleboard implements Serializable , Comparable {
 	public int compareTo(Object o) {
 		return this.id.compareTo(((Particleboard)o).getId());
 	}
+	@Override
+	public String toString() {
+		return "Particleboard [id=" + id + ", dirBrand=" + dirBrand.getName() + "]";
+	}
 
+	
+	
 }

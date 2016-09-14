@@ -112,7 +112,7 @@
 								 </div>
 								 <div class="row">
 				    				<div class="col-md-12">
-						         		<button type="submit" class="">Add</button>
+						         		<button type="submit" class="" value="<spring:message code="add"/>"/>
 				    				</div>
 						         </div>
 						         
@@ -121,7 +121,7 @@
 					    	</form>
 						</div>
 						<div class="col-md-4">
-							<div  style="background: #ccc;">Particleboard</div>
+							<div>Particleboard</div>
 							<br/>
 							<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
 								
@@ -160,8 +160,8 @@
 									
 								
 								<p/>
-							<div style="background: #ccc;">
-								<input type="submit" name="butGen" value="Generate" />
+							<div>
+								<input type="submit" name="butGen" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
 							</div>
 							</form>
 						</div>

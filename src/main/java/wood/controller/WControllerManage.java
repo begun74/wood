@@ -1,9 +1,19 @@
 package wood.controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -27,6 +37,7 @@ import wood.model.DirColor;
 import wood.model.Particleboard;
 import wood.modelattribute.MAdmin;
 import wood.service.WoodService;
+import wood.util.CreatePDF;
 import wood.util.FileUpload;
 import wood.util.ReadExcelUtil;
 
@@ -143,13 +154,61 @@ public class WControllerManage {
 	
 
 	@RequestMapping(value = "generateFile" ,method = RequestMethod.POST)
-	public ModelAndView  processParticleboardGET(HttpSession session, @ModelAttribute("mAdmin") MAdmin mAdmin)
+	public void  processParticleboardGET(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("mAdmin") MAdmin mAdmin)
 	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PARTICLEBOARD);
 		
+		final ServletContext servletContext = request.getSession().getServletContext();
+	    final File tempDirectory = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
+	    final String temperotyFilePath = tempDirectory.getAbsolutePath();
 		System.out.println(mAdmin);
 	
-		return model;
+		String fileName = "JavaHonk.pdf";
+	    response.setContentType("application/pdf");
+	    response.setHeader("Content-disposition", "attachment; filename="+ fileName);
+ 
+	    try {
+ 
+	        CreatePDF.createPDF(temperotyFilePath+"\\"+fileName);
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        baos = convertPDFToByteArrayOutputStream(temperotyFilePath+"\\"+fileName);
+	        OutputStream os = response.getOutputStream();
+	        baos.writeTo(os);
+	        os.flush();
+	    } catch (Exception e1) {
+	        e1.printStackTrace();
+	    }
+		//return model;
+	}
+	
+	private ByteArrayOutputStream convertPDFToByteArrayOutputStream(String fileName) {
+		 
+		InputStream inputStream = null;
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		try {
+ 
+			inputStream = new FileInputStream(fileName);
+			byte[] buffer = new byte[1024];
+			baos = new ByteArrayOutputStream();
+ 
+			int bytesRead;
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+				baos.write(buffer, 0, bytesRead);
+			}
+ 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (inputStream != null) {
+				try {
+					inputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return baos;
 	}
 			
 	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

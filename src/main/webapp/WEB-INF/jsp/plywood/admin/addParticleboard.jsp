@@ -65,7 +65,7 @@
 			         </div>
 
 			    	<div class="row">
-				    	<div class="col-md-4">
+				    	<div class="col-md-3">
 					      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form"  
 								      	action="${pageContext.request.contextPath}/admin/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
 								 <div class="row">
@@ -120,47 +120,47 @@
 						         
 					    	</form>
 						</div>
-						<div class="col-md-8">
-							<div>Particleboard</div>
+						<div class="col-md-4">
+							<div  style="background: #ccc;">Particleboard</div>
 							<br/>
 							<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
-								<div class="col-md-12">
-
-																
-									<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
-										
-										<div class="row">
-											<div class="col-md-4">
-													
-													<div><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
-																								'${particleboard.thickness}',
-																								'${particleboard.length}',
-																								'${particleboard.weight}',
-																								'${particleboard.price}',
-																								'${particleboard.dirColor.id}',
-																								'${particleboard.dirBrand.id}');">
-																	 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
-													</div>
-											</div>
-											<div class="col-md-1">
-						         					<select name="countSelect[${vs.index}]">
-						         						<option value="1">1</option>
-						         						<option value="2">2</option>
-						         						<option value="3">3</option>
-						         						<option value="4">4</option>
-						         						<option value="5">5</option>
-						         					</select>
-					         				</div>
-											<div class="col-md-1">
-						         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
-					         				</div>
-											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
-											</div>
-										</div>
-									</c:forEach>
-								</div>
-							<div class="col-md-8">
+								
+									<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
+									<table>
+										<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
+											<tr>														
+												<td style="padding: 5px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
+																									'${particleboard.thickness}',
+																									'${particleboard.length}',
+																									'${particleboard.weight}',
+																									'${particleboard.price}',
+																									'${particleboard.dirColor.id}',
+																									'${particleboard.dirBrand.id}');">
+																		 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
+												</td>
+												<td style="padding: 5px;">
+							         					<select name="countSelect[${vs.index}]">
+							         						<option value="1">1</option>
+							         						<option value="2">2</option>
+							         						<option value="3">3</option>
+							         						<option value="4">4</option>
+							         						<option value="5">5</option>
+							         					</select>
+							         			</td>
+												<td style="padding: 5px;">
+							         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
+						         				</td>
+												<td style="padding: 5px;">
+													<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
+												</td>
+											</tr>
+										</c:forEach>
+									</table>
+									</div>
+									
+								
+								<p/>
+							<div style="background: #ccc;">
 								<input type="submit" name="butGen" value="Generate" />
 							</div>
 							</form>

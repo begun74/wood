@@ -112,7 +112,7 @@
 								<td width="15px"><div style="overflow: hidden; width: 15px;">&#160;</div></td>
 							</tr>				
 					</table>
-					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width="98%"">
+					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width:98%">
 						<table border="1" width="100%">
 							<c:forEach items="${orders}" var="order" varStatus="vs">
 								<tr align="center" style="cursor:pointer">

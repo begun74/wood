@@ -161,7 +161,7 @@
 								
 								<p/>
 							<div>
-								<input type="submit" name="butGen" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
+								<input type="submit" name="butPrint" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
 							</div>
 							</form>
 						</div>

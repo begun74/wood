@@ -166,7 +166,7 @@ public class WControllerManage {
 		final ServletContext servletContext = request.getSession().getServletContext();
 	    final File tempDirectory = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
 	    final String temperotyFilePath = tempDirectory.getAbsolutePath();
-		System.out.println(mAdmin);
+		//System.out.println(mAdmin);
 	
 		Map<IWModel,Integer> mapModels = new HashMap<IWModel,Integer>();
 		

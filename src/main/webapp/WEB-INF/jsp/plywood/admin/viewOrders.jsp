@@ -93,9 +93,9 @@
 		<%@include file="sidebar.jsp" %>
         <!-- /#sidebar-wrapper -->
 
+		<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
+        <div class="container-fluid">
                 <div class="row">
                 	<div class="col-md-12">
 					<table border="1" width="100%" align="center">
@@ -109,10 +109,12 @@
 								<td width="120px"><div style="overflow: hidden; width: 120px;"><spring:message code="photo"/></div></td>
 								<td width="45px"><div style="overflow: hidden; width: 45px;"><spring:message code="ready"/></div></td>
 								<td width="100%"><div style="overflow: hidden; width: 100%;"><spring:message code="description"/></div></td>
+								<td width="20px"><div style="overflow: hidden; width: 20px;">&#160;</div></td>
+								<td width="45px"><div style="overflow: hidden; width: 45px;"><spring:message code="amount"/></div></td>
 								<td width="15px"><div style="overflow: hidden; width: 15px;">&#160;</div></td>
 							</tr>				
 					</table>
-					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width:98%">
+					<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%">
 						<table border="1" width="100%">
 							<c:forEach items="${orders}" var="order" varStatus="vs">
 								<tr align="center" style="cursor:pointer">
@@ -128,14 +130,21 @@
 													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this)"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
+									<td width="20px"><div style="overflow: hidden; width: 20px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${order.fk_particleboard}" /></div></td>
+									<td width="45px"><div style="overflow: hidden; width: 45px;"><input type="text" name='countSelect[${vs.index}]' maxlength = "4" /></div></td>
 								</tr>
 							</c:forEach>
 						</table>
 					</div>	
 					<br/>           
             </div>
-        </div>
         <!-- /#page-content-wrapper -->
+        </div>
+		<div>
+					<input type="submit" name="butPrint" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
+		</div>
+        
+        </form>
 
     </div>
     <!-- /#wrapper -->

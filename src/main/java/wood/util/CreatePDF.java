@@ -32,7 +32,7 @@ public class CreatePDF {
 	 */
 	public static Document createPDF(String file, Map<IWModel,Integer> mapModels) 
 	{
-		System.out.println("listModels - "+mapModels);
+		//System.out.println("listModels - "+mapModels);
 		Document document = null;
 
 		try {

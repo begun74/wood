@@ -132,7 +132,7 @@
 										<div class="row">
 											<div class="col-md-4">
 													
-													<div><input type="checkbox" name='chbxParts.key' value="${vs.index}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
+													<div><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
 																								'${particleboard.thickness}',
 																								'${particleboard.length}',
 																								'${particleboard.weight}',
@@ -143,7 +143,7 @@
 													</div>
 											</div>
 											<div class="col-md-1">
-						         					<select name="countSelect[key]">
+						         					<select name="countSelect[${vs.index}]">
 						         						<option value="1">1</option>
 						         						<option value="2">2</option>
 						         						<option value="3">3</option>

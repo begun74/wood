@@ -16,36 +16,35 @@ import wood.model.SelectPart;
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class MAdmin {
 	
-	Map<String,String> chbxParts = new HashMap<String,String>();
+	Map<Integer,Long> chbxParts = new HashMap<Integer,Long>();
 	
-	
-	//List<Integer> countSelect = new LinkedList<Integer>();
-
-	Map<String,String> countSelect = new HashMap<String,String>();
-	{
-		chbxParts.put("1", "1");
-	}
-
-
+	Map<Integer,Integer> countSelect = new HashMap<Integer,Integer>();
 		
 
-	public Map<String, String> getChbxParts() {
+	
+	public Map<Integer, Long> getChbxParts() {
 		return chbxParts;
 	}
 
-	public void setChbxParts(Map<String, String> chbxParts) {
+
+
+	public void setChbxParts(Map<Integer, Long> chbxParts) {
 		this.chbxParts = chbxParts;
 	}
 
-	
 
-	public Map<String, String> getCountSelect() {
+
+	public Map<Integer, Integer> getCountSelect() {
 		return countSelect;
 	}
 
-	public void setCountSelect(Map<String, String> countSelect) {
+
+
+	public void setCountSelect(Map<Integer, Integer> countSelect) {
 		this.countSelect = countSelect;
 	}
+
+
 
 	@Override
 	public String toString() {

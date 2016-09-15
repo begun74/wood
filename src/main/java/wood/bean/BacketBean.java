@@ -1,6 +1,7 @@
 package wood.bean;
 
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,8 +18,14 @@ import wood.model.Particleboard;
 
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class BacketBean {
+public class BacketBean implements Serializable  {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2747764309294477736L;
+	
+	
 	List<Particleboard> items = new LinkedList<Particleboard>();
 	Map<Particleboard,Integer> itemsTM = new TreeMap<Particleboard,Integer>();
 	

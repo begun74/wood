@@ -26,14 +26,18 @@ public class CreatePDF {
 
 	//private static Font TIME_ROMAN = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
 	
+	static String pathToFont = null;
+	
 
 	/**
 	 * @param args
 	 */
-	public static Document createPDF(String file, Map<IWModel,Integer> mapModels) 
+	public static Document createPDF(String file, String pathToFont_,Map<IWModel,Integer> mapModels) 
 	{
+		pathToFont = pathToFont_;
 		//System.out.println("listModels - "+mapModels);
 		Document document = null;
+		
 
 		try {
 			document = new Document();
@@ -66,8 +70,8 @@ public class CreatePDF {
 	private static void addTitlePage(Document document)
 			throws DocumentException, IOException {
 
-		Font TIME_ROMAN = new Font(BaseFont.createFont("d:\\GIT_\\wood\\src\\main\\webapp\\resources\\forRussText\\times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
-		Font TIME_ROMAN_BOLD = new Font(BaseFont.createFont("d:\\GIT_\\wood\\src\\main\\webapp\\resources\\forRussText\\timesbd.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+		Font TIME_ROMAN = new Font(BaseFont.createFont(pathToFont+"/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+		Font TIME_ROMAN_BOLD = new Font(BaseFont.createFont(pathToFont+"/timesbd.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
 
 		Paragraph preface = new Paragraph();
 		creteEmptyLine(preface, 1);
@@ -89,7 +93,7 @@ public class CreatePDF {
 
 	private static void createTable(Document document, Map<IWModel,Integer> mapModels) throws DocumentException, IOException {
 
-		Font TIME_ROMAN = new Font(BaseFont.createFont("d:\\GIT_\\wood\\src\\main\\webapp\\resources\\forRussText\\times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+		Font TIME_ROMAN = new Font(BaseFont.createFont(pathToFont+"/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
 
 		
 		Paragraph paragraph = new Paragraph();

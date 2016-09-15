@@ -9,17 +9,6 @@ function statusOrders(checkbox, chbxParts_id, amountParts_id) {
 	data['id']=checkbox.value;
 	data['status']=checkbox.checked;
 	
-	if(checkbox.checked)
-	{
-		$('#'+chbxParts_id).attr("disabled", "disabled");
-		$('#'+amountParts_id).attr("disabled", "disabled");
-	}
-	else
-	{
-		$('#'+chbxParts_id).attr("disabled", false);
-		$('#'+amountParts_id).attr("disabled", false);
-	}
-	
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
@@ -34,16 +23,15 @@ function statusOrders(checkbox, chbxParts_id, amountParts_id) {
 			if(data.status)
 			{	
 				$('#td_order_'+data.id).css('background-color', 'green');
-				$('#'+chbxParts_id).prop("disabled", true);
-				$('#'+amountParts_id).prop("disabled", true);
+				$('#'+chbxParts_id).attr('disabled','disabled');
+				$('#'+amountParts_id).attr('disabled','disabled');
 				//alert($('#'+chbxParts_id).prop("disabled"));
 			}
 			else
 			{
 				$('#td_order_'+data.id).css('background-color', 'white');
-				$('#'+chbxParts_id).prop("disabled", false);
-				$('#'+amountParts_id).prop("disabled", false);
-				//alert($('#'+chbxParts_id).prop("disabled"));
+				$('#'+chbxParts_id).removeAttr('disabled');
+				$('#'+amountParts_id).removeAttr('disabled');
 			}
 			//display(data);
 		},
@@ -84,4 +72,14 @@ function addToCompare(id) {
 			display(e);
 		}
 	});
+}
+
+
+function isNumberKey(evt)
+{
+   var charCode = (evt.which) ? evt.which : event.keyCode
+   if (charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+
+   return true;
 }

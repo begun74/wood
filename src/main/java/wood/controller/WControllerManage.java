@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -166,8 +168,12 @@ public class WControllerManage {
 		final ServletContext servletContext = request.getSession().getServletContext();
 	    final File tempDirectory = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
 	    final String temperotyFilePath = tempDirectory.getAbsolutePath();
-		//System.out.println(mAdmin);
-	
+		//System.out.println(temperotyFilePath);
+	    
+	    final String pathToFont =  servletContext.getRealPath("/resources/forRussText/");
+	    //System.out.println(pathToFont);
+	    
+	   	
 		Map<IWModel,Integer> mapModels = new HashMap<IWModel,Integer>();
 		
 		Set<Integer> setChbxs = mAdmin.getChbxParts().keySet();
@@ -190,7 +196,7 @@ public class WControllerManage {
  
 	    try {
  
-	        CreatePDF.createPDF(temperotyFilePath+"\\"+fileName, mapModels);
+	        CreatePDF.createPDF(temperotyFilePath+"\\"+fileName, pathToFont, mapModels);
 	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	        baos = convertPDFToByteArrayOutputStream(temperotyFilePath+"\\"+fileName);
 	        OutputStream os = response.getOutputStream();
@@ -199,7 +205,7 @@ public class WControllerManage {
 	    } catch (Exception e1) {
 	        e1.printStackTrace();
 	    }
-		//return model;
+		
 	}
 	
 	private ByteArrayOutputStream convertPDFToByteArrayOutputStream(String fileName) {

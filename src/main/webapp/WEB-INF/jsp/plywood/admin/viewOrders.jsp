@@ -127,15 +127,15 @@
 									<td width="120px"><div style="overflow: hidden; width: 120px;"><img src="resources/pics/${order.fk_particleboard}.jpeg" width="73" height="73"  onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';" /> ${order.fk_particleboard}</div></td>
 									<td width="45px" id="td_order_${order.id}" <c:if test="${order.status == 1}">bgcolor="green"</c:if>>
 											<div style="overflow: hidden; width: 45px;">
-													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this,'chbxParts_${order.fk_particleboard}','amountParts[${vs.index}]')"/>
+													<input type="checkbox" id="order_${order.id}" value="${order.id}" <c:if test="${order.status == 1}">checked="checked"</c:if> onclick="statusOrders(this,'chbxParts_${vs.index}','amountParts_${vs.index}')"/>
 											</div></td>
 									<td width="100%"><div style="overflow: hidden; width: 100%;">${order.description}</div></td>
 									<td width="20px">
 										<div style="overflow: hidden; width: 20px;">
-											<input type="checkbox" name='chbxParts[${vs.index}]' id="chbxParts_${order.fk_particleboard}" value="${order.fk_particleboard}" <c:if test="${order.status == 1}">disabled="disabled"</c:if> />
+											<input type="checkbox" name='chbxParts[${vs.index}]' id="chbxParts_${vs.index}" value="${order.fk_particleboard}" <c:if test="${order.status == 1}">disabled="disabled"</c:if> />
 										</div>
 									</td>
-									<td width="45px"><div style="overflow: hidden; width: 45px;"><input type="text" name='amountParts[${vs.index}]' id="amountParts_${order.fk_particleboard}" maxlength="4" <c:if test="${order.status == 1}">disabled="disabled"</c:if> /></div></td>
+									<td width="45px"><div style="overflow: hidden; width: 45px;"><input type="text" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onkeypress="return isNumberKey(event)" maxlength="4" <c:if test="${order.status == 1}">disabled="disabled"</c:if> /></div></td>
 								</tr>
 							</c:forEach>
 						</table>

@@ -1,5 +1,7 @@
 package wood.bean;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
@@ -11,7 +13,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Scope("session")
-public class SessionBean {
+public class SessionBean implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3979669810819603719L;
 	
 	private long time = System.currentTimeMillis();
 	public static final String ADD_BRAND="5"; 

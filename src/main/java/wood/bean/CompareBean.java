@@ -1,5 +1,6 @@
 package wood.bean;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -12,7 +13,13 @@ import wood.model.Particleboard;
 
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class CompareBean {
+public class CompareBean implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9047408479563795379L;
 	
 	
 	Set<Particleboard> items = new TreeSet<Particleboard>();

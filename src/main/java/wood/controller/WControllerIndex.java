@@ -46,7 +46,8 @@ public class WControllerIndex {
 
 	@Autowired
 	CompareBean compBean;
-
+	
+	
 	@PostConstruct
 	void init(){
 		//System.out.println("WControllerIndex @PostConstruct");

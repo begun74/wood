@@ -89,10 +89,10 @@
 		<%@include file="common/nav.jsp" %>      
 		<%@include file="common/header2.jsp" %>     
     
-		    <form  method="GET" name="mIndex" 
-		    	action="${pageContext.request.contextPath}/plywood">
 				<div class="widget col-md-3">
 				    <h1>Product Filters</h1>
+		    		<form  method="GET" name="mIndex" 
+		    			action="${pageContext.request.contextPath}/search">
 				    
 				    <div class="body bordered">
 				        <div class="category-filter">
@@ -106,10 +106,10 @@
 							<hr> 
 							<div><spring:message code="price"/></div>
 							<div class="col-md-12">
-								<div class="col-md-3">
+								<div class="col-md-5">
 									<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/></label>
 								</div>					
-								<div class="col-md-3">
+								<div class="col-md-5">
 									<spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
 								</div>
 							</div>
@@ -117,6 +117,7 @@
 							<input  type="submit" name="submit" value="<spring:message code="label.button.select"/>"/>
 		    			</div>
 		    		</div>
+    				</form>
 		    		
 		    	</div>
 		
@@ -138,9 +139,6 @@
 									</div>
 								</div>
 				</div>
-
-    		</form>
-
     	</div>
 
     </body>

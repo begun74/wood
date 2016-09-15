@@ -47,7 +47,7 @@ public class WController1 {
 	MIndex mIndex;
 	
 	
-	@RequestMapping(value = {"/plywood"} , method = RequestMethod.GET)
+	@RequestMapping(value = {"/search"} , method = RequestMethod.GET)
 	public String  plywoodGet(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
 	{
 		mIndex = m_Index;
@@ -96,12 +96,12 @@ public class WController1 {
 		if(action != null)
 			return "redirect:"+action;
 		
-		return "redirect:plywood";
+		return "redirect:index";
 	}
 
 	@RequestMapping(value = {"/del-from-backet"} , method = RequestMethod.GET)
-	public String  del_from_backet( Model model, @RequestParam(value = "id",   required=false) Long id)
-	{
+	public String  del_from_backet( Model model,  @RequestParam(value = "id",   required=false) Long id)
+	{		
 		model.addAttribute("mIndex",mIndex);
 		model.addAttribute("particleboards",woodService.getListParticleboards());
 		model.addAttribute("brands",woodService.getListDirBrands());
@@ -111,7 +111,7 @@ public class WController1 {
 			backet.remPboardFromBacket(id);
 
 		
-		return "redirect:plywood";
+		return "redirect:index";
 	}
 	
 
@@ -126,7 +126,7 @@ public class WController1 {
 			compBean.addParticleboardToCompList(woodService.getParticleboard(id));
 
 		
-		return "redirect:plywood";
+		return "redirect:index";
 	}
 	
 	@RequestMapping(value = {"/del-from-compare"} , method = RequestMethod.GET)

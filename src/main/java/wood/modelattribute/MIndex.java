@@ -1,5 +1,6 @@
 package wood.modelattribute;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,8 +18,15 @@ import wood.service.WoodService;
 
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class MIndex {
+public class MIndex implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3260524929160705035L;
+	
+	
+
 	List<Long> brands = new LinkedList<Long>();
 	
 	private int pbListSize = 0;

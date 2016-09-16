@@ -48,7 +48,7 @@ public class WController1 {
 	
 	
 	@RequestMapping(value = {"/search"} , method = RequestMethod.GET)
-	public String  plywoodGet(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
+	public String  searchGet(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
 	{
 		mIndex = m_Index;
 		session.setAttribute("mIndex", mIndex);
@@ -62,7 +62,7 @@ public class WController1 {
 
 		return "plywood/index_plywood";
 	}
-
+/*
 	
 	@RequestMapping(value = {"/plywood"} , method = RequestMethod.POST)
 	public String  plywoodPost(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
@@ -79,7 +79,7 @@ public class WController1 {
 
 		return "plywood/index_plywood";
 	}
-	
+	*/
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
 	public String  add_product_to_customer_basket( Model model,
 			@RequestParam(value = "id",   required=false) Long id,

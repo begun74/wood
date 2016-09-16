@@ -25,21 +25,21 @@
     
   </head>
   <body>
+  <%@include file="common/nav.jsp" %>  
   <div id="main">
     <div id="content">
       <div id="login">
         
         <div id="logo"><span>Great Admin</span></div>
-                
         <form id="loginform" role="form"  method="post"  class="formBox">
           <fieldset>
             <div class="form-col">
                 <label for="username" class="lab">Username <span class="warning"></span></label>
-                <input type="text" name="username" class="input" id="username" />
+                <input type="text" name="username" class="input" id="username" onfocus="$('#login-alert').text('');"/>
             </div>
             <div class="form-col form-col-right">
                 <label for="password" class="lab">Password <span class="warning"></span></label>
-                <input type="password" name="password" class="input" id="password" />
+                <input type="password" name="password" class="input" id="password"  onfocus="$('#login-alert').text('');"/>
             </div>
             <div class="form-col form-col-check">
               <label><input type="checkbox" name="remeber_me" class="checkbox" />Remember me on this computer</label> 
@@ -51,6 +51,7 @@
           
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         </form>
+        <div id="login-alert" class="col-sm-12 alert alert-danger" role="alert"><h2>${error}</h2></div>
         
       </div>
     </div><!-- /content -->    

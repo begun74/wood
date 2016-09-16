@@ -80,7 +80,7 @@ public class WControllerManage {
 				@RequestParam(value = "act",   defaultValue = "0") String act,
 				@RequestParam(value = "error",   defaultValue = "") String error) 
 	{
-		ModelAndView model = new ModelAndView("plywood/admin/admin");
+		ModelAndView model = new ModelAndView("plywood/admin/admin2");
 		
 		switch (act)
 		{

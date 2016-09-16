@@ -82,7 +82,7 @@ public class WControllerIndex {
 	    
 		ModelAndView model = new ModelAndView("plywood/loginPage");
 		if (error != null) {
-			model.addObject("error", "Invalid Credentials provided.");
+			model.addObject("error", "Invalid username or password!");
 		}
 
 		if (logout != null) {

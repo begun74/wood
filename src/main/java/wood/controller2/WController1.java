@@ -170,7 +170,7 @@ public class WController1 {
 		model.addAttribute("mIndex",mIndex);
 		
 		if(backet.getItems().size()==0)
-			return "redirect:plywood";
+			return "redirect:index";
 		
 		return "plywood/createOrder";
 	}
@@ -210,7 +210,7 @@ public class WController1 {
 		backet.getItemsTM().clear();
 		//System.out.println("createOrderPOST");
 		
-		return "redirect:plywood";
+		return "redirect:index";
 	}
 
 

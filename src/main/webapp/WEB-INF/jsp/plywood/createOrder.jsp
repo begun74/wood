@@ -139,7 +139,7 @@
 							</div>
 
 							
-							<input  type="submit" name="register" value="<spring:message code="label.button.toOrder"/>"/>
+							<input  type="submit" name="toOrder" value="<spring:message code="label.button.toOrder"/>"/>
 
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							</form:form>

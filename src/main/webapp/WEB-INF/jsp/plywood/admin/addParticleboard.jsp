@@ -123,7 +123,7 @@
 								                    <label>Thickness</label>
 										         </div>
 										         <div class="con">
-													<input id="thickness" type="text" class="form-control" name="thickness" value="15" >										         
+													<input id="thickness" type="text" class="input" name="thickness" value="15" >										         
 										         </div>
 											 </div>
 											 <div class="clearfix">										     		
@@ -131,7 +131,7 @@
 								                   <label>Length</label> 
 										         </div>
 										         <div class="con">
-										         	<input id="length" type="text" class="form-control" name="length" value="1250" >
+										         	<input id="length" type="text" class="input" name="length" value="1250" >
 										         </div>
 									         </div>
 					    					 <div class="clearfix">
@@ -139,7 +139,7 @@
 								                   <label>Weight</label> 
 										         </div>
 										         <div class="con">
-										         	<input id="weight" type="text" class="form-control" name="weight" value="1250" >
+										         	<input id="weight" type="text" class="input" name="weight" value="1250" >
 										         </div>
 										     </div>
 										     <div class="clearfix">
@@ -147,7 +147,7 @@
 								                   <label>Price</label> 
 										         </div>
 										         <div class="con">
-													<input id="price" type="text" class="form-control" name="price" value="0" >										         
+													<input id="price" type="text" class="input" name="price" value="0" >										         
 										         </div>
 										      </div>
 									         <div class="clearfix">

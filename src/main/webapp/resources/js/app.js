@@ -83,3 +83,15 @@ function isNumberKey(evt)
 
    return true;
 }
+
+function isNumberValue(value)
+{
+	var re = /[0-9999]/g;
+	
+	if (!re.test(value) || value==0)
+	{	
+	      return false;
+	}
+
+   return true;
+}

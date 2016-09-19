@@ -50,6 +50,9 @@
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/init.js"></script>
     
+    <!--  My script -->
+    <script src="${pageContext.request.contextPath}/resources/js/app.js"></script>
+    
     <title><spring:message code="admin.title"/></title>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -123,7 +126,7 @@
 								                    <label>Thickness</label>
 										         </div>
 										         <div class="con">
-													<input id="thickness" type="text" class="input" name="thickness" value="15" >										         
+													<input id="thickness" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=15;" onkeypress="return isNumberKey(event)" name="thickness" value="15" >										         
 										         </div>
 											 </div>
 											 <div class="clearfix">										     		
@@ -131,7 +134,7 @@
 								                   <label>Length</label> 
 										         </div>
 										         <div class="con">
-										         	<input id="length" type="text" class="input" name="length" value="1250" >
+										         	<input id="length" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=1250;" onkeypress="return isNumberKey(event)" name="length" value="1250" >
 										         </div>
 									         </div>
 					    					 <div class="clearfix">
@@ -139,7 +142,7 @@
 								                   <label>Weight</label> 
 										         </div>
 										         <div class="con">
-										         	<input id="weight" type="text" class="input" name="weight" value="1250" >
+										         	<input id="weight" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=1250;" onkeypress="return isNumberKey(event)" name="weight" value="1250" >
 										         </div>
 										     </div>
 										     <div class="clearfix">
@@ -147,7 +150,7 @@
 								                   <label>Price</label> 
 										         </div>
 										         <div class="con">
-													<input id="price" type="text" class="input" name="price" value="0" >										         
+													<input id="price" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=0;" onkeypress="return isNumberKey(event)" name="price" value="0" >										         
 										         </div>
 										      </div>
 									         <div class="clearfix">
@@ -155,7 +158,7 @@
 												 		<label>Colors</label>
 												 	</div>
 												 	<div class="con">
-											         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
+											         	 <select class="select" id="fk_dirColor" name="fk_dirColor">
 											         	 	<option value="-1"></option>
 												         	 <c:forEach items="${dirColors}" var="dirColor">
 												         	 	<option value="${dirColor.id}">${dirColor.name}</option>
@@ -169,7 +172,7 @@
 												 <label>Brands</label>
 												</div>
 											 	<div class="con">
-									         	 <select class="form-control" id="fk_dirBrand" name="fk_dirBrand">
+									         	 <select class="select" id="fk_dirBrand" name="fk_dirBrand">
 									         	 	<option value="-1"></option>
 										         	 <c:forEach items="${dirBrands}" var="dirBrand">
 										         	 	<option value="${dirBrand.id}">${dirBrand.name}</option>
@@ -193,11 +196,10 @@
 							</div>
 							
 							<div class="col2">
-								<div>Particleboard</div>
+								<div><h3 align="center"><span><spring:message code="particleboard"/></span></h3></div>
 								<br/>
 								<div class="clearfix">
 								<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
-									
 										<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
 										<table class="tab tab-drag">
 											<tr  class="top nodrop nodrag">
@@ -214,13 +216,7 @@
 													<td class="dragHandle">&nbsp;</td>
 													<td class="checkbox"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><//td>
 													<td>												
-								         					<select name="amountParts[${vs.index}]">
-								         						<option value="1">1</option>
-								         						<option value="2">2</option>
-								         						<option value="3">3</option>
-								         						<option value="4">4</option>
-								         						<option value="5">5</option>
-								         					</select>
+								         				<input type="text" class="input" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onblur="if(!isNumberValue(this.value)) this.value=1;" onkeypress="return isNumberKey(event)" maxlength="4" value="1" style="width:25px"/>
 								         			</td>
 													<td style="padding: 5px;"><a href="#" onclick="editParticleboard('${particleboard.id}', 
 																										'${particleboard.thickness}',

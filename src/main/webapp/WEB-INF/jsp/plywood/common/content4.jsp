@@ -50,7 +50,7 @@
 									<nav>
 										<ul class="pagination list-unstyled">
 											<c:forEach begin="0" end="${allItems/perPage}" var="pN">
-												<li><a href="plywood?pageNumber=${pN+1}">${pN+1}</a></li>
+												<li><a href="index?pageNumber=${pN+1}">${pN+1}</a></li>
 											</c:forEach>
 										</ul>
 									</nav>

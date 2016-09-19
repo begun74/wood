@@ -124,7 +124,8 @@ public class WControllerManage {
 			@ModelAttribute  MultipartFile file,
 			@RequestParam(value = "id_dirBrand",   required=false) Long id_dirBrand) 
 	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_BRAND);
+		
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+SessionBean.ADD_BRAND);
 
 		if(result.hasErrors())
 		{

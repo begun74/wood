@@ -199,19 +199,21 @@
 								<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
 									
 										<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
-										<table>
+										<table class="tab tab-drag">
+											<tr  class="top nodrop nodrag">
+												<th class="dragHandle">&nbsp;</th>
+												<th class="checkbox"><input type="checkbox" name="" value="" class="check-all" /></th>
+												<th><spring:message code="amount"/></th>
+												<th><spring:message code="size"/></th>
+												<th><spring:message code="color"/></th>
+												<th><spring:message code="price"/></th>
+												<th class="action"><spring:message code="action"/></th>
+											</tr>
 											<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
-												<tr>														
-													<td style="padding: 5px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
-																										'${particleboard.thickness}',
-																										'${particleboard.length}',
-																										'${particleboard.weight}',
-																										'${particleboard.price}',
-																										'${particleboard.dirColor.id}',
-																										'${particleboard.dirBrand.id}');">
-																			 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
-													</td>
-													<td style="padding: 5px;">
+												<tr>		
+													<td class="dragHandle">&nbsp;</td>
+													<td class="checkbox"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><//td>
+													<td>												
 								         					<select name="amountParts[${vs.index}]">
 								         						<option value="1">1</option>
 								         						<option value="2">2</option>
@@ -220,12 +222,23 @@
 								         						<option value="5">5</option>
 								         					</select>
 								         			</td>
-													<td style="padding: 5px;">
-								         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
-							         				</td>
-													<td style="padding: 5px;">
-														<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
+													<td style="padding: 5px;"><a href="#" onclick="editParticleboard('${particleboard.id}', 
+																										'${particleboard.thickness}',
+																										'${particleboard.length}',
+																										'${particleboard.weight}',
+																										'${particleboard.price}',
+																										'${particleboard.dirColor.id}',
+																										'${particleboard.dirBrand.id}');">
+																			 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</a>
 													</td>
+													<td> ${particleboard.dirColor.name}</td>
+													<td>${particleboard.price}</td>
+													
+							         				<td>
+							         					<a href="javascript:editPart(${particleboard.id});" class="ico ico-edit" onclick=""></a>
+							         					<a href="javascript:delPart(${particleboard.id});" class="ico ico-delete" onclick=""></a>
+							         				</td>
+													
 												</tr>
 											</c:forEach>
 										</table>
@@ -269,7 +282,18 @@
 			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
 			fk_dirBrand.length >0?$("#fk_dirBrand").val(fk_dirBrand):$("#fk_dirBrand").val('-1');
 	    }
-	    </script>
+	    
+		function editPart(id)
+		{
+			$('#id_particleboard').val(id); $('#addParticleboardForm').submit();
+		}
+
+		function delPart(id)
+		{
+			if(confirm('Delete record?'))location.href='admin/delParticleboard?id='+id;
+		}
+
+	 </script>
 
   <!-- /#main --> 
 </body>

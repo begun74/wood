@@ -143,11 +143,11 @@
 												<tr>
 													<td class="dragHandle">&nbsp;</td>
 													<td><a href="#" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">(${dirBrand.id}) ${dirBrand.name}</a></td>
-							         				<!-- td><button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button></td -->
-													<!--  td><button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button></td -->
+							         				<!-- td><button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button></td>
+													<td><button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button></td -->
 							         				<td>
-							         					<a href="" class="ico ico-edit" onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();"></a>
-							         					<a href="" class="ico ico-delete" onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"></a>
+							         					<a href="javascript:editBrand(${dirBrand.id});" class="ico ico-edit" onclick=""></a>
+							         					<a href="javascript:delBrand(${dirBrand.id});" class="ico ico-delete" onclick=""></a>
 							         				</td>
 												</tr>
 											</c:forEach>
@@ -176,6 +176,19 @@
     </div>
     <!-- /#footer -->
 	
+	<script>
+	
+	function editBrand(id)
+	{
+		$('#id_dirBrand').val(id); $('#addBrandForm').submit();
+	}
+
+	function delBrand(id)
+	{
+		if(confirm('Delete record?'))location.href='admin/delBrand?id='+id;
+	}
+
+	</script>
 
   <!-- /#main --> 
 </body>

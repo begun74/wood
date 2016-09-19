@@ -93,63 +93,66 @@
         
         <!-- /box -->
         <div class="box">
+       				<div class="headlines">
+		            	<h2><span><spring:message code="admin.add.brand" /></span></h2>
+		            	<a href="#help" class="help"></a>
+		          	</div>
         <!-- Page Content -->
 	        <div id="page-content-wrapper">
-				<div class="container-fluid">
 					<div class="row">
 	    				<div class="col-md-8 alert-danger">
 								<strong>${error}</strong>
 	    				</div>
 					</div>
-				</div>
-	            <div class="container-fluid">
-					<div class="row">
-						<div class="col-md-2">
-						  	<form:form id="addBrandForm" class="form-horizontal" role="form"
-						  			commandName="addBrandForm"
-						  			enctype="multipart/form-data" 
-						  			action="${pageContext.request.contextPath}/admin/addBrand?${_csrf.parameterName}=${_csrf.token}" 
-						  			method="POST"
-						  			modelAttribute="dirBrand">
-							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Brand <input name="name" id="name" type="text" class="form-control"  ></label> 
-							         </div>
-							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Description </label>
-					                   <!-- input name="description" id="description" type="text" class="form-control"  / -->
-					                   <textarea name="description" id="description" class="form-control" maxlength = "45"
-					                   rows="2" cols="5"></textarea> 
-							         </div>
-							         
-					         <button type="submit" class=""><spring:message code="label.button.add"/></button>
-					         <input type="hidden" name ="id_dirBrand" id ="id_dirBrand" value="-1"/>
-					    	</form:form>
-						</div>
-						<div class="col-md-2">
-						</div>
-						<div class="col-md-8">
-							<div>Name</div>
-									<c:forEach items="${dirBrands}" var="dirBrand">
-									  	<div class="row span6" >
-											<div class="col-md-4">
-												<div><a href="#" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">${dirBrand.name}</a></div>
-											</div>
-											<div class="col-md-2">
-					         					<button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button>
-					         				</div>
-											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button>
-											</div>
-										</div>
-									</c:forEach>
-						</div>
-					</div>
-
-	                <div class="row">
-	                    <div class="col-lg-12">
-	                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-	                    </div>
-	                </div>
+					<div class="box-content">
+					    <div class="form-cols">
+				    		<div class="col1">
+							  	<form:form id="addBrandForm" class="formBox" role="form"
+							  			commandName="addBrandForm"
+							  			enctype="multipart/form-data" 
+							  			action="${pageContext.request.contextPath}/admin/addBrand?${_csrf.parameterName}=${_csrf.token}" 
+							  			method="POST"
+							  			modelAttribute="dirBrand">
+							  			
+							  			<div class="clearfix">
+										         <div class="lab">
+								                    <label>Brand</label> 
+										         </div>
+										         <div class="con">
+													<input name="name" id="name" type="text" class="input" value="" >										         
+										         </div>
+										 </div>
+							  			<div class="clearfix">
+										         <div class="lab">
+						                   			<label><spring:message code="description" /> </label>
+										         </div>
+										         <div class="con">
+						                   			<textarea name="description" id="description" cols="" rows="" class="textarea" maxlength = "45" ></textarea> 
+										         </div>
+										 </div>
+								         
+						         <button type="submit" class=""><spring:message code="label.button.add"/></button>
+						         <input type="hidden" name ="id_dirBrand" id ="id_dirBrand" value="-1"/>
+						    	</form:form>
+							</div>					    
+				    		<div class="col2">
+								<div>Name</div>
+									<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
+										<table class="tab tab-drag">
+											<c:forEach items="${dirBrands}" var="dirBrand">
+												<tr>
+													<td class="dragHandle">&nbsp;</td>
+													<td><a href="#" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">(${dirBrand.id}) ${dirBrand.name}</a></td>
+							         				<td><button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button></td>
+													<td><button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button></td>
+												</tr>
+											</c:forEach>
+										</table>
+									</div>
+							</div>
+					    </div>
+				    </div>
+				    					
 	            </div>
 	        </div>
 	        <!-- /#page-content-wrapper -->

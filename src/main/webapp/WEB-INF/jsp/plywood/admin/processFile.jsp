@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,41 +14,49 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Manage</title>
+	<meta name="_csrf" content="${_csrf.token}"/>
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <title>Great admin</title>   
+    <link href="${pageContext.request.contextPath}/resources/public/css/default.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="${pageContext.request.contextPath}/resources/public/css/blue.css" rel="stylesheet" type="text/css" media="screen" /> <!-- color skin: blue / red / green / dark -->
+    <link href="${pageContext.request.contextPath}/resources/public/css/datePicker.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="${pageContext.request.contextPath}/resources/public/css/wysiwyg.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="${pageContext.request.contextPath}/resources/public/css/fancybox-1.3.1.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="${pageContext.request.contextPath}/resources/public/css/visualize.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <!-- Custom CSS -->
-    <link href="resources/css/simple-sidebar.css" rel="stylesheet">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery-1.4.2.min.js"></script>   
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.dimensions.min.js"></script>
+    
+    <!-- // Tabs // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/ui.core.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.ui.tabs.min.js"></script>
 
-        <!-- Customizable CSS -->
-        <link rel="stylesheet" href="resources/assets/css/main.css">
-        <link rel="stylesheet" href="resources/assets/css/green.css">
+    <!-- // Table drag and drop rows // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/tablednd.js"></script>
 
-        <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
-        <link rel="stylesheet" href="resources/assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="resources/assets/css/animate.min.css">
+    <!-- // Date Picker // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/date.js"></script>
+    <!--[if IE]><script type="text/javascript" src="public/js/jquery.bgiframe.js"></script><![endif]-->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.datePicker.js"></script>
 
-        <!-- Demo Purpose Only. Should be removed in production -->
-        <link rel="stylesheet" href="resources/assets/css/config.css">
+    <!-- // Wysiwyg // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.wysiwyg.js"></script>
 
-        <link href="resources/assets/css/green.css" rel="alternate stylesheet" title="Green color">
-        <link href="resources/assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-        <link href="resources/assets/css/red.css" rel="alternate stylesheet" title="Red color">
-        <link href="resources/assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-        <link href="resources/assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
-        <link href="resources/assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
-        <!-- Demo Purpose Only. Should be removed in production : END -->
+    <!-- // Graphs // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/excanvas.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.visualize.js"></script>
 
-        <!-- Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
-        
-        <!-- Icons/Glyphs -->
-        <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
-        
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
+    <!-- // Fancybox // -->
+  	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.fancybox-1.3.1.js"></script>
+
+    <!-- // File upload // --> 
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.filestyle.js"></script>
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/init.js"></script>        
+
+	<!--  My script -->
+    <script src="${pageContext.request.contextPath}/resources/js/app.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,33 +69,54 @@
 
 <body>
 
-	<%@include file="../common/nav.jsp" %>
-    <div id="wrapper" class="container-fluid">
-        <!-- Sidebar -->
-		<%@include file="sidebar.jsp" %>
-        <!-- /#sidebar-wrapper -->
+	<div id="main">
+	    <!-- #header -->
+	    <div id="header"> 
+	      <!-- #logo --> 
+	      <div id="logo">
+	        <a href="index.html" title="Go to Homepage"><span>Great Admin</span></a>
+	      </div>
+	      <!-- /#logo -->
+	      <!-- #user -->                        
+	      <div id="user">
+	        <h2>Forest Gump <span>(admin)</span></h2>
+	        <a href="">7 messages</a> - <a href="">settings</a> - <a href="index.html">logout</a>
+	      </div>
+	      <!-- /#user -->  
+	    </div>
+	    <!-- /header -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                	<div class="col-lg-12">
-						<table border="1" width="100%" align="center">
-							<tr align="center">
-								<td width="15px"><div style="width: 15px;">id</div></td>
-								<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-								<td width="50px"><div style="overflow: hidden; width: 50px;">thickness</div></td>
-								<td width="50px"><div style="overflow: hidden; width: 50px;">length</div></td>
-								<td width="50px"><div style="overflow: hidden; width: 50px;">weight</div></td>
-								<td width="50px"><div style="overflow: hidden; width: 50px;">Price</div></td>
-								<td width="8px"><div style="overflow: hidden; width: 8px;">&#160;</div></td>
-							</tr>				
-						</table>
-						
+    <!-- #content -->
+    <div id="content">
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs">
+          <ul>
+            <li class="home"><a href="index">Homepage</a></li>
+          </ul>
+        </div>
+        <!-- /breadcrumbs -->
+        
+        <!-- box -->
+        <div class="box">
+        			<div>
+        				<table border="0" width="100%"  class="tab-drag">
+        					<tr align="center">
+        						<th width="1px"><div style="width: 1px;" >&nbsp;</div></th>
+        						<th width="15px"><div style="width: 15px;">ID</div></th>
+        						<th width="50%"><div style="overflow: hidden; width: 50%;">Model</div></th>
+        						<th width="50px"><div style="overflow: hidden; width: 50px;">thickness</div></th>
+        						<th width="50px"><div style="overflow: hidden; width: 50px;">length</div></th>
+        						<th width="50px"><div style="overflow: hidden; width: 50px;">weight</div></th>
+        						<th width="50px"><div style="overflow: hidden; width: 50px;">price</div></th>
+        						<th width="8px"><div style="overflow: hidden; width: 8px;">&#160;</div></th>
+        					</tr>
+        				</table>
+					</div>
 					<div align="center" style="overflow-y:scroll; overflow-x: none; height:200px; width="98%"">
-						<table border="1" width="100%">
+						<table border="0" width="100%"  class="tab tab-drag">
 							<c:forEach items="${particleboards}" var="particleboard">
 								<tr align="center">
+									<td class="dragHandle" >&nbsp;</div></td>
 									<td width="15px"><div style="width: 15px;">${particleboard.id}</div></td>
 									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
 									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.thickness}</div></td>
@@ -95,18 +125,13 @@
 									<td width="50px"><div style="overflow: hidden; width: 50px;">${particleboard.price}</div></td>
 								</tr>
 							</c:forEach>
-								<!-- tr align="center">
-									<td width="15px"><div style="width: 15px;">id</div></td>
-									<td width="50%"><div style="overflow: hidden; width: 50%;">Model</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">1250</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">50</div></td>
-									<td width="50px"><div style="overflow: hidden; width: 50px;">48</div></td>
-								</tr -->
 						</table>
 					</div>	
-					<br/>           
-                <div class="row">
+
+    	</div>
+        <!-- /box -->
+        
+		<div>
                 	<form:form id="processFileForm" role="form"  
 						  			enctype="multipart/form-data" 
 						  			action="${pageContext.request.contextPath}/admin/processFile?${_csrf.parameterName}=${_csrf.token}" 
@@ -121,30 +146,27 @@
 									</div>			
 								</div>
                 	</form:form>
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+		</div>
+        
     </div>
-    <!-- /#wrapper -->
+    
+    </div>
+    
+       
 
-    <!-- jQuery -->
-    <script src="resources/js/jquery.js"></script>
+	<!-- Sidebar -->
+	        <%@include file="sidebar.jsp" %>
+	<!-- /#sidebar-wrapper -->    
+	        
+	<!-- #footer -->
+    <div id="footer">
+      <p>© 2010 Great Admin | <a href="#main">Top</a></p>
+    </div>
+    <!-- /#footer -->
+	
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="resources/js/bootstrap.min.js"></script>
+  <!-- /#main --> 
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
 
 </body>
 

@@ -81,6 +81,14 @@
     <!-- #content -->
     <div id="content">
 
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs">
+          <ul>
+            <li class="home"><a href="index">Homepage</a></li>
+          </ul>
+        </div>
+        <!-- /breadcrumbs -->
+
       	<!-- box>
        	<div id="tabs-statistic" class="box">
        	</div>
@@ -93,125 +101,148 @@
         
         <!-- /box -->
         <div class="box">
-<!-- Page Content -->
-	        <div id="page-content-wrapper">
-	            <div class="container-fluid">
+		        	<div class="headlines">
+		            	<h2><span><spring:message code="admin.add.particleboard" /></span></h2>
+		            	<a href="#help" class="help"></a>
+		          	</div>
+	<!-- Page Content -->
 					 <div class="row">
-	    				<div class="col-md-12 alert-danger">
+	    					<div class="col-md-12 alert-danger">
 								<strong>${error}</strong>
-	    				</div>
-			         </div>
+	    					</div>
+	    					
+				    		 <div class="box-content">
+				    		 <div class="form-cols">
+				    		 
+				    		 <div class="col1">
+						      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="formBox" role="form"  
+									      	action="${pageContext.request.contextPath}/admin/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
 
-			    	<div class="row">
-				    	<div class="col-md-3">
-					      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form"  
-								      	action="${pageContext.request.contextPath}/admin/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
-								 <div class="row">
-				    				<div class="col-md-12">
-								         <div style="margin-bottom: 15px"  class="form-group">
-						                   <label>Thickness<input id="thickness" type="text" class="form-control" name="thickness" value="15" ></label>
-								         </div>
-								         <div style="margin-bottom: 15px" class="form-group">
-						                   <label>Length<input id="length" type="text" class="form-control" name="length" value="1250" ></label> 
-								         </div>
-								         <div style="margin-bottom: 15px" class="form-group">
-						                   <label>Weight<input id="weight" type="text" class="form-control" name="weight" value="1250" ></label> 
-								         </div>
-								         <div style="margin-bottom: 15px" class="form-group">
-						                   <label>Price<input id="price" type="text" class="form-control" name="price" value="0" ></label> 
-								         </div>
-								         <div style="margin-bottom: 15px" class="form-group">
-											 <label>Colors
-								         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
-								         	 	<option value="-1"></option>
-									         	 <c:forEach items="${dirColors}" var="dirColor">
-									         	 	<option value="${dirColor.id}">${dirColor.name}</option>
-									         	 </c:forEach>
-								         	 </select>
-								         	 </label>
-								         </div>
-								         <div style="margin-bottom: 15px" class="form-group">
-											 <label>Brands
-								         	 <select class="form-control" id="fk_dirBrand" name="fk_dirBrand">
-								         	 	<option value="-1"></option>
-									         	 <c:forEach items="${dirBrands}" var="dirBrand">
-									         	 	<option value="${dirBrand.id}">${dirBrand.name}</option>
-									         	 </c:forEach>
-								         	 </select>
-								         	 </label>
-								         </div>
+					    					 <div class="clearfix">
+										         <div class="lab">
+								                    <label>Thickness</label>
+										         </div>
+										         <div class="con">
+													<input id="thickness" type="text" class="form-control" name="thickness" value="15" >										         
+										         </div>
+											 </div>
+											 <div class="clearfix">										     		
+										         <div class="lab">
+								                   <label>Length</label> 
+										         </div>
+										         <div class="con">
+										         	<input id="length" type="text" class="form-control" name="length" value="1250" >
+										         </div>
+									         </div>
+					    					 <div class="clearfix">
+										         <div class="lab">
+								                   <label>Weight</label> 
+										         </div>
+										         <div class="con">
+										         	<input id="weight" type="text" class="form-control" name="weight" value="1250" >
+										         </div>
+										     </div>
+										     <div class="clearfix">
+										         <div class="lab">
+								                   <label>Price</label> 
+										         </div>
+										         <div class="con">
+													<input id="price" type="text" class="form-control" name="price" value="0" >										         
+										         </div>
+										      </div>
+									         <div class="clearfix">
+									         		<div class="lab">
+												 		<label>Colors</label>
+												 	</div>
+												 	<div class="con">
+											         	 <select class="form-control" id="fk_dirColor" name="fk_dirColor">
+											         	 	<option value="-1"></option>
+												         	 <c:forEach items="${dirColors}" var="dirColor">
+												         	 	<option value="${dirColor.id}">${dirColor.name}</option>
+												         	 </c:forEach>
+											         	 </select>
+											         </div>
+									         </div>
 
-								         <input type="hidden" name="fileName" value="" />
-								         
-								         <div style="margin-bottom: 15px" class="form-group">
-								         	<p>Press here to upload pic: <input type="file" name="file"></p>
-										 </div>
-									</div>
-								 </div>
-								 <div class="row">
-				    				<div class="col-md-12">
-						         		<button type="submit" class="" value="<spring:message code="add"/>"/>
-				    				</div>
-						         </div>
-						         
-						         <input type="hidden" name ="id_particleboard" id ="id_particleboard" value="-1"/>
-						         
-					    	</form>
-						</div>
-						<div class="col-md-4">
-							<div>Particleboard</div>
-							<br/>
-							<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
-								
-									<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
-									<table>
-										<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
-											<tr>														
-												<td style="padding: 5px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
-																									'${particleboard.thickness}',
-																									'${particleboard.length}',
-																									'${particleboard.weight}',
-																									'${particleboard.price}',
-																									'${particleboard.dirColor.id}',
-																									'${particleboard.dirBrand.id}');">
-																		 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
-												</td>
-												<td style="padding: 5px;">
-							         					<select name="amountParts[${vs.index}]">
-							         						<option value="1">1</option>
-							         						<option value="2">2</option>
-							         						<option value="3">3</option>
-							         						<option value="4">4</option>
-							         						<option value="5">5</option>
-							         					</select>
-							         			</td>
-												<td style="padding: 5px;">
-							         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
-						         				</td>
-												<td style="padding: 5px;">
-													<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
-												</td>
-											</tr>
-										</c:forEach>
-									</table>
-									</div>
-									
-								
-								<p/>
-							<div>
-								<input type="submit" name="butPrint" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
+									         <div class="clearfix">
+											 	<div class="lab">
+												 <label>Brands</label>
+												</div>
+											 	<div class="con">
+									         	 <select class="form-control" id="fk_dirBrand" name="fk_dirBrand">
+									         	 	<option value="-1"></option>
+										         	 <c:forEach items="${dirBrands}" var="dirBrand">
+										         	 	<option value="${dirBrand.id}">${dirBrand.name}</option>
+										         	 </c:forEach>
+									         	 </select>
+									         	 </div>
+									         </div>
+	
+									         <input type="hidden" name="fileName" value="" />
+									         
+									         <div style="margin-bottom: 15px" class="form-group">
+									         	<p>Photo: <input type="file" name="file"></p>
+											 </div>
+					    			<div class="col-md-12">
+							         		<input type="submit" class="" value="<spring:message code="add"/>"/>
+					    			</div>
+							         
+							         <input type="hidden" name ="id_particleboard" id ="id_particleboard" value="-1"/>
+							         
+						    	</form>
 							</div>
-							</form>
-						</div>
-					</div>
-
-	                <div class="row">
-	                    <div class="col-lg-12">
-	                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-	                    </div>
-	                </div>
+							
+							<div class="col2">
+								<div>Particleboard</div>
+								<br/>
+								<div class="clearfix">
+								<form name="mAdmin" method="POST" action="${pageContext.request.contextPath}/admin/generateFile?${_csrf.parameterName}=${_csrf.token}">
+									
+										<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
+										<table>
+											<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
+												<tr>														
+													<td style="padding: 5px;"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><a href="#" onclick="editParticleboard('${particleboard.id}', 
+																										'${particleboard.thickness}',
+																										'${particleboard.length}',
+																										'${particleboard.weight}',
+																										'${particleboard.price}',
+																										'${particleboard.dirColor.id}',
+																										'${particleboard.dirBrand.id}');">
+																			 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
+													</td>
+													<td style="padding: 5px;">
+								         					<select name="amountParts[${vs.index}]">
+								         						<option value="1">1</option>
+								         						<option value="2">2</option>
+								         						<option value="3">3</option>
+								         						<option value="4">4</option>
+								         						<option value="5">5</option>
+								         					</select>
+								         			</td>
+													<td style="padding: 5px;">
+								         					<button type="button"  onclick="$('#id_particleboard').val(${particleboard.id}); $('#addParticleboardForm').submit();" >Update</button>
+							         				</td>
+													<td style="padding: 5px;">
+														<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delParticleboard?id=${particleboard.id}'">Delete</button>
+													</td>
+												</tr>
+											</c:forEach>
+										</table>
+										</div>
+									<p/>
+								<div>
+									<input type="submit" name="butPrint" value="<spring:message code="print"/> <spring:message code="commercial.offer"/>" />
+								</div>
+								</form>
+								</div>
+							</div>
+							
+							</div><!-- form-cols -->
+						</div> <!-- row -->
+						
+						
 	            </div>
-	        </div>
 	        <!-- /#page-content-wrapper -->        
         </div>
         <!-- /box -->
@@ -228,7 +259,17 @@
       <p>© 2010 Great Admin | <a href="#main">Top</a></p>
     </div>
     <!-- /#footer -->
-	
+	<script>
+	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor, fk_dirBrand) 
+	    {
+			$("#thickness").val(thickness);
+			$("#length").val(length);
+			$("#weight").val(weight);
+			$("#price").val(price);
+			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
+			fk_dirBrand.length >0?$("#fk_dirBrand").val(fk_dirBrand):$("#fk_dirBrand").val('-1');
+	    }
+	    </script>
 
   <!-- /#main --> 
 </body>

@@ -62,7 +62,7 @@ public class WControllerIndex {
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
 	public ModelAndView  index(HttpSession session) 
 	{
-		ModelAndView model = new ModelAndView("plywood/index_plywood");
+		ModelAndView model = new ModelAndView("plywood/index_plywood2");
 		
 		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
 		model.addObject("particleboards",mIndex.getListParticleboards(woodService));

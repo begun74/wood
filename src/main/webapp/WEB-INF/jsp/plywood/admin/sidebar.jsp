@@ -7,7 +7,7 @@
 
         <!-- mainmenu -->
         <ul id="floatMenu" class="mainmenu">
-          <li class="first"><a href="#">Dictionary</a>
+          <li class="first"><a href="#"><spring:message code="dictionary"/></a>
             <ul class="submenu">
               <li><a href="admin?act=1" ><spring:message code="admin.add.color"/></li>          
               <li><a href="admin?act=5" ><spring:message code="admin.add.brand"/></a></li>
@@ -24,8 +24,8 @@
           		<li><a href="admin?act=6" ><spring:message code="all.orders"/></a></li>
           	</ul>
           </li>
-          <li><a href="">Settings</a></li>
-          <li class="last"><a href="#" class="link">ThemeForest</a></li>
+          <!-- li><a href="">Settings</a></li>
+          <li class="last"><a href="#" class="link">ThemeForest</a></li -->
         </ul>
         <!-- /.mainmenu -->
 

@@ -29,7 +29,6 @@
         <!-- Customizable CSS -->
         <link rel="stylesheet" href="resources/assets/css/main.css">
         <link rel="stylesheet" href="resources/assets/css/green.css">
-
         <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
         <link rel="stylesheet" href="resources/assets/css/owl.transitions.css">
         <link rel="stylesheet" href="resources/assets/css/animate.min.css">
@@ -54,6 +53,8 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
 
+
+
     	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
 	    <!-- jQuery -->
 	    <script src="resources/js/jquery.js"></script>
@@ -61,19 +62,36 @@
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="resources/js/bootstrap.min.js"></script>
 
-		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-	    <script src="resources/assets/js/gmap3.min.js"></script>
-	    <script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
-	    <script src="resources/assets/js/owl.carousel.min.js"></script>
-	    <script src="resources/assets/js/css_browser_selector.min.js"></script>
-	    <script src="resources/assets/js/echo.min.js"></script>
-	    <script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
-	    <script src="resources/assets/js/bootstrap-slider.min.js"></script>
-	    <script src="resources/assets/js/jquery.raty.min.js"></script>
-	    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
-	    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
-	    <script src="resources/assets/js/wow.min.js"></script>
-	    <script src="resources/assets/js/scripts.js"></script>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery-1.4.2.min.js"></script>   
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.dimensions.min.js"></script>
+    
+    <!-- // Tabs // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/ui.core.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.ui.tabs.min.js"></script>
+
+    <!-- // Table drag and drop rows // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/tablednd.js"></script>
+
+    <!-- // Date Picker // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/date.js"></script>
+    <!--[if IE]><script type="text/javascript" src="public/js/jquery.bgiframe.js"></script><![endif]-->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.datePicker.js"></script>
+
+    <!-- // Wysiwyg // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.wysiwyg.js"></script>
+
+    <!-- // Graphs // -->
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/excanvas.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.visualize.js"></script>
+
+    <!-- // Fancybox // -->
+  	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.fancybox-1.3.1.js"></script>
+
+    <!-- // File upload // --> 
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.filestyle.js"></script>
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/init.js"></script>
+
     
         <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
         <!--[if lt IE 9]>
@@ -145,11 +163,6 @@
     
         <!-- Menu Toggle Script -->
 	    <script>
-	    $("#menu-toggle").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("toggled");
-	    });
-	    
 	    $(function() {
 			var brnds = ${mIndex.brands};
 		

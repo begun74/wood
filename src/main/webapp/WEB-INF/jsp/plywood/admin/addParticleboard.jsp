@@ -123,6 +123,14 @@
 
 					    					 <div class="clearfix">
 										         <div class="lab">
+								                    <label>ProductId</label>
+										         </div>
+										         <div class="con">
+													<input id="productId" type="text" class="input" name="productId" placeholder="Product Id" maxlength = "45">										         
+										         </div>
+											 </div>
+					    					 <div class="clearfix">
+										         <div class="lab">
 								                    <label>Thickness</label>
 										         </div>
 										         <div class="con">
@@ -180,6 +188,19 @@
 									         	 </select>
 									         	 </div>
 									         </div>
+									         
+									         <div class="clearfix">
+									         	<div class="lab">
+									         		<spring:message code="sanded" />
+									         	</div>
+									         <div class="con">
+									         	 <select class="select" id="sanded" name="sanded">
+									         	 	<option value="-1"></option>
+										         	<option value="0"><spring:message code="yes" /></option>
+										         	<option value="1"><spring:message code="no" /></option> 
+									         	 </select>
+									         	 </div>
+									         </div>
 	
 									         <input type="hidden" name="fileName" value="" />
 									         
@@ -206,6 +227,7 @@
 												<th class="dragHandle">&nbsp;</th>
 												<th class="checkbox"><input type="checkbox" name="" value="" class="check-all" /></th>
 												<th><spring:message code="amount"/></th>
+												<th>ProductID</th>
 												<th><spring:message code="size"/></th>
 												<th><spring:message code="color"/></th>
 												<th><spring:message code="price"/></th>
@@ -218,6 +240,7 @@
 													<td>												
 								         				<input type="text" class="input" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onblur="if(!isNumberValue(this.value)) this.value=1;" onkeypress="return isNumberKey(event)" maxlength="4" value="1" style="width:25px"/>
 								         			</td>
+								         			<td>${particleboard.productId}</td>
 													<td style="padding: 5px;"><a href="#" onclick="editParticleboard('${particleboard.id}', 
 																										'${particleboard.thickness}',
 																										'${particleboard.length}',

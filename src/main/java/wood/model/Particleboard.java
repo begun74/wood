@@ -32,6 +32,10 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	@Column(name = "id_particleboard")
 	private Long id;
 	
+	@NotNull(message = "Please enter productId.")
+	private String productId;
+	
+	
 	@Min (message = "Please correct enter thickness.", value = 1)
 	@NotNull(message = "Please correct enter thickness.")
 	private Long thickness;
@@ -46,7 +50,10 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	
 	@Min (message = "Please correct enter price.", value = 0)
 	@NotNull(message = "Please correct enter price.")
-	private Integer price;
+	private Double price;
+	
+	
+	private boolean sanded;//Шлифованная или не шлифованная
 
 	@Column(insertable=false ,updatable=false)
 	private  Long fk_dirColor;
@@ -69,15 +76,28 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 		super();
 		this.id = id;
 	}
+	
 	public Particleboard() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+		
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	
+	
 	public Long getThickness() {
 		return thickness;
 	}
@@ -96,10 +116,10 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	public void setWeight(Long weight) {
 		this.weight = weight;
 	}
-	public Integer getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	

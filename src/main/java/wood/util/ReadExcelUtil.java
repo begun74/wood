@@ -54,7 +54,7 @@ public class ReadExcelUtil {
 	        	particleboard.setLength(Long.parseLong(df.formatCellValue(tmp.getCell(2)).trim()) );
 	        	particleboard.setThickness(Long.parseLong(df.formatCellValue(tmp.getCell(3)).trim()));
 	        	particleboard.setWeight(Long.parseLong(df.formatCellValue(tmp.getCell(4)).trim()));
-	        	particleboard.setPrice(Integer.parseInt(df.formatCellValue(tmp.getCell(5)).trim()));
+	        	particleboard.setPrice(Double.parseDouble(df.formatCellValue(tmp.getCell(5)).trim()));
 	        	pList.add(particleboard);
         	}
         	catch(java.lang.NumberFormatException e)

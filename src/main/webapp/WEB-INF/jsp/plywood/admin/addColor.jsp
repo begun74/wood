@@ -101,41 +101,49 @@
     				<div class="col-md-8 alert-danger">
 								<strong>${error}</strong>
     				</div>
-					<div class="col-md-12">
-						<div class="col-md-2">
-						  	<form:form id="addColorForm" class="form-horizontal" role="form"  
-						  			enctype="multipart/form-data" 
-						  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
-						  			method="POST"
-						  			modelAttribute="dirColor">
-							         <div style='margin-bottom: 15px' class="form-group">
-					                   <label>Color <input id="name" type="text" class="form-control" name="name" ></label> 
-							         </div>
-					         <button type="submit" class="">Add</button>
-					         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
-					    	</form:form>
-						</div>
-						<div class="col-md-10">
-							<div>Name</div>
+    				
+					<div class="box-content">
+					    <div class="form-cols">
+				    		<div class="col1">
+							  	<form:form id="addColorForm" class="form-horizontal" role="form"  
+							  			enctype="multipart/form-data" 
+							  			action="${pageContext.request.contextPath}/admin/addColor?${_csrf.parameterName}=${_csrf.token}" 
+							  			method="POST"
+							  			modelAttribute="dirColor">
+								         <div style='margin-bottom: 15px' class="form-group">
+						                   <label><spring:message code="name2"/> <input id="name" type="text" class="form-control" name="name" ></label> 
+								         </div>
+						         <button type="submit" class=""><spring:message code="add"/></button>
+						         <input type="hidden" name ="id_dirColor" id ="id_dirColor" value="-1"/>
+						    	</form:form>
+							</div>
+				    		<div class="col2">
+				    			<table class="tab" border="0">
+				    				<tr align="center">
+					    				<th width="58%"><spring:message code="name2"/></th>
+					    				<th width="42%">Action</th>
+				    				</tr>
+				    			</table>
+				    			<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
+				    			<table class="tab tab-drag">
 									<c:forEach items="${dirColors}" var="dirColor">
-									  	<div class="row span6" >
-											<div class="col-md-2">
-												<div><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></div>
-											</div>
-											<div class="col-md-2">
-					         					<button type="button"  onclick="$('#id_dirColor').val(${dirColor.id}); $('#addColorForm').submit();" >Update</button>
-					         				</div>
-											<div class="col-md-1">
-												<button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delColor?id=${dirColor.id}'">Delete</button>
-											</div>
-										</div>
+										<tr>
+											<td class="dragHandle">&nbsp;</td>
+											<td><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></td>
+					         				<td>
+							         					<a href="javascript:editColor(${dirColor.id});" class="ico ico-edit" onclick="" title="<spring:message code="edit"/>"></a>
+							         					<a href="javascript:delColor(${dirColor.id});" class="ico ico-delete" onclick="" title="<spring:message code="delete"/>"></a>
+					         				</td>
+										</tr>
 									</c:forEach>
+								</table>
+								</div>
+							</div>
 						</div>
-					</div>
-	            </div>
-	        <!-- /#page-content-wrapper -->        
-        </div>
-        <!-- /box -->
+					</div>    				
+	            </div><!-- /#box --> 
+        </div><!-- /content -->
+        
     
 
     </div>
@@ -150,6 +158,19 @@
     </div>
     <!-- /#footer -->
 	
+	<script>
+	
+	function editColor(id)
+	{
+		$('#id_dirColor').val(id); $('#addColorForm').submit();
+	}
+
+	function delColor(id)
+	{
+		if(confirm('Delete record?'))location.href='admin/delColor?id='+id;
+	}
+
+	</script>
 
   <!-- /#main --> 
 </body>

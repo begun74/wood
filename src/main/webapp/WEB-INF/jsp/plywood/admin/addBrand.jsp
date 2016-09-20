@@ -80,7 +80,13 @@
     <!-- /header -->
     <!-- #content -->
     <div id="content">
-
+				<!-- breadcrumbs -->
+		        <div class="breadcrumbs">
+		          <ul>
+		            <li class="home"><a href="index">Homepage</a></li>
+		          </ul>
+		        </div>
+		        <!-- /breadcrumbs -->
       	<!-- box>
        	<div id="tabs-statistic" class="box">
        	</div>
@@ -116,7 +122,7 @@
 							  			
 							  			<div class="clearfix">
 										         <div class="lab">
-								                    <label>Brand</label> 
+								                    <label><spring:message code="name2"/></label> 
 										         </div>
 										         <div class="con">
 													<input name="name" id="name" type="text" class="input" value="" >										         
@@ -136,7 +142,13 @@
 						    	</form:form>
 							</div>					    
 				    		<div class="col2">
-								<div>Name</div>
+ 				    			<table class="tab" border="0">
+				    				<tr align="center">
+					    				<th width="70%"><spring:message code="name2"/></th>
+					    				<th width="30%">Action</th>
+				    				</tr>
+				    			</table>
+
 									<div align="center" style="overflow-y:scroll; overflow-x: none; height:400px; width:100%;">
 										<table class="tab tab-drag">
 											<c:forEach items="${dirBrands}" var="dirBrand">

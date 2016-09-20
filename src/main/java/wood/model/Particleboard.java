@@ -123,6 +123,16 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 		this.price = price;
 	}
 	
+		
+	public boolean getSanded() {
+		return sanded;
+	}
+
+	public void setSanded(boolean sanded) {
+		this.sanded = sanded;
+	}
+
+	
 	public Long getFk_dirColor() {
 		return fk_dirColor;
 	}

@@ -134,6 +134,7 @@
 																									'${particleboard.length}',
 																									'${particleboard.weight}',
 																									'${particleboard.price}',
+																									'${particleboard.sanded}',
 																									'${particleboard.dirColor.id}',
 																									'${particleboard.dirBrand.id}');">
 																		 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}   ${particleboard.dirColor.name}  ${particleboard.price}</a>
@@ -192,12 +193,16 @@
 	        $("#wrapper").toggleClass("toggled");
 	    });
 
-	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor, fk_dirBrand) 
-	    {
+	    function editParticleboard(id, thickness, length, weight, price, sanded, fk_dirColor, fk_dirBrand) 
+	    {alert(sanded);
 			$("#thickness").val(thickness);
 			$("#length").val(length);
 			$("#weight").val(weight);
 			$("#price").val(price);
+			if(sanded==1) 
+				$("#sanded").val('true');
+			else 
+				$("#sanded").val('false');
 			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
 			fk_dirBrand.length >0?$("#fk_dirBrand").val(fk_dirBrand):$("#fk_dirBrand").val('-1');
 	    }

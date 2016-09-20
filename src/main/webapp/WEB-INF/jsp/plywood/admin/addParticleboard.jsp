@@ -193,13 +193,9 @@
 									         	<div class="lab">
 									         		<spring:message code="sanded" />
 									         	</div>
-									         <div class="con">
-									         	 <select class="select" id="sanded" name="sanded">
-									         	 	<option value="-1"></option>
-										         	<option value="0"><spring:message code="yes" /></option>
-										         	<option value="1"><spring:message code="no" /></option> 
-									         	 </select>
-									         	 </div>
+										         <div class="con">
+										         	 <input type="checkbox" class="checkbox" id="sanded" name="sanded"/>
+										         </div>
 									         </div>
 	
 									         <input type="hidden" name="fileName" value="" />
@@ -234,22 +230,21 @@
 												<th class="action"><spring:message code="action"/></th>
 											</tr>
 											<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
-												<tr>		
+												<tr style="cursor:pointer;" onclick="editParticleboard('${particleboard.id}', '${particleboard.productId}',
+																										'${particleboard.thickness}',
+																										'${particleboard.length}',
+																										'${particleboard.weight}',
+																										'${particleboard.price}',
+																										'${particleboard.sanded}',
+																										'${particleboard.dirColor.id}',
+																										'${particleboard.dirBrand.id}');">		
 													<td class="dragHandle">&nbsp;</td>
 													<td class="checkbox"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><//td>
 													<td>												
 								         				<input type="text" class="input" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onblur="if(!isNumberValue(this.value)) this.value=1;" onkeypress="return isNumberKey(event)" maxlength="4" value="1" style="width:25px"/>
 								         			</td>
 								         			<td>${particleboard.productId}</td>
-													<td style="padding: 5px;"><a href="#" onclick="editParticleboard('${particleboard.id}', 
-																										'${particleboard.thickness}',
-																										'${particleboard.length}',
-																										'${particleboard.weight}',
-																										'${particleboard.price}',
-																										'${particleboard.dirColor.id}',
-																										'${particleboard.dirBrand.id}');">
-																			 ${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</a>
-													</td>
+													<td style="padding: 5px;">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
 													<td> ${particleboard.dirColor.name}</td>
 													<td>${particleboard.price}</td>
 													
@@ -292,12 +287,19 @@
     </div>
     <!-- /#footer -->
 	<script>
-	    function editParticleboard(id,thickness,length,weight,price, fk_dirColor, fk_dirBrand) 
+	    function editParticleboard(id, productId, thickness, length, weight, price, sanded, fk_dirColor, fk_dirBrand) 
 	    {
+	    	$("#productId").val(productId);
 			$("#thickness").val(thickness);
 			$("#length").val(length);
 			$("#weight").val(weight);
 			$("#price").val(price);
+			
+			if(sanded == 'true')
+				$("#sanded").attr('checked', true);
+			else
+				$("#sanded").removeAttr('checked');
+			
 			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
 			fk_dirBrand.length >0?$("#fk_dirBrand").val(fk_dirBrand):$("#fk_dirBrand").val('-1');
 	    }

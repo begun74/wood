@@ -129,9 +129,9 @@
 									<c:forEach items="${dirColors}" var="dirColor">
 										<tr>
 											<td class="dragHandle">&nbsp;</td>
-											<td><a href="#" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</a></td>
+											<td style="cursor:pointer;" onclick="$('#name').val('${dirColor.name}');">${dirColor.name}</td>
 					         				<td>
-							         					<a href="javascript:editColor(${dirColor.id});" class="ico ico-edit" onclick="" title="<spring:message code="edit"/>"></a>
+							         					<a href="javascript:editColor(${dirColor.id});" class="ico ico-edit" title="<spring:message code="edit"/>"></a>
 							         					<a href="javascript:delColor(${dirColor.id});" class="ico ico-delete" onclick="" title="<spring:message code="delete"/>"></a>
 					         				</td>
 										</tr>
@@ -162,7 +162,9 @@
 	
 	function editColor(id)
 	{
-		$('#id_dirColor').val(id); $('#addColorForm').submit();
+		alert($('#name').val());
+		$('#id_dirColor').val(id); 
+		$('#addColorForm').submit();
 	}
 
 	function delColor(id)

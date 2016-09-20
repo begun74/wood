@@ -154,9 +154,7 @@
 											<c:forEach items="${dirBrands}" var="dirBrand">
 												<tr>
 													<td class="dragHandle">&nbsp;</td>
-													<td><a href="#" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">(${dirBrand.id}) ${dirBrand.name}</a></td>
-							         				<!-- td><button type="button"  onclick="$('#id_dirBrand').val(${dirBrand.id}); $('#addBrandForm').submit();" ><spring:message code="label.button.update"/></button></td>
-													<td><button type="button"  onclick="if(confirm('Delete record?'))location.href='admin/delBrand?id=${dirBrand.id}'"><spring:message code="label.button.delete"/></button></td -->
+													<td style="cursor:pointer;" onclick="$('#name').val('${dirBrand.name}'); $('#description').val('${dirBrand.description}');">(${dirBrand.id}) ${dirBrand.name}</td>
 							         				<td>
 							         					<a href="javascript:editBrand(${dirBrand.id});" class="ico ico-edit" onclick=""></a>
 							         					<a href="javascript:delBrand(${dirBrand.id});" class="ico ico-delete" onclick=""></a>

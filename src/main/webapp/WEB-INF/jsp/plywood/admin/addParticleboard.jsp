@@ -158,7 +158,7 @@
 								                   <label>Price</label> 
 										         </div>
 										         <div class="con">
-													<input id="price" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=0;" onkeypress="return isNumberKey(event)" name="price" value="0" >										         
+													<input id="price" type="text" class="input" onblur="if(!isNumberValue(this.value)) this.value=0;" onkeypress="return isNumberKeyDouble(event)" name="price" value="0" >										         
 										         </div>
 										      </div>
 									         <div class="clearfix">
@@ -230,20 +230,21 @@
 												<th class="action"><spring:message code="action"/></th>
 											</tr>
 											<c:forEach items="${particleboards}" var="particleboard" varStatus="vs">
-												<tr style="cursor:pointer;" onclick="editParticleboard('${particleboard.id}', '${particleboard.productId}',
+												<tr>		
+													<td class="dragHandle">&nbsp;</td>
+													<td class="checkbox"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><//td>
+													<td>												
+								         				<input type="text" class="input" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onblur="if(!isNumberValue(this.value)) this.value=1;" onkeypress="return isNumberKey(event)" maxlength="4" value="1" style="width:25px"/>
+								         			</td>
+								         			<td  style="cursor:pointer;" onclick="editParticleboard('${particleboard.id}', '${particleboard.productId}',
 																										'${particleboard.thickness}',
 																										'${particleboard.length}',
 																										'${particleboard.weight}',
 																										'${particleboard.price}',
 																										'${particleboard.sanded}',
 																										'${particleboard.dirColor.id}',
-																										'${particleboard.dirBrand.id}');">		
-													<td class="dragHandle">&nbsp;</td>
-													<td class="checkbox"><input type="checkbox" name='chbxParts[${vs.index}]' value="${particleboard.id}" /><//td>
-													<td>												
-								         				<input type="text" class="input" name='amountParts[${vs.index}]' id="amountParts_${vs.index}" onblur="if(!isNumberValue(this.value)) this.value=1;" onkeypress="return isNumberKey(event)" maxlength="4" value="1" style="width:25px"/>
-								         			</td>
-								         			<td>${particleboard.productId}</td>
+																										'${particleboard.dirBrand.id}');">${particleboard.productId}
+													</td>
 													<td style="padding: 5px;">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</td>
 													<td> ${particleboard.dirColor.name}</td>
 													<td>${particleboard.price}</td>

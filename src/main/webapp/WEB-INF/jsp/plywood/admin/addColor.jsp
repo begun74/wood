@@ -162,7 +162,6 @@
 	
 	function editColor(id)
 	{
-		alert($('#name').val());
 		$('#id_dirColor').val(id); 
 		$('#addColorForm').submit();
 	}

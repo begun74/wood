@@ -22,7 +22,9 @@
 									</c:if> 
 										<td style="padding: 35px;">
 											<div class="product-item-holder hover">
-												<img src="resources/pics/${particleboard.id}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/>
+												<a href="singleProduct?id=${particleboard.id}">
+													<img src="resources/pics/${particleboard.id}.jpeg" width="170" height="170" onerror="this.onerror=null;this.src='resources/assets/images/products/nopicture.jpg';"/>
+												</a>
 												<br/>${particleboard.thickness}x${particleboard.length}x${particleboard.weight}       <spring:message code="label.price"/> ${particleboard.price}$
 												<div class="product-item ">
 								    					<div class="hover-area">

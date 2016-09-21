@@ -74,6 +74,21 @@ public class WControllerIndex {
 		//System.out.println("/index - "+mIndex);
 	    return model;
 	}
+	
+	
+	@RequestMapping(value = {"/singleProduct"} , method = RequestMethod.GET)
+	public ModelAndView  singleProduct (HttpSession session, @RequestParam(value = "id",   required=false) Long id_particleboard) 
+	{
+		ModelAndView model = new ModelAndView("plywood/single-product");
+		
+		
+		model.addObject("backetBean",backet);
+		model.addObject("compBean",compBean);
+		
+		
+		//System.out.println("/index - "+mIndex);
+	    return model;
+	}
 
 	@RequestMapping(value = {"/loginPage"} , method = RequestMethod.GET)
 	public ModelAndView  loginPage(HttpSession session, @RequestParam(value = "error",required = false) String error,

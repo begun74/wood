@@ -107,7 +107,7 @@
 			            <a href="wishlist.htm"><i class="fa fa-heart"></i> wishlist <span class="value"></span> </a>
 			        </div>
 			        <div class="compare">
-			            <a href="compare.htm"><i class="fa fa-exchange"></i> <spring:message code="compare"/> <span class="value" id="compareItems" >(${fn:length(compBean.items)})</span> </a>
+			            <a href="compare.htm"><i class="fa fa-exchange"></i> <spring:message code="compare"/> (<span class="value" id="compareItems" >${fn:length(compBean.items)}</span>) </a>
 			        
 			        </div>
 			    </div>

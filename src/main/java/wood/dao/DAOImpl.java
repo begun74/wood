@@ -103,7 +103,7 @@ public  class DAOImpl implements DAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, int priceFrom, int priceTo) {
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, double priceFrom, double priceTo) {
 
 		Criteria crit = getSession().createCriteria(Particleboard.class)
 				.add(Example.create(example_particleboard));

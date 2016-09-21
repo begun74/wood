@@ -99,7 +99,7 @@ public class WoodServiceImpl implements WoodService {
 	//@Loggable
 	@Override
 	public List<Particleboard> getAllParticleboards(
-			Particleboard example_particleboard, int priceFrom, int priceTo) {
+			Particleboard example_particleboard, double priceFrom, double priceTo) {
 		// TODO Auto-generated method stub
 		return dao.getAllParticleboards(example_particleboard, priceFrom, priceTo);
 	}

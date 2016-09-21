@@ -30,8 +30,8 @@ public class MIndex implements Serializable {
 	List<Long> brands = new LinkedList<Long>();
 	
 	private int pbListSize = 0;
-	private Integer priceFrom = 0;
-	private Integer priceTo = 0;
+	private Double priceFrom = 0.0;
+	private Double priceTo = 0.0;
 	private Integer pageNumber = 0;
 
 	private long time = System.currentTimeMillis();
@@ -68,7 +68,7 @@ public class MIndex implements Serializable {
 				isFinding = true;
 				particleboard.setFk_dirBrand(iterBrands.next());
 				
-				if(priceFrom > priceTo) priceTo = 0 ;
+				if(priceFrom > priceTo) priceTo = 0.0 ;
 				
 				if(priceFrom>0 || priceTo >0)
 					pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
@@ -78,7 +78,7 @@ public class MIndex implements Serializable {
 		}
 		else if(priceFrom>0 || priceTo >0)
 		{
-			if(priceFrom > priceTo) priceTo = 0 ;
+			if(priceFrom > priceTo) priceTo = 0.0 ;
 			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
 		}
 		
@@ -98,21 +98,21 @@ public class MIndex implements Serializable {
 	}
 	
 	
-	public int getPriceFrom() {
+	public Double getPriceFrom() {
 		return priceFrom;
 	}
 
-	public void setPriceFrom(Integer priceFrom) {
-		if(priceFrom == null) priceFrom=0;
+	public void setPriceFrom(Double priceFrom) {
+		if(priceFrom == null) priceFrom=0.0;
 		this.priceFrom = priceFrom;
 	}
 
-	public Integer getPriceTo() {
+	public Double getPriceTo() {
 		return priceTo;
 	}
 
-	public void setPriceTo(Integer priceTo) {
-		if(priceTo == null) priceTo=0;
+	public void setPriceTo(Double priceTo) {
+		if(priceTo == null) priceTo=0.0;
 		this.priceTo = priceTo;
 	}
 	

@@ -74,6 +74,29 @@
     </form>
 </div>-->
 <!-- /.search-area -->
+<div class="search-area">
+    <form>
+        <div class="control-group">
+            <input class="search-field" placeholder="Search for item" />
+
+            <ul class="categories-filter animate-dropdown">
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">all categories</a>
+
+                    <ul class="dropdown-menu" role="menu" >
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html"><spring:message code="chip.board.laminated"/></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html"><spring:message code="chip.board.raw"/></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html"><spring:message code="plywood"/></a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <a class="search-button" href="#" ></a>    
+
+        </div>
+    </form>
+</div><!-- /.search-area -->
 <!-- ============================================================= SEARCH AREA : END ============================================================= -->      </div><!-- /.top-search-holder -->
 
         <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
@@ -84,7 +107,7 @@
 			            <a href="wishlist.htm"><i class="fa fa-heart"></i> wishlist <span class="value"></span> </a>
 			        </div>
 			        <div class="compare">
-			            <a href="compare.htm"><i class="fa fa-exchange"></i> compare <span class="value" id="compareItems" >${fn:length(compBean.items)}</span> </a>
+			            <a href="compare.htm"><i class="fa fa-exchange"></i> <spring:message code="compare"/> <span class="value" id="compareItems" >(${fn:length(compBean.items)})</span> </a>
 			        
 			        </div>
 			    </div>

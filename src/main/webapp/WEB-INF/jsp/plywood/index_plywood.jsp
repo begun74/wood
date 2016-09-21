@@ -55,126 +55,177 @@
 
 
 
-    	<!-- Check if you're referencing jquery.js BEFORE bootstrap.js and bootstrap.js is loaded only once -->
-	    <!-- jQuery -->
-	    <script src="resources/js/jquery.js"></script>
-	
-	    <!-- Bootstrap Core JavaScript -->
-	    <script src="resources/js/bootstrap.min.js"></script>
 
-			<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery-1.4.2.min.js"></script>   
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.dimensions.min.js"></script>
-    
-    <!-- // Tabs // -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/ui.core.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.ui.tabs.min.js"></script>
-
-    <!-- // Table drag and drop rows // -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/tablednd.js"></script>
-
-    <!-- // Date Picker // -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/date.js"></script>
-    <!--[if IE]><script type="text/javascript" src="public/js/jquery.bgiframe.js"></script><![endif]-->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.datePicker.js"></script>
-
-    <!-- // Wysiwyg // -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.wysiwyg.js"></script>
-
-    <!-- // Graphs // -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/excanvas.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.visualize.js"></script>
-
-    <!-- // Fancybox // -->
-  	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.fancybox-1.3.1.js"></script>
-
-    <!-- // File upload // --> 
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/jquery.filestyle.js"></script>
-    
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/public/js/init.js"></script>
-
-    
-        <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
-        <!--[if lt IE 9]>
-            <script src="resources/assets/js/html5shiv.js"></script>
-            <script src="resources/assets/js/respond.min.js"></script>
-        <![endif]-->
-        
     </head>
     
     
     <body>
-    	<div class="container">
+    	<div class="wrapper">
 		<%@include file="common/nav.jsp" %>      
 		<%@include file="common/header2.jsp" %>     
-    
-				<div class="widget col-md-3">
-				    <h1>Product Filters</h1>
-		    		<form  method="GET" name="mIndex" 
-		    			action="${pageContext.request.contextPath}/search">
+
+		<div class="container">
+		<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+
+					<div class="side-menu animate-dropdown">
+	    				<div class="head"><i class="fa fa-list"></i><spring:message code="all.products"/></div>
+	    				
+	    				<nav class="yamm megamenu-horizontal" role="navigation">
+	    				<ul class="nav">
+        					<li class="dropdown menu-item">
+				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="chip.board.laminated"/></a>
+				                <ul class="dropdown-menu mega-menu">
+				                     <li class="yamm-content">
+				                        <div class="row">
+				                            <div class="col-md-4">
+				                                <ul class="list-unstyled">
+				                                                                        <li><a href="index.html">Home</a></li>
+				                                                                        <li><a href="index-2.html">Home Alt</a></li>
+				                                                                        <li><a href="category-grid.html">Category - Grid/List</a></li>
+				                                                                        <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
+				                                                                        <li><a href="single-product.html">Single Product</a></li>
+				                                                                        <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
+				                                 </ul>
+				                            </div>
+				                            <div class="col-md-4">
+				                                <ul class="list-unstyled">
+				                                                                        <li><a href="cart.html">Shopping Cart</a></li>
+				                                                                        <li><a href="checkout.html">Checkout</a></li>
+				                                                                        <li><a href="about.html">About Us</a></li>
+				                                                                        <li><a href="contact.html">Contact Us</a></li>
+				                                                                        <li><a href="blog.html">Blog</a></li>
+				                                                                        <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
+				                                </ul>
+				                            </div>
+				                            <div class="col-md-4">
+				                                <ul class="list-unstyled">
+				                                                                        <li><a href="blog-post.html">Blog Post</a></li>
+				                                                                        <li><a href="faq.html">FAQ</a></li>
+				                                                                        <li><a href="terms.html">Terms & Conditions</a></li>
+				                                                                        <li><a href="authentication.html">Login/Register</a></li>
+				                                </ul>
+				                            </div>
+				                        </div>
+				                    </li>
+				                </ul>
+            				</li>
+        					<li class="dropdown menu-item">
+				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="chip.board.raw"/></a>
+
+							</li>            				
+        					<li class="dropdown menu-item">
+				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="plywood"/></a>
+
+							</li>            				
+            				</ul>
+        				
+        				</nav>
+	    				</div>
+						<div class="side-menu animate-dropdown">
+	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
+		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/search">
 				    
-				    <div class="body bordered">
-				        <div class="category-filter">
-				            <h2>Brands</h2>
-				            <hr>
-				            <ul>    
-								<c:forEach items="${brands}" var="brand" varStatus="vs" >
-									<li><input  class="le-checkbox" type="checkbox"  name="brands" id="brand_${brand.id}" value="${brand.id}" /><label>${brand.name}</label></li>
-								</c:forEach>
-							</ul>   
-							<hr> 
-							<div><spring:message code="price"/></div>
-							<div class="col-md-12">
-								<div class="col-md-5">
-									<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/></label>
-								</div>					
-								<div class="col-md-5">
-									<spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/>
+				    		<div class="body bordered"> 
+				        		<div class="category-filter">
+					            	<h2><spring:message code="brand.name"/></h2>
+					            	<ul>    
+										<c:forEach items="${brands}" var="brand" varStatus="vs" >
+											<li><input  class="le-checkbox" type="checkbox"  name="brands" id="brand_${brand.id}" value="${brand.id}" /><label>${brand.name}</label></li>
+										</c:forEach>
+									</ul>   
+									<hr/>
+									<h2><spring:message code="price"/></h2>
+									<ul>
+											<div class="col-xs-5">
+												<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/></label>
+											</div>
+											<div class="col-xs-5">
+												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/></label>
+											</div>
+									</ul>
 								</div>
-							</div>
-							<hr> 
+							
 							<input  type="submit" name="submit" value="<spring:message code="label.button.select"/>"/>
-		    			</div>
-		    		</div>
-    				</form>
+		    				</div>
+    						</form>
 		    		
-		    	</div>
-		
-				<div class="col-md-9 no-margin sidebar">
-											<!-- div class="grid-list-buttons">
-												<div class="control-bar">
-								                <ul>
-								                    <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i>Grid</a></li>
-								                    <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i>List</a></li>
-								                </ul>
-								                </div>
-								            </div -->
-		
-					    		<div class="col-md-12">
+		    			</div>
+	    										    				
+	    			
+				</div>
+		    <div class="col-xs-12 col-sm-12 col-md-9">
 									<div>
 										<!-- Main content  -->
 											<%@include file="common/content4.jsp" %>      
 										<!-- Main content  -->
 									</div>
-								</div>
-				</div>
-    	</div>
-
+			</div>
+				
+		</div><!-- row -->
+								
+		</div><!-- /container -->
+		</div><!-- /wrapper -->
     </body>
-    
-        <!-- Menu Toggle Script -->
-	    <script>
-	    $(function() {
-			var brnds = ${mIndex.brands};
-		
-			for (var item in brnds) {
-                $('#brand_'+brnds[item]).attr("checked","checked");
-            }
 
-            //alert(${mIndex.priceFrom}+'  '+${mIndex.priceTo});
+	<!-- JavaScripts placed at the end of the document so the pages load faster -->
+	<script src="resources/assets/js/jquery-1.10.2.min.js"></script>
+	<script src="resources/assets/js/jquery-migrate-1.2.1.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+	<script src="resources/assets/js/gmap3.min.js"></script>
+	<script src="resources/assets/js/bootstrap-hover-dropdown.min.js"></script>
+	<script src="resources/assets/js/owl.carousel.min.js"></script>
+	<script src="resources/assets/js/css_browser_selector.min.js"></script>
+	<script src="resources/assets/js/echo.min.js"></script>
+	<script src="resources/assets/js/jquery.easing-1.3.min.js"></script>
+	<script src="resources/assets/js/bootstrap-slider.min.js"></script>
+    <script src="resources/assets/js/jquery.raty.min.js"></script>
+    <script src="resources/assets/js/jquery.prettyPhoto.min.js"></script>
+    <script src="resources/assets/js/jquery.customSelect.min.js"></script>
+    <script src="resources/assets/js/wow.min.js"></script>
+	<script src="resources/assets/js/scripts.js"></script>
+
+	<!-- For demo purposes – can be removed on production -->
+	
+	<script src="switchstylesheet/switchstylesheet.js"></script>
+
+    <script>
+	    $(function() {
+				var brnds = ${mIndex.brands};
+							
+				for (var item in brnds) {
+	                $('#brand_'+brnds[item]).attr("checked","checked");
+	            }
+	
+	    });
+    </script>
+	
+	<script>
+		$(document).ready(function(){ 
+
             $('#priceFrom').val('${mIndex.priceFrom}');
             $('#priceTo').val('${mIndex.priceTo}');
 
-	    });
-	    </script>
+            
+			$(".changecolor").switchstylesheet( { seperator:"color"} );
+			$('.show-theme-options').click(function(){
+				$(this).parent().toggleClass('open');
+				return false;
+			});
+			
+
+		});
+
+		$(window).bind("load", function() {
+		   $('.show-theme-options').delay(2000).trigger('click');
+		});
+
+
+		</script>
+	<!-- For demo purposes – can be removed on production : End -->
+
+	<script src="http://w.sharethis.com/button/buttons.js"></script>
+		 
     
 </html>

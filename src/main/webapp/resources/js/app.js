@@ -42,7 +42,7 @@ function statusOrders(checkbox, chbxParts_id, amountParts_id) {
 	});
 }
 
-function addToBacket(id) {
+function ajaxAddToBacket(id) {
 	$.ajax({
 		type : "GET",
 		url : "addToBacket?id="+id,
@@ -72,6 +72,12 @@ function addToCompare(id) {
 			display(e);
 		}
 	});
+}
+
+function addProductToBacket(id)
+{
+	alert(id);
+	location.href='add-product-to-customer-basket?id='+id+'&quantity='+$(quantity).val();
 }
 
 

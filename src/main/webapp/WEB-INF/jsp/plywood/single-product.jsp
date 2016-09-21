@@ -158,11 +158,11 @@
 		            <div class="le-quantity">
 		                <form>
 		                    <a class="minus" href="#reduce"></a>
-		                    <input name="quantity" readonly="readonly" type="text" value="1" />
+		                    <input id="quantity" name="quantity" readonly="readonly" type="text" value="1" />
 		                    <a class="plus" href="#add"></a>
 		                </form>
 		            </div>
-		            <a id="addto-cart" href="cart.html" class="le-button huge"><spring:message code="add.to.cart"/></a>
+		            <a id="add-product" href="javascript:addProductToBacket(${particleboard.id});" class="le-button huge"><spring:message code="add.to.cart"/></a>
 		        </div><!-- /.qnt-holder -->
     		</div><!-- /body -->
     	</div>
@@ -207,17 +207,6 @@
 	
 	<script src="switchstylesheet/switchstylesheet.js"></script>
 
-    <script>
-	    $(function() {
-				var brnds = ${mIndex.brands};
-							
-				for (var item in brnds) {
-	                $('#brand_'+brnds[item]).attr("checked","checked");
-	            }
-	
-	    });
-    </script>
-	
 	<script>
 		$(document).ready(function(){ 
 
@@ -238,7 +227,13 @@
 		   $('.show-theme-options').delay(2000).trigger('click');
 		});
 
-
+		function addProductToBacket(id)
+		{
+			alert(id);
+			location.href='add-product-to-customer-basket?id='+id+'&quantity='+$(quantity).val();
+		}
+		
+		
 		</script>
 	<!-- For demo purposes – can be removed on production : End -->
 

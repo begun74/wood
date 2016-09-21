@@ -123,6 +123,7 @@
         				</nav>
 	    				</div>
 						<div class="side-menu animate-dropdown">
+							<div class="widget">
 	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
 		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/search">
 				    
@@ -146,10 +147,11 @@
 									</ul>
 								</div>
 							
-							<input  type="submit" name="submit" value="<spring:message code="label.button.select"/>"/>
+							<button class="le-button small"><spring:message code="label.button.select"/></button>
 		    				</div>
     						</form>
 		    		
+		    			</div>
 		    			</div>
 	    										    				
 	    			

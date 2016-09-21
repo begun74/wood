@@ -34,7 +34,7 @@
 						                                    </div>
 						                                    <div class="wish-compare">
 						                                        <a class="btn-add-to-wishlist" href="add-product-to-wish-list?id=${particleboard.id}">add to wishlist</a>
-						                                        <a class="btn-add-to-compare" href="javascript:addToCompare(${particleboard.id})" ><spring:message code="compare"/></a>
+						                                        <a class="btn-add-to-compare" href="javascript:addToCompare(${particleboard.id})"><spring:message code="compare"/></a>
 						                                    </div>
 						                                </div>
 												</div>

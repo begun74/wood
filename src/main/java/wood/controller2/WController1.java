@@ -83,6 +83,7 @@ public class WController1 {
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
 	public String  add_product_to_customer_basket( Model model,
 			@RequestParam(value = "id",   required=false) Long id,
+			@RequestParam(value = "quantity",   required=false) Integer quantity,
 			@RequestParam(value = "action",   required=false) String action)
 	{
 		model.addAttribute("mIndex",mIndex);
@@ -90,8 +91,18 @@ public class WController1 {
 		model.addAttribute("brands",woodService.getListDirBrands());
 		model.addAttribute("backetBean",backet);
 		
-		if(id != null)
-			backet.addParticleboardToBacket(woodService.getParticleboard(id));
+		Integer n = quantity;
+		if(id != null && n != null)
+		{
+			while(n > 0) 
+			{
+				backet.addParticleboardToBacket(woodService.getParticleboard(id));
+				--n;
+			}
+		}
+		else if(id != null)
+				backet.addParticleboardToBacket(woodService.getParticleboard(id));
+		
 
 		if(action != null)
 			return "redirect:"+action;

@@ -24,6 +24,7 @@ import wood.annotation.Loggable;
 import wood.bean.BacketBean;
 import wood.bean.CompareBean;
 import wood.bean.SessionBean;
+import wood.model.Particleboard;
 import wood.modelattribute.MIndex;
 import wood.service.WoodService;
 import wood.util.FileUpload;
@@ -77,11 +78,15 @@ public class WControllerIndex {
 	
 	
 	@RequestMapping(value = {"/singleProduct"} , method = RequestMethod.GET)
-	public ModelAndView  singleProduct (HttpSession session, @RequestParam(value = "id",   required=false) Long id_particleboard) 
+	public ModelAndView  singleProduct (HttpSession session, @RequestParam(value = "id",   required=false) Long id) 
 	{
 		ModelAndView model = new ModelAndView("plywood/single-product");
 		
+		Particleboard p = null;
+		if(id != null)
+			p = woodService.getParticleboard(id);
 		
+		model.addObject("particleboard",p);
 		model.addObject("backetBean",backet);
 		model.addObject("compBean",compBean);
 		

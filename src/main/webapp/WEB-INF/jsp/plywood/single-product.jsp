@@ -21,37 +21,37 @@
         <title>Plywood</title>
         
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="resources/css/simple-sidebar.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/simple-sidebar.css" rel="stylesheet">
 
         <!-- Customizable CSS -->
-        <link rel="stylesheet" href="resources/assets/css/main.css">
-        <link rel="stylesheet" href="resources/assets/css/green.css">
-        <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
-        <link rel="stylesheet" href="resources/assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="resources/assets/css/animate.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/main.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/green.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.carousel.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/animate.min.css">
 
         <!-- Demo Purpose Only. Should be removed in production -->
-        <link rel="stylesheet" href="resources/assets/css/config.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/config.css">
 
-        <link href="resources/assets/css/green.css" rel="alternate stylesheet" title="Green color">
-        <link href="resources/assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-        <link href="resources/assets/css/red.css" rel="alternate stylesheet" title="Red color">
-        <link href="resources/assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-        <link href="resources/assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
-        <link href="resources/assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/green.css" rel="alternate stylesheet" title="Green color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/red.css" rel="alternate stylesheet" title="Red color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
+        <link href="${pageContext.request.contextPath}/resources/assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
         <!-- Demo Purpose Only. Should be removed in production : END -->
 
         <!-- Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
         
         <!-- Icons/Glyphs -->
-        <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css">
         
         <!-- Favicon -->
-        <link rel="shortcut icon" href="resources/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/images/favicon.ico">
 
 
 
@@ -132,15 +132,39 @@
     			<div class="star-holder inline"><div class="star" data-score="4"></div></div>
 		        <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
 		
-		        <div class="title"><a href="#">VAIO fit laptop - windows 8 SVF14322CXW</a></div>
-		        <div class="brand">sony</div>
+		        <div class="title"><a href="#">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</a></div>
+		        <div class="brand">${particleboard.dirBrand.name}</div>
 		
 		        <div class="social-row">
 		            <span class="st_facebook_hcount"></span>
 		            <span class="st_twitter_hcount"></span>
 		            <span class="st_pinterest_hcount"></span>
 		        </div>
-    		</div>
+		        
+		        <div class="buttons-holder">
+		            <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+		            <a class="btn-add-to-compare" href="#"><spring:message code="compare"/></a>
+		        </div>
+		
+		        <div class="excerpt">
+		            <p>Product ID: ${particleboard.productId}</p>
+		        </div>
+		        
+		        <div class="prices">
+		            <div class="price-current">$${particleboard.price}</div>
+		            <div class="price-prev">$${particleboard.price}</div>
+		        </div>
+		        <div class="qnt-holder">
+		            <div class="le-quantity">
+		                <form>
+		                    <a class="minus" href="#reduce"></a>
+		                    <input name="quantity" readonly="readonly" type="text" value="1" />
+		                    <a class="plus" href="#add"></a>
+		                </form>
+		            </div>
+		            <a id="addto-cart" href="cart.html" class="le-button huge"><spring:message code="add.to.cart"/></a>
+		        </div><!-- /.qnt-holder -->
+    		</div><!-- /body -->
     	</div>
 		
 		</div><!-- single-product -->

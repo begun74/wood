@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.PartType;
 import wood.model.Particleboard;
 import wood.model.Request;
 
@@ -130,6 +131,25 @@ public  class DAOImpl implements DAO {
 	@Override
 	public List<Request> getAllRequest() {
 		return getSession().createSQLQuery("select * from request order by creation_date").addEntity(Request.class).list();
+	}
+
+	@Override
+	public void addPartType(PartType partType) {
+		getSession().saveOrUpdate(partType);
+		
+	}
+
+	@Override
+	public PartType getPartType(long id) {
+		// TODO Auto-generated method stub
+		return (PartType)getSession().get(PartType.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PartType> getListPartTypes() {
+		// TODO Auto-generated method stub
+		return getSession().createSQLQuery("select * from type order by id_type").addEntity(PartType.class).list();
 	}
 
 

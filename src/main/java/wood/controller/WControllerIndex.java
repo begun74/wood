@@ -61,15 +61,23 @@ public class WControllerIndex {
 
 	
 	@RequestMapping(value = {"/index","/"} , method = RequestMethod.GET)
-	public ModelAndView  index(HttpSession session) 
+	public ModelAndView  index(HttpSession session, @RequestParam(value = "pg",   required=false) Integer id_partgroup) 
 	{
-		ModelAndView model = new ModelAndView("plywood/index_plywood");
 		
+		ModelAndView model = new ModelAndView("plywood/index_all");
 		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
+		
+		if(id_partgroup != null)
+		{
+			mIndex.setPg(id_partgroup);
+			model = new ModelAndView("plywood/index_pg");
+		}
+		model.addObject("partTypes",woodService.getListPartTypes());
 		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
 		model.addObject("backetBean",backet);
 		model.addObject("compBean",compBean);
+
 		model.addObject("mIndex",mIndex);
 		
 		//System.out.println("/index - "+mIndex);

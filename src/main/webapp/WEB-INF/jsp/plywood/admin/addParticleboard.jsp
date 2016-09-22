@@ -123,6 +123,20 @@
 
 					    					 <div class="clearfix">
 										         <div class="lab">
+								                    <label>Part Types</label>
+										         </div>
+										         <div class="con">
+											         	 <select class="select" id="fk_type" name="fk_type">
+											         	 	<option></option>
+												         	 <c:forEach items="${partTypes}" var="partType">
+												         	 	<option value="${partType.id}">${partType.name}</option>
+												         	 </c:forEach>
+											         	 </select>
+										         </div>
+											 </div>
+
+					    					 <div class="clearfix">
+										         <div class="lab">
 								                    <label>ProductId</label>
 										         </div>
 										         <div class="con">

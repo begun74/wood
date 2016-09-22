@@ -114,6 +114,7 @@ public class WControllerManage {
 		model.addObject("particleboards",woodService.getListParticleboards());
 		model.addObject("dirBrands",woodService.getListDirBrands());
 		model.addObject("orders",woodService.getAllRequest());
+		model.addObject("partTypes",woodService.getListPartTypes());
 		//System.out.println("sb - " +sb.getTime());
 	    return model;
 	}
@@ -258,6 +259,7 @@ public class WControllerManage {
 		
 		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
 		particleboard.setDirBrand(woodService.getDirBrand(particleboard.getFk_dirBrand()));
+		particleboard.setPartType(woodService.getPartType(particleboard.getFk_type()));
 		woodService.addParticleboard(particleboard);
 		
 		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));

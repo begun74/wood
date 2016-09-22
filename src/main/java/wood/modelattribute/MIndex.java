@@ -33,6 +33,7 @@ public class MIndex implements Serializable {
 	private Double priceFrom = 0.0;
 	private Double priceTo = 0.0;
 	private Integer pageNumber = 0;
+	private Integer pg = null;
 
 	private long time = System.currentTimeMillis();
 
@@ -52,6 +53,16 @@ public class MIndex implements Serializable {
 	}
 
 	
+	public Integer getPg() {
+		return pg;
+	}
+
+
+	public void setPg(Integer pg) {
+		this.pg = pg;
+	}
+
+
 	@Loggable
 	public List<Particleboard> getListParticleboards(WoodService woodService)
 	{

@@ -61,6 +61,9 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	@Column(insertable=false ,updatable=false)
 	private  Long fk_dirBrand;
 
+	@Column(insertable=false ,updatable=false)
+	private  Long fk_type;
+
 	private String fileName;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -71,6 +74,9 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	@JoinColumn(name = "fk_dirBrand")
 	private DirBrand dirBrand;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_type")
+	private PartType partType;
 	
 	public Particleboard(long id) {
 		super();
@@ -140,6 +146,17 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 		this.fk_dirColor = fk_dirColor;
 	}
 	
+	
+	
+		
+	public Long getFk_type() {
+		return fk_type;
+	}
+
+	public void setFk_type(Long fk_type) {
+		this.fk_type = fk_type;
+	}
+
 	public Long getFk_dirBrand() {
 		return fk_dirBrand;
 	}
@@ -161,6 +178,16 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 		this.dirBrand = dirBrand;
 	}
 	
+		
+	public PartType getPartType() {
+		return partType;
+	}
+
+	public void setPartType(PartType partType) {
+		this.partType = partType;
+	}
+	
+
 	public String getFileName() {
 		return fileName;
 	}

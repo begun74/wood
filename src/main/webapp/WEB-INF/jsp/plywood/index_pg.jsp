@@ -68,60 +68,6 @@
 		<div class="row">
 				<div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
 
-					<div class="side-menu animate-dropdown">
-	    				<div class="head"><i class="fa fa-list"></i><spring:message code="all.products"/></div>
-	    				
-	    				<nav class="yamm megamenu-horizontal" role="navigation">
-	    				<ul class="nav">
-        					<li class="dropdown menu-item">
-				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="chip.board.laminated"/></a>
-				                <ul class="dropdown-menu mega-menu">
-				                     <li class="yamm-content">
-				                        <div class="row">
-				                            <div class="col-md-4">
-				                                <ul class="list-unstyled">
-				                                                                        <li><a href="index.html">Home</a></li>
-				                                                                        <li><a href="index-2.html">Home Alt</a></li>
-				                                                                        <li><a href="category-grid.html">Category - Grid/List</a></li>
-				                                                                        <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-				                                                                        <li><a href="single-product.html">Single Product</a></li>
-				                                                                        <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-				                                 </ul>
-				                            </div>
-				                            <div class="col-md-4">
-				                                <ul class="list-unstyled">
-				                                                                        <li><a href="cart.html">Shopping Cart</a></li>
-				                                                                        <li><a href="checkout.html">Checkout</a></li>
-				                                                                        <li><a href="about.html">About Us</a></li>
-				                                                                        <li><a href="contact.html">Contact Us</a></li>
-				                                                                        <li><a href="blog.html">Blog</a></li>
-				                                                                        <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-				                                </ul>
-				                            </div>
-				                            <div class="col-md-4">
-				                                <ul class="list-unstyled">
-				                                                                        <li><a href="blog-post.html">Blog Post</a></li>
-				                                                                        <li><a href="faq.html">FAQ</a></li>
-				                                                                        <li><a href="terms.html">Terms & Conditions</a></li>
-				                                                                        <li><a href="authentication.html">Login/Register</a></li>
-				                                </ul>
-				                            </div>
-				                        </div>
-				                    </li>
-				                </ul>
-            				</li>
-        					<li class="dropdown menu-item">
-				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="chip.board.raw"/></a>
-
-							</li>            				
-        					<li class="dropdown menu-item">
-				                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="plywood"/></a>
-
-							</li>            				
-            				</ul>
-        				
-        				</nav>
-	    				</div>
 						<div class="side-menu animate-dropdown">
 							<div class="widget">
 	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
@@ -168,6 +114,8 @@
 								
 		</div><!-- /container -->
 		</div><!-- /wrapper -->
+		
+		<%@include file="common/contact_info.jsp" %>
     </body>
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->

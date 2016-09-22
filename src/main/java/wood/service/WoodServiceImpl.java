@@ -11,6 +11,7 @@ import wood.dao.DAOImpl;
 import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.PartType;
 import wood.model.Particleboard;
 import wood.model.Request;
 
@@ -120,6 +121,24 @@ public class WoodServiceImpl implements WoodService {
 	public List<Request> getAllRequest() {
 		// TODO Auto-generated method stub
 		return dao.getAllRequest();
+	}
+
+	@Override
+	public void addPartType(PartType partType) {
+		// TODO Auto-generated method stub
+		dao.addPartType(partType);
+	}
+
+	@Override
+	public PartType getPartType(long id) {
+		// TODO Auto-generated method stub
+		return dao.getPartType(id);
+	}
+
+	@Override
+	public List<PartType> getListPartTypes() {
+		// TODO Auto-generated method stub
+		return dao.getListPartTypes();
 	}
 
 

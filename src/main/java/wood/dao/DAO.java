@@ -7,6 +7,7 @@ import org.hibernate.criterion.Example;
 import wood.model.DirBrand;
 import wood.model.DirColor;
 import wood.model.DirCustomer;
+import wood.model.PartType;
 import wood.model.Particleboard;
 import wood.model.Request;
 
@@ -22,6 +23,10 @@ public interface DAO {
 	public void addColor(DirColor dirColor);
 	public DirColor getDirColor(long id);
 	public List<DirColor> getAllDirColors();
+	
+	public void addPartType(PartType partType);
+	public PartType getPartType(long id);
+	public List<PartType> getListPartTypes();
 	
 	public void addParticleboard(Particleboard particleboard);
 	public Particleboard getParticleboard(long id);

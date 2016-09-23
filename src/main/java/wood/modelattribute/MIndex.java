@@ -33,7 +33,7 @@ public class MIndex implements Serializable {
 	private Double priceFrom = 0.0;
 	private Double priceTo = 0.0;
 	private Integer pageNumber = 0;
-	private Integer pg = null;
+	private Long pg = null;
 
 	private long time = System.currentTimeMillis();
 
@@ -53,12 +53,12 @@ public class MIndex implements Serializable {
 	}
 
 	
-	public Integer getPg() {
+	public Long getPg() {
 		return pg;
 	}
 
 
-	public void setPg(Integer pg) {
+	public void setPg(Long pg) {
 		this.pg = pg;
 	}
 
@@ -71,6 +71,9 @@ public class MIndex implements Serializable {
 		
 		boolean isFinding = false;
 		Particleboard particleboard = new Particleboard();
+		
+		if(pg != null)
+			particleboard.setFk_type(pg);;
 		
 		if(iterBrands.hasNext())
 		{
@@ -92,6 +95,11 @@ public class MIndex implements Serializable {
 			if(priceFrom > priceTo) priceTo = 0.0 ;
 			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
 		}
+		else if(pg != null)
+		{
+			pList.addAll( woodService.getListParticleboards(particleboard));
+		}
+		
 		
 		if(pList.size()!=0 || isFinding)
 		{
@@ -137,6 +145,17 @@ public class MIndex implements Serializable {
 		this.pageNumber = pageNumber;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof MIndex)
+		{
+			
+		}
+		
+		return false;
+		
+	}
 
 	@Override
 	public String toString() {

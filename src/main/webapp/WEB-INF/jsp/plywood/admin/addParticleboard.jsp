@@ -256,6 +256,7 @@
 																										'${particleboard.weight}',
 																										'${particleboard.price}',
 																										'${particleboard.sanded}',
+																										'${particleboard.fk_type}',
 																										'${particleboard.dirColor.id}',
 																										'${particleboard.dirBrand.id}');">${particleboard.productId}
 													</td>
@@ -302,13 +303,14 @@
     </div>
     <!-- /#footer -->
 	<script>
-	    function editParticleboard(id, productId, thickness, length, weight, price, sanded, fk_dirColor, fk_dirBrand) 
+	    function editParticleboard(id, productId, thickness, length, weight, price, sanded, fk_type, fk_dirColor, fk_dirBrand) 
 	    {
 	    	$("#productId").val(productId);
 			$("#thickness").val(thickness);
 			$("#length").val(length);
 			$("#weight").val(weight);
 			$("#price").val(price);
+			
 			
 			if(sanded == 'true')
 				$("#sanded").attr('checked', true);
@@ -317,6 +319,8 @@
 			
 			fk_dirColor.length >0?$("#fk_dirColor").val(fk_dirColor):$("#fk_dirColor").val('-1');
 			fk_dirBrand.length >0?$("#fk_dirBrand").val(fk_dirBrand):$("#fk_dirBrand").val('-1');
+			fk_type.length >0?$("#fk_type").val(fk_type):$("#fk_type").val('');
+
 	    }
 	    
 		function editPart(id)

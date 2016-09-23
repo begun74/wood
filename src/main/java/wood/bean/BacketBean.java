@@ -29,7 +29,7 @@ public class BacketBean implements Serializable  {
 	List<Particleboard> items = new LinkedList<Particleboard>();
 	Map<Particleboard,Integer> itemsTM = new TreeMap<Particleboard,Integer>();
 	
-	private int allPrice=0;
+	private Double allPrice=0.0;
 	private int countItems=0;
 	
 	
@@ -58,8 +58,8 @@ public class BacketBean implements Serializable  {
 		this.items = items;
 	}
 
-	public synchronized  int getAllPrice() {
-		allPrice = 0;
+	public synchronized  Double getAllPrice() {
+		allPrice = 0.0;
 		items.forEach(p -> allPrice+=p.getPrice());
 		return allPrice;
 	}

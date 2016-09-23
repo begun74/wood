@@ -127,7 +127,7 @@
         				
         				</nav>
 	    				</div>
-						<div class="side-menu animate-dropdown">
+						<!-- div class="side-menu animate-dropdown">
 							<div class="widget">
 	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
 		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/search">
@@ -156,12 +156,11 @@
 		    				</div>
     						</form>
 		    		
-		    			</div>
+		    			</div -->
 		    			</div>
 	    										    				
 	    			
-				</div>
-		    <div class="col-xs-12 col-sm-12 col-md-9">
+		    <div class="col-xs-9 col-sm-9 col-md-9">
 									<div>
 										<!-- Main content  -->
 											<%@include file="common/content4.jsp" %>      

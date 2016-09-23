@@ -50,6 +50,7 @@ public class WController1 {
 	@RequestMapping(value = {"/search"} , method = RequestMethod.GET)
 	public String  searchGet(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
 	{
+		 //mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
 		mIndex = m_Index;
 		session.setAttribute("mIndex", mIndex);
 		model.addAttribute("mIndex",mIndex);
@@ -60,26 +61,9 @@ public class WController1 {
 		
 		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
 
-		return "plywood/index_plywood";
+		return "plywood/index_all";
 	}
-/*
-	
-	@RequestMapping(value = {"/plywood"} , method = RequestMethod.POST)
-	public String  plywoodPost(HttpSession session, @ModelAttribute("mIndex") MIndex m_Index, Model model) 
-	{
-		mIndex = m_Index;
-		session.setAttribute("mIndex", mIndex);
-		model.addAttribute("mIndex",mIndex);
-		
-		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
 
-		model.addAttribute("brands",woodService.getListDirBrands());
-		model.addAttribute("backetBean",backet);
-		model.addAttribute("compBean",compBean);
-
-		return "plywood/index_plywood";
-	}
-	*/
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)
 	public String  add_product_to_customer_basket( Model model,
 			@RequestParam(value = "id",   required=false) Long id,

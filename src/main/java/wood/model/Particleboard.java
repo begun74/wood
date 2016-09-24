@@ -38,15 +38,15 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	
 	@Min (message = "Please correct enter thickness.", value = 1)
 	@NotNull(message = "Please correct enter thickness.")
-	private Long thickness;
+	private Integer thickness;
 	
 	@Min (message = "Please correct enter length.", value = 1)
 	@NotNull(message = "Please correct enter length.")
-	private Long length;
+	private Integer length;
 	
 	@Min (message = "Please correct enter weight.", value = 1)
 	@NotNull(message = "Please correct enter weight.")
-	private Long weight;
+	private Integer weight;
 	
 	@Min (message = "Please correct enter price.", value = 0)
 	@NotNull(message = "Please correct enter price.")
@@ -96,6 +96,30 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	}
 	
 		
+	public Integer getThickness() {
+		return thickness;
+	}
+
+	public void setThickness(Integer thickness) {
+		this.thickness = thickness;
+	}
+
+	public Integer getLength() {
+		return length;
+	}
+
+	public void setLength(Integer length) {
+		this.length = length;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
+
 	public String getProductId() {
 		return productId;
 	}
@@ -104,24 +128,7 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	}
 	
 	
-	public Long getThickness() {
-		return thickness;
-	}
-	public void setThickness(Long thickness) {
-		this.thickness = thickness;
-	}
-	public Long getLength() {
-		return length;
-	}
-	public void setLength(Long length) {
-		this.length = length;
-	}
-	public Long getWeight() {
-		return weight;
-	}
-	public void setWeight(Long weight) {
-		this.weight = weight;
-	}
+	
 	public Double getPrice() {
 		return price;
 	}

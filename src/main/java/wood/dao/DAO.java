@@ -38,5 +38,9 @@ public interface DAO {
 	public Request getRequest(long id);
 	public List<Request> getAllRequest();
 	
+	public List<Integer> getAllThickness();
+	public List<Integer> getAllLength();
+	public List<Integer> getAllWeight();
+	
 	public void delObject(Object obj);
 }

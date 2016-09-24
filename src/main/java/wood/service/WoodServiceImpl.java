@@ -141,5 +141,23 @@ public class WoodServiceImpl implements WoodService {
 		return dao.getListPartTypes();
 	}
 
+	@Override
+	public List<Integer> getAllThickness() {
+		// TODO Auto-generated method stub
+		return dao.getAllThickness();
+	}
+
+	@Override
+	public List<Integer> getAllLength() {
+		// TODO Auto-generated method stub
+		return dao.getAllLength();
+	}
+
+	@Override
+	public List<Integer> getAllWeight() {
+		// TODO Auto-generated method stub
+		return dao.getAllWeight();
+	}
+
 
 }

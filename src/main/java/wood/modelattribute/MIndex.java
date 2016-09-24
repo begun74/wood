@@ -34,6 +34,9 @@ public class MIndex implements Serializable {
 	private Double priceTo = 0.0;
 	private Integer pageNumber = 0;
 	private Long pg = null;
+	private Integer thickness;
+	private Integer length;
+	private Integer weight;
 
 	private long time = System.currentTimeMillis();
 
@@ -62,6 +65,39 @@ public class MIndex implements Serializable {
 		this.pg = pg;
 	}
 
+	
+
+	
+
+	public Integer getThickness() {
+		return thickness;
+	}
+
+
+	public void setThickness(Integer thickness) {
+		this.thickness = thickness;
+	}
+
+
+	public Integer getLength() {
+		return length;
+	}
+
+
+	public void setLength(Integer length) {
+		this.length = length;
+	}
+
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
+
 
 	@Loggable
 	public List<Particleboard> getListParticleboards(WoodService woodService)
@@ -75,6 +111,10 @@ public class MIndex implements Serializable {
 		if(pg != null)
 			particleboard.setFk_type(pg);;
 		
+			particleboard.setThickness(thickness);
+			particleboard.setWeight(weight);
+			particleboard.setLength(length);
+			
 		if(iterBrands.hasNext())
 		{
 			while(iterBrands.hasNext())
@@ -95,10 +135,9 @@ public class MIndex implements Serializable {
 			if(priceFrom > priceTo) priceTo = 0.0 ;
 			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
 		}
-		else if(pg != null)
-		{
-			pList.addAll( woodService.getListParticleboards(particleboard));
-		}
+		
+		pList.addAll( woodService.getListParticleboards(particleboard));
+		
 		
 		
 		if(pList.size()!=0 || isFinding)

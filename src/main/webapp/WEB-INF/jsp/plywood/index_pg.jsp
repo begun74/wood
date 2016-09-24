@@ -71,7 +71,7 @@
 						<div class="side-menu animate-dropdown">
 							<div class="widget">
 	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
-		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/search">
+		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/index">
 				    
 				    		<div class="body bordered"> 
 				        		<div class="category-filter">
@@ -91,6 +91,40 @@
 												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/></label>
 											</div>
 									</ul>
+									<h2><spring:message code="thickness"/></h2>
+									<ul>
+											<div class="col-xs-10">
+												<select class="select" id="thickness" name="thickness">
+													<option value=""><spring:message code="any"/></option>
+													<c:forEach items="${thickness}" var="t">
+														<option value="${t}">${t}</option>
+													</c:forEach>
+												</select>												
+											</div>
+									</ul>
+									<h2><spring:message code="weight"/></h2>
+									<ul>
+											<div class="col-xs-10">
+												<select class="select" id="weight" name="weight">
+													<option value=""><spring:message code="any"/></option>
+													<c:forEach items="${weight}" var="w">
+														<option value="${w}">${w}</option>
+													</c:forEach>
+												</select>												
+											</div>
+									</ul>
+									<h2><spring:message code="length"/></h2>
+									<ul>
+											<div class="col-xs-10">
+												<select class="select" id="length" name="length">
+													<option value=""><spring:message code="any"/></option>
+													<c:forEach items="${length}" var="l">
+														<option value="${l}">${l}</option>
+													</c:forEach>
+												</select>												
+											</div>
+									</ul>
+									<hr/>
 								</div>
 							
 							<button class="le-button small"><spring:message code="label.button.select"/></button>

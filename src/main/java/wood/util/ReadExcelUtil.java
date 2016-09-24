@@ -51,9 +51,9 @@ public class ReadExcelUtil {
 	        	{
 	        		particleboard = new Particleboard();
 	        	}
-	        	particleboard.setLength(Long.parseLong(df.formatCellValue(tmp.getCell(2)).trim()) );
-	        	particleboard.setThickness(Long.parseLong(df.formatCellValue(tmp.getCell(3)).trim()));
-	        	particleboard.setWeight(Long.parseLong(df.formatCellValue(tmp.getCell(4)).trim()));
+	        	particleboard.setLength(Integer.parseInt(df.formatCellValue(tmp.getCell(2)).trim()) );
+	        	particleboard.setThickness(Integer.parseInt(df.formatCellValue(tmp.getCell(3)).trim()));
+	        	particleboard.setWeight(Integer.parseInt(df.formatCellValue(tmp.getCell(4)).trim()));
 	        	particleboard.setPrice(Double.parseDouble(df.formatCellValue(tmp.getCell(5)).trim()));
 	        	pList.add(particleboard);
         	}

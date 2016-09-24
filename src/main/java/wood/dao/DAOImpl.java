@@ -152,6 +152,24 @@ public  class DAOImpl implements DAO {
 		return getSession().createSQLQuery("select * from type order by id_type").addEntity(PartType.class).list();
 	}
 
+	@Override
+	public List<Integer> getAllThickness() {
+		// TODO Auto-generated method stub
+		return getSession().createSQLQuery("select distinct thickness from particleboard order by 1").list();
+	}
+
+	@Override
+	public List<Integer> getAllLength() {
+		// TODO Auto-generated method stub
+		return getSession().createSQLQuery("select distinct length from particleboard order by 1").list();
+	}
+
+	@Override
+	public List<Integer> getAllWeight() {
+		// TODO Auto-generated method stub
+		return getSession().createSQLQuery("select distinct length from particleboard order by 1").list();
+	}
+
 
 	
 	

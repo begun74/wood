@@ -76,6 +76,10 @@ public class WControllerIndex {
 		model.addObject("partTypes",woodService.getListPartTypes());
 		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
+		model.addObject("thickness",woodService.getAllThickness());
+		model.addObject("length",woodService.getAllLength());
+		model.addObject("weight",woodService.getAllWeight());
+
 		model.addObject("backetBean",backet);
 		model.addObject("compBean",compBean);
 

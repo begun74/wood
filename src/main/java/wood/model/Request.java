@@ -32,8 +32,8 @@ public class Request  implements Serializable {
 
 	private Timestamp creation_date;
 
-	@NotEmpty (message = "Please enter name.")
-	@Size(min = 1, max = 30)
+	//@NotEmpty (message = "Please enter name.")
+	@Size(min = 2, max = 30)
 	private String name;
 	
 	private String description;
@@ -44,7 +44,7 @@ public class Request  implements Serializable {
 	
 	//@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
 	@Pattern(regexp="\\+\\d{3}\\s\\d{2,4}\\s\\d{3}-\\d{2}-\\d{2}")
-	@NotEmpty (message = "Please enter phone.")
+	//@NotEmpty (message = "Please enter phone.")
 	private String phone;
 	
 	private String email;

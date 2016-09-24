@@ -116,7 +116,6 @@
 	    					
 				    		 <div class="box-content">
 				    		 <div class="form-cols">
-				    		 
 				    		 <div class="col1">
 						      	<form id="addParticleboardForm" method="POST" enctype="multipart/form-data" class="formBox" role="form"  
 									      	action="${pageContext.request.contextPath}/admin/addParticleboard?${_csrf.parameterName}=${_csrf.token}">
@@ -283,8 +282,7 @@
 							
 							</div><!-- form-cols -->
 						</div> <!-- row -->
-						
-						
+						</div><!-- /box-content -->
 	            </div>
 	        <!-- /#page-content-wrapper -->        
         </div>

@@ -65,7 +65,8 @@ public class WControllerIndex {
 	{
 		
 		ModelAndView model = new ModelAndView("plywood/index_all");
-		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
+		//MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
+		MIndex mIndex = new MIndex();
 		
 		mIndex.setPg(id_partgroup);
 		
@@ -74,7 +75,7 @@ public class WControllerIndex {
 		
 		
 		model.addObject("partTypes",woodService.getListPartTypes());
-		model.addObject("particleboards",mIndex.getListParticleboards(woodService));
+		model.addObject("particleboards",mIndex.getListParticleboards2(woodService));
 		model.addObject("brands",woodService.getListDirBrands());
 		model.addObject("thickness",woodService.getAllThickness());
 		model.addObject("length",woodService.getAllLength());

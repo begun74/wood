@@ -1,7 +1,10 @@
 package wood.dao;
 
+import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 
 import wood.model.DirBrand;
@@ -31,7 +34,7 @@ public interface DAO {
 	public void addParticleboard(Particleboard particleboard);
 	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getAllParticleboards(); 
-	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard); 
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, Collection<Criterion> criterions); 
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard,double priceFrom,double priceTo);
 	
 	public void addRequest(Request request);

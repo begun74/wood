@@ -1,7 +1,10 @@
 package wood.service;
 
+import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -92,9 +95,9 @@ public class WoodServiceImpl implements WoodService {
 	}
 
 	@Override
-	public List<Particleboard> getListParticleboards(Particleboard example_particleboard) {
+	public List<Particleboard> getListParticleboards(Particleboard example_particleboard,  Collection<Criterion> criterions) {
 		// TODO Auto-generated method stub
-		return dao.getAllParticleboards(example_particleboard);
+		return dao.getAllParticleboards(example_particleboard, criterions);
 	}
 
 	//@Loggable

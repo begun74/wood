@@ -1,18 +1,20 @@
 package wood.modelattribute;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
-
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import wood.annotation.Loggable;
+import wood.model.PartType;
 import wood.model.Particleboard;
 import wood.service.WoodService;
 
@@ -37,6 +39,7 @@ public class MIndex implements Serializable {
 	private Integer thickness;
 	private Integer length;
 	private Integer weight;
+	private PartType partType = null;
 
 	private long time = System.currentTimeMillis();
 
@@ -99,63 +102,6 @@ public class MIndex implements Serializable {
 	}
 
 
-	@Loggable
-	public List<Particleboard> getListParticleboards(WoodService woodService)
-	{
-		List<Particleboard> pList = new LinkedList<Particleboard>();
-		Iterator<Long> iterBrands = getBrands().iterator();
-		
-		boolean isFinding = false;
-		Particleboard particleboard = new Particleboard();
-		
-		if(pg != null)
-			particleboard.setFk_type(pg);;
-		
-			particleboard.setThickness(thickness);
-			particleboard.setWeight(weight);
-			particleboard.setLength(length);
-			
-		if(iterBrands.hasNext())
-		{
-			while(iterBrands.hasNext())
-			{
-				isFinding = true;
-				particleboard.setFk_dirBrand(iterBrands.next());
-				
-				if(priceFrom > priceTo) priceTo = 0.0 ;
-				
-				if(priceFrom>0 || priceTo >0)
-					pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
-				else
-					pList.addAll( woodService.getListParticleboards(particleboard));
-			}
-		}
-		else if(priceFrom>0 || priceTo >0)
-		{
-			if(priceFrom > priceTo) priceTo = 0.0 ;
-			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
-		}
-		
-		pList.addAll( woodService.getListParticleboards(particleboard));
-		
-		
-		
-		if(pList.size()!=0 || isFinding)
-		{
-			pbListSize = pList.size();
-			return pList;
-		}
-		else
-		{
-			pList = woodService.getListParticleboards();
-			pbListSize = pList.size();
-			return pList;
-		}
-
-		
-	}
-	
-	
 	public Double getPriceFrom() {
 		return priceFrom;
 	}
@@ -184,6 +130,105 @@ public class MIndex implements Serializable {
 		this.pageNumber = pageNumber;
 	}
 
+	
+
+	public PartType getPartType() {
+		return partType;
+	}
+
+
+	public void setPartType(PartType partType) {
+		this.partType = partType;
+	}
+
+/*
+	@Loggable
+	public List<Particleboard> getListParticleboards(WoodService woodService)
+	{
+		List<Particleboard> pList = new LinkedList<Particleboard>();
+		Iterator<Long> iterBrands = getBrands().iterator();
+		
+		boolean isFinding = false;
+		Particleboard particleboard = new Particleboard();
+		
+		if(pg != null)
+		{
+			particleboard.setFk_type(pg);
+			setPartType(woodService.getPartType(pg));
+		}
+		else
+			setPartType(null);
+		
+			particleboard.setThickness(thickness);
+			particleboard.setWeight(weight);
+			particleboard.setLength(length);
+			
+		if(iterBrands.hasNext())
+		{
+			while(iterBrands.hasNext())
+			{
+				isFinding = true;
+				particleboard.setFk_dirBrand(iterBrands.next());
+				
+				if(priceFrom > priceTo) priceTo = 0.0 ;
+				
+				if(priceFrom>0 || priceTo >0)
+					pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
+				else
+					pList.addAll( woodService.getListParticleboards(particleboard, null));
+			}
+		}
+		else if(priceFrom>0 || priceTo >0)
+		{
+			if(priceFrom > priceTo) priceTo = 0.0 ;
+			pList.addAll( woodService.getAllParticleboards(particleboard, priceFrom, priceTo));
+		}
+		
+		pList.addAll( woodService.getListParticleboards(particleboard, null));
+		
+		return pList;
+	}
+	
+*/
+	@Loggable
+	public List<Particleboard> getListParticleboards2(WoodService woodService)
+	{
+		List<Particleboard> pList = new LinkedList<Particleboard>();
+		Iterator<Long> iterBrands = getBrands().iterator();
+		
+		boolean isFinding = false;
+		Collection<Criterion> criterions = new LinkedList<Criterion>();
+		
+		Particleboard particleboard = new Particleboard();
+		
+		
+		if(pg != null)
+		{
+			particleboard.setFk_type(pg);
+			setPartType(woodService.getPartType(pg));
+		}
+		else
+			setPartType(null);
+		
+			particleboard.setThickness(thickness);
+			particleboard.setWeight(weight);
+			particleboard.setLength(length);
+		
+		if(priceFrom>0 || priceTo>0)
+			criterions.add( Restrictions.between("price", priceFrom, priceTo));
+
+		if(getBrands().size() >0)
+			criterions.add( Restrictions.in("fk_dirBrand",getBrands().toArray()));
+			
+		
+			
+		pList.addAll( woodService.getListParticleboards(particleboard, criterions));
+		
+		
+		return pList;
+	}
+
+	
 	@Override
 	public boolean equals(Object obj) {
 		

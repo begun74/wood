@@ -208,10 +208,13 @@ public class Particleboard implements IWModel, Serializable , Comparable {
 	public int compareTo(Object o) {
 		return this.id.compareTo(((Particleboard)o).getId());
 	}
+
 	@Override
 	public String toString() {
-		return "Particleboard [id=" + id + ", dirBrand=" + dirBrand.getName() + "]";
+		return "Particleboard [id=" + id + ", thickness=" + thickness + ", length=" + length + ", weight=" + weight
+				+ "]";
 	}
+
 
 	
 	

@@ -1,6 +1,7 @@
 package wood.dao;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.transaction.Transactional;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
@@ -52,14 +54,6 @@ public  class DAOImpl implements DAO {
 		return getSession().createSQLQuery("select * from particleboard").addEntity(Particleboard.class).list();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard) {
-		// TODO Auto-generated method stub
-		return getSession().createCriteria(Particleboard.class).
-				add(Example.create(example_particleboard)).list();
-	}
-	
 	@Override
 	public void addColor(DirColor dirColor) {
 		getSession().saveOrUpdate(dirColor);
@@ -102,6 +96,19 @@ public  class DAOImpl implements DAO {
 		return (List<DirBrand>)getSession().createSQLQuery("select * from dirBrand order by name").addEntity(DirBrand.class).list();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard,  Collection<Criterion> criterions) {
+		// TODO Auto-generated method stub
+		//System.out.println("example_particleboard - "+example_particleboard);
+		Criteria criteria = getSession().createCriteria(Particleboard.class).add(Example.create(example_particleboard));
+		
+		if(criterions != null)
+			criterions.forEach(c -> criteria.add(c));
+		
+		return criteria.list();
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, double priceFrom, double priceTo) {
@@ -167,7 +174,7 @@ public  class DAOImpl implements DAO {
 	@Override
 	public List<Integer> getAllWeight() {
 		// TODO Auto-generated method stub
-		return getSession().createSQLQuery("select distinct length from particleboard order by 1").list();
+		return getSession().createSQLQuery("select distinct weight from particleboard order by 1").list();
 	}
 
 

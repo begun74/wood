@@ -71,7 +71,7 @@
 						<div class="side-menu animate-dropdown">
 							<div class="widget">
 	    					<div class="head"><i class="fa fa-list"></i><spring:message code="product.filter"/></div>
-		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/index">
+		    				<form  method="GET" name="mIndex"	action="${pageContext.request.contextPath}/search">
 				    
 				    		<div class="body bordered"> 
 				        		<div class="category-filter">
@@ -127,6 +127,8 @@
 									<hr/>
 								</div>
 							
+							<input type="hidden" name="pg" value="${param.pg}"/>
+							
 							<button class="le-button small"><spring:message code="label.button.select"/></button>
 		    				</div>
     						</form>
@@ -137,6 +139,12 @@
 	    			
 				</div>
 		    <div class="col-xs-12 col-sm-12 col-md-9">
+									<div>
+										<!-- Main content  -->
+											<%@include file="common/nav2.jsp" %>      
+										<!-- Main content  -->
+									</div>
+
 									<div>
 										<!-- Main content  -->
 											<%@include file="common/content4.jsp" %>      
@@ -182,14 +190,18 @@
 	                $('#brand_'+brnds[item]).attr("checked","checked");
 	            }
 	
+	            $('#priceFrom').val('${mIndex.priceFrom}');
+	            $('#priceTo').val('${mIndex.priceTo}');
+
+	            $('#thickness').val('${mIndex.thickness}');
+	            $('#weight').val('${mIndex.weight}');
+	            $('#length').val('${mIndex.length}');
+
 	    });
     </script>
 	
 	<script>
 		$(document).ready(function(){ 
-
-            $('#priceFrom').val('${mIndex.priceFrom}');
-            $('#priceTo').val('${mIndex.priceTo}');
 
             
 			$(".changecolor").switchstylesheet( { seperator:"color"} );

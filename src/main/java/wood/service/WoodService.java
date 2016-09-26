@@ -1,6 +1,10 @@
 package wood.service;
 
+import java.util.Collection;
 import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
 
 import wood.model.DirBrand;
 import wood.model.DirColor;
@@ -30,7 +34,7 @@ public interface WoodService {
 	public void addParticleboard(Particleboard particleboard);
 	public Particleboard getParticleboard(long id);
 	public List<Particleboard> getListParticleboards();
-	public List<Particleboard> getListParticleboards(Particleboard example_particleboard); 
+	public List<Particleboard> getListParticleboards(Particleboard example_particleboard, Collection<Criterion> criterions); 
 	public List<Particleboard> getAllParticleboards(Particleboard example_particleboard, double priceFrom, double priceTo);	
 	
 	public void addRequest(Request request);

@@ -26,6 +26,7 @@ public class PartType implements IWModel, Serializable{
 	private Long id;
 
 	private String name;
+	private String messageSource;
 	
 	public Long getId() {
 		return id;
@@ -42,6 +43,15 @@ public class PartType implements IWModel, Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getMessageSource() {
+		return messageSource;
+	}
+
+	public void setMessageSource(String messageSource) {
+		this.messageSource = messageSource;
+	}
+	
 	
 	
 	

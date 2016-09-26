@@ -63,9 +63,9 @@ public class WController1 {
 		model.addAttribute("compBean",compBean);
 		
 		
-		model.addAttribute("particleboards",mIndex.getListParticleboards(woodService));
+		model.addAttribute("particleboards",mIndex.getListParticleboards2(woodService));
 
-		return "plywood/index_all";
+		return "plywood/index_pg";
 	}
 
 	@RequestMapping(value = {"/add-product-to-customer-basket"} , method = RequestMethod.GET)

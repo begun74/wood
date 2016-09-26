@@ -73,9 +73,10 @@
 	    				
 	    				<nav class="yamm megamenu-horizontal" role="navigation">
 	    				<ul class="nav">
-	    					<li><a href="index?pg=1"><spring:message code="chip.board.laminated"/></a></li>
-	                        <li><a href="index?pg=2"><spring:message code="chip.board.raw"/></a></li>
-	                        <li><a href="index?pg=3"><spring:message code="plywood"/></a></li>
+	    					<c:forEach items="${partTypes}" var="partType" varStatus="vs" >
+	    						<li><a href="index?pg=${partType.id}"><c:if test="${empty partType.messageSource}">${partType.name}</c:if><c:if test="${not empty partType.messageSource}"><spring:message code="${partType.messageSource}" /></c:if></a></li>
+	    					</c:forEach>
+	    					
 
 	    				
         					<!--  li class="dropdown menu-item">

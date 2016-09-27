@@ -20,7 +20,7 @@ import wood.service.WoodService;
 
 @Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class MIndex implements Serializable {
+public class MIndex implements Serializable, Cloneable {
 	
 	/**
 	 * 

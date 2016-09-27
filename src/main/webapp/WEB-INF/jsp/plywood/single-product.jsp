@@ -68,8 +68,10 @@
 		
 
 		<div id="single-product">
-
 			<div class="container">
+					<div>
+								<%@include file="common/nav2.jsp" %>      
+					</div>
 				<div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
 				    <div class="product-item-holder size-big single-product-gallery small-gallery">
 				

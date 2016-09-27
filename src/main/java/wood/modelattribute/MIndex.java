@@ -214,8 +214,12 @@ public class MIndex implements Serializable {
 			particleboard.setWeight(weight);
 			particleboard.setLength(length);
 		
-		if(priceFrom>0 || priceTo>0)
+		if((priceFrom>0 && priceTo>0) && priceFrom < priceTo)
 			criterions.add( Restrictions.between("price", priceFrom, priceTo));
+		else if(priceFrom>0 && priceTo == 0)
+			criterions.add( Restrictions.ge("price", priceFrom));
+		else if(priceFrom == 0 && priceTo >0)
+			criterions.add( Restrictions.le("price", priceTo));
 
 		if(getBrands().size() >0)
 			criterions.add( Restrictions.in("fk_dirBrand",getBrands().toArray()));

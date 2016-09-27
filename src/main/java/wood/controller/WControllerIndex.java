@@ -95,15 +95,20 @@ public class WControllerIndex {
 	public ModelAndView  singleProduct (HttpSession session, @RequestParam(value = "id",   required=false) Long id) 
 	{
 		ModelAndView model = new ModelAndView("plywood/single-product");
+		MIndex mIndex = session.getAttribute("mIndex") == null?new MIndex():(MIndex)session.getAttribute("mIndex");
+		
 		
 		Particleboard p = null;
 		if(id != null)
 			p = woodService.getParticleboard(id);
 		
+		if(mIndex.getPartType() == null)
+			mIndex.setPartType(p.getPartType());
+		
 		model.addObject("particleboard",p);
 		model.addObject("backetBean",backet);
 		model.addObject("compBean",compBean);
-		
+		model.addObject("mIndex",mIndex);
 		
 		//System.out.println("/index - "+mIndex);
 	    return model;

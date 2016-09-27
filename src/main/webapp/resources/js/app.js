@@ -76,7 +76,7 @@ function addToCompare(id) {
 
 function addProductToBacket(id)
 {
-	alert(id);
+	//alert(id);
 	location.href='add-product-to-customer-basket?id='+id+'&quantity='+$(quantity).val();
 }
 

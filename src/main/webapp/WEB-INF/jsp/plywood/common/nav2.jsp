@@ -12,8 +12,14 @@
                         </li> 
 
                         <li class="breadcrumb-item active">
-                            <a><c:if test="${empty mIndex.partType.messageSource}">${mIndex.partType.name}</c:if><c:if test="${not empty mIndex.partType.messageSource}"><spring:message code="${mIndex.partType.messageSource}" /></c:if></a>
+                            <a href="index?pg=${mIndex.partType.id}"><c:if test="${empty mIndex.partType.messageSource}">${mIndex.partType.name}</c:if><c:if test="${not empty mIndex.partType.messageSource}"><spring:message code="${mIndex.partType.messageSource}" /></c:if></a>
                         </li> 
+                        
+                        <c:if test="${not empty particleboard.productId}">
+                        	<li>
+                        		<a>${particleboard.productId}</a>
+                        	</li>
+                        </c:if>
                    </ol>
         </li> 
 	</ul>

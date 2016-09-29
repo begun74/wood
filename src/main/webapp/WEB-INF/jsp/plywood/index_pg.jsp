@@ -85,10 +85,10 @@
 									<h2><spring:message code="price"/></h2>
 									<ul>
 											<div class="col-xs-5">
-												<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="3" placeholder="<spring:message code="from"/>"/></label>
+												<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="5" placeholder="<spring:message code="from"/>"/></label>
 											</div>
 											<div class="col-xs-5">
-												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="3" placeholder="<spring:message code="to"/>"/></label>
+												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="5" placeholder="<spring:message code="to"/>"/></label>
 											</div>
 									</ul>
 									<h2><spring:message code="thickness"/></h2>
@@ -157,7 +157,9 @@
 		</div><!-- /container -->
 		</div><!-- /wrapper -->
 		
-		<%@include file="common/contact_info.jsp" %>
+		<!-- %@include file="common/contact_info.jsp" % -->
+		
+		<%@include file="common/footer.jsp" %>
     </body>
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->

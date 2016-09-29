@@ -174,7 +174,7 @@
 		</div><!-- /container -->
 		</div><!-- /wrapper -->
 		
-		<%@include file="common/contact_info.jsp" %>
+		<%@include file="common/footer.jsp" %>
     </body>
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->

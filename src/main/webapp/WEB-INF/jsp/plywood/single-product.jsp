@@ -225,7 +225,8 @@
 			
 		</div><!-- /wrapper -->
 		
-		<%@include file="common/contact_info.jsp" %>
+		<!-- %@include file="common/contact_info.jsp" % -->
+		<%@include file="common/footer.jsp" %>
 		
     </body>
 

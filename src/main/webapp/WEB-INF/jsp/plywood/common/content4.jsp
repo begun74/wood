@@ -46,16 +46,4 @@
 								</c:forEach>
 						</table>
 						</div>
-							<div class="col col-md-4">
-							</div>						
-							<div class="pagination">
-										<ul  class="pagination">
-							              <li class="graphic first"><a href=""></a></li>
-											<c:forEach begin="0" end="${allItems/perPage}" var="pN">
-												<li><a href="index?pageNumber=${pN+1}">${pN+1}</a></li>
-											</c:forEach>
-							              <li class="graphic last"><a href=""></a></li>
-										</ul>
-							</div>
-							<div class="col col-md-4">
-							</div>
+							

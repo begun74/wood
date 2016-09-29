@@ -38,7 +38,36 @@ public class FileUpload {
     	//System.out.println("FileUpload - "+getClass());
     }
     
-	public String process(MultipartFile file,String newFileName) {
+	public boolean process(MultipartFile file,Long id) {
+		
+		//boolean flag = false;
+		
+		File path;
+		
+		if (!file.isEmpty() && isValidContentType_1(file.getContentType().toString().toLowerCase())) {
+			
+			path = new File(env.getRequiredProperty(UPLOAD_FILE_PATH)+File.separator+id+File.separator);
+			
+			if(!path.exists() && !path.mkdirs()) 
+				return false;
+			
+			try {
+				file.transferTo(new File(path.toString()+file.getOriginalFilename()));
+				return true;
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+			
+			
+		}
+		
+		
+		return false;
+	}
+	
+    public String process(MultipartFile file,String newFileName) {
 
 		if (!file.isEmpty()) {
             String contentType = file.getContentType().toString().toLowerCase();

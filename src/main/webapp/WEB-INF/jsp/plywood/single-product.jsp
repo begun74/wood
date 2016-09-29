@@ -111,9 +111,6 @@
 				                    <img width="67" alt="" src="${pageContext.request.contextPath}/resources/assets/images/blank.gif" data-echo="${pageContext.request.contextPath}/resources/assets/images/products/gallery-thumb-01.jpg" />
 				                </a>
 				
-				                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-				                    <img width="67" alt="" src="${pageContext.request.contextPath}/resources/assets/images/blank.gif" data-echo="${pageContext.request.contextPath}/resources/assets/images/products/gallery-thumb-01.jpg" />
-				                </a>
 				            </div><!-- /#owl-single-product-thumbnails -->
 				
 				            <div class="nav-holder left hidden-xs">
@@ -129,45 +126,45 @@
 				    </div><!-- /.single-product-gallery -->
 			</div><!-- /gallery-holder -->
 		
-		<div class="col-xs-12 col-sm-7 body-holder">
-    		<div class="body">
-    			<div class="star-holder inline"><div class="star" data-score="4"></div></div>
-		        <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
-		
-		        <div class="title"><a href="#">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</a></div>
-		        <div class="brand">${particleboard.dirBrand.name}</div>
-		
-		        <div class="social-row">
-		            <span class="st_facebook_hcount"></span>
-		            <span class="st_twitter_hcount"></span>
-		            <span class="st_pinterest_hcount"></span>
-		        </div>
-		        
-		        <div class="buttons-holder">
-		            <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-		            <a class="btn-add-to-compare" href="#"><spring:message code="compare"/></a>
-		        </div>
-		
-		        <div class="excerpt">
-		            <p>Product ID: ${particleboard.productId}</p>
-		        </div>
-		        
-		        <div class="prices">
-		            <div class="price-current">$${particleboard.price}</div>
-		            <div class="price-prev">$${particleboard.price}</div>
-		        </div>
-		        <div class="qnt-holder">
-		            <div class="le-quantity">
-		                <form>
-		                    <a class="minus" href="#reduce"></a>
-		                    <input id="quantity" name="quantity" readonly="readonly" type="text" value="1" />
-		                    <a class="plus" href="#add"></a>
-		                </form>
-		            </div>
-		            <a id="add-product" href="javascript:addProductToBacket(${particleboard.id});" class="le-button huge"><spring:message code="add.to.cart"/></a>
-		        </div><!-- /.qnt-holder -->
-    		</div><!-- /body -->
-    	</div>
+			<div class="col-xs-12 col-sm-7 body-holder">
+	    		<div class="body">
+	    			<div class="star-holder inline"><div class="star" data-score="4"></div></div>
+			        <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
+			
+			        <div class="title"><a href="#">${particleboard.thickness}x${particleboard.length}x${particleboard.weight}</a></div>
+			        <div class="brand">${particleboard.dirBrand.name}</div>
+			
+			        <div class="social-row">
+			            <span class="st_facebook_hcount"></span>
+			            <span class="st_twitter_hcount"></span>
+			            <span class="st_pinterest_hcount"></span>
+			        </div>
+			        
+			        <div class="buttons-holder">
+			            <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+			            <a class="btn-add-to-compare" href="#"><spring:message code="compare"/></a>
+			        </div>
+			
+			        <div class="excerpt">
+			            <p>Product ID: ${particleboard.productId}</p>
+			        </div>
+			        
+			        <div class="prices">
+			            <div class="price-current">$${particleboard.price}</div>
+			            <div class="price-prev">$${particleboard.price}</div>
+			        </div>
+			        <div class="qnt-holder">
+			            <div class="le-quantity">
+			                <form>
+			                    <a class="minus" href="#reduce"></a>
+			                    <input id="quantity" name="quantity" readonly="readonly" type="text" value="1" />
+			                    <a class="plus" href="#add"></a>
+			                </form>
+			            </div>
+			            <a id="add-product" href="javascript:addProductToBacket(${particleboard.id});" class="le-button huge"><spring:message code="add.to.cart"/></a>
+			        </div><!-- /.qnt-holder -->
+	    		</div><!-- /body -->
+	    	</div>
 		
 		</div><!-- single-product -->
 		

@@ -85,17 +85,17 @@
 									<h2><spring:message code="price"/></h2>
 									<ul>
 											<div class="col-xs-5">
-												<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="5" placeholder="<spring:message code="from"/>"/></label>
+												<label><spring:message code="from"/><input class="form-control" name="priceFrom" id="priceFrom" type="text" maxlength="5"/></label>
 											</div>
 											<div class="col-xs-5">
-												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="5" placeholder="<spring:message code="to"/>"/></label>
+												<label><spring:message code="to"/><input class="form-control" name="priceTo" id="priceTo" type="text" maxlength="5" /></label>
 											</div>
 									</ul>
 									<h2><spring:message code="thickness"/></h2>
 									<ul>
 											<div class="col-xs-10">
 												<select class="select" id="thickness" name="thickness">
-													<option value=""><spring:message code="any"/></option>
+													<option value=""></option>
 													<c:forEach items="${thickness}" var="t">
 														<option value="${t}">${t}</option>
 													</c:forEach>
@@ -106,7 +106,7 @@
 									<ul>
 											<div class="col-xs-10">
 												<select class="select" id="weight" name="weight">
-													<option value=""><spring:message code="any"/></option>
+													<option value=""></option>
 													<c:forEach items="${weight}" var="w">
 														<option value="${w}">${w}</option>
 													</c:forEach>
@@ -117,7 +117,7 @@
 									<ul>
 											<div class="col-xs-10">
 												<select class="select" id="length" name="length">
-													<option value=""><spring:message code="any"/></option>
+													<option value=""></option>
 													<c:forEach items="${length}" var="l">
 														<option value="${l}">${l}</option>
 													</c:forEach>
@@ -150,7 +150,22 @@
 											<%@include file="common/content4.jsp" %>      
 										<!-- Main content  -->
 									</div>
+									
 			</div>
+						<div class="col col-md-12">
+							<div class="col col-md-5"></div>
+							<div class="pagination col-md-4">
+										<ul  class="pagination">
+							              
+											<c:forEach begin="0" end="${allItems/perPage}" var="pN">
+												<li><a href="index?pg=${param.pg}&pageNumber=${pN+1}">${pN+1}</a></li>
+											</c:forEach>
+							              
+										</ul>
+							</div>
+							<div class="col col-md-3"></div>
+						</div>						
+			
 				
 		</div><!-- row -->
 								

@@ -134,14 +134,14 @@ public class WControllerIndex {
 	}
 
 	
-    @RequestMapping(value = "/sitemap" , method = RequestMethod.GET)
-    public ModelAndView sitemap(HttpSession session ) {
-		 ModelAndView mv = new ModelAndView("hmc/sitemap");
+    @RequestMapping(value = "/contact" , method = RequestMethod.GET)
+    public ModelAndView contact(HttpSession session ) {
+		 ModelAndView mv = new ModelAndView("plywood/common/contact");
 		             
-		 //mv.addObject("listVmc", vmcDaoImpl.listVmcModelDESC());
+		 mv.addObject("message", new Object());
 		 //mv.addObject("listVideo", videoDaoImpl.getListVideo()); 
 		
-		 session.setAttribute("page", "sitemap");
+		 //session.setAttribute("page", "sitemap");
 		 return mv;
    }
     

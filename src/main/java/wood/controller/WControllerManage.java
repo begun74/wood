@@ -163,6 +163,89 @@ public class WControllerManage {
 	}
 	
 
+			
+	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView  processParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
+			BindingResult result,
+			@ModelAttribute  MultipartFile file,
+			@RequestParam(value = "id_particleboard",   required=false) Long id_particleboard) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PARTICLEBOARD);
+		if(result.hasErrors())
+		{
+			model.addObject("error", result.getFieldError().getDefaultMessage());
+			return model;
+		}
+
+		if(id_particleboard != null && id_particleboard>0)
+		{
+			particleboard.setId(id_particleboard);
+		}
+		
+		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
+		particleboard.setDirBrand(woodService.getDirBrand(particleboard.getFk_dirBrand()));
+		particleboard.setPartType(woodService.getPartType(particleboard.getFk_type()));
+		woodService.addParticleboard(particleboard);
+		
+		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
+		//System.out.println("particleboard - "+);
+	    return model;
+	}
+
+	@RequestMapping(value = "addPhoto" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView   processPhoto( @ModelAttribute  MultipartFile file) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PHOTO);
+
+		fileUpload.processPhoto(file);
+		//System.out.println("addPhoto");
+	    return model;
+	}
+
+	
+	@RequestMapping(value = "delParticleboard")
+	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getParticleboard(id));
+		return "redirect:/admin?act="+SessionBean.ADD_PARTICLEBOARD;
+	}
+
+	@RequestMapping(value = "delColor")
+	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getDirColor(id));
+		return "redirect:/admin?act="+SessionBean.ADD_COLOR;
+	}
+	
+	@RequestMapping(value = "delBrand")
+	public String  delBrand(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
+	{
+		woodService.delObject(woodService.getDirBrand(id));
+		return "redirect:/admin?act="+SessionBean.ADD_BRAND;
+	}
+
+	@RequestMapping(value = "processFile" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+SessionBean.PROCESS_FILE);
+		
+		List<Particleboard>  pList = fileUpload.process(file);
+		
+		pList.forEach(p -> woodService.addParticleboard(p));
+		
+	    return model;
+	}
+
+
+	@RequestMapping(value = "viewOrders")
+	public ModelAndView  viewOrders(HttpSession session, @RequestParam(value = "id",   required=false) Long id) 
+	{
+		ModelAndView model = new ModelAndView("redirect:/admin?act="+SessionBean.VIEW_ORDERS);
+		model.addObject("orders",woodService.getAllRequest());
+		return model;
+	}
+	
+
 	@RequestMapping(value = "generateFile" ,method = RequestMethod.POST)
 	public void  processParticleboardGET(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("mAdmin") MAdmin mAdmin)
 	{
@@ -238,86 +321,5 @@ public class WControllerManage {
 		}
 		return baos;
 	}
-			
-	@RequestMapping(value = "addParticleboard" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView  processParticleboard(HttpSession session, @Valid  @ModelAttribute("addParticleboardForm") Particleboard particleboard,
-			BindingResult result,
-			@ModelAttribute  MultipartFile file,
-			@RequestParam(value = "id_particleboard",   required=false) Long id_particleboard) 
-	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PARTICLEBOARD);
-		if(result.hasErrors())
-		{
-			model.addObject("error", result.getFieldError().getDefaultMessage());
-			return model;
-		}
 
-		if(id_particleboard != null && id_particleboard>0)
-		{
-			particleboard.setId(id_particleboard);
-		}
-		
-		particleboard.setDirColor(woodService.getDirColor(particleboard.getFk_dirColor()));
-		particleboard.setDirBrand(woodService.getDirBrand(particleboard.getFk_dirBrand()));
-		particleboard.setPartType(woodService.getPartType(particleboard.getFk_type()));
-		woodService.addParticleboard(particleboard);
-		
-		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
-		//System.out.println("particleboard - "+);
-	    return model;
-	}
-
-	@RequestMapping(value = "addPhoto" , method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView   processPhoto( @ModelAttribute  MultipartFile file) 
-	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.ADD_PHOTO);
-
-		fileUpload.processPhoto(file);
-		//System.out.println("addPhoto");
-	    return model;
-	}
-
-	
-	@RequestMapping(value = "delParticleboard")
-	public String  delParticleboard(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
-	{
-		woodService.delObject(woodService.getParticleboard(id));
-		return "redirect:/admin?act="+sb.ADD_PARTICLEBOARD;
-	}
-
-	@RequestMapping(value = "delColor")
-	public String  delColor(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
-	{
-		woodService.delObject(woodService.getDirColor(id));
-		return "redirect:/admin?act="+sb.ADD_COLOR;
-	}
-	
-	@RequestMapping(value = "delBrand")
-	public String  delBrand(HttpSession session,@RequestParam(value = "id",   defaultValue = "-1") long id) 
-	{
-		woodService.delObject(woodService.getDirBrand(id));
-		return "redirect:/admin?act="+sb.ADD_BRAND;
-	}
-
-	@RequestMapping(value = "processFile" ,method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ModelAndView  processFile( @ModelAttribute  MultipartFile file) 
-	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.PROCESS_FILE);
-		
-		List<Particleboard>  pList = fileUpload.process(file);
-		
-		pList.forEach(p -> woodService.addParticleboard(p));
-		
-	    return model;
-	}
-
-
-	@RequestMapping(value = "viewOrders")
-	public ModelAndView  viewOrders(HttpSession session, @RequestParam(value = "id",   required=false) Long id) 
-	{
-		ModelAndView model = new ModelAndView("redirect:/admin?act="+sb.VIEW_ORDERS);
-		model.addObject("orders",woodService.getAllRequest());
-		return model;
-	}
-	
 }

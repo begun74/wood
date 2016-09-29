@@ -168,6 +168,19 @@
 										<!-- Main content  -->
 									</div>
 			</div>
+						<div class="col col-md-12">
+							<div class="col col-md-5"></div>
+							<div class="pagination col-md-4">
+										<ul  class="pagination">
+							              
+											<c:forEach begin="0" end="${allItems/perPage}" var="pN">
+												<li><a href="index?pageNumber=${pN+1}">${pN+1}</a></li>
+											</c:forEach>
+							              
+										</ul>
+							</div>
+							<div class="col col-md-3"></div>
+						</div>						
 				
 		</div><!-- row -->
 								

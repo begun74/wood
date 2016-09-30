@@ -46,23 +46,21 @@ public class FileUpload {
 		
 		if (!file.isEmpty() && isValidContentType_1(file.getContentType().toString().toLowerCase())) {
 			
-			path = new File(env.getRequiredProperty(UPLOAD_FILE_PATH)+File.separator+id+File.separator);
-			
-			if(!path.exists() && !path.mkdirs()) 
-				return false;
-			
-			try {
-				file.transferTo(new File(path.toString()+file.getOriginalFilename()));
-				return true;
-			} catch (IllegalStateException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-			
+				path = new File(env.getRequiredProperty(UPLOAD_FILE_PATH)+File.separator+id+File.separator);
+				
+				if(!path.exists() && !path.mkdirs()) 
+					return false;
+				
+				try {
+					file.transferTo(new File(path.toString()+file.getOriginalFilename()));
+					return true;
+				} catch (IllegalStateException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return false;
+				}
 			
 		}
-		
 		
 		return false;
 	}

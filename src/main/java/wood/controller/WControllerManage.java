@@ -187,7 +187,7 @@ public class WControllerManage {
 		particleboard.setPartType(woodService.getPartType(particleboard.getFk_type()));
 		woodService.addParticleboard(particleboard);
 		
-		model.addObject("message", fileUpload.process(file,""+particleboard.getId()));
+		model.addObject("message", fileUpload.process(file,particleboard.getId()));
 		//System.out.println("particleboard - "+);
 	    return model;
 	}

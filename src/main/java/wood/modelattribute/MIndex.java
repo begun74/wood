@@ -194,9 +194,9 @@ public class MIndex implements Serializable, Cloneable {
 	public List<Particleboard> getListParticleboards2(WoodService woodService)
 	{
 		List<Particleboard> pList = new LinkedList<Particleboard>();
-		Iterator<Long> iterBrands = getBrands().iterator();
+		//Iterator<Long> iterBrands = getBrands().iterator();
 		
-		boolean isFinding = false;
+		//boolean isFinding = false;
 		Collection<Criterion> criterions = new LinkedList<Criterion>();
 		
 		Particleboard particleboard = new Particleboard();
